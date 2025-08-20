@@ -24,26 +24,26 @@
 
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-hover">
+                    <table class="table table-hover" aria-label="{{ 'transaction_journal_information'|_ }}">
                         <tbody>
                         <tr>
-                            <td>{{ trans('list.type') }}</td>
+                            <th scope="row">{{ trans('list.type') }}</th>
                             <td>{{ journal.transactiontype.type|_ }}</td>
                         </tr>
                         <tr>
-                            <td>{{ trans('list.description') }}</td>
+                            <th scope="row">{{ trans('list.description') }}</th>
                             <td>{{ journal.description }}</td>
                         </tr>
                         {# total amount #}
                         <tr>
-                            <td>{{ 'total_amount'|_ }}</td>
+                            <th scope="row">{{ 'total_amount'|_ }}</th>
                             <td>
                                 {{ formatAmountByAccount(transaction.account, transaction.amount) }}
 
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:30%;">{{ trans('list.date') }}</td>
+                            <th scope="row" style="width:30%;">{{ trans('list.date') }}</th>
                             <td>{{ journal.date.isoFormat(monthAndDayFormat) }}</td>
                         </tr>
                         </tbody>
@@ -67,21 +67,21 @@
                     <h3 class="box-title">{{ 'transaction_journal_meta'|_ }}</h3>
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-responsive table-hover">
+                    <table class="table table-responsive table-hover" aria-label="{{ 'transaction_journal_meta'|_ }}">
                         <tbody>
                         {#
                         <tr>
-                            <td>{{ 'categories'|_ }}</td>
+                            <th scope="row">{{ 'categories'|_ }}</th>
                             <td>{{ journalCategories(journal)|raw }}</td>
                         </tr>
                         #}
                         {% if journal.tags|length > 0 %}
                             <tr>
-                                <td>{{ 'tags'|_ }}</td>
+                                <th scope="row">{{ 'tags'|_ }}</th>
                                 <td>
                                     {% for tag in journal.tags %}
 
-                                        <h4 style="display: inline;"><a class="label label-success" href="{{ route('tags.show',tag) }}">
+                                        <span style="display: inline;"><a class="label label-success" href="{{ route('tags.show',tag) }}">
                                                 {% if tag.tag_mode == 'nothing' %}
                                                     <span class="fa fa-fw fa-tag"></span>
                                                 {% endif %}
@@ -92,7 +92,7 @@
                                                     <span class="fa fa-fw fa-sort-numeric-desc"></span>
                                                 {% endif %}
                                                 {{ tag.tag }}</a>
-                                        </h4>
+                                        </span>
                                     {% endfor %}
                                 </td>
                             </tr>

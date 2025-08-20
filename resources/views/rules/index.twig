@@ -71,15 +71,15 @@
                         </p>
 
                         {% if ruleGroup.rules.count() > 0 %}
-                            <table class="table table-hover table-striped group-rules">
+                            <table class="table table-hover table-striped group-rules" aria-label="{{ 'rules_in_group'|_ }} {{ ruleGroup.title }}">
                                 <thead>
                                 <tr>
-                                    <th style="width:5%;">&nbsp;</th>
-                                    <th style="width:10%;">&nbsp;</th>
-                                    <th style="width:10%;">&nbsp;</th>
-                                    <th style="width:25%;">{{ 'rule_name'|_ }}</th>
-                                    <th style="width:25%;" class="hidden-xs">{{ 'rule_triggers'|_ }}</th>
-                                    <th style="width:25%;" class="hidden-xs">{{ 'rule_actions'|_ }}</th>
+                                    <th scope="col" style="width:5%;">{{ 'drag_handle'|_ }}</th>
+                                    <th scope="col" style="width:10%;">{{ 'actions'|_ }}</th>
+                                    <th scope="col" style="width:10%;">{{ 'test_duplicate'|_ }}</th>
+                                    <th scope="col" style="width:25%;">{{ 'rule_name'|_ }}</th>
+                                    <th scope="col" style="width:25%;" class="hidden-xs">{{ 'rule_triggers'|_ }}</th>
+                                    <th scope="col" style="width:25%;" class="hidden-xs">{{ 'rule_actions'|_ }}</th>
                                 </tr>
                                 </thead>
                                 <tbody class="rule-connected-list">

@@ -105,14 +105,14 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">
+                        <h1 class="mb-0">
                             @if($mainTitleIcon)
                                 <em class="fa {{ $mainTitleIcon }}"></em>
                             @endif
                             {{ $title }} @if($subTitle)
                                 <small class="text-muted" id="pageSubTitle">
                                     {{$subTitle}}</small>
-                            @endif</h3>
+                            @endif</h1>
                     </div>
                     <div class="col-sm-6">
                         {{ Breadcrumbs::render() }}

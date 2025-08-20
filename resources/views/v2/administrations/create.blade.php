@@ -6,13 +6,14 @@
     <div class="app-content">
         <!--begin::Container-->
         <div class="container-fluid" x-data="administrations" id="form">
+            <h1 class="sr-only">{{ __('firefly.create_new_administration') }}</h1>
             <x-messages></x-messages>
             <div class="row mb-3">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"
-                            >{{ __('firefly.basic_administration_information') }}</h3>
+                            <h2 class="card-title"
+                            >{{ __('firefly.basic_administration_information') }}</h2>
                         </div>
                         <div class="card-body">
                             <!-- TITLE -->
@@ -25,9 +26,9 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
+                            <h2 class="card-title">
                                 {{ __('firefly.submission_options') }}
-                            </h3>
+                            </h2>
                         </div>
                         <div class="card-body">
                             @include('partials.form.submission-options')

@@ -1,17 +1,17 @@
 <div style="padding-left:8px;">
     {{ paginator.links('pagination.bootstrap-4')|raw }}
 </div>
-<table class="table table-responsive table-hover" id="bill-sortable">
+<table class="table table-responsive table-hover" id="bill-sortable" aria-label="{{ 'bills_table'|_ }}">
     <thead>
     <tr>
-        <th class="hidden-sm hidden-xs">&nbsp;</th>
-        <th class="hidden-sm hidden-xs">&nbsp;</th>
-        <th>{{ trans('list.name') }}</th>
-        <th class="hidden-sm hidden-md hidden-xs">{{ trans('list.linked_to_rules') }}</th>
-        <th style="text-align: right;">{{ trans('list.matchingAmount') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('list.paid_current_period') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('list.next_expected_match') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('list.repeat_freq') }}</th>
+        <th class="hidden-sm hidden-xs" scope="col"><span class="sr-only">{{ 'drag_handle'|_ }}</span></th>
+        <th class="hidden-sm hidden-xs" scope="col"><span class="sr-only">{{ 'actions'|_ }}</span></th>
+        <th scope="col">{{ trans('list.name') }}</th>
+        <th class="hidden-sm hidden-md hidden-xs" scope="col">{{ trans('list.linked_to_rules') }}</th>
+        <th style="text-align: right;" scope="col">{{ trans('list.matchingAmount') }}</th>
+        <th class="hidden-sm hidden-xs" scope="col">{{ trans('list.paid_current_period') }}</th>
+        <th class="hidden-sm hidden-xs" scope="col">{{ trans('list.next_expected_match') }}</th>
+        <th class="hidden-sm hidden-xs" scope="col">{{ trans('list.repeat_freq') }}</th>
     </tr>
     </thead>
     {% for objectGroupOrder, objectGroup in bills %}

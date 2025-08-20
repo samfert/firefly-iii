@@ -5,12 +5,17 @@
 {% endblock %}
 {% block content %}
     <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ 'notification_settings'|_ }}</h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <form action="{{ route('settings.notification.post') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'notification_settings'|_ }}</h3>
+                        <h2 class="box-title">{{ 'notification_preferences'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <p>
@@ -48,7 +53,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'available_channels_title'|_ }}</h3>
+                        <h2 class="box-title">{{ 'available_channels_title'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <p>

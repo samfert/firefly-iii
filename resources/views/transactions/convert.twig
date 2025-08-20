@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <h1 class="sr-only">{{ 'convert_transaction'|_ }}</h1>
     <form method="POST" action="{{ route('transactions.convert.index.post', [destinationType.type|lower, group.id]) }}"
           accept-charset="UTF-8"
           class="form-horizontal"
@@ -14,7 +15,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ ('convert_options_'~sourceType.type~destinationType.type)|_ }}</h3>
+                        <h2 class="box-title">{{ ('convert_options_'~sourceType.type~destinationType.type)|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <p>
@@ -55,14 +56,17 @@
                             {% endif %}
                         </p>
 
-                        <table class="table">
-                            <tr>
-                                <th style="width:10%;">ID</th>
-                                <th style="width:25%;">Description</th>
-                                <th style="width:25%;">Source account</th>
-                                <th style="width:25%;">Destination account</th>
-                                <th style="width:15%;">Amount</th>
-                            </tr>
+                        <table class="table" aria-label="{{ 'transaction_conversion_table'|_ }}">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width:10%;">ID</th>
+                                    <th scope="col" style="width:25%;">Description</th>
+                                    <th scope="col" style="width:25%;">Source account</th>
+                                    <th scope="col" style="width:25%;">Destination account</th>
+                                    <th scope="col" style="width:15%;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             {% for transaction in groupArray.transactions %}
                                 <tr>
                                     <td>#{{ transaction.transaction_journal_id }}</td>
@@ -278,6 +282,7 @@
                                     </td>
                                 </tr>
                             {% endfor %}
+                            </tbody>
                         </table>
                     </div>
                     <div class="box-footer">

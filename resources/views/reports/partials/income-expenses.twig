@@ -1,10 +1,10 @@
-<table class="table table-hover sortable">
+<table class="table table-hover sortable" aria-label="{{ 'income_expenses_table'|_ }}">
     <thead>
     <tr>
-        <th data-defaultsign="az">{{ 'name'|_ }}</th>
-        <th data-defaultsign="_19" style="text-align: right;">{{ 'total'|_ }}</th>
-        <th data-defaultsign="_19" class="hidden-xs" style="text-align: right;">{{ 'average'|_ }}</th>
-        <th data-defaultsort="disabled"></th>
+        <th scope="col" data-defaultsign="az">{{ 'name'|_ }}</th>
+        <th scope="col" data-defaultsign="_19" style="text-align: right;">{{ 'total'|_ }}</th>
+        <th scope="col" data-defaultsign="_19" class="hidden-xs" style="text-align: right;">{{ 'average'|_ }}</th>
+        <th scope="col" data-defaultsort="disabled">{{ 'actions'|_ }}</th>
     </tr>
     </thead>
     <tbody>

@@ -1,11 +1,14 @@
-<table class="table table-hover table-responsive">
-    <tr>
-        {% if showPiggyBank %}
-            <th>{{ trans('list.piggy_bank') }}</th>
-        {% endif %}
-        <th>{{ trans('list.date') }}</th>
-        <th>{{ trans('list.amount') }}</th>
-    </tr>
+<table class="table table-hover table-responsive" aria-label="{{ trans('list.piggy_bank_events') }}">
+    <thead>
+        <tr>
+            {% if showPiggyBank %}
+                <th scope="col">{{ trans('list.piggy_bank') }}</th>
+            {% endif %}
+            <th scope="col">{{ trans('list.date') }}</th>
+            <th scope="col">{{ trans('list.amount') }}</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for event in events %}
         <tr>
             {% if showPiggyBank %}
@@ -31,4 +34,5 @@
             </td>
         </tr>
     {% endfor %}
+    </tbody>
 </table>

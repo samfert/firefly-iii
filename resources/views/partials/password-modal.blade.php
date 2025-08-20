@@ -1,13 +1,13 @@
-<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalTitle" aria-describedby="passwordModalBody" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">
+                <h5 class="modal-title" id="passwordModalTitle">
                     {{ __('firefly.secure_pw_title') }}
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('firefly.close') }}"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="passwordModalBody">
                 <p>
                     {{ __('firefly.secure_pw_history') }}
                 </p>
@@ -18,11 +18,11 @@
                     {{ __('firefly.secure_pw_check_box') }}
                 </p>
 
-                <h4>{{ __('firefly.secure_pw_working_title') }}</h4>
+                <h6>{{ __('firefly.secure_pw_working_title') }}</h6>
                 <p>
                     {!!  __('firefly.secure_pw_working')  !!}
                 </p>
-                <h4>{{ __('firefly.secure_pw_should') }}</h4>
+                <h6>{{ __('firefly.secure_pw_should') }}</h6>
                 <p>
                     {{ __('firefly.secure_pw_long_password') }}
                 </p>

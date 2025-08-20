@@ -5,7 +5,7 @@
             <!-- BASIC TRANSACTION INFORMATION -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"
+                    <h3 class="card-title" id="basic-info-{{ index }}"
                     >{{ __('firefly.basic_journal_information') }}</h3>
                 </div>
                 <div class="card-body">
@@ -28,7 +28,7 @@
             <!-- AMOUNTS -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
+                    <h3 class="card-title" id="amount-info-{{ index }}">
                         {{ __('firefly.transaction_journal_amount') }}
                     </h3>
                 </div>
@@ -45,7 +45,7 @@
         <div class="col-xl-4 col-lg-6 col-md-12 col-xs-12 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
+                    <h3 class="card-title" id="meta-info-{{ index }}">
                         {{ __('firefly.transaction_journal_meta') }}
                     </h3>
                 </div>
@@ -75,7 +75,7 @@
         <div class="col-xl-4 col-lg-6 col-md-12 col-xs-12 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
+                    <h3 class="card-title" id="extra-info-{{ index }}">
                         {{ __('firefly.transaction_journal_extra') }}
                     </h3>
                 </div>
@@ -100,7 +100,7 @@
         <div class="col-xl-4 col-lg-6 col-md-12 col-xs-12 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
+                    <h3 class="card-title" id="submission-options-{{ index }}">
                         {{ __('firefly.submission_options') }}
                     </h3>
                 </div>

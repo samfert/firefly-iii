@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block content %}
+    <h1 class="sr-only">{{ piggyBank.name }} - {{ 'piggy_bank_details'|_ }}</h1>
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-6">
             <div class="box" id="piggyChart">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'events'|_ }}</h3>
+                    <h2 class="box-title">{{ 'events'|_ }}</h2>
                 </div>
                 <div class="box-body">
                     <canvas id="piggy-bank-history" style="width:100%;height:400px;" height="400" width="100%"></canvas>
@@ -19,7 +20,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'details'|_ }}</h3>
+                    <h2 class="box-title">{{ 'details'|_ }}</h2>
                     <div class="box-tools pull-right">
                         <div class="btn-group">
                             <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><span class="fa fa-ellipsis-v"></span></button>
@@ -31,7 +32,7 @@
                     </div>
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-responsive table-hover" id="piggyDetails">
+                    <table class="table table-responsive table-hover" id="piggyDetails" aria-label="{{ 'piggy_bank_details'|_ }}">
                         <tr>
                             <td style="width:40%;">{{ 'saveOnAccounts'|_ }}</td>
                             <td>
@@ -114,7 +115,7 @@
             </div>
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'event_history'|_ }} (<a onclick="return confirm('{{ 'reset_history_confirm'|_|escape('js') }}');" class="reset-link" href="#">{{ 'reset_history'|_ }}</a>)</h3>
+                    <h2 class="box-title">{{ 'event_history'|_ }} (<a onclick="return confirm('{{ 'reset_history_confirm'|_|escape('js') }}');" class="reset-link" href="#">{{ 'reset_history'|_ }}</a>)</h2>
                 </div>
                 <div class="box-body no-padding" id="piggyEvents">
                     {% include 'list/piggy-bank-events' %}
@@ -129,7 +130,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ trans('form.notes') }}</h3>
+                        <h2 class="box-title">{{ trans('form.notes') }}</h2>
                     </div>
                     <div class="box-body markdown">{{ piggy.notes|default('')|markdown }}
                     </div>
@@ -141,9 +142,9 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">
+                        <h2 class="box-title">
                             {{ 'attachments'|_ }}
-                        </h3>
+                        </h2>
                     </div>
                     <div class="box-body no-padding">
                         {% include 'list.attachments' %}

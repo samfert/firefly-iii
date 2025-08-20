@@ -6,6 +6,8 @@
 
 {% block content %}
 
+    <h1>{{ 'execute_rule_group'|_ }}</h1>
+
     <form method="POST" action="{{ route('rule-groups.execute', ruleGroup.id) }}" accept-charset="UTF-8"
           class="form-horizontal" id="execute-rule-group">
         <input name="_token" type="hidden" value="{{ csrf_token() }}">
@@ -15,7 +17,7 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ subTitle }}</h3>
+                        <h2 class="box-title">{{ subTitle }}</h2>
                     </div>
                     <div class="box-body">
                         <div id="form-body">

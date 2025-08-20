@@ -25,11 +25,11 @@
                 </div>
                 </template>
                 <div class="row mb-2">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" aria-label="{{ __('firefly.subscriptions') }}">
                         <thead>
                         <tr>
-                            <th>{{ __('firefly.subscription') }}</th>
-                            <th>{{ __('firefly.expected_amount') }}</th>
+                            <th scope="col">{{ __('firefly.subscription') }}</th>
+                            <th scope="col">{{ __('firefly.expected_amount') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -119,11 +119,11 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" aria-label="Subscriptions">
                 <thead>
                 <tr>
-                    <th>Subscription</th>
-                    <th>(Expected) amount</th>
+                    <th scope="col">Subscription</th>
+                    <th scope="col">(Expected) amount</th>
                 </tr>
                 </thead>
                 <tbody>

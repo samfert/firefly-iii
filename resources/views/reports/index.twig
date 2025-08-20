@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block content %}
+    <h1 class="sr-only">{{ 'reports'|_ }}</h1>
 
     <div class="row">
         <form class="form-horizontal nodisablebutton" id="report-form" action="{{ route('reports.index.post') }}" method="post">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'reports'|_ }}</h3>
+                        <h2 class="box-title">{{ 'reports'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <p class="text-info">
@@ -96,7 +97,7 @@
                 </div>
                 <div class="box" id="extra-options-box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'reports_extra_options'|_ }}</h3>
+                        <h2 class="box-title">{{ 'reports_extra_options'|_ }}</h2>
                     </div>
                     <div class="box-body" id="extra-options">
                     </div>
@@ -108,7 +109,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'reports_submit'|_ }}</h3>
+                        <h2 class="box-title">{{ 'reports_submit'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <div class="form-group">
@@ -125,7 +126,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'quick_link_reports'|_ }}</h3>
+                    <h2 class="box-title">{{ 'quick_link_reports'|_ }}</h2>
                 </div>
                 <div class="box-body">
                     {% if '' == accountList %}
@@ -137,7 +138,7 @@
                     <p>
                         {{ 'quick_link_examples'|_ }}
                     </p>
-                    <h4>{{ ('quick_link_default_report')|_ }}</h4>
+                    <h3>{{ ('quick_link_default_report')|_ }}</h3>
                     <ul>
                         <li>
                             <a href="{{ route('reports.report.default',[accountList, 'currentMonthStart','currentMonthEnd']) }}">{{ 'report_this_month_quick'|_ }}</a>
@@ -158,7 +159,7 @@
                         </li>
                     </ul>
 
-                    <h4>{{ ('quick_link_audit_report')|_ }}</h4>
+                    <h3>{{ ('quick_link_audit_report')|_ }}</h3>
                     <ul>
                         <li>
                             <a href="{{ route('reports.report.audit',[accountList, 'currentMonthStart','currentMonthEnd']) }}">{{ 'report_this_month_quick'|_ }}</a>

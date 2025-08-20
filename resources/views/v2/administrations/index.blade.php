@@ -19,11 +19,11 @@
                     <div class="col-xl-4 col-lg-4 col-sm-6 col-xs-12 mb-3">
                         <div :class="{'card': true, 'card-primary': group.in_use}">
                             <div class="card-header">
-                                <h3 class="card-title">
+                                <h2 class="card-title">
                                     <template x-if="group.in_use">
                                         <em class="fa-regular fa-square-check"></em>
                                     </template>
-                                    Administration "<span x-text="group.title"></span>"</h3>
+                                    Administration "<span x-text="group.title"></span>"</h2>
                             </div>
                             <div class="card-body">
                                 <ul>
@@ -36,7 +36,7 @@
                                 </ul>
                                 <template x-if="group.memberCountExceptYou > 0">
                                     <div>
-                                        <h5>{{ __('firefly.other_users_in_admin') }}</h5>
+                                        <h3>{{ __('firefly.other_users_in_admin') }}</h3>
                                     <ul>
                                         <template x-for="(member, jndex) in group.members" :key="jndex">
                                             <li>

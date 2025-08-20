@@ -1,11 +1,11 @@
-<table class="table table-hover sortable table-condensed">
+<table class="table table-hover sortable table-condensed" aria-label="{{ 'category_period_report_table'|_ }}">
     <thead>
     <tr>
-        <th data-defaultsign="az" colspan="2">{{ 'category'|_ }}</th>
+        <th data-defaultsign="az" colspan="2" scope="col">{{ 'category'|_ }}</th>
         {% for period in periods %}
-            <th data-defaultsign="_19" style="text-align: right;">{{ period }}</th>
+            <th data-defaultsign="_19" style="text-align: right;" scope="col">{{ period }}</th>
         {% endfor %}
-        <th data-defaultsign="_19" style="text-align: right;">{{ 'sum'|_ }}</th>
+        <th data-defaultsign="_19" style="text-align: right;" scope="col">{{ 'sum'|_ }}</th>
     </tr>
     </thead>
     <tbody>

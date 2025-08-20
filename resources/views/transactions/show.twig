@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block content %}
+    <h1 class="sr-only">{{ 'transaction_details'|_ }}: {{ transactionGroup.title ?: first.description }}</h1>
     <div class="row">
         <div class="col-lg-6">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'transaction_journal_information'|_ }}</h3>
+                    <h2 class="box-title">{{ 'transaction_journal_information'|_ }}</h2>
                     <div class="btn-group btn-group-xs pull-right">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -60,14 +61,20 @@
                     </div>
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-hover">
+                    <table class="table table-hover" aria-label="{{ 'transaction_journal_information'|_ }}">
+                        <thead class="sr-only">
+                            <tr>
+                                <th scope="col">{{ 'property'|_ }}</th>
+                                <th scope="col">{{ 'value'|_ }}</th>
+                            </tr>
+                        </thead>
                         <tbody>
                         <tr>
-                            <td style="width:40%;">{{ trans('list.type') }}</td>
+                            <th scope="row" style="width:40%;">{{ trans('list.type') }}</th>
                             <td>{{ first.transaction_type_type|_ }}</td>
                         </tr>
                         <tr>
-                            <td>{{ trans('list.description') }}</td>
+                            <th scope="row">{{ trans('list.description') }}</th>
                             <td>
                                 {% if splits == 1 %}
                                     {{ first.description }}
@@ -77,7 +84,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:30%;">{{ trans('list.date') }}</td>
+                            <th scope="row" style="width:30%;">{{ trans('list.date') }}</th>
                             <td>
                                 <span class="date-time" data-date="{{ first.date.toIso8601ZuluString() }}" title="{{ first.date.isoFormat(dateTimeFormat) }}{% if(first.date_tz != '') %} ({{ trans('firefly.stored_in_tz', {timezone: first.date_tz }) }}, {{ trans('firefly.displayed_in_tz', {timezone: config('app.timezone') }) }}){% endif %}">
                                 {{ first.date.isoFormat(dateTimeFormat) }}
@@ -94,9 +101,9 @@
             {% if groupLogEntries|length > 0 %}
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">
+                        <h2 class="box-title">
                             {{ 'audit_log_entries'|_ }}
-                        </h3>
+                        </h2>
                     </div>
                     <div class="box-body no-padding">
                         {% include 'list.ale' with {logEntries: groupLogEntries} %}
@@ -108,16 +115,22 @@
         <div class="col-lg-6">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'transaction_journal_meta'|_ }}</h3>
+                    <h2 class="box-title">{{ 'transaction_journal_meta'|_ }}</h2>
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-hover">
+                    <table class="table table-hover" aria-label="{{ 'transaction_journal_meta'|_ }}">
+                        <thead class="sr-only">
+                            <tr>
+                                <th scope="col">{{ 'property'|_ }}</th>
+                                <th scope="col">{{ 'value'|_ }}</th>
+                            </tr>
+                        </thead>
                         <tbody>
                         {% if first.transaction_type_type != 'Withdrawal' or splits == 1 %}
                             <tr>
-                                <td style="width:40%;">
+                                <th scope="row" style="width:40%;">
                                     {{ trans_choice('firefly.source_accounts', accounts['source']|length ) }}
-                                </td>
+                                </th>
                                 <td>
                                     {% for account in accounts['source'] %}
                                         {% if 'Cash account' == account.type %}
@@ -136,10 +149,10 @@
 
                         {% if first.transaction_type_type != 'Deposit' or splits == 1 %}
                             <tr>
-                                <td>
+                                <th scope="row">
                                     {{ trans_choice('firefly.destination_accounts', accounts['destination']|length ) }}
 
-                                </td>
+                                </th>
                                 <td>
                                     {% for account in accounts['destination'] %}
                                         {% if 'Cash account' == account.type %}
@@ -156,7 +169,7 @@
                             </tr>
                         {% endif %}
                         <tr>
-                            <td style="width:30%;">{{ 'total_amount'|_ }}</td>
+                            <th scope="row" style="width:30%;">{{ 'total_amount'|_ }}</th>
                             <td>
                                 {% for amount in amounts %}
                                     {% if first.transaction_type_type == 'Withdrawal' %}
@@ -190,7 +203,7 @@
     {% if splits > 1 %}
         <div class="row">
             <div class="col-lg-12">
-                <h3>{{ 'splits'|_ }}</h3>
+                <h2>{{ 'splits'|_ }}</h2>
             </div>
         </div>
     {% endif %}
@@ -209,7 +222,7 @@
                         <h3 class="box-title">
                             {{ journal.description }}
                             {% if journal.reconciled %}
-                                <span class="fa fa-check"></span>
+                                <span class="fa fa-check" aria-label="{{ 'reconciled'|_ }}"></span>
                             {% endif %}
                             {% if splits > 1 %}
                                 <small>
@@ -286,7 +299,13 @@
                         </div>
                     </div>
                     <div class="box-body no-padding">
-                        <table class="table">
+                        <table class="table" aria-label="{{ 'transaction_details'|_ }}">
+                            <thead class="sr-only">
+                                <tr>
+                                    <th scope="col">{{ 'transaction_flow'|_ }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             <tr>
                                 <td colspan="2">
                                     <!-- type is: "{{ first.transaction_type_type }}" -->
@@ -361,7 +380,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>{{ 'transaction_journal_id'|_ }}</td>
+                                <th scope="row">{{ 'transaction_journal_id'|_ }}</th>
                                 <td>#{{ journal.transaction_journal_id }}</td>
                             </tr>
                             {% if null != journal.category_id %}
@@ -440,10 +459,10 @@
                                     <td style="width:40%;">{{ 'tags'|_ }}</td>
                                     <td>
                                         {% for tag in journal.tags %}
-                                            <h4 style="display: inline;"><a class="label label-success"
+                                            <span style="display: inline;"><a class="label label-success"
                                                                             href="{{ route('tags.show', tag.id) }}">
-                                                    <span class="fa fa-fw fa-tag"></span>{{ tag.tag }}</a>
-                                            </h4>
+                                                    <span class="fa fa-fw fa-tag" aria-hidden="true"></span>{{ tag.tag }}</a>
+                                            </span>
                                         {% endfor %}
                                     </td>
                                 </tr>
@@ -456,9 +475,9 @@
                 {% if links[journal.transaction_journal_id]|length > 0 %}
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">
+                            <h4 class="box-title">
                                 {{ 'journal_links'|_ }}
-                            </h3>
+                            </h4>
                         </div>
                         <div class="box-body no-padding">
                             <table class="table">
@@ -498,7 +517,7 @@
                 {% if attachments[journal.transaction_journal_id]|length > 0 %}
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">{{ 'attachments'|_ }}</h3>
+                            <h4 class="box-title">{{ 'attachments'|_ }}</h4>
                         </div>
                         <div class="box-body no-padding">
                             {% include 'list.attachments' with {attachments: attachments[journal.transaction_journal_id]} %}
@@ -510,7 +529,7 @@
                 {% if events[journal.transaction_journal_id]|length > 0 %}
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">{{ 'piggy_events'|_ }}</h3>
+                            <h4 class="box-title">{{ 'piggy_events'|_ }}</h4>
                         </div>
                         <div class="box-body no-padding">
                             <table class="table table-hover">
@@ -543,7 +562,7 @@
         {% endfor %}
     </div>
     {# modal for linking journals. Will be filled by AJAX #}
-    <div class="modal fade" tabindex="-1" role="dialog" id="linkJournalModal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="linkJournalModal" aria-labelledby="linkJournalModalLabel" aria-describedby="linkJournalModalDescription" aria-hidden="true">
     </div>
 {% endblock %}
 {% block scripts %}

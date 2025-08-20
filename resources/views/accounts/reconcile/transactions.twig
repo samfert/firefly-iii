@@ -1,15 +1,15 @@
-<table class="table table-striped table-condensed">
+<table class="table table-striped table-condensed" aria-label="{{ trans('firefly.reconcile_transactions_table') }}">
     <thead>
     <tr class="ignore">
-        <th class="hidden-xs" colspan="2">&nbsp;</th>
-        <th>{{ trans('list.description') }}</th>
-        <th style="text-align:right;">{{ trans('list.amount') }}</th>
-        <th class="hidden-xs hidden-sm hidden-md">{{ trans('list.reconcile') }}</th>
-        <th class="hidden-xs hidden-sm">{{ trans('list.date') }}</th>
-        <th class="hidden-xs hidden-sm hidden-md">{{ trans('list.from') }}</th>
-        <th class="hidden-xs hidden-sm hidden-md">{{ trans('list.to') }}</th>
-        <th class="hidden-xs"><span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}"></span></th>
-        <th class="hidden-xs"><span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}"></span></th>
+        <th class="hidden-xs" colspan="2" scope="col">&nbsp;</th>
+        <th scope="col">{{ trans('list.description') }}</th>
+        <th scope="col" style="text-align:right;">{{ trans('list.amount') }}</th>
+        <th class="hidden-xs hidden-sm hidden-md" scope="col">{{ trans('list.reconcile') }}</th>
+        <th class="hidden-xs hidden-sm" scope="col">{{ trans('list.date') }}</th>
+        <th class="hidden-xs hidden-sm hidden-md" scope="col">{{ trans('list.from') }}</th>
+        <th class="hidden-xs hidden-sm hidden-md" scope="col">{{ trans('list.to') }}</th>
+        <th class="hidden-xs" scope="col"><span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}" aria-hidden="true"></span><span class="sr-only">{{ trans('list.budget') }}</span></th>
+        <th class="hidden-xs" scope="col"><span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}" aria-hidden="true"></span><span class="sr-only">{{ trans('list.category') }}</span></th>
     </tr>
     </thead>
     <tbody>

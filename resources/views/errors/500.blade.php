@@ -19,16 +19,16 @@
     @if(!($debug ?? false))
         <div class="row">
             <div class="col">
-                <h4>
+                <h2>
                     {{ trans('errors.more_info') }}
-                </h4>
+                </h2>
                 <p>
                     {!! trans('errors.collect_info')  !!}
                     {!! trans('errors.collect_info_more')  !!}
                 </p>
-                <h4>
+                <h2>
                     {{ trans('errors.github_help') }}
-                </h4>
+                </h2>
                 <p>
                     {!! trans('errors.github_instructions') !!}
                 </p>
@@ -45,13 +45,13 @@
     @if($debug ?? false)
         <div class="row">
             <div class="col">
-                <h4>{{ trans('errors.error') }}</h4>
+                <h2>{{ trans('errors.error') }}</h2>
                 <p>
                     {!! trans('errors.error_location', ['file' => $exception->getFile(), 'line' =>  $exception->getLine(), 'code' => $exception->getCode() ]) !!}
                 </p>
-                <h4>
+                <h2>
                     {{ trans('errors.stacktrace') }}
-                </h4>
+                </h2>
                 <div style="font-family: monospace;font-size:11px;">
                     {!!  nl2br($exception->getTraceAsString())  !!}
                 </div>

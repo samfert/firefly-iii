@@ -10,7 +10,7 @@
         <div class="{% if attachments.count() == 0 %}col-lg-12 col-md-12 col-sm-12 col-xs-12{% else %}col-lg-8 col-md-6 col-sm-12 col-xs-12{% endif %}">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">
+                    <h1 class="box-title">
                         {% if balances.balance %}
                         {{ trans('firefly.chart_account_in_period', {
                             balance: formatAmountBySymbol(balances.balance, currency.symbol, currency.decimal_places, true),
@@ -20,7 +20,7 @@
                                 balance: formatAmountBySymbol(balances.pc_balance, primaryCurrency.symbol, primaryCurrency.decimal_places, true),
                                 name: account.name|escape, start: start.isoFormat(monthAndDayFormat), end: end.isoFormat(monthAndDayFormat) })|raw }}
                         {% endif %}
-                    </h3>
+                    </h1>
                     <div class="box-tools pull-right">
                         <div class="btn-group">
                             <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><span
@@ -48,9 +48,9 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">
+                        <h2 class="box-title">
                             {{ 'attachments'|_ }}
-                        </h3>
+                        </h2>
                     </div>
                     <div class="box-body no-padding">
                         {% include 'list.attachments' %}
@@ -64,7 +64,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">pay-off by date</h3>
+                        <h2 class="box-title">pay-off by date</h2>
                     </div>
                     <div class="box-body">
                         Content
@@ -78,7 +78,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'expenses_by_category'|_ }}</h3>
+                        <h2 class="box-title">{{ 'expenses_by_category'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <div style="width:100%;margin:0 auto;">
@@ -90,7 +90,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'expenses_by_budget'|_ }}</h3>
+                        <h2 class="box-title">{{ 'expenses_by_budget'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <div style="width:100%;margin:0 auto;">
@@ -102,7 +102,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'income_by_category'|_ }}</h3>
+                        <h2 class="box-title">{{ 'income_by_category'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <div style="width:100%;margin:0 auto;">
@@ -119,7 +119,7 @@
             <div class="col-lg-6">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'location'|_ }}</h3>
+                        <h2 class="box-title">{{ 'location'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <div id="location_map" style="width:100%;height:300px;"></div>

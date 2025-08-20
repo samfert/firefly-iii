@@ -8,7 +8,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'object_groups'|_ }}</h3>
+                    <h1 class="box-title">{{ 'object_groups'|_ }}</h1>
                 </div>
                 {% if objectGroups|length == 0 %}
                     <div class="box-body">
@@ -23,15 +23,15 @@
                 {% endif %}
                 {% if objectGroups|length > 0 %}
                     <div class="box-body no-padding">
-                        <table class="table table-condensed" id="sortable">
+                        <table class="table table-condensed" id="sortable" aria-label="{{ 'object_groups'|_ }}">
                             <thead>
                             <tr>
-                                <th>&nbsp;</th>
-                                <th>
+                                <th scope="col">{{ 'sort_handle'|_ }}</th>
+                                <th scope="col">
                                     {{ 'object_group_title'|_ }}
                                 </th>
-                                <th>
-                                    &nbsp;
+                                <th scope="col">
+                                    {{ 'actions'|_ }}
                                 </th>
                             </tr>
                             </thead>

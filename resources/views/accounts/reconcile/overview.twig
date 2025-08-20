@@ -19,11 +19,18 @@
                     <input type="hidden" name="journals[]" value="{{ id }}"/>
                 {% endfor %}
 
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <td>{{ 'submitted_start_balance'|_ }} ({{ start.isoFormat(monthAndDayFormat) }})</td>
-                        <td>{{ formatAmountByAccount(account, startBalance) }}</td>
-                    </tr>
+                <table class="table table-striped table-bordered" aria-label="{{ 'reconciliation_summary'|_ }}">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{ 'description'|_ }}</th>
+                            <th scope="col">{{ 'amount'|_ }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ 'submitted_start_balance'|_ }} ({{ start.isoFormat(monthAndDayFormat) }})</td>
+                            <td>{{ formatAmountByAccount(account, startBalance) }}</td>
+                        </tr>
                     <tr>
                         <td>{{ trans('firefly.selected_transactions', {count: selectedIds|length}) }}</td>
                         <td>{{ formatAmountByAccount(account, amount) }}</td>
@@ -49,6 +56,7 @@
                         </td>
 
                     </tr>
+                    </tbody>
                 </table>
                 <p>
                     {% if diffCompare > 0 %}

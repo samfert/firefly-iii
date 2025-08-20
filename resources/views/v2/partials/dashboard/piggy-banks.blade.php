@@ -3,8 +3,8 @@
     <template x-for="group in piggies">
         <div class="card mb-2">
             <div class="card-header">
-                <h3 class="card-title"><a href="{{ route('piggy-banks.index')  }}" title="{{ __('firefly.go_to_piggies')  }}">{{ __('firefly.piggy_banks') }}
-                        (<span x-text="group.title"></span>)</a></h3>
+                <h2 class="card-title"><a href="{{ route('piggy-banks.index')  }}" title="{{ __('firefly.go_to_piggies')  }}">{{ __('firefly.piggy_banks') }}
+                        (<span x-text="group.title"></span>)</a></h2>
             </div>
             <ul class="list-group list-group-flush">
                 <template x-for="piggy in group.piggies">
