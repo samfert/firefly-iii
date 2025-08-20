@@ -48,7 +48,41 @@ $success: #64B624 !default;
 
 
 // some local CSS
-.skip-links {display: none;}
+.skip-links {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+.skip-links:focus {
+    top: 6px;
+    outline: 2px solid #ffff00;
+    outline-offset: 2px;
+}
+
+/* Enhanced focus states for better keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #0066CC;
+    outline-offset: 2px;
+}
+
+/* Ensure focus is visible on interactive elements */
+.btn:focus,
+.form-control:focus,
+.nav-link:focus {
+    box-shadow: 0 0 0 2px #0066CC;
+}
 
 /*
 Remove bottom margin from unstyled lists

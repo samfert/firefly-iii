@@ -1,1 +1,12 @@
-TODO REPLACE ME
+<div class="{{ classes }}" id="{{ name }}_holder">
+    <label for="{{ options.id }}" class="col-sm-4 control-label">{{ label }}</label>
+
+    <div class="col-sm-8">
+        <div class="input-group">
+            {{ Html.input('number', name, value).id(options.id).class('form-control').attribute('step', 'any').attribute('autocomplete','off').attribute('min', options.min).attribute('max', options.max).attribute('aria-describedby', options.helpText ? name ~ '_help' : '').attribute('aria-invalid', errors.has(name) ? 'true' : 'false') }}
+            <div class="input-group-addon" aria-label="{{ 'currency_symbol'|_ }}">{{ currency.symbol }}</div>
+        </div>
+        {% include 'form.help' %}
+        {% include 'form.feedback' %}
+    </div>
+</div>

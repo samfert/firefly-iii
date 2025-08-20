@@ -7,23 +7,24 @@
 
 <!--begin::Body-->
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<a href="#main-content" class="skip-links">{{ __('firefly.skip_to_main_content') }}</a>
 <!--begin::App Wrapper-->
 <div class="app-wrapper">
     <!--begin::Header-->
-    <nav class="app-header navbar navbar-expand bg-body">
+    <nav class="app-header navbar navbar-expand bg-body" role="banner">
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Start Navbar Links-->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                        <em class="fa-solid fa-bars"></em>
+                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button" aria-label="{{ __('firefly.toggle_sidebar') }}">
+                        <em class="fa-solid fa-bars" aria-hidden="true"></em>
                     </a>
                 </li>
                 <!--begin::Navbar Search-->
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <em class="fa-solid fa-magnifying-glass"></em>
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button" aria-label="{{ __('firefly.search') }}">
+                        <em class="fa-solid fa-magnifying-glass" aria-hidden="true"></em>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -97,7 +98,7 @@
     @include('partials.layout.sidebar')
     <!--end::Sidebar-->
     <!--begin::App Main-->
-    <main class="app-main">
+    <main class="app-main" id="main-content" role="main">
         <!--begin::App Content Header-->
         <div class="app-content-header">
             <!--begin::Container-->

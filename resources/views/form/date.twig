@@ -4,11 +4,11 @@
 
     <div class="col-sm-8">
         <div class="input-group">
-            <div class="input-group-addon">
-                <span class="fa fa-calendar"></span>
+            <div class="input-group-addon" aria-label="{{ 'calendar_icon'|_ }}">
+                <span class="fa fa-calendar" aria-hidden="true"></span>
             </div>
             {{ Html.input('date', name, value).id(options.id).class('form-control').attribute('autocomplete','off').attribute('spellcheck','false')
-            .attribute('min', options.min)
+            .attribute('min', options.min).attribute('aria-describedby', options.helpText ? name ~ '_help' : '').attribute('aria-invalid', errors.has(name) ? 'true' : 'false')
             }}
         </div>
         {% include 'form.help' %}
