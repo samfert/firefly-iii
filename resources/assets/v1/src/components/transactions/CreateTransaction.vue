@@ -19,9 +19,9 @@
   -->
 
 <template>
-    <form accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+    <form accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" role="form" aria-label="{{ $t('firefly.create_transaction_form') }}">
         <input name="_token" type="hidden" value="xxx">
-        <div v-if="error_message !== ''" class="row">
+        <div v-if="error_message !== ''" class="row" role="alert" aria-live="assertive">
             <div class="col-lg-12">
                 <div class="alert alert-danger alert-dismissible" role="alert">
                     <button class="close" data-dismiss="alert" type="button"
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div v-if="success_message !== ''" class="row">
+        <div v-if="success_message !== ''" class="row" role="status" aria-live="polite">
             <div class="col-lg-12">
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button class="close" data-dismiss="alert" type="button"
@@ -45,20 +45,23 @@
         <div>
             <div v-for="(transaction, index) in transactions" class="row">
                 <div class="col-lg-12">
-                    <div class="box">
+                    <div class="box" role="region" :aria-labelledby="'transaction-heading-' + index">
                         <div class="box-header with-border">
-                            <h3 class="box-title splitTitle">
+                            <h2 class="box-title splitTitle" :id="'transaction-heading-' + index">
                 <span v-if="transactions.length > 1">{{ $t('firefly.single_split') }} {{ index + 1 }} / {{
                         transactions.length
                     }}</span>
                                 <span v-if="transactions.length === 1">{{
                                         $t('firefly.transaction_journal_information')
                                     }}</span>
-                            </h3>
+                            </h2>
                             <div v-if="transactions.length > 1" class="box-tools pull-right">
                                 <button class="btn btn-xs btn-danger" type="button"
-                                        v-on:click="deleteTransaction(index, $event)"><i
-                                    class="fa fa-trash"></i></button>
+                                        v-on:click="deleteTransaction(index, $event)"
+                                        :aria-label="$t('firefly.delete_transaction_split', {index: index + 1})">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <span class="sr-only">{{ $t('firefly.delete_transaction_split', {index: index + 1}) }}</span>
+                                </button>
                             </div>
                         </div>
                         <div class="box-body">

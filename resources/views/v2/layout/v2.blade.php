@@ -7,23 +7,26 @@
 
 <!--begin::Body-->
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<a href="#main-content" class="visually-hidden-focusable">{{ __('firefly.skip_to_main_content') }}</a>
 <!--begin::App Wrapper-->
-<div class="app-wrapper">
+<div class="app-wrapper"></div>
     <!--begin::Header-->
-    <nav class="app-header navbar navbar-expand bg-body">
+    <nav class="app-header navbar navbar-expand bg-body" role="banner" aria-label="{{ __('firefly.main_navigation') }}">
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Start Navbar Links-->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                        <em class="fa-solid fa-bars"></em>
+                    <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button" aria-label="{{ __('firefly.toggle_sidebar') }}" aria-expanded="false" aria-controls="sidebar">
+                        <em class="fa-solid fa-bars" aria-hidden="true"></em>
+                        <span class="visually-hidden">{{ __('firefly.toggle_sidebar') }}</span>
                     </a>
                 </li>
                 <!--begin::Navbar Search-->
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <em class="fa-solid fa-magnifying-glass"></em>
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button" aria-label="{{ __('firefly.search_transactions') }}">
+                        <em class="fa-solid fa-magnifying-glass" aria-hidden="true"></em>
+                        <span class="visually-hidden">{{ __('firefly.search_transactions') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -97,7 +100,7 @@
     @include('partials.layout.sidebar')
     <!--end::Sidebar-->
     <!--begin::App Main-->
-    <main class="app-main">
+    <main class="app-main" id="main-content" role="main" aria-label="{{ __('firefly.main_content') }}">
         <!--begin::App Content Header-->
         <div class="app-content-header">
             <!--begin::Container-->
@@ -105,17 +108,19 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">
+                        <h1 class="mb-0">
                             @if($mainTitleIcon)
-                                <em class="fa {{ $mainTitleIcon }}"></em>
+                                <em class="fa {{ $mainTitleIcon }}" aria-hidden="true"></em>
                             @endif
                             {{ $title }} @if($subTitle)
                                 <small class="text-muted" id="pageSubTitle">
                                     {{$subTitle}}</small>
-                            @endif</h3>
+                            @endif</h1>
                     </div>
                     <div class="col-sm-6">
-                        {{ Breadcrumbs::render() }}
+                        <nav aria-label="{{ __('firefly.breadcrumb_navigation') }}">
+                            {{ Breadcrumbs::render() }}
+                        </nav>
                     </div>
                 </div>
                 <!--end::Row-->
@@ -124,6 +129,7 @@
         </div>
         <!--end::App Content Header-->
         <!--begin::App Content-->
+        <div id="flash-messages" aria-live="polite" aria-atomic="true"></div>
         @yield('content')
         <!--end::App Content-->
     </main>

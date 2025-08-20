@@ -19,21 +19,30 @@
   -->
 
 <template>
-  <div class="form-group" v-bind:class="{ 'has-error': hasError()}">
+  <div class="form-group" v-bind:class="{ 'has-error': hasError()}" role="group" :aria-labelledby="'description-label-' + index">
     <div class="col-sm-12 text-sm">
-      {{ $t('firefly.description') }}
+      <label :id="'description-label-' + index" :for="'description-input-' + index">
+        {{ $t('firefly.description') }}
+      </label>
     </div>
     <div class="col-sm-12">
       <div class="input-group">
         <input
             spellcheck="false"
             ref="descr"
+            :id="'description-input-' + index"
             :title="$t('firefly.description')"
             :value="value"
+            :aria-label="$t('firefly.description')"
+            :aria-describedby="hasError() ? 'description-error-' + index : null"
+            :aria-invalid="hasError() ? 'true' : 'false'"
             autocomplete="off"
             class="form-control"
             name="description[]"
             type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-autocomplete="list"
             v-bind:placeholder="$t('firefly.description')"
             @input="handleInput"
             v-on:keypress="handleEnter" v-on:submit.prevent
@@ -43,7 +52,11 @@
                 class="btn btn-default"
                 tabIndex="-1"
                 type="button"
-                v-on:click="clearDescription"><i class="fa fa-trash-o"></i></button>
+                :aria-label="$t('firefly.clear_description')"
+                v-on:click="clearDescription">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <span class="sr-only">{{ $t('firefly.clear_description') }}</span>
+            </button>
         </span>
       </div>
       <typeahead
@@ -54,18 +67,26 @@
           :target="target"
           item-key="description"
           v-on:input="selectedItem"
+          role="listbox"
+          :aria-label="$t('firefly.description_suggestions')"
       >
         <template slot="item" slot-scope="props">
-          <li v-for="(item, index) in props.items" :class="{active:props.activeIndex===index}">
-            <a role="button" @click="props.select(item)">
+          <li v-for="(item, index) in props.items" 
+              :class="{active:props.activeIndex===index}"
+              role="option"
+              :aria-selected="props.activeIndex===index ? 'true' : 'false'"
+              :id="'description-option-' + index + '-' + item.id">
+            <a role="button" @click="props.select(item)" :aria-label="$t('firefly.select_description', {description: item.description})">
               <span v-html="betterHighlight(item)"></span>
             </a>
           </li>
         </template>
       </typeahead>
-      <ul v-for="error in this.error" class="list-unstyled">
-        <li class="text-danger">{{ error }}</li>
-      </ul>
+      <div v-if="hasError()" :id="'description-error-' + index" role="alert" aria-live="polite">
+        <ul class="list-unstyled">
+          <li v-for="error in this.error" class="text-danger">{{ error }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
