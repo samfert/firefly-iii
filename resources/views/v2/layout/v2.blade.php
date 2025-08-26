@@ -9,8 +9,10 @@
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
 <!--begin::App Wrapper-->
 <div class="app-wrapper">
+    <a href="#main-content" class="skip-links">{{ __('firefly.skip_to_content') }}</a>
+    <a href="#main-navigation" class="skip-links">{{ __('firefly.skip_to_navigation') }}</a>
     <!--begin::Header-->
-    <nav class="app-header navbar navbar-expand bg-body">
+    <nav class="app-header navbar navbar-expand bg-body" role="banner" aria-label="{{ __('firefly.main_navigation') }}">
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Start Navbar Links-->
@@ -97,7 +99,7 @@
     @include('partials.layout.sidebar')
     <!--end::Sidebar-->
     <!--begin::App Main-->
-    <main class="app-main">
+    <main class="app-main" role="main" aria-label="{{ __('firefly.main_content') }}" id="main-content">
         <!--begin::App Content Header-->
         <div class="app-content-header">
             <!--begin::Container-->
