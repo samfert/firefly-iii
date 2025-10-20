@@ -70,7 +70,6 @@ export default () => ({
         const start = new Date(globalThis.store.get('start'));
         const end = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey('ds_bdg_chart', {convertToPrimary: this.convertToPrimary, start: start, end: end});
-        //const cacheValid = globalThis.store.get('cacheValid');
         const cacheValid = false;
         let cachedData = globalThis.store.get(cacheKey);
 
@@ -136,7 +135,6 @@ export default () => ({
                 //         // convert to EUR yes no?
                 let label = current.label + ' (' + current.currency_code + ')';
                 options.data.labels.push(label);
-                // label = current.label + ' (' + current.currency_code + ') b';
                 // options.data.labels.push(label);
 
                 currencies.push(current.currency_code);
@@ -178,7 +176,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('boxes observe end');
             if (false === this.loading) {
                 chartData = null;
                 this.loadChart();
@@ -188,7 +185,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('boxes observe convertToPrimary');
             this.convertToPrimary = newValue;
             if (false === this.loading) {
                 this.loadChart();

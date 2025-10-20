@@ -323,7 +323,6 @@ export default {
             return arr[searchType] ?? searchType;
         },
         convertData: function () {
-            // console.log('Now in convertData()');
             let data = {
                 'apply_rules': this.applyRules,
                 'fire_webhooks': this.fireWebhooks,
@@ -344,7 +343,6 @@ export default {
             // the presence of a source or destination account
             firstSource = this.transactions[0].source_account.type;
             firstDestination = this.transactions[0].destination_account.type;
-            // console.log('Type of first source is  ' + firstSource);
 
             if ('invalid' === transactionType && ['asset', 'Asset account', 'Loan', 'Debt', 'Mortgage'].includes(firstSource)) {
                 transactionType = 'withdrawal';
@@ -368,7 +366,6 @@ export default {
             return data;
         },
         convertDataRow(row, index, transactionType) {
-            // console.log('Now in convertDataRow()');
             let tagList = [];
             let foreignAmount = null;
             let foreignCurrency = null;
@@ -493,7 +490,6 @@ export default {
         },
         // submit transaction
         submit(e) {
-            // console.log('Now in submit()');
             const uri = './api/v1/transactions?_token=' + document.head.querySelector('meta[name="csrf-token"]').content;
             const data = this.convertData();
 
@@ -504,7 +500,6 @@ export default {
                 // console.log('Did a successful POST');
                 // this method will ultimately send the user on (or not).
                 if (0 === this.collectAttachmentData(response)) {
-                    // console.log('Will now go to redirectUser()');
                     this.redirectUser(response.data.data.id, response.data.data);
                 }
             }).catch(error => {
@@ -530,7 +525,6 @@ export default {
             return div.innerHTML;
         },
         redirectUser(groupId, transactionData) {
-            // console.log('In redirectUser()');
             // console.log(transactionData);
             let title = null === transactionData.attributes.group_title ? transactionData.attributes.transactions[0].description : transactionData.attributes.group_title;
             // console.log('Title is "' + title + '"');
@@ -547,7 +541,6 @@ export default {
                     this.resetTransactions();
                     // do a short time out?
                     setTimeout(() => this.addTransactionToArray(), 50);
-                    //this.addTransactionToArray();
                 }
 
                 // clear errors:
@@ -557,13 +550,11 @@ export default {
                 let button = $('#submitButton');
                 button.removeAttr('disabled');
             } else {
-                //console.log('Will redirect to previous URL. (' + previousUrl + ')');
                 globalThis.location.href = globalThis.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
             }
         },
 
         collectAttachmentData(response) {
-            // console.log('Now incollectAttachmentData()');
             let groupId = response.data.data.id;
 
             // reverse list of transactions?
@@ -594,7 +585,6 @@ export default {
                 }
             }
             let count = toBeUploaded.length;
-            // console.log('Found ' + toBeUploaded.length + ' attachments.');
 
             // loop all uploads.
             for (const key in toBeUploaded) {
@@ -638,31 +628,26 @@ export default {
                     };
                     axios.post(uri, data)
                         .then(response => {
-                            // console.log('Created attachment #' + key);
                             // console.log('Uploading attachment #' + key);
                             const uploadUri = './api/v1/attachments/' + response.data.data.id + '/upload';
                             axios.post(uploadUri, fileData[key].content)
                                 .then(attachmentResponse => {
-                                    // console.log('Uploaded attachment #' + key);
                                     uploads++;
                                     if (uploads === count) {
                                         // finally we can redirect the user onwards.
                                         // console.log('FINAL UPLOAD');
                                         this.redirectUser(groupId, transactionData);
                                     }
-                                    // console.log('Upload complete!');
                                     return true;
                                 }).catch(error => {
                                 console.error('Could not upload');
                                 console.error(error);
-                                // console.log('Uploaded attachment #' + key);
                                 uploads++;
                                 if (uploads === count) {
                                     // finally we can redirect the user onwards.
                                     // console.log('FINAL UPLOAD');
                                     this.redirectUser(groupId, transactionData);
                                 }
-                                // console.log('Upload complete!');
                                 return false;
                             });
                         }).catch(error => {
@@ -674,7 +659,6 @@ export default {
                             // console.log('FINAL UPLOAD');
                             this.redirectUser(groupId, transactionData);
                         }
-                        // console.log('Upload complete!');
                         return false;
                     });
                 }
@@ -686,7 +670,6 @@ export default {
         setDefaultErrors: function () {
             for (const key in this.transactions) {
                 if (this.transactions.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294) {
-                    // console.log('Set default errors for key ' + key);
                     //this.transactions[key].description
                     this.transactions[key].errors = {
                         source_account: [],
@@ -784,13 +767,11 @@ export default {
             }
         },
         resetTransactions: function () {
-            // console.log('Now in resetTransactions()');
             this.transactions = [];
             this.group_title = '';
 
         },
         addTransactionToArray: function (e) {
-            // console.log('Now in addTransactionToArray()');
             this.transactions.push({
                 description: "",
                 date: "",
@@ -871,7 +852,6 @@ export default {
                 let today = new Date();
                 this.transactions[0].date = today.getFullYear() + '-' + ("0" + (today.getMonth() + 1)).slice(-2) + '-' + ("0" + today.getDate()).slice(-2)
                 + 'T'+ ("0" + today.getHours()).slice(-2) +':' + ("0" + today.getMinutes()).slice(-2);
-                //console.log(this.transactions[0].date);
 
                 // call for extra clear thing:
                 // this.clearSource(0);
@@ -887,7 +867,6 @@ export default {
 
         deleteTransaction: function (index, event) {
             event.preventDefault();
-            // console.log('Remove transaction.');
             this.transactions.splice(index, 1);
         },
         limitSourceType: function (type) {
@@ -904,7 +883,6 @@ export default {
         },
 
         selectedSourceAccount: function (index, model) {
-            // console.log('Now in selectedSourceAccount()');
             if (typeof model === 'string') {
                 //console.log('model is string.')
                 // cant change types, only name.
@@ -932,11 +910,9 @@ export default {
                 // force types on destination selector.
                 this.transactions[index].destination_account.allowed_types = globalThis.allowedOpposingTypes.source[model.type];
             }
-            //console.log('Transactions:');
             //console.log(this.transactions);
         },
         selectedDestinationAccount: function (index, model) {
-            // console.log('Now in selectedDestinationAccount()');
             if (typeof model === 'string') {
                 // cant change types, only name.
                 this.transactions[index].destination_account.name = model;

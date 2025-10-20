@@ -82,7 +82,6 @@ class NetWorth implements NetWorthInterface
 
         /** @var Account $account */
         foreach ($accounts as $account) {
-            //            Log::debug(sprintf('Now at account #%d ("%s")', $account->id, $account->name));
             $currency                           = $this->accountRepository->getAccountCurrency($account) ?? $primary;
             $usePrimary                         = $convertToPrimary && $primary->id !== $currency->id;
             $currency                           = $usePrimary ? $primary : $currency;
@@ -98,7 +97,6 @@ class NetWorth implements NetWorthInterface
             $balance                            = '' !== (string) $account->virtual_balance ? bcsub($balance, (string) $account->virtual_balance) : $balance;
             $primaryBalance                     = '' !== (string) $account->native_virtual_balance ? bcsub($primaryBalance, (string) $account->native_virtual_balance) : $primaryBalance;
             $amountToUse                        = $usePrimary ? $primaryBalance : $balance;
-            //            Log::debug(sprintf('Will use %s %s', $currencyCode, $amountToUse));
 
             $netWorth[$currencyCode] ??= [
                 'balance'                 => '0',

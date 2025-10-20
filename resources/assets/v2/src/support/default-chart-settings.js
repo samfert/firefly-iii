@@ -50,7 +50,6 @@ function getDefaultChartSettings(type) {
                     tooltip: {
                         callbacks: {
                             label: function (tooltipItem) {
-                                // console.log(tooltipItem);
                                 let currency = tooltipItem.dataset.currency_code;
                                 return formatMoney(tooltipItem.raw, currency);
                             },
@@ -99,7 +98,6 @@ function getDefaultChartSettings(type) {
                     tooltip: {
                         callbacks: {
                             label: function (tooltipItem) {
-                                // console.log(tooltipItem);
                                 let currency = tooltipItem.dataset.currency_code;
                                 return formatMoney(tooltipItem.raw, currency);
                             },

@@ -20,7 +20,6 @@
 
 
 export function showInternalsButton() {
-    // console.log('showInternalsButton');
     let obj = document.querySelector('.toggle-page-internals');
     if (obj === null) {
         return;

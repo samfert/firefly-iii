@@ -276,12 +276,10 @@ export default {
             }
         },
         deleteRate: function (index) {
-            // console.log(this.rates[index].key);
             let parts = this.spliceKey(this.rates[index].key);
             if (0 === parts.length) {
                 return;
             }
-            // console.log(parts);
 
             // delete A to B
             axios.delete("./api/v1/exchange-rates/" + parts.from + '/' + parts.to + '/' + format(parts.date, 'yyyy-MM-dd'));
@@ -316,7 +314,6 @@ export default {
                 }
             });
             axios.get("./api/v1/currencies/" + this.to_code).then((response) => {
-                // console.log(response.data.data);
                 this.to = {
                     id: response.data.data.id,
                     code: response.data.data.attributes.code,
@@ -339,16 +336,13 @@ export default {
                         let rate_id = current.id;
                         let inverse_id = '0';
                         let key = from_code + '_' + to_code + '_' + format(date, 'yyyy-MM-dd');
-                        // console.log('Key is now "' + key + '"');
 
                         // perhaps the returned rate is actually the inverse rate.
                         if (from_code === this.to_code && to_code === this.from_code) {
-                            // console.log('Inverse rate found!');
                             key = to_code + '_' + from_code + '_' + format(date, 'yyyy-MM-dd');
                             rate = '';
                             inverse = current.attributes.rate;
                             inverse_id = current.id;
-                            // console.log('Key updated to "' + key + '"');
                         }
 
                         if (!this.tempRates.hasOwnProperty(key)) {
@@ -381,7 +375,6 @@ export default {
                 this.totalPages = Number.parseInt(response.data.meta.pagination.total_pages);
                 this.loading = false;
                 this.rates = Object.values(this.tempRates);
-                // console.log('Do not download more pages. Now on page ' + this.page + ' of ' + this.totalPages);
             });
         }
     },

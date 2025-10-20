@@ -70,7 +70,6 @@ export default () => ({
 
 
     buildDateRange() {
-        // console.log('Dates buildDateRange');
 
         // generate ranges
         let nextRange = this.getNextRange();
@@ -163,16 +162,13 @@ export default () => ({
 
     changeDateRange(e) {
         e.preventDefault();
-        // console.log('MainApp: changeDateRange');
         let target = e.currentTarget;
 
         let start = new Date(target.getAttribute('data-start'));
         let end = new Date(target.getAttribute('data-end'));
-        // console.log('MainApp: Change date range', start, end);
 
         globalThis.store.set('start', start);
         globalThis.store.set('end', end);
-        //this.buildDateRange();
         return false;
     },
 

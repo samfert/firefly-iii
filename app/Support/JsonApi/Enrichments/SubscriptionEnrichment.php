@@ -345,7 +345,6 @@ class SubscriptionEnrichment implements EnrichmentInterface
 
     private function getLastPaidDate(array $paidData): ?Carbon
     {
-        // Log::debug('getLastPaidDate()');
         $return = null;
         foreach ($paidData as $entry) {
             if (null !== $return) {

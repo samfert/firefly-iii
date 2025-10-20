@@ -34,7 +34,6 @@ export default class GenericEditor {
         this.options.index = this.element.dataset.index;
         this.options.model = this.element.dataset.model;
         this.options.field = this.element.dataset.field;
-        //this.options.field = this.element.dataset.type;
         console.log('GenericEditor[' + this.options.index + '].init()');
     }
 

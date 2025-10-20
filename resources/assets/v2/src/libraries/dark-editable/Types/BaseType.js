@@ -64,7 +64,6 @@ export default class BaseType {
         // append bottom and top div to form:
         this.form.append(topDiv, bottomDiv);
 
-        //this.form.append(element, this.load, this.buttons.success, this.buttons.cancel);
         //this.form.append(element, this.load, this.buttonGroup);
         div.append(this.error, this.form);
         return div;
@@ -88,7 +87,6 @@ export default class BaseType {
 
         const form = document.createElement(`form`);
         form.classList.add("row", "row-cols-lg-auto", "g-3", "align-items-center");
-        //form.style.gap = "20px";
         form.addEventListener('submit', async e => {
             e.preventDefault();
             const newValue = this.getValue();
@@ -182,7 +180,6 @@ export default class BaseType {
 
     ajax(new_value) {
         let url = this.context.url;
-        //const form = new FormData;
         let message;
         let submit = false;
 
@@ -204,9 +201,7 @@ export default class BaseType {
             console.error('Cannot deal with form type "'+this.context.formType+'"');
         }
 
-        // form.append("pk", this.context.pk);
 
-        // form.append("name", this.context.name);
         // form.append("value", new_value);
 
         const option = {

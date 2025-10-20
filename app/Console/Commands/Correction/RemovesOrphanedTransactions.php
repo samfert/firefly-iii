@@ -65,7 +65,6 @@ class RemovesOrphanedTransactions extends Command
         ;
         $count = $set->count();
         if (0 === $count) {
-            // $this->friendlyPositive('No orphaned journals.');
 
             return;
         }

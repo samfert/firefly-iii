@@ -44,15 +44,12 @@ export default class AmountEditor {
         this.input.autofocus = true;
         this.input.value = Number.parseFloat(params.value.amount).toFixed(params.value.decimal_places);
 
-        //this.input.onchange = function(e) { this.onChange(e, params);}
         //  params.onValueChange;
         //this.input.onblur = params.onValueChange;
 
-        // this.input.onblur = function () {
         //     params.stopEditing();
         // };
 
-        // this.eGui.innerHTML = `<input
         // type="number" min="0"
         // onChange="params.onValueChange"
         // step="any" style="overflow: hidden; text-overflow: ellipsis" value="${Number.parseFloat(params.value.amount).toFixed(params.value.decimal_places)}" />`;

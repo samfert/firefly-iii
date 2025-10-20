@@ -52,7 +52,6 @@ export default () => ({
         const boxesCacheKey = getCacheKey('ds_boxes_data', {convertToPrimary: this.convertToPrimary, start: start, end: end});
         cleanupCache();
 
-        //const cacheValid = globalThis.store.get('cacheValid');
         let cachedData = globalThis.store.get(boxesCacheKey);
         const cacheValid = false; // force refresh
 
@@ -86,7 +85,6 @@ export default () => ({
                     continue;
                 }
                 let key = current.key;
-                // console.log('NOT PRIMARY CURRENCY');
                 if (key.startsWith('balance-in-')) {
                     this.balanceBox.amounts.push(formatMoney(current.monetary_value, current.currency_code));
                     continue;
@@ -164,7 +162,6 @@ export default () => ({
         // console.log('boxes init');
         // TODO can be replaced by "getVariables"
         Promise.all([getVariable('viewRange'), getVariable('convert_to_primary', false)]).then((values) => {
-            // console.log('boxes after promises');
             afterPromises = true;
             this.convertToPrimary = values[1];
             this.loadBoxes();
@@ -173,7 +170,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('boxes observe end');
             this.boxData = null;
             this.loadBoxes();
         });
@@ -181,7 +177,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('boxes observe convertToPrimary');
             this.convertToPrimary = newValue;
             this.loadBoxes();
         });

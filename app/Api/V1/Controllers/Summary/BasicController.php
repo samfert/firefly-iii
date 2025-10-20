@@ -106,7 +106,6 @@ class BasicController extends Controller
         $billData     = $this->getSubscriptionInformation($start, $end);
         $spentData    = $this->getLeftToSpendInfo($start, $end);
         $netWorthData = $this->getNetWorthInfo($end);
-        //                        $balanceData  = [];
         //                        $billData     = [];
         //                $spentData    = [];
         //                        $netWorthData = [];
@@ -386,7 +385,6 @@ class BasicController extends Controller
             $unpaidAmount    = $newUnpaidAmount;
         }
 
-        //        var_dump($paidAmount);
         //        var_dump($unpaidAmount);
         //        exit;
 

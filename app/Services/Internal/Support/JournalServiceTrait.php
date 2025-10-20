@@ -288,7 +288,6 @@ trait JournalServiceTrait
             }
 
 
-            // $data['name'] = $data['name'] ?? '(no name)';
 
             $account   = $this->accountRepository->store(
                 [

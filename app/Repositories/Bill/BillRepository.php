@@ -307,7 +307,6 @@ class BillRepository implements BillRepositoryInterface, UserGroupInterface
      */
     public function getPaidDatesInRange(Bill $bill, Carbon $start, Carbon $end): Collection
     {
-        // app('log')->debug('Now in getPaidDatesInRange()');
 
         Log::debug(sprintf('Search for linked journals between %s and %s', $start->toW3cString(), $end->toW3cString()));
 
@@ -568,9 +567,7 @@ class BillRepository implements BillRepositoryInterface, UserGroupInterface
 
                 // get currency from transaction as well.
                 $return[(int) $transactionCurrency->id]['sum'] = bcadd($return[(int) $transactionCurrency->id]['sum'], Amount::getAmountFromJournalObject($transactionJournal));
-                // $setAmount = bcadd($setAmount, Amount::getAmountFromJournalObject($transactionJournal));
             }
-            // Log::debug(sprintf('Bill #%d ("%s") with %d transaction(s) and sum %s %s', $bill->id, $bill->name, $set->count(), $currency->code, $setAmount));
             // $return[$currency->id]['sum'] = bcadd($return[$currency->id]['sum'], $setAmount);
             // Log::debug(sprintf('Total sum is now %s', $return[$currency->id]['sum']));
         }
@@ -605,16 +602,13 @@ class BillRepository implements BillRepositoryInterface, UserGroupInterface
 
         /** @var Bill $bill */
         foreach ($bills as $bill) {
-            //            app('log')->debug(sprintf('Processing bill #%d ("%s")', $bill->id, $bill->name));
             $dates    = $this->getPayDatesInRange($bill, $start, $end);
             $count    = $bill->transactionJournals()->after($start)->before($end)->count();
             $total    = $dates->count() - $count;
-            // app('log')->debug(sprintf('Pay dates: %d, count: %d, left: %d', $dates->count(), $count, $total));
             // app('log')->debug('dates', $dates->toArray());
 
             $minField = $convertToPrimary && $bill->transactionCurrency->id !== $primary->id ? 'native_amount_min' : 'amount_min';
             $maxField = $convertToPrimary && $bill->transactionCurrency->id !== $primary->id ? 'native_amount_max' : 'amount_max';
-            // Log::debug(sprintf('min field is %s, max field is %s', $minField, $maxField));
 
             if ($total > 0) {
                 $currency                     = $convertToPrimary && $bill->transactionCurrency->id !== $primary->id ? $primary : $bill->transactionCurrency;
@@ -642,21 +636,17 @@ class BillRepository implements BillRepositoryInterface, UserGroupInterface
     {
         $set          = new Collection();
         $currentStart = clone $start;
-        // app('log')->debug(sprintf('Now at bill "%s" (%s)', $bill->name, $bill->repeat_freq));
         // app('log')->debug(sprintf('First currentstart is %s', $currentStart->format('Y-m-d')));
 
         while ($currentStart <= $end) {
-            // app('log')->debug(sprintf('Currentstart is now %s.', $currentStart->format('Y-m-d')));
             $nextExpectedMatch = $this->nextDateMatch($bill, $currentStart);
             // app('log')->debug(sprintf('Next Date match after %s is %s', $currentStart->format('Y-m-d'), $nextExpectedMatch->format('Y-m-d')));
             if ($nextExpectedMatch > $end) {// If nextExpectedMatch is after end, we continue
                 break;
             }
             $set->push(clone $nextExpectedMatch);
-            // app('log')->debug(sprintf('Now %d dates in set.', $set->count()));
             $nextExpectedMatch->addDay();
 
-            // app('log')->debug(sprintf('Currentstart (%s) has become %s.', $currentStart->format('Y-m-d'), $nextExpectedMatch->format('Y-m-d')));
 
             $currentStart      = clone $nextExpectedMatch;
         }

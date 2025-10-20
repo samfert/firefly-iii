@@ -115,7 +115,6 @@ class CreateController extends Controller
             }
             $oldTriggers   = $this->parseFromOperators($operators);
         }
-        // var_dump($oldTriggers);exit;
 
         // restore actions and triggers from old input:
         if (is_array($request->old()) && count($request->old()) > 0) {

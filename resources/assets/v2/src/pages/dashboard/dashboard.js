@@ -99,7 +99,6 @@ const comps = {
 
 showInternalsButton();
 
-//let i18n;
 
 function loadPage(comps) {
     Object.keys(comps).forEach(comp => {

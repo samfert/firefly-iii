@@ -484,7 +484,6 @@ let transactions = function () {
                     }
                 });
                 const count = this.entries.length - 1;
-                // if(document.querySelector('#location_map_' + count)) { }
                 addLocation(count);
 
                 // addedSplit, is called from the HTML

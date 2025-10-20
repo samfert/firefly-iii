@@ -54,7 +54,6 @@ export function loadPiggyBanks() {
                 piggyBanks[objectGroupId].piggyBanks.sort((a, b) => a.order - b.order);
             }
         }
-        //tempObject.sort((a,b) => a.order - b.order);
         return Object.keys(piggyBanks).sort().reduce((obj, key) => {
             obj[key] = piggyBanks[key];
             return obj;

@@ -110,7 +110,6 @@ export default () => ({
             }
         }
         this.piggies = Object.values(dataSet);
-        // console.log(this.piggies);
     },
 
     loadPiggyBanks() {
@@ -127,7 +126,6 @@ export default () => ({
         this.getFreshData();
     },
     init() {
-        // console.log('piggies init');
         apiData = [];
         Promise.all([getVariable('convert_to_primary', false)]).then((values) => {
 
@@ -140,7 +138,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('piggies observe end');
             apiData = [];
             this.loadPiggyBanks();
         });
@@ -148,7 +145,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('piggies observe convertToPrimary');
             this.convertToPrimary = newValue;
             this.loadPiggyBanks();
         });

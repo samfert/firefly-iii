@@ -55,7 +55,6 @@ export default {
     },
     watch: {
         reconciled: function () {
-            // console.log('reconciled is ' + this.reconciled);
             this.$emit('input', this.reconciled);
         },
     },

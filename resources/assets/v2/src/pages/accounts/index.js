@@ -315,7 +315,6 @@ let index = function () {
             // need to find the input thing
             console.log('Clicked edit button for account on index #' + index + ' and field ' + fieldName);
             const querySelector = 'input[data-field="' + fieldName + '"][data-index="' + index + '"]';
-            // console.log(querySelector);
             const newValue = document.querySelectorAll(querySelector)[0].value ?? '';
             if ('' === newValue) {
                 return;
@@ -348,7 +347,6 @@ let index = function () {
             if('asc' === this.pageOptions.sortDirection && '' !== sorting) {
                 sorting = '-' + sorting;
             }
-            //const sorting = [{column: this.pageOptions.sortingColumn, direction: this.pageOptions.sortDirection}];
 
             // filter instructions
             let filters = {};
@@ -357,7 +355,6 @@ let index = function () {
             for (let k in this.filters) {
                 if (this.filters.hasOwnProperty(k) && null !== this.filters[k]) {
                     filters[k] = this.filters[k];
-                    //filters.push({column: k, filter: this.filters[k]});
                 }
             }
             delete filters.type;
@@ -427,7 +424,6 @@ let index = function () {
                         }
                         groupedAccounts[groupId].accounts.push(account);
 
-                        //this.accounts.push(account);
                     }
                 }
                 // order grouped accounts by order.

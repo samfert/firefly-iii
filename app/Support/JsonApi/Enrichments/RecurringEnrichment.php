@@ -343,7 +343,6 @@ class RecurringEnrichment implements EnrichmentInterface
             $transaction['primary_currency_symbol']         = $this->primaryCurrency->symbol;
             $transaction['primary_currency_decimal_places'] = $this->primaryCurrency->decimal_places;
 
-            // $transaction['foreign_currency_id'] = null;
             $transaction['foreign_currency_name']           = null;
             $transaction['foreign_currency_code']           = null;
             $transaction['foreign_currency_symbol']         = null;

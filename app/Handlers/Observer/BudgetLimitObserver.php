@@ -59,7 +59,6 @@ class BudgetLimitObserver
     private function updatePrimaryCurrencyAmount(BudgetLimit $budgetLimit): void
     {
         if (!Amount::convertToPrimary($budgetLimit->budget->user)) {
-            // Log::debug('Do not update primary currency amount of the budget limit.');
 
             return;
         }

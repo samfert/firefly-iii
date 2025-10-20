@@ -31,7 +31,6 @@ use Illuminate\Support\Facades\Log;
 use NotificationChannels\Pushover\PushoverChannel;
 use NotificationChannels\Pushover\PushoverMessage;
 
-// use Illuminate\Notifications\Slack\SlackMessage;
 
 /**
  * Class TestNotification

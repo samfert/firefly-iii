@@ -25,7 +25,6 @@ import {Chart} from "chart.js";
 import formatMoney from "../../util/format-money.js";
 import i18next from "i18next";
 
-// let chart = null;
 // let chartData = null;
 let afterPromises = false;
 let apiData = [];
@@ -82,7 +81,6 @@ function parseBillInfo(data) {
         times: data.attributes.pay_dates.length,
         amount: result.expected_amount
     });
-    // console.log(result);
     return result;
 }
 
@@ -95,7 +93,6 @@ function parsePaidTransactions(paid_dates, bill) {
     for (let i in paid_dates) {
         if (paid_dates.hasOwnProperty(i)) {
             const currentPayment = paid_dates[i];
-            // console.log(currentPayment);
             // math: -100+(paid/expected)*100
             let percentage = Math.round(-100 + ((Number.parseFloat(currentPayment.amount) ) / Number.parseFloat(bill.amount)) * 100);
             let currentTransaction = {
@@ -121,7 +118,6 @@ function isInRange(bill) {
     for(let i in bill.pay_dates) {
         if (bill.pay_dates.hasOwnProperty(i)) {
             let currentDate = bill.pay_dates[i];
-            //console.log(currentDate);
             if (currentDate >= start && currentDate <= end) {
                 return true;
             }
@@ -136,7 +132,6 @@ function downloadSubscriptions(params) {
         // first promise: parse the data:
         .then((response) => {
             let data = response.data.data;
-            //console.log(data);
             for (let i in data) {
                 if (data.hasOwnProperty(i)) {
                     let current = data[i];
@@ -259,7 +254,6 @@ export default () => ({
 
                     // then add to array
                     this.subscriptions.push(group);
-                    //console.log(group);
                 }
             }
             console.log('Subscriptions: ', this.subscriptions);
@@ -270,7 +264,6 @@ export default () => ({
     },
     drawPieChart(groupId, groupTitle, data) {
         let id = '#pie_' + groupId + '_' + data.currency_code;
-        //console.log(data);
         const unpaidAmount =  data.unpaid;
         const paidAmount =  data.paid;
         const currencyCode =  data.currency_code;

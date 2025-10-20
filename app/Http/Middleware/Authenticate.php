@@ -129,7 +129,6 @@ class Authenticate
             app('log')->warning('User is null, throw exception?');
         }
         if ($user instanceof User) {
-            // app('log')->debug(get_class($user));
             if (1 === (int) $user->blocked) {
                 $message = (string) trans('firefly.block_account_logout');
                 if ('email_changed' === $user->blocked_code) {

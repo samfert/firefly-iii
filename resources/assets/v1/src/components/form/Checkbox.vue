@@ -59,7 +59,6 @@ export default {
   },
   methods: {
     handleInput() {
-      // console.log(this.active);
       this.$emit('input', this.active);
     },
   },

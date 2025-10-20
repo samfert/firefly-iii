@@ -104,7 +104,6 @@ class General extends AbstractExtension
                 }
 
                 return implode(', ', $strings);
-                // return app('steam')->balance($account, $date);
             }
         );
     }

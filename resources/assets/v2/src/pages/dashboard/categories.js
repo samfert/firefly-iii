@@ -103,7 +103,6 @@ export default () => ({
         // loop the series and create ChartJS-compatible data sets.
         let count = 0;
         for (const i in series) {
-            // console.log('series');
             let yAxisID = 'y' + i;
             let dataset = {
                 label: i,
@@ -181,7 +180,6 @@ export default () => ({
         this.getFreshData();
     },
     init() {
-        // console.log('categories init');
         Promise.all([getVariable('convert_to_primary', false),]).then((values) => {
             this.convertToPrimary = values[0];
             afterPromises = true;

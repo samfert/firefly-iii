@@ -63,7 +63,6 @@ class Steam
             $number = sprintf('%.12f', $number);
         }
 
-        // Log::debug(sprintf('Trying bcround("%s",%d)', $number, $precision));
         if (str_contains($number, '.')) {
             if ('-' !== $number[0]) {
                 return bcadd($number, '0.'.str_repeat('0', $precision).'5', $precision);
@@ -367,12 +366,10 @@ class Steam
             $return['balance']    = $sumsByCode[$currency->code] ?? '0';
             if (!$convertToPrimary) {
                 unset($return['pc_balance']);
-                // Log::debug(sprintf('Set balance to %s, unset pc_balance', $return['balance']));
             }
             // if there is a request to convert, convert to "pc_balance" and use "balance" for whichever amount is in the primary currency.
             if ($convertToPrimary) {
                 $return['pc_balance'] = $this->convertAllBalances($sumsByCode, $primary, $date);
-                // Log::debug(sprintf('Set pc_balance to %s', $return['pc_balance']));
             }
 
             // either way, the balance is always combined with the virtual balance:
@@ -383,16 +380,13 @@ class Steam
                 $converter            = new ExchangeRateConverter();
                 $pcVirtualBalance     = $converter->convert($currency, $primary, $date, $virtualBalance);
                 $return['pc_balance'] = bcadd($pcVirtualBalance, $return['pc_balance']);
-                // Log::debug(sprintf('Primary virtual balance makes the primary total %s', $return['pc_balance']));
             }
             if (!$convertToPrimary) {
                 // if not, also increase the balance + primary balance for consistency.
                 $return['balance'] = bcadd($return['balance'], $virtualBalance);
-                // Log::debug(sprintf('Virtual balance makes the (primary currency) total %s', $return['balance']));
             }
             $final                = array_merge($return, $sumsByCode);
             $result[$account->id] = $final;
-            // Log::debug('Final balance is', $final);
         }
 
         return $result;
@@ -420,9 +414,7 @@ class Steam
         if ($cache->has()) {
             Log::debug(sprintf('CACHED finalAccountBalance(#%d, %s)', $account->id, $date->format('Y-m-d H:i:s')));
 
-            // return $cache->get();
         }
-        // Log::debug(sprintf('finalAccountBalance(#%d, %s)', $account->id, $date->format('Y-m-d H:i:s')));
         if (null === $convertToPrimary) {
             $convertToPrimary = Amount::convertToPrimary($account->user);
         }
@@ -457,7 +449,6 @@ class Steam
         $return['balance'] = $others[$currency->code] ?? '0';
         if (!$convertToPrimary) {
             unset($return['pc_balance']);
-            // Log::debug(sprintf('Set balance to %s, unset pc_balance', $return['balance']));
         }
         // if there is a request to convert, convert to "pc_balance" and use "balance" for whichever amount is in the primary currency.
         if ($convertToPrimary) {
@@ -473,15 +464,12 @@ class Steam
             $converter            = new ExchangeRateConverter();
             $pcVirtualBalance     = $converter->convert($currency, $primary, $date, $virtualBalance);
             $return['pc_balance'] = bcadd($pcVirtualBalance, $return['pc_balance']);
-            // Log::debug(sprintf('Primary virtual balance makes the primary total %s', $return['pc_balance']));
         }
         if (!$convertToPrimary) {
             // if not, also increase the balance + primary balance for consistency.
             $return['balance'] = bcadd($return['balance'], $virtualBalance);
-            // Log::debug(sprintf('Virtual balance makes the (primary currency) total %s', $return['balance']));
         }
         $final             = array_merge($return, $others);
-        // Log::debug('Final balance is', $final);
         $cache->store($final);
 
         return $final;
@@ -639,7 +627,6 @@ class Steam
      */
     public function getSafePreviousUrl(): string
     {
-        // Log::debug(sprintf('getSafePreviousUrl: "%s"', session()->previousUrl()));
         return session()->previousUrl() ?? route('index');
     }
 
@@ -648,7 +635,6 @@ class Steam
      */
     public function getSafeUrl(string $unknownUrl, string $safeUrl): string
     {
-        // Log::debug(sprintf('getSafeUrl(%s, %s)', $unknownUrl, $safeUrl));
         $returnUrl      = $safeUrl;
         $unknownHost    = parse_url($unknownUrl, PHP_URL_HOST);
         $safeHost       = parse_url($safeUrl, PHP_URL_HOST);

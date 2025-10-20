@@ -287,11 +287,9 @@ export default {
         groupId: Number
     },
     mounted() {
-        // console.log('EditTransaction: mounted()');
         this.getGroup();
     },
     ready() {
-        // console.log('EditTransaction: ready()');
     },
     methods: {
         positiveAmount(amount) {
@@ -337,7 +335,6 @@ export default {
                 this.transactions[index].destination_account.name = model;
                 return;
             }
-            // console.log('selectedDestinationAccount');
             this.transactions[index].destination_account = {
                 id: model.id,
                 name: model.name,
@@ -354,7 +351,6 @@ export default {
                 this.transactions[index].destination_account.currency_code = model.account_currency_code;
                 this.transactions[index].destination_account.currency_decimal_places = model.account_currency_decimal_places;
             }
-            // console.log('Selected destination account currency ID  = ' + this.transactions[index].destination_account.currency_id);
         },
         clearSource(index) {
             // reset source account:
@@ -407,17 +403,14 @@ export default {
                 this.selectedSourceAccount(index, this.transactions[index].source_account);
             }
 
-            // console.log('Destination allowed types after:');
             // console.log(this.transactions[index].destination_account.allowed_types);
         },
         getGroup() {
-            // console.log('EditTransaction: getGroup()');
             const page = globalThis.location.href.split('/');
             const groupId = Number.parseInt(page[page.length - 1]);
 
 
             const uri = './api/v1/transactions/' + groupId;
-            // console.log(uri);
 
             // fill in transactions array.
             axios.get(uri)
@@ -430,7 +423,6 @@ export default {
                 });
         },
         processIncomingGroup(data) {
-            // console.log('EditTransaction: processIncomingGroup()');
             this.group_title = data.attributes.group_title;
             let transactions = data.attributes.transactions.reverse();
             for (let key in transactions) {
@@ -448,7 +440,6 @@ export default {
             return null;
         },
         processIncomingGroupRow(transaction) {
-            //console.log('EditTransaction: processIncomingGroupRow()');
             this.setTransactionType(transaction.type);
 
             if (true === transaction.reconciled) {
@@ -461,7 +452,6 @@ export default {
                     newTags.push({text: transaction.tags[key], tiClasses: []});
                 }
             }
-            // console.log('source allowed types for a ' + transaction.type);
             //console.log(globalThis.expectedSourceTypes.source[transaction.type]);
             // console.log(globalThis.expectedSourceTypes.source[this.ucFirst(transaction.type)]);
             // console.log('destination allowed types for a ' + transaction.type);
@@ -542,7 +532,6 @@ export default {
                     allowed_types: globalThis.expectedSourceTypes.destination[this.ucFirst(transaction.type)]
                 }
             };
-            // console.log('Source currency id is      ' + result.source_account.currency_id);
             // console.log('Destination currency id is ' + result.destination_account.currency_id);
 
             // if transaction type is transfer, the destination currency_id etc. MUST match the actual account currency info.
@@ -555,13 +544,11 @@ export default {
                 result.destination_account.currency_name = transaction.foreign_currency_name;
                 result.destination_account.currency_code = transaction.foreign_currency_code;
                 result.destination_account.currency_decimal_places = transaction.foreign_currency_decimal_places;
-                // console.log('Set destination currency_id to ' + result.destination_account.currency_id);
             }
             // if the transaction type is a deposit, but the source account is a liability, the source
             // account currency must not be overruled.
 
             if('deposit' === transaction.type && ['Loan', 'Debt', 'Mortgage'].includes(transaction.source_type)) {
-                // console.log('Overrule for deposit from liability to ' + transaction.foreign_currency_id);
                 result.destination_account.currency_id = transaction.foreign_currency_id;
                 result.destination_account.currency_name = transaction.foreign_currency_name;
                 result.destination_account.currency_code = transaction.foreign_currency_code;
@@ -575,19 +562,16 @@ export default {
             this.transactions.push(result);
         },
         limitSourceType: function (type) {
-            // let i;
             // for (i = 0; i < this.transactions.length; i++) {
             //     this.transactions[i].source_account.allowed_types = [type];
             // }
         },
         limitDestinationType: function (type) {
-            // let i;
             // for (i = 0; i < this.transactions.length; i++) {
             //     this.transactions[i].destination_account.allowed_types = [type];
             // }
         },
         convertData: function () {
-            // console.log('start of convertData');
             let data = {
                 'apply_rules': this.applyRules,
                 'fire_webhooks': this.fireWebhooks,
@@ -610,12 +594,10 @@ export default {
             firstDestination = this.transactions[0].destination_account.type;
 
             if ('invalid' === transactionType && ['Asset account', 'Loan', 'Debt', 'Mortgage'].includes(firstSource)) {
-                //console.log('Assumed this is a withdrawal.');
                 transactionType = 'withdrawal';
             }
 
             if ('invalid' === transactionType && ['Asset account', 'Loan', 'Debt', 'Mortgage'].includes(firstDestination)) {
-                //console.log('Assumed this is a deposit.');
                 transactionType = 'deposit';
             }
 
@@ -627,17 +609,14 @@ export default {
             }
             // if transaction type is deposit BUT the source account is a liability, the currency ID must be the SOURCE account ID.
             if ('deposit' === transactionType && ['Loan', 'Debt', 'Mortgage'].includes(firstSource)) {
-                // console.log('Overruled currency ID to ' + this.transactions[0].source_account.currency_id);
                 currencyId = this.transactions[0].source_account.currency_id;
             }
-            // console.log('Final currency ID = ' + currencyId);
 
             for (let key in this.transactions) {
                 if (this.transactions.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294) {
                     data.transactions.push(this.convertDataRow(this.transactions[key], key, transactionType, currencyId));
                 }
             }
-            //console.log(data);
             // console.log('end of convertData');
             return data;
         },
@@ -667,7 +646,6 @@ export default {
             // }
 
             row.currency_id = currencyId;
-            // console.log('Final currency ID = ' + currencyId);
 
             date = row.date;
             if (index > 0) {
@@ -710,7 +688,6 @@ export default {
                 foreignCurrency = row.foreign_amount.currency_id;
             }
             if (foreignCurrency === row.currency_id) {
-                // console.log('reset foreign currencyto NULL because ' + foreignCurrency + ' = ' + row.currency_id);
                 foreignAmount = null;
                 foreignCurrency = null;
             }
@@ -729,7 +706,6 @@ export default {
                 row.amount = String(row.amount).replace(',', '.');
             }
 
-            // console.log('Reconciled is ' + row.reconciled);
 
             currentArray =
                 {
@@ -802,7 +778,6 @@ export default {
             return currentArray;
         },
         submit: function (e) {
-            // console.log('Submit!');
             let button = $('#submitButton');
             button.prop("disabled", true);
 
@@ -817,13 +792,11 @@ export default {
                 method = 'POST';
             }
             const data = this.convertData();
-            // console.log('POST!');
             axios({
                 method: method,
                 url: uri,
                 data: data,
             }).then(response => {
-                // console.log('Response!');
                 if (0 === this.collectAttachmentData(response)) {
                     const title = response.data.data.attributes.group_title ?? response.data.data.attributes.transactions[0].description;
                     this.redirectUser(response.data.data.id, title);
@@ -840,11 +813,9 @@ export default {
             if (e) {
                 e.preventDefault();
             }
-            // console.log('DONE with method.');
         },
 
         redirectUser(groupId, title) {
-            // console.log('Now in redirectUser');
             if (this.returnAfter) {
                 this.setDefaultErrors();
                 // do message if update or new:
@@ -868,11 +839,9 @@ export default {
                     globalThis.location.href = globalThis.previousUrl + '?transaction_group_id=' + groupId + '&message=updated';
                 }
             }
-            // console.log('End of redirectUser');
         },
 
         collectAttachmentData(response) {
-            // console.log('Now incollectAttachmentData()');
             let groupId = response.data.data.id;
 
             // array of all files to be uploaded:
@@ -904,7 +873,6 @@ export default {
                 }
             }
             let count = toBeUploaded.length;
-            // console.log('Found ' + toBeUploaded.length + ' attachments.');
 
             // loop all uploads.
             for (const key in toBeUploaded) {
@@ -930,7 +898,6 @@ export default {
                     })(toBeUploaded[key], key, this);
                 }
             }
-            // console.log('Done with collectAttachmentData()');
             return count;
         },
 
@@ -949,19 +916,16 @@ export default {
                     };
                     axios.post(uri, data)
                         .then(response => {
-                            // console.log('Created attachment #' + key);
                             // console.log('Uploading attachment #' + key);
                             const uploadUri = './api/v1/attachments/' + response.data.data.id + '/upload';
                             axios.post(uploadUri, fileData[key].content)
                                 .then(secondResponse => {
-                                    // console.log('Uploaded attachment #' + key);
                                     uploads++;
                                     if (uploads === count) {
                                         // finally we can redirect the user onwards.
                                         // console.log('FINAL UPLOAD');
                                         this.redirectUser(groupId, null);
                                     }
-                                    // console.log('Upload complete!');
                                     return true;
                                 }).catch(error => {
                                 console.error('Could not upload file.');
@@ -971,7 +935,6 @@ export default {
                                 if (uploads === count) {
                                     this.redirectUser(groupId, null);
                                 }
-                                // console.error(error);
                                 return false;
                             });
                         }).catch(error => {
@@ -983,7 +946,6 @@ export default {
                             // console.log('FINAL UPLOAD');
                             this.redirectUser(groupId, null);
                         }
-                        // console.log('Upload complete!');
                         return false;
                     });
                 }
@@ -1090,12 +1052,10 @@ export default {
             // console.log('Transactions length = ' + count);
             // also set accounts from previous entry, if present.
             if (this.transactions.length > 1) {
-                // console.log('Adding split.');
                 this.transactions[count - 1].source_account = this.transactions[count - 2].source_account;
                 this.transactions[count - 1].destination_account = this.transactions[count - 2].destination_account;
                 this.transactions[count - 1].date = this.transactions[count - 2].date;
             }
-            // console.log('Transactions length now = ' + this.transactions.length);
 
             if (e) {
                 e.preventDefault();
@@ -1133,7 +1093,6 @@ export default {
                                 this.transactions[transactionIndex].errors[fieldName] = errors.errors[key];
                                 break;
                             case 'external_url':
-                                //console.log('Found ext error in field "' + fieldName + '": ' + errors.errors[key]);
                                 this.transactions[transactionIndex].errors.custom_errors[fieldName] = errors.errors[key];
                                 break;
                             case 'source_name':

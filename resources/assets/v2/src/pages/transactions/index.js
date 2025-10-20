@@ -145,9 +145,7 @@ let index = function () {
 
                             // set firstSplit = false for next run if applicable.
                             firstSplit = false;
-                            //console.log(transaction);
                             this.transactions.push(transaction);
-                            //this.gridOptions.rowData.push(transaction);
                         }
                     }
                 }
@@ -155,7 +153,6 @@ let index = function () {
             // only now, disable wait thing.
             this.notifications.wait.show = false;
             console.log('refresh!');
-            //this.table.refreshCells();
 
         },
     }

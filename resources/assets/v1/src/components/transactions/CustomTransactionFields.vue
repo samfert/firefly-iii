@@ -119,7 +119,6 @@ export default {
     },
     getPreference() {
 
-      // Vue.component('custom-date', (resolve) => {
       //      console.log('loaded');
       //  });
 

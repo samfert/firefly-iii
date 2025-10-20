@@ -38,7 +38,6 @@ export function getConfiguration(name, defaultValue = null) {
     }
     let getter = (new Get);
     return getter.getByName(name).then((response) => {
-        // console.log('Get "' + name + '" from API');
         console.log('Return configuration "' + name + '" from API: ' + parseConfigurationResponse(name, response));
         return Promise.resolve(parseConfigurationResponse(name, response));
     }).catch((error) => {

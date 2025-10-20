@@ -332,7 +332,6 @@ trait ModifiesPiggyBanks
     public function setOrder(PiggyBank $piggyBank, int $newOrder): bool
     {
         $oldOrder         = $piggyBank->order;
-        // Log::debug(sprintf('Will move piggy bank #%d ("%s") from %d to %d', $piggyBank->id, $piggyBank->name, $oldOrder, $newOrder));
         if ($newOrder > $oldOrder) {
             PiggyBank::leftJoin('account_piggy_bank', 'account_piggy_bank.piggy_bank_id', '=', 'piggy_banks.id')
                 ->leftJoin('accounts', 'accounts.id', '=', 'account_piggy_bank.account_id')

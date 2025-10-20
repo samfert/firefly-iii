@@ -195,14 +195,12 @@ export default () => ({
             return;
         }
 
-        // console.log('loadAccounts continue!');
         const max = 10;
         let totalAccounts = 0;
         let count = 0;
         let accounts = [];
         Promise.all([getVariable('frontpageAccounts'),]).then((values) => {
             totalAccounts = values[0].length;
-            //console.log(values[0]);
             for (let i in values[0]) {
                 let account = values[0];
                 if (account.hasOwnProperty(i)) {
@@ -239,7 +237,6 @@ export default () => ({
                                 };
                                 for (let iii = 0; iii < current.attributes.transactions.length; iii++) {
                                     let currentTransaction = current.attributes.transactions[iii];
-                                    //console.log(currentTransaction);
                                     let amountRaw = 'withdrawal' === currentTransaction.type ? Number.parseFloat(currentTransaction.amount) * -1 : Number.parseFloat(currentTransaction.amount);
 
                                     // if transfer and source is this account, multiply again
@@ -257,7 +254,6 @@ export default () => ({
                                 }
                                 groups.push(group);
                             }
-                            // console.log(parent);
                             accounts.push({
                                 name: parent.attributes.name,
                                 order: parent.attributes.order,
@@ -265,7 +261,6 @@ export default () => ({
                                 balances: parent.attributes.balances,
                                 groups: groups,
                             });
-                            // console.log(parent.attributes);
                             count++;
                             if (count === totalAccounts) {
                                 accounts.sort((a, b) => a.order - b.order); // b - a for reverse sort
@@ -278,22 +273,18 @@ export default () => ({
                     });
                 }
             }
-            //this.loadingAccounts = false;
         });
     },
 
     init() {
-        // console.log('accounts init');
         Promise.all([
             getVariable('viewRange', '1M'), // 0
             getVariable('convert_to_primary', false), // 1
             getVariable('language', 'en_US'), // 2
             getConfiguration('cer.enabled', false) // 3
         ]).then((values) => {
-            //console.log('accounts after promises');
             this.convertToPrimary = values[1] && values[3];
             afterPromises = true;
-            //console.log('convertToPrimary in accounts.js: ', values);
 
             // main dashboard chart:
             this.loadChart();
@@ -303,7 +294,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('accounts observe end');
             chartData = null;
             this.accountList = [];
             // main dashboard chart:
@@ -314,7 +304,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('accounts observe convertToPrimary');
             this.loadChart();
             this.loadAccounts();
         });

@@ -98,7 +98,6 @@ export default {
               // add to empty one:
               tempList[0].piggies.push({name_with_balance: currentPiggy.name_with_balance, id: currentPiggy.id});
             }
-            //console.log(currentPiggy);
             this.piggies.push(res.data[key]);
           }
         }
@@ -110,7 +109,6 @@ export default {
         // final list:
 
         this.piggies = ordered;
-        // console.log(ordered);
       });
     }
   }

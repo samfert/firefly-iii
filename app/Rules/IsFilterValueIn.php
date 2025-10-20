@@ -50,6 +50,5 @@ class IsFilterValueIn implements ValidationRule
         if (!in_array($value, $this->values, true)) {
             $fail('validation.filter_must_be_in')->translate(['filter' => $this->key, 'values' => implode(', ', $this->values)]);
         }
-        // $fail('validation.filter_not_string')->translate(['filter' => $this->key]);
     }
 }

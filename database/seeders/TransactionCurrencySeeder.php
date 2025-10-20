@@ -68,7 +68,6 @@ class TransactionCurrencySeeder extends Seeder
         $currencies[] = ['code' => 'JPY', 'name' => 'Japanese yen', 'symbol' => '¥', 'decimal_places' => 0];
         $currencies[] = ['code' => 'CNY', 'name' => 'Chinese yuan', 'symbol' => '¥', 'decimal_places' => 2];
         $currencies[] = ['code' => 'KRW', 'name' => 'South Korean won','symbol' => '₩', 'decimal_places' => 2,];
-        //        $currencies[] = ['code' => 'RMB', 'name' => 'Chinese yuan', 'symbol' => '¥', 'decimal_places' => 2];
         $currencies[] = ['code' => 'RUB', 'name' => 'Russian ruble', 'symbol' => '₽', 'decimal_places' => 2];
         $currencies[] = ['code' => 'INR', 'name' => 'Indian rupee', 'symbol' => '₹', 'decimal_places' => 2];
 

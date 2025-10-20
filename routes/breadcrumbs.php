@@ -1349,7 +1349,6 @@ Breadcrumbs::for(
     }
 );
 
-// Breadcrumbs::for(
 //    'administrations.show',
 //    static function (Generator $breadcrumbs, UserGroup $userGroup): void {
 //        $breadcrumbs->parent('administrations.index');
@@ -1357,7 +1356,6 @@ Breadcrumbs::for(
 //    }
 // );
 
-// Breadcrumbs::for(
 //    'administrations.create',
 //    static function (Generator $breadcrumbs): void {
 //        $breadcrumbs->parent('administrations.index');

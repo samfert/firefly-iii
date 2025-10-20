@@ -28,12 +28,10 @@ class PiggyBankEventEnrichment implements EnrichmentInterface
     private array      $piggyBankIds      = [];
     private array      $accountCurrencies = [];
     private array      $currencies        = [];
-    // private bool       $convertToPrimary  = false;
     // private TransactionCurrency $primaryCurrency;
 
     public function __construct()
     {
-        // $this->convertToPrimary = Amount::convertToPrimary();
         // $this->primaryCurrency  = Amount::getPrimaryCurrency();
     }
 

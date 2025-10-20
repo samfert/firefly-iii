@@ -290,7 +290,6 @@ export default {
       }
       let journalId = Number.parseInt(prompt('Enter a transaction ID'));
       if (journalId !== null && journalId > 0 && journalId <= 16777216) {
-        // console.log('OK 1');
         this.disabledTrigger = true;
         // disable button. Add informative message.
         //let button = $('#triggerButton');
@@ -299,7 +298,6 @@ export default {
         this.success_message = this.$t('firefly.webhook_was_triggered');
         // TODO actually trigger the webhook.
         axios.post('./api/v1/webhooks/' + this.id + '/trigger-transaction/' + journalId, {});
-        //button.prop('disabled', false).removeClass('disabled');
         // console.log('OK 2');
 
         // set a time-outs.
@@ -308,7 +306,6 @@ export default {
           this.getWebhook();
           this.disabledTrigger = false;
         }, 2000);
-        // console.log('OK 3');
       }
 
 
@@ -363,7 +360,6 @@ export default {
     },
     downloadWebhook: function () {
       axios.get('./api/v1/webhooks/' + this.id).then(response => {
-        // console.log(response.data.data.attributes);
         this.edit_url = './webhooks/edit/' + this.id;
         this.delete_url = './webhooks/delete/' + this.id;
         this.title = response.data.data.attributes.title;

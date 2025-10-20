@@ -195,7 +195,6 @@ class UpdateRequest extends FormRequest
     {
         $validator->after(
             function (Validator $validator): void {
-                // $this->validateOneRecurrenceTransaction($validator);
                 // $this->validateOneRepetitionUpdate($validator);
 
                 /** @var Recurrence $recurrence */

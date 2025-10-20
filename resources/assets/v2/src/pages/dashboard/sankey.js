@@ -365,11 +365,9 @@ export default () => ({
         const end      = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey(SANKEY_CACHE_KEY, {convertToPrimary: this.convertToPrimary, start: start, end: end});
 
-        //console.log('Downloading page ' + params.page + '...');
         const getter = new Get();
         getter.list(params).then((response) => {
             transactions = [...transactions, ...response.data.data];
-            //this.drawChart(this.generateOptions(response.data));
             //this.loading = false;
             if (Number.parseInt(response.data.meta.pagination.total_pages) > params.page) {
                 // continue to next page.
@@ -397,7 +395,6 @@ export default () => ({
         this.getFreshData();
     },
     init() {
-        // console.log('sankey init');
         transactions = [];
         Promise.all([getVariable('convert_to_primary', false)]).then((values) => {
             this.convertToPrimary = values[0];
@@ -417,7 +414,6 @@ export default () => ({
             translations.revenue_account  = i18next.t('firefly.revenue_account');
             translations.budget           = i18next.t('firefly.budget');
 
-            // console.log('sankey after promises');
             afterPromises = true;
             this.loadChart();
 
@@ -426,7 +422,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('sankey observe end');
             this.transactions = [];
             this.loadChart();
         });
@@ -434,7 +429,6 @@ export default () => ({
             if (!afterPromises) {
                 return;
             }
-            // console.log('sankey observe convertToPrimary');
             this.convertToPrimary = newValue;
             this.loadChart();
         });
