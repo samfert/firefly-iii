@@ -113,7 +113,7 @@ class UpdateRequest extends FormRequest
             }
             $return[] = $current;
         }
-        if (0 === count($return)) {
+        if (empty($return)) {
             return null;
         }
 

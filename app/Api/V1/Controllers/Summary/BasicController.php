@@ -277,7 +277,7 @@ class BasicController extends Controller
                 'sub_title'               => '',
             ];
         }
-        if (0 === count($return)) {
+        if (empty($return)) {
             $currency = $this->primaryCurrency;
             // create objects for big array.
             $return[] = [
@@ -429,7 +429,7 @@ class BasicController extends Controller
         }
         Log::debug(sprintf('Done with getBillInformation("%s", "%s")', $start->format('Y-m-d'), $end->format('Y-m-d-')));
 
-        if (0 === count($return)) {
+        if (empty($return)) {
             $currency = $this->primaryCurrency;
             unset($info, $amount);
 
@@ -528,7 +528,7 @@ class BasicController extends Controller
             ];
         }
         unset($leftToSpend);
-        if (0 === count($return)) {
+        if (empty($return)) {
             $days  = (int) $start->diffInDays($end, true) + 1;
             // a small trick to get every expense in this period, regardless of budget.
             $spent = $this->opsRepository->sumExpenses($start, $end, null, new Collection());
@@ -631,7 +631,7 @@ class BasicController extends Controller
                 'sub_title'               => '',
             ];
         }
-        if (0 === count($return)) {
+        if (empty($return)) {
             $return[] = [
                 'key'                     => sprintf('net-worth-in-%s', $this->primaryCurrency->code),
                 'title'                   => trans('firefly.box_net_worth_in_currency', ['currency' => $this->primaryCurrency->symbol]),

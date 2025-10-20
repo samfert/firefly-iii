@@ -290,7 +290,7 @@ class PiggyBankFactory
             }
         }
         Log::debug(sprintf('Link information: %s', json_encode($toBeLinked)));
-        if (0 !== count($toBeLinked)) {
+        if (!empty($toBeLinked)) {
             Log::debug('Syncing accounts to piggy bank.');
             $piggyBank->accounts()->sync($toBeLinked);
             $piggyBank->refresh();
@@ -302,7 +302,7 @@ class PiggyBankFactory
                 event(new ChangedAmount($piggyBank, bcsub($newSavedAmount, $oldSavedAmount), null, null));
             }
         }
-        if (0 === count($toBeLinked)) {
+        if (empty($toBeLinked)) {
             Log::warning('No accounts to link to piggy bank, will not change whatever is there now.');
         }
     }

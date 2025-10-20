@@ -835,7 +835,7 @@ class ExportDataGenerator
 
     private function mergeTags(array $tags): string
     {
-        if (0 === count($tags)) {
+        if (empty($tags)) {
             return '';
         }
         $smol = [];

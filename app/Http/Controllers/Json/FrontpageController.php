@@ -84,7 +84,7 @@ class FrontpageController extends Controller
         );
 
         $html = '';
-        if (0 !== count($info)) {
+        if (!empty($info)) {
             try {
                 $convertToPrimary = $this->convertToPrimary;
                 $primary          = $this->primaryCurrency;

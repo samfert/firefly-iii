@@ -70,7 +70,7 @@ class BillEventHandler
             return;
         }
         Log::debug(sprintf('Will warn about %d overdue subscription(s).', count($toBeWarned)));
-        if (0 === count($toBeWarned)) {
+        if (empty($toBeWarned)) {
             Log::debug('No overdue subscriptions to warn about.');
 
             return;

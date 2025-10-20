@@ -89,7 +89,7 @@ class Steam
     public function filterAccountBalance(array $set, Account $account, bool $convertToPrimary, ?TransactionCurrency $currency = null): array
     {
         Log::debug(sprintf('filterAccountBalance(#%d)', $account->id), $set);
-        if (0 === count($set)) {
+        if (empty($set)) {
             Log::debug(sprintf('Return empty array for account #%d', $account->id));
 
             return [];
@@ -349,7 +349,7 @@ class Steam
             $accountSum           = array_filter($arrayOfSums, function ($entry) use ($account) {
                 return $entry['account_id'] === $account->id;
             });
-            if (0 === count($accountSum)) {
+            if (empty($accountSum)) {
                 $result[$account->id] = $return;
 
                 continue;

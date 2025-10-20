@@ -80,7 +80,7 @@ class Authenticate
      */
     protected function authenticate($request, array $guards)
     {
-        if (0 === count($guards)) {
+        if (empty($guards)) {
             // go for default guard:
             // @noinspection PhpUndefinedMethodInspection
             if ($this->auth->check()) {

@@ -368,7 +368,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function excludeJournalIds(array $journalIds): GroupCollectorInterface
     {
-        if (0 !== count($journalIds)) {
+        if (!empty($journalIds)) {
             // make all integers.
             $integerIDs = array_map('intval', $journalIds);
 
@@ -383,7 +383,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function excludeSearchWords(array $array): GroupCollectorInterface
     {
-        if (0 === count($array)) {
+        if (empty($array)) {
             Log::debug('No excluded search words provided, skipping.');
 
             return $this;
@@ -940,7 +940,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function setJournalIds(array $journalIds): GroupCollectorInterface
     {
-        if (0 !== count($journalIds)) {
+        if (!empty($journalIds)) {
             // make all integers.
             $integerIDs = array_map('intval', $journalIds);
             Log::debug(sprintf('GroupCollector: setJournalIds: %s', implode(', ', $integerIDs)));
@@ -977,7 +977,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function setSearchWords(array $array): GroupCollectorInterface
     {
-        if (0 === count($array)) {
+        if (empty($array)) {
             Log::debug('No words in array');
 
             return $this;
