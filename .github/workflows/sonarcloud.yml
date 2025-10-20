@@ -25,6 +25,15 @@ jobs:
           extensions: pcov, mbstring, xml, ctype, json, bcmath
           coverage: pcov
       
+      - name: Set up environment variables
+        run: |
+          echo "APP_ENV=testing" >> $GITHUB_ENV
+          echo "APP_KEY=base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" >> $GITHUB_ENV
+          echo "DB_CONNECTION=sqlite" >> $GITHUB_ENV
+          echo "DB_DATABASE=" >> $GITHUB_ENV
+          echo "APP_LOG_LEVEL=notice" >> $GITHUB_ENV
+          echo "AUDIT_LOG_LEVEL=emergency" >> $GITHUB_ENV
+      
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
       
