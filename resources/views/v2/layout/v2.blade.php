@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ trans('config.html_language') }}">
-<!--  data-bs-theme="dark" -->
 <!--begin::Head-->
 @include('partials.layout.head')
 <!--end::Head-->

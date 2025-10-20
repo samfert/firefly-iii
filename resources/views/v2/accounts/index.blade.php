@@ -263,12 +263,6 @@
                                             </template>
                                         </td>
                                         <td x-show="tableColumns.amount_due.visible && tableColumns.amount_due.enabled">
-                                            <!--
-                                            <template x-if="null !== account.current_debt">
-                                                <span class="text-info"
-                                                    x-text="formatMoney(account.current_debt, account.currency_code)"></span>
-                                            </template>
-                                            -->
                                             FIXME
                                         </td>
                                         <td x-show="tableColumns.last_activity.visible && tableColumns.last_activity.enabled">
@@ -377,28 +371,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--
-                            <div class="row mb-3">
-                                <label for="inputEmail3" class="col-sm-4 col-form-label">Show info boxes</label>
-                                <div class="col-sm-8">
-                                    <div class="form-check form-switch form-check-inline">
-                                        <label>
-                                            <input class="form-check-input" type="checkbox"> <span>Box A</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-switch form-check-inline">
-                                        <label>
-                                            <input class="form-check-input" type="checkbox"> <span>Box B</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-switch form-check-inline">
-                                        <label>
-                                            <input class="form-check-input" type="checkbox"> <span>Box C</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('firefly.close') }}</button>

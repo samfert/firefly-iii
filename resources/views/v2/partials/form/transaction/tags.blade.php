@@ -14,10 +14,3 @@
 
     </div>
 </div>
-
-<!--
- :value="tag"
-<template x-for="(tag, index) in transaction.tags" :key="index">
-                <option value="bla">bla</option>
-            </template>
- -->
