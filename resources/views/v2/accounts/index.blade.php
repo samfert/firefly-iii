@@ -96,36 +96,28 @@
                                     <td x-show="tableColumns.menu.visible && tableColumns.menu.enabled">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <th x-show="tableColumns.drag_and_drop.visible && tableColumns.drag_and_drop.enabled">
-                                        &nbsp;
+ <th x-show="tableColumns.drag_and_drop.visible && tableColumns.drag_and_drop.enabled" scope="col">                                         &nbsp;
                                     </th>
-                                    <th x-show="tableColumns.active.visible && tableColumns.active.enabled">
-                                        <a href="#" x-on:click.prevent="sort('active')">{{ __('list.active') }}</a>
+ <th x-show="tableColumns.active.visible && tableColumns.active.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('active')">{{ __('list.active') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'active' && pageOptions.sortDirection === 'asc'"
                                             class="fa-solid fa-arrow-down-short-wide"></em>
                                         <em x-show="pageOptions.sortingColumn === 'active' && pageOptions.sortDirection === 'desc'"
                                             class="fa-solid fa-arrow-down-wide-short"></em>
                                     </th>
-                                    <th x-show="tableColumns.name.visible && tableColumns.name.enabled">
-                                        <a href="#" x-on:click.prevent="sort('name')">{{ __('list.name') }}</a>
+ <th x-show="tableColumns.name.visible && tableColumns.name.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('name')">{{ __('list.name') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'asc'"
                                             class="fa-solid fa-arrow-down-a-z"></em>
                                         <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'desc'" class="fa-solid fa-arrow-down-z-a"></em>
                                         <a @click.prevent="showFilterDialog('name')" href="#" data-bs-toggle="modal" data-bs-target="#filterModal"><em class="fa-solid fa-magnifying-glass"></em></a>
 
                                     </th>
-                                    <th x-show="tableColumns.type.visible && tableColumns.type.enabled">{{ __('list.type') }}</th>
-                                    <th x-show="tableColumns.liability_type.visible && tableColumns.liability_type.enabled">
-                                        {{ __('list.liability_type') }}
+ <th x-show="tableColumns.type.visible && tableColumns.type.enabled" scope="col">{{ __('list.type') }}</th>  <th x-show="tableColumns.liability_type.visible && tableColumns.liability_type.enabled" scope="col">                                         {{ __('list.liability_type') }}
                                     </th>
-                                    <th x-show="tableColumns.liability_direction.visible && tableColumns.liability_direction.enabled">
-                                        {{ __('list.liability_direction') }}
+ <th x-show="tableColumns.liability_direction.visible && tableColumns.liability_direction.enabled" scope="col">                                         {{ __('list.liability_direction') }}
                                     </th>
-                                    <th x-show="tableColumns.liability_interest.visible && tableColumns.liability_interest.enabled">
-                                        {{ __('list.interest') }}
+ <th x-show="tableColumns.liability_interest.visible && tableColumns.liability_interest.enabled" scope="col">                                         {{ __('list.interest') }}
                                     </th>
-                                    <th x-show="tableColumns.number.visible && tableColumns.number.enabled">
-                                        <a href="#" x-on:click.prevent="sort('account_number')">
+ <th x-show="tableColumns.number.visible && tableColumns.number.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('account_number')">
                                             {{ __('list.account_number') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'account_number' && pageOptions.sortDirection === 'asc'"
@@ -133,8 +125,7 @@
                                         <em x-show="pageOptions.sortingColumn === 'account_number' && pageOptions.sortDirection === 'desc'"
                                             class="fa-solid fa-arrow-down-z-a"></em>
                                     </th>
-                                    <th x-show="tableColumns.current_balance.visible && tableColumns.current_balance.enabled">
-                                        <a href="#" x-on:click.prevent="sort('balance')">
+ <th x-show="tableColumns.current_balance.visible && tableColumns.current_balance.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('balance')">
                                             {{ __('list.current_balance') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'balance' && pageOptions.sortDirection === 'asc'"
@@ -142,8 +133,7 @@
                                         <em x-show="pageOptions.sortingColumn === 'balance' && pageOptions.sortDirection === 'desc'"
                                             class="fa-solid fa-arrow-down-1-9"></em>
                                     </th>
-                                    <th x-show="tableColumns.amount_due.visible && tableColumns.amount_due.enabled">
-                                        <a href="#" x-on:click.prevent="sort('current_debt')">
+ <th x-show="tableColumns.amount_due.visible && tableColumns.amount_due.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('current_debt')">
                                             {{ __('list.amount_due') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'current_debt' && pageOptions.sortDirection === 'asc'"
@@ -151,8 +141,7 @@
                                         <em x-show="pageOptions.sortingColumn === 'current_debt' && pageOptions.sortDirection === 'desc'"
                                             class="fa-solid fa-arrow-up-wide-short"></em>
                                     </th>
-                                    <th x-show="tableColumns.last_activity.visible && tableColumns.last_activity.enabled">
-                                        <a href="#" x-on:click.prevent="sort('last_activity')">
+ <th x-show="tableColumns.last_activity.visible && tableColumns.last_activity.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('last_activity')">
                                             {{ __('list.last_activity') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'last_activity' && pageOptions.sortDirection === 'asc'"
@@ -160,16 +149,14 @@
                                         <em x-show="pageOptions.sortingColumn === 'last_activity' && pageOptions.sortDirection === 'desc'"
                                             class="fa-solid fa-arrow-up-wide-short"></em>
                                     </th>
-                                    <th x-show="tableColumns.balance_difference.visible && tableColumns.balance_difference.enabled">
-                                        <a href="#" x-on:click.prevent="sort('balance_difference')">
+ <th x-show="tableColumns.balance_difference.visible && tableColumns.balance_difference.enabled" scope="col">                                         <a href="#" x-on:click.prevent="sort('balance_difference')">
                                             {{ __('list.balance_difference') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'balance_difference' && pageOptions.sortDirection === 'asc'"
                                             class="fa-solid fa-arrow-down-wide-short"></em>
                                         <em x-show="pageOptions.sortingColumn === 'balance_difference' && pageOptions.sortDirection === 'desc'"
                                             class="fa-solid fa-arrow-up-wide-short"></em>
                                     </th>
-                                    <th x-show="tableColumns.menu.visible && tableColumns.menu.enabled">&nbsp;</th>
-                                </tr>
+ <th x-show="tableColumns.menu.visible && tableColumns.menu.enabled" scope="col">&nbsp;</th>                                 </tr>
                                 <tr x-show="pageOptions.isLoading">
                                     <td colspan="13" class="text-center">
                                         <span class="fa fa-spin fa-spinner"></span>

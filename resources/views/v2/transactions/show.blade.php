@@ -201,8 +201,7 @@
                                     </tr>
                                     <template x-if="null !== entry.category_name">
                                         <tr>
-                                            <th style="width:10%;">
-                                                <em title="{{ __('firefly.category') }}"
+ <th style="width:10%;" scope="col">                                                 <em title="{{ __('firefly.category') }}"
                                                     class="fa-solid fa-bookmark"></em>
                                             </th>
                                             <td><a :href="'./categories/show/' + entry.category_id"
@@ -211,8 +210,7 @@
                                     </template>
                                     <template x-if="null !== entry.budget_name">
                                         <tr>
-                                            <th><em title="{{ __('firefly.budget') }}"
-                                                    class="fa-solid fa-chart-pie"></em></th>
+ <th scope="col"><em title="{{ __('firefly.budget') }}"                                                     class="fa-solid fa-chart-pie"></em></th>
                                             <td>
                                                 <a :href="'./budgets/show/' + entry.budget_id"
                                                    :title="entry.budget_name" x-text="entry.budget_name"></a></td>
@@ -230,27 +228,23 @@
                                     <template x-for="date in dateFields">
                                         <template x-if="null !== entry[date]">
                                             <tr>
-                                                <th><span x-text="date"></span></th>
-                                                <td><span x-text="entry[date]"></span></td>
+ <th scope="col"><span x-text="date"></span></th>                                                 <td><span x-text="entry[date]"></span></td>
                                             </tr>
                                         </template>
                                     </template>
                                     <template x-for="meta in metaFields">
                                         <template x-if="typeof entry[meta] !== 'undefined' && null !== entry[meta] && '' !== entry[meta]">
                                             <tr>
-                                                <th><span x-text="meta"></span></th>
-                                                <td><span x-text="entry[meta]"></span></td>
+ <th scope="col"><span x-text="meta"></span></th>                                                 <td><span x-text="entry[meta]"></span></td>
                                             </tr>
                                         </template>
                                     </template>
                                     <tr>
-                                        <th>recurring things</th>
-                                        <td>TODO recurring</td>
+ <th scope="col">recurring things</th>                                         <td>TODO recurring</td>
                                     </tr>
                                     <template x-if="entry.tags.length > 0">
                                         <tr>
-                                            <th><em title="{{ __('firefly.tags') }}" class="fa-solid fa-tag"></em></th>
-                                            <td>
+ <th scope="col"><em title="{{ __('firefly.tags') }}" class="fa-solid fa-tag"></em></th>                                             <td>
                                                 <template x-for="tag in entry.tags">
                                                     <a class="badge text-bg-info" :href="'./tags/show/' + tag"
                                                        :title="tag" x-text="tag"></a>
