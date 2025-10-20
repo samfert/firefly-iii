@@ -129,7 +129,7 @@ class RecurrenceUpdateService
     private function updateRepetitions(Recurrence $recurrence, array $repetitions): void
     {
         $originalCount = $recurrence->recurrenceRepetitions()->count();
-        if (0 === count($repetitions)) {
+        if (empty($repetitions)) {
             // won't drop repetition, rather avoid.
             return;
         }
@@ -201,7 +201,7 @@ class RecurrenceUpdateService
         app('log')->debug('Now in updateTransactions()');
         $originalCount        = $recurrence->recurrenceTransactions()->count();
         app('log')->debug(sprintf('Original count is %d', $originalCount));
-        if (0 === count($transactions)) {
+        if (empty($transactions)) {
             // won't drop transactions, rather avoid.
             app('log')->warning('No transactions to update, too scared to continue!');
 
@@ -233,7 +233,7 @@ class RecurrenceUpdateService
             unset($first);
         }
         // if they are both empty, we can safely loop all combinations and update them.
-        if (0 === count($originalTransactions) && 0 === count($transactions)) {
+        if (empty($originalTransactions) && empty($transactions)) {
             foreach ($combinations as $combination) {
                 $this->updateCombination($recurrence, $combination);
             }

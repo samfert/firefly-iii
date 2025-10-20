@@ -32,7 +32,7 @@
                 <option
                     v-for="currency in this.enabledCurrencies"
                     :label="currency.attributes.name"
-                    :selected="parseInt(value.currency_id) === parseInt(currency.id)"
+                    :selected="Number.parseInt(value.currency_id) === Number.parseInt(currency.id)"
                     :value="currency.id"
 
                 >
@@ -68,7 +68,6 @@ export default {
     props: ['source', 'destination', 'transactionType', 'value', 'error', 'no_currency', 'title',],
     mounted() {
         this.liability = false;
-        // console.log('I am mounted with a ' + this.transactionType + ' transaction type and currency id!');
         // console.log(this.value);
         this.loadCurrencies();
     },
@@ -83,15 +82,12 @@ export default {
     },
     watch: {
         source: function () {
-            // console.log('ForeignAmountSelect watch source');
             this.changeData();
         },
         destination: function () {
-            // console.log('ForeignAmountSelect watch destination');
             this.changeData();
         },
         transactionType: function () {
-            // console.log('ForeignAmountSelect watch transaction type (is now ' + this.transactionType + ')');
             this.changeData();
         }
     },
@@ -103,21 +99,17 @@ export default {
             this.$emit('clear:amount')
         },
         hasError: function () {
-            //console.log('ForeignAmountSelect hasError');
             return this.error.length > 0;
         },
         handleInput(e) {
-            // console.log('ForeignAmountSelect handleInput');
             let obj = {
                 amount: this.$refs.amount.value,
                 currency_id: this.$refs.currency_select.value,
             };
-            // console.log(obj);
             this.$emit('input', obj
             );
         },
         changeData: function () {
-            // console.log('ForeignAmountSelect changeData');
             this.enabledCurrencies = [];
             let destType = this.destination.type ? this.destination.type.toLowerCase() : 'invalid';
             let srcType = this.source.type ? this.source.type.toLowerCase() : 'invalid';
@@ -126,11 +118,9 @@ export default {
             let sourceIsLiability = liabilities.indexOf(srcType) !== -1;
             let destIsLiability = liabilities.indexOf(destType) !== -1;
 
-            // console.log(srcType + ' (source) is a liability: ' + sourceIsLiability);
             // console.log(destType + ' (dest) is a liability: ' + destIsLiability);
             // console.log('tType: ' + tType);
             if (tType === 'transfer' || destIsLiability || sourceIsLiability) {
-                // console.log('Source is liability OR dest is liability, OR transfer. Lock list on currency of destination.');
                 // console.log('Length of currencies is ' + this.currencies.length);
                 // console.log(this.currencies);
                 this.liability = true;
@@ -138,16 +128,14 @@ export default {
                 for (const key in this.currencies) {
                     if (this.currencies.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294) {
                         if (
-                            parseInt(this.currencies[key].id) === parseInt(this.destination.currency_id)
+                            Number.parseInt(this.currencies[key].id) === Number.parseInt(this.destination.currency_id)
                         ) {
-                            // console.log('Enable currency!!');
                             // console.log(this.destination);
                             // console.log(this.currencies[key]);
                             this.enabledCurrencies.push(this.currencies[key]);
                         }
                     }
                 }
-                // console.log('Enabled currencies length is now ' + this.enabledCurrencies.length);
                 return;
             }
 
@@ -212,7 +200,6 @@ export default {
                 for (const key in res.data.data) {
                     if (res.data.data.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294) {
                         if (res.data.data[key].attributes.enabled) {
-                            // console.log(res.data.data[key].attributes);
                             this.currencies.push(res.data.data[key]);
                             this.enabledCurrencies.push(res.data.data[key]);
                         }

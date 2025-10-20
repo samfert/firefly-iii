@@ -40,13 +40,12 @@ let index = 0;
 
 // or cycle through X colors:
 
-if ('light' === window.theme) {
-    // red.lighten(0.3).clearer(0.3);
+if ('light' === globalThis.theme) {
     // green.lighten(0.3).clearer(0.3);
     // blue.lighten(0.3).clearer(0.3);
     // orange.lighten(0.3).clearer(0.3);
 }
-if ('dark' === window.theme) {
+if ('dark' === globalThis.theme) {
     red.darken(0.3).desaturate(0.3);
     green.darken(0.3).desaturate(0.3);
     blue.darken(0.3).desaturate(0.3);
@@ -66,7 +65,6 @@ function getColors(type, field) {
         default:
             let correctedIndex = Math.floor(index / 2);
             let currentIndex = correctedIndex % allColors.length;
-            //console.log('index:' + index + ', correctedIndex:' + correctedIndex + ', currentIndex:' + currentIndex);
             background = new Color(allColors[currentIndex].rgbString());
             background.lighten(0.38);
 
@@ -78,7 +76,6 @@ function getColors(type, field) {
         case 'spent':
             background = new Color(blue.rgbString());
             background.lighten(0.38);
-            //console.log('#9ad0f5 vs ' + background.hexString());
             colors = {
                 borderColor: blue.rgbString(),
                 backgroundColor: background.rgbString(),
@@ -103,7 +100,6 @@ function getColors(type, field) {
         case 'overspent':
             background = new Color(red.rgbString());
             background.lighten(0.22);
-            // console.log('#ffb1c1 vs ' + background.hexString());
             colors = {
                 borderColor: red.rgbString(),
                 backgroundColor: background.rgbString(),

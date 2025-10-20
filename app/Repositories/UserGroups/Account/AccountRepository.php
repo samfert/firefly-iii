@@ -55,7 +55,7 @@ class AccountRepository implements AccountRepositoryInterface
     public function countAccounts(array $types): int
     {
         $query = $this->userGroup->accounts();
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
 
@@ -77,7 +77,7 @@ class AccountRepository implements AccountRepositoryInterface
             )
         ;
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $dbQuery->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $dbQuery->whereIn('account_types.type', $types);
         }
@@ -91,7 +91,7 @@ class AccountRepository implements AccountRepositoryInterface
         $iban  = Steam::filterSpaces($iban);
         $query = $this->userGroup->accounts()->where('iban', '!=', '')->whereNotNull('iban');
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $query->whereIn('account_types.type', $types);
         }
@@ -104,7 +104,7 @@ class AccountRepository implements AccountRepositoryInterface
     {
         $query   = $this->userGroup->accounts();
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $query->whereIn('account_types.type', $types);
         }
@@ -189,7 +189,7 @@ class AccountRepository implements AccountRepositoryInterface
     {
         $query = $this->userGroup->accounts();
 
-        if (0 !== count($accountIds)) {
+        if (!empty($accountIds)) {
             $query->whereIn('accounts.id', $accountIds);
         }
         $query->orderBy('accounts.order', 'ASC');
@@ -203,20 +203,20 @@ class AccountRepository implements AccountRepositoryInterface
     public function getAccountsInOrder(array $types, array $sort, int $startRow, int $endRow): Collection
     {
         $query = $this->userGroup->accounts();
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
         $query->skip($startRow);
         $query->take($endRow - $startRow);
 
         // add sort parameters. At this point they're filtered to allowed fields to sort by:
-        if (0 !== count($sort)) {
+        if (!empty($sort)) {
             foreach ($sort as $label => $direction) {
                 $query->orderBy(sprintf('accounts.%s', $label), $direction);
             }
         }
 
-        if (0 === count($sort)) {
+        if (empty($sort)) {
             $query->orderBy('accounts.order', 'ASC');
             $query->orderBy('accounts.active', 'DESC');
             $query->orderBy('accounts.name', 'ASC');
@@ -228,7 +228,7 @@ class AccountRepository implements AccountRepositoryInterface
     public function getActiveAccountsByType(array $types): Collection
     {
         $query = $this->userGroup->accounts();
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
         $query->where('active', true);
@@ -253,7 +253,7 @@ class AccountRepository implements AccountRepositoryInterface
     public function getMetaValues(Collection $accounts, array $fields): Collection
     {
         $query = AccountMeta::whereIn('account_id', $accounts->pluck('id')->toArray());
-        if (count($fields) > 0) {
+        if (!empty($fields)) {
             $query->whereIn('name', $fields);
         }
 
@@ -326,7 +326,7 @@ class AccountRepository implements AccountRepositoryInterface
         $sortable        = ['name', 'active']; // TODO yes this is a duplicate array.
         $res             = array_intersect([AccountTypeEnum::ASSET->value, AccountTypeEnum::MORTGAGE->value, AccountTypeEnum::LOAN->value, AccountTypeEnum::DEBT->value], $types);
         $query           = $this->userGroup->accounts();
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
 
@@ -348,7 +348,7 @@ class AccountRepository implements AccountRepositoryInterface
 
         // add sort parameters. At this point they're filtered to allowed fields to sort by:
         $hasActiveColumn = array_key_exists('active', $sort);
-        if (count($sort) > 0) {
+        if (!empty($sort)) {
             if (false === $hasActiveColumn) {
                 $query->orderBy('accounts.active', 'DESC');
             }
@@ -359,8 +359,8 @@ class AccountRepository implements AccountRepositoryInterface
             }
         }
 
-        if (0 === count($sort)) {
-            if (0 !== count($res)) {
+        if (empty($sort)) {
+            if (!empty($res)) {
                 $query->orderBy('accounts.active', 'DESC');
             }
             $query->orderBy('accounts.order', 'ASC');
@@ -404,7 +404,7 @@ class AccountRepository implements AccountRepositoryInterface
             });
         }
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $dbQuery->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $dbQuery->whereIn('account_types.type', $types);
         }

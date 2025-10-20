@@ -76,7 +76,6 @@ class TransactionSummarizer
                 $usePrimary = $this->default->id !== (int) $journal['currency_id'];
                 $useForeign = $this->default->id === (int) $journal['foreign_currency_id'];
                 if ($usePrimary) {
-                    //                    Log::debug(sprintf('Journal #%d switches to primary currency amount (original is %s)', $journal['transaction_journal_id'], $journal['currency_code']));
                     $field                 = 'pc_amount';
                     $currencyId            = $this->default->id;
                     $currencyName          = $this->default->name;
@@ -85,7 +84,6 @@ class TransactionSummarizer
                     $currencyDecimalPlaces = $this->default->decimal_places;
                 }
                 if ($useForeign) {
-                    //                    Log::debug(sprintf('Journal #%d switches to foreign amount (foreign is %s)', $journal['transaction_journal_id'], $journal['foreign_currency_code']));
                     $field                 = 'foreign_amount';
                     $currencyId            = (int) $journal['foreign_currency_id'];
                     $currencyName          = $journal['foreign_currency_name'];
@@ -145,7 +143,6 @@ class TransactionSummarizer
                 }
             }
 
-            // $array[$currencyId]['sum'] = bcadd($array[$currencyId]['sum'], app('steam')->{$method}($amount));
             // Log::debug(sprintf('Journal #%d adds amount %s %s', $journal['transaction_journal_id'], $currencyCode, $amount));
         }
         Log::debug('End of sumExpenses.', $array);

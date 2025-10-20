@@ -1239,7 +1239,7 @@ Breadcrumbs::for(
 Breadcrumbs::for(
     'transactions.mass.edit',
     static function (Generator $breadcrumbs, array $journals): void {
-        if (0 !== count($journals)) {
+        if (!empty($journals)) {
             $objectType = strtolower((string) reset($journals)['transaction_type_type']);
             $breadcrumbs->parent('transactions.index', $objectType);
             $breadcrumbs->push(trans('firefly.mass_edit_journals'), route('transactions.mass.edit', ['']));
@@ -1263,7 +1263,7 @@ Breadcrumbs::for(
 Breadcrumbs::for(
     'transactions.bulk.edit',
     static function (Generator $breadcrumbs, array $journals): void {
-        if (0 !== count($journals)) {
+        if (!empty($journals)) {
             $ids   = Arr::pluck($journals, 'transaction_journal_id');
             $first = reset($journals);
             $breadcrumbs->parent('transactions.index', strtolower((string) $first['transaction_type_type']));
@@ -1349,7 +1349,6 @@ Breadcrumbs::for(
     }
 );
 
-// Breadcrumbs::for(
 //    'administrations.show',
 //    static function (Generator $breadcrumbs, UserGroup $userGroup): void {
 //        $breadcrumbs->parent('administrations.index');
@@ -1357,7 +1356,6 @@ Breadcrumbs::for(
 //    }
 // );
 
-// Breadcrumbs::for(
 //    'administrations.create',
 //    static function (Generator $breadcrumbs): void {
 //        $breadcrumbs->parent('administrations.index');

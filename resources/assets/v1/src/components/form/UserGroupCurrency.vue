@@ -95,7 +95,7 @@ export default {
               }
 
               if (response.data.meta.pagination.current_page < response.data.meta.pagination.total_pages) {
-                  this.downloadCurrencies(parseInt(response.data.meta.pagination.current_page) + 1);
+                  this.downloadCurrencies(Number.parseInt(response.data.meta.pagination.current_page) + 1);
               }
           });
       },

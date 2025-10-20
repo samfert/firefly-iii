@@ -37,7 +37,6 @@ class BillObserver
 {
     public function created(Bill $bill): void
     {
-        //        Log::debug('Observe "created" of a bill.');
         $this->updatePrimaryCurrencyAmount($bill);
     }
 
@@ -65,7 +64,6 @@ class BillObserver
         $repository = app(AttachmentRepositoryInterface::class);
         $repository->setUser($bill->user);
 
-        //        app('log')->debug('Observe "deleting" of a bill.');
         /** @var Attachment $attachment */
         foreach ($bill->attachments()->get() as $attachment) {
             $repository->destroy($attachment);
@@ -75,7 +73,6 @@ class BillObserver
 
     public function updated(Bill $bill): void
     {
-        //        Log::debug('Observe "updated" of a bill.');
         $this->updatePrimaryCurrencyAmount($bill);
     }
 }

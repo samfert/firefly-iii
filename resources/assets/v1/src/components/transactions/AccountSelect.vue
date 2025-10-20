@@ -107,13 +107,11 @@ export default {
     }
   },
   ready() {
-    // console.log('ready(): this.name = this.accountName (' + this.accountName + ')');
     this.name = this.accountName;
   },
   mounted() {
     this.target = this.$refs.input;
     this.updateACURI(this.allowedTypes.join(','));
-    // console.log('mounted(): this.name = this.accountName (' + this.accountName + ')');
     this.name = this.accountName;
     this.triggerTransactionType();
   },
@@ -123,7 +121,6 @@ export default {
       this.triggerTransactionType();
     },
     accountName() {
-      // console.log('AccountSelect watch accountName!');
       this.name = this.accountName;
     },
     accountTypeFilters() {
@@ -176,22 +173,17 @@ export default {
               '?types=' +
               types +
               '&query=';
-          // console.log('Auto complete URI is now ' + this.accountAutoCompleteURI);
         },
         hasError: function () {
           return this.error.length > 0;
         },
         triggerTransactionType: function () {
-          // console.log('On triggerTransactionType(' + this.inputName + ')');
           if (null === this.name) {
-            // console.log('this.name is NULL.');
           }
           if (null === this.transactionType) {
-            // console.log('Transaction type is NULL.');
             return;
           }
           if ('' === this.transactionType) {
-            // console.log('Transaction type is "".');
             return;
           }
           this.inputDisabled = false;
@@ -216,13 +208,10 @@ export default {
           }
         },
         selectedItem: function (e) {
-          // console.log('In SelectedItem()');
           if (typeof this.name === 'undefined') {
-            // console.log('Is undefined');
             return;
           }
           if (typeof this.name === 'string') {
-            // console.log('Is a string.');
             //this.trType = null;
             this.$emit('clear:value');
           }
@@ -233,7 +222,6 @@ export default {
           this.$emit('select:account', this.name);
         },
         clearSource: function (e) {
-          // console.log('clearSource()');
           //props.value = '';
           this.name = '';
           // some event?

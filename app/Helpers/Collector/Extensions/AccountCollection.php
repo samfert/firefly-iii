@@ -179,7 +179,6 @@ trait AccountCollection
                     $query->orWhereIn('destination.account_id', $accountIds);
                 }
             );
-            // app('log')->debug(sprintf('GroupCollector: setAccounts: %s', implode(', ', $accountIds)));
         }
 
         return $this;
@@ -232,7 +231,6 @@ trait AccountCollection
                     $query->whereNotIn('destination.account_id', $accountIds);
                 }
             );
-            // app('log')->debug(sprintf('GroupCollector: setAccounts: %s', implode(', ', $accountIds)));
         }
 
         return $this;

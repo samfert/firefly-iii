@@ -41,9 +41,9 @@ export default {
     changeValue: function () {
       if (this.source && this.destination) {
         let transactionType = '';
-        if (window.accountToTypes[this.source]) {
-          if (window.accountToTypes[this.source][this.destination]) {
-            transactionType = window.accountToTypes[this.source][this.destination];
+        if (globalThis.accountToTypes[this.source]) {
+          if (globalThis.accountToTypes[this.source][this.destination]) {
+            transactionType = globalThis.accountToTypes[this.source][this.destination];
           } else {
             console.warn('User selected an impossible destination.');
           }

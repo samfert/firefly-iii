@@ -182,7 +182,7 @@ class WarnAboutBills implements ShouldQueue
     private function needsOverdueAlert(array $dates): bool
     {
         $count    = count($dates['pay_dates']) - count($dates['paid_dates']);
-        if (0 === $count || 0 === count($dates['pay_dates'])) {
+        if (0 === $count || empty($dates['pay_dates'])) {
             return false;
         }
         // the earliest date in the list of pay dates must be 48hrs or more ago.
@@ -200,7 +200,7 @@ class WarnAboutBills implements ShouldQueue
 
     private function sendOverdueAlerts(User $user, array $overdue): void
     {
-        if (count($overdue) > 0) {
+        if (!empty($overdue)) {
             Log::debug(sprintf('Will now send warning about overdue bill for user #%d.', $user->id));
             event(new WarnUserAboutOverdueSubscriptions($user, $overdue));
         }

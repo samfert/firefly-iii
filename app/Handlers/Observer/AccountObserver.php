@@ -43,7 +43,6 @@ class AccountObserver
 {
     public function created(Account $account): void
     {
-        //        Log::debug('Observe "created" of an account.');
         $this->updatePrimaryCurrencyAmount($account);
     }
 
@@ -67,7 +66,6 @@ class AccountObserver
             $account->native_virtual_balance = null;
         }
         $account->saveQuietly();
-        // Log::debug('Account primary currency virtual balance is updated.');
     }
 
     /**
@@ -107,7 +105,6 @@ class AccountObserver
 
     public function updated(Account $account): void
     {
-        //        Log::debug('Observe "updated" of an account.');
         $this->updatePrimaryCurrencyAmount($account);
     }
 }

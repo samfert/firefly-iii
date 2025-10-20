@@ -80,7 +80,7 @@ class Authenticate
      */
     protected function authenticate($request, array $guards)
     {
-        if (0 === count($guards)) {
+        if (empty($guards)) {
             // go for default guard:
             // @noinspection PhpUndefinedMethodInspection
             if ($this->auth->check()) {
@@ -129,7 +129,6 @@ class Authenticate
             app('log')->warning('User is null, throw exception?');
         }
         if ($user instanceof User) {
-            // app('log')->debug(get_class($user));
             if (1 === (int) $user->blocked) {
                 $message = (string) trans('firefly.block_account_logout');
                 if ('email_changed' === $user->blocked_code) {

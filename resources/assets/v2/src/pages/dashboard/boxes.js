@@ -46,14 +46,13 @@ export default () => ({
     },
 
     getFreshData() {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         // TODO cache key is hard coded, problem?
         const boxesCacheKey = getCacheKey('ds_boxes_data', {convertToPrimary: this.convertToPrimary, start: start, end: end});
         cleanupCache();
 
-        //const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(boxesCacheKey);
+        let cachedData = globalThis.store.get(boxesCacheKey);
         const cacheValid = false; // force refresh
 
         if (cacheValid && typeof cachedData !== 'undefined') {
@@ -67,7 +66,7 @@ export default () => ({
         let getter = new Summary();
         getter.get(format(start, 'yyyy-MM-dd'), format(end, 'yyyy-MM-dd'), null).then((response) => {
             this.boxData = response.data;
-            window.store.set(boxesCacheKey, response.data);
+            globalThis.store.set(boxesCacheKey, response.data);
             this.generateOptions(this.boxData);
         });
     },
@@ -86,7 +85,6 @@ export default () => ({
                     continue;
                 }
                 let key = current.key;
-                // console.log('NOT PRIMARY CURRENCY');
                 if (key.startsWith('balance-in-')) {
                     this.balanceBox.amounts.push(formatMoney(current.monetary_value, current.currency_code));
                     continue;
@@ -164,24 +162,21 @@ export default () => ({
         // console.log('boxes init');
         // TODO can be replaced by "getVariables"
         Promise.all([getVariable('viewRange'), getVariable('convert_to_primary', false)]).then((values) => {
-            // console.log('boxes after promises');
             afterPromises = true;
             this.convertToPrimary = values[1];
             this.loadBoxes();
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
-            // console.log('boxes observe end');
             this.boxData = null;
             this.loadBoxes();
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }
-            // console.log('boxes observe convertToPrimary');
             this.convertToPrimary = newValue;
             this.loadBoxes();
         });

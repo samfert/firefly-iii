@@ -127,7 +127,7 @@ trait JournalServiceTrait
 
                 return $search;
             }
-            if (null !== $search && 0 === count($types)) {
+            if (null !== $search && empty($types)) {
                 Log::debug(
                     sprintf('Found "account_id" object: #%d, "%s" of type %s (2)', $search->id, $search->name, $search->accountType->type)
                 );
@@ -288,7 +288,6 @@ trait JournalServiceTrait
             }
 
 
-            // $data['name'] = $data['name'] ?? '(no name)';
 
             $account   = $this->accountRepository->store(
                 [

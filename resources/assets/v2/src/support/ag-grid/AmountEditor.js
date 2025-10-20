@@ -42,20 +42,17 @@ export default class AmountEditor {
         this.input.style.overflow = 'hidden';
         this.input.style.textOverflow = 'ellipsis';
         this.input.autofocus = true;
-        this.input.value = parseFloat(params.value.amount).toFixed(params.value.decimal_places);
+        this.input.value = Number.parseFloat(params.value.amount).toFixed(params.value.decimal_places);
 
-        //this.input.onchange = function(e) { this.onChange(e, params);}
         //  params.onValueChange;
         //this.input.onblur = params.onValueChange;
 
-        // this.input.onblur = function () {
         //     params.stopEditing();
         // };
 
-        // this.eGui.innerHTML = `<input
         // type="number" min="0"
         // onChange="params.onValueChange"
-        // step="any" style="overflow: hidden; text-overflow: ellipsis" value="${parseFloat(params.value.amount).toFixed(params.value.decimal_places)}" />`;
+        // step="any" style="overflow: hidden; text-overflow: ellipsis" value="${Number.parseFloat(params.value.amount).toFixed(params.value.decimal_places)}" />`;
     }
     onChange(e) {
         console.log('AmountEditor.onChange');
@@ -78,7 +75,7 @@ export default class AmountEditor {
 
     getValue() {
         console.log('AmountEditor.getValue');
-        this.originalValue.amount = parseFloat(this.input.value);
+        this.originalValue.amount = Number.parseFloat(this.input.value);
 
         // needs a manual submission to Firefly III here.
         this.submitAmount(this.originalValue);

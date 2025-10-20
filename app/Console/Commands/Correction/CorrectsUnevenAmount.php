@@ -258,7 +258,6 @@ class CorrectsUnevenAmount extends Command
         // dest amount = source foreign currency
         // dest currency = source foreign currency
 
-        //        Log::debug(sprintf('[a] %s', bccomp(app('steam')->positive($source->amount), app('steam')->positive($destination->foreign_amount))));
         //        Log::debug(sprintf('[b] %s', bccomp(app('steam')->positive($destination->amount), app('steam')->positive($source->foreign_amount))));
         //        Log::debug(sprintf('[c] %s', var_export($source->transaction_currency_id === $destination->foreign_currency_id,true)));
         //        Log::debug(sprintf('[d] %s', var_export((int) $destination->transaction_currency_id ===(int)  $source->foreign_currency_id, true)));
@@ -406,7 +405,6 @@ class CorrectsUnevenAmount extends Command
                 $source->foreign_currency_id     = $currency;
                 $source->saveQuietly();
                 $source->refresh();
-                //                Log::debug(sprintf('source->amount                  = %s', $source->amount));
                 //                Log::debug(sprintf('source->transaction_currency_id = %s', $source->transaction_currency_id));
                 //                Log::debug(sprintf('source->foreign_amount          = %s', $source->foreign_amount));
                 //                Log::debug(sprintf('source->foreign_currency_id     = %s', $source->foreign_currency_id));
@@ -426,7 +424,6 @@ class CorrectsUnevenAmount extends Command
                 $destination->balance_dirty           = true;
                 $destination->saveQuietly();
                 $destination->refresh();
-                //                Log::debug(sprintf('destination->amount                  = %s', $destination->amount));
                 //                Log::debug(sprintf('destination->transaction_currency_id = %s', $destination->transaction_currency_id));
                 //                Log::debug(sprintf('destination->foreign_amount          = %s', $destination->foreign_amount));
                 //                Log::debug(sprintf('destination->foreign_currency_id     = %s', $destination->foreign_currency_id));

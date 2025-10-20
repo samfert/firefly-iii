@@ -40,9 +40,9 @@ import adminlte from 'admin-lte';
 
 store.addPlugin(observePlugin);
 
-window.bootstrapped = false;
-window.store = store;
-window.bootstrap = bootstrap;
+globalThis.bootstrapped = false;
+globalThis.store = store;
+globalThis.bootstrap = bootstrap;
 
 
 
@@ -72,19 +72,19 @@ getFreshVariable('lastActivity').then((serverValue) => {
             store.set('end', range.end);
         }
 
-        // save local in window.__ something
-        window.__localeId__ = values[2];
+        // save local in globalThis.__ something
+        globalThis.__localeId__ = values[2];
         store.set('language', values[3]);
         store.set('locale', values[3]);
         loadTranslations(values[3]).then(() => {
             const event = new Event('firefly-iii-bootstrapped');
             document.dispatchEvent(event);
-            window.bootstrapped = true;
+            globalThis.bootstrapped = true;
         });
     });
 }).catch((error) => {
     console.error('Error while bootstrapping: ' + error);
 });
-window.axios = axios;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.Alpine = Alpine
+globalThis.axios = axios;
+globalThis.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+globalThis.Alpine = Alpine

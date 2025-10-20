@@ -27,7 +27,6 @@ function logarithmicPaginationLinks(lastPage, matchPage, linkURL) {
         //  href="'+ linkURL+ p + '"
         return '<li class="page-item"><a class="page-link" href="#"  @click.prevent="goToPage('+p+')">'+p+'</a></li>';
 
-        // return ((p === page) ? "<b>" + p + "</b>" : '<a href="' + linkURL + p + '">' + p + "</a>");
     }
 
     let page = (matchPage ? matchPage : 1), LINKS_PER_STEP = 5, lastp1 = 1, lastp2 = page, p1 = 1, p2 = page,
@@ -72,8 +71,8 @@ function logarithmicPaginationLinks(lastPage, matchPage, linkURL) {
 
 export default function pageNavigation(totalPages, currentPage, navigationURL) {
 
-    totalPages = parseInt(totalPages);
-    currentPage = parseInt(currentPage);
+    totalPages = Number.parseInt(totalPages);
+    currentPage = Number.parseInt(currentPage);
     let html = '<nav aria-label="Page navigation">';
     html += '<ul class="pagination">';
     if(currentPage > 1) {

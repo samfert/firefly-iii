@@ -34,13 +34,11 @@ class TransactionJournalMetaFactory
 {
     public function updateOrCreate(array $data): ?TransactionJournalMeta
     {
-        // app('log')->debug('In updateOrCreate()');
         $value       = $data['data'];
 
         /** @var null|TransactionJournalMeta $entry */
         $entry       = $data['journal']->transactionJournalMeta()->where('name', $data['name'])->first();
         if (null === $value && null !== $entry) {
-            // app('log')->debug('Value is empty, delete meta value.');
             $entry->delete();
 
             return null;
@@ -62,7 +60,6 @@ class TransactionJournalMetaFactory
         }
 
         if (null === $entry) {
-            // app('log')->debug('Will create new object.');
             app('log')->debug(sprintf('Going to create new meta-data entry to store "%s".', $data['name']));
             $entry       = new TransactionJournalMeta();
             $entry->transactionJournal()->associate($data['journal']);

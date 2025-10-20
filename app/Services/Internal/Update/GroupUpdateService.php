@@ -68,7 +68,7 @@ class GroupUpdateService
             );
         }
 
-        if (0 === count($transactions)) {
+        if (empty($transactions)) {
             Log::debug('No transactions submitted, do nothing.');
 
             return $transactionGroup;
@@ -94,7 +94,7 @@ class GroupUpdateService
         $updated      = $this->updateTransactions($transactionGroup, $transactions);
         Log::debug('Array of updated IDs: ', $updated);
 
-        if (0 === count($updated)) {
+        if (empty($updated)) {
             Log::error('There were no transactions updated or created. Will not delete anything.');
             $transactionGroup->touch();
             $transactionGroup->refresh();
@@ -105,7 +105,7 @@ class GroupUpdateService
 
         $result       = array_diff($existing, $updated);
         Log::debug('Result of DIFF: ', $result);
-        if (count($result) > 0) {
+        if (!empty($result)) {
             /** @var string $deletedId */
             foreach ($result as $deletedId) {
                 /** @var TransactionJournal $journal */
@@ -133,7 +133,7 @@ class GroupUpdateService
         array              $data
     ): void {
         Log::debug(sprintf('Now in %s', __METHOD__));
-        if (0 === count($data)) {
+        if (empty($data)) {
             return;
         }
         if (1 === count($data) && array_key_exists('transaction_journal_id', $data)) {

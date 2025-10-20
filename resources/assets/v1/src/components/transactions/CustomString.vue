@@ -61,7 +61,6 @@ export default {
       this.$emit('input', this.$refs.str.value);
     },
     clearField: function () {
-      //props.value = '';
       this.name = '';
       this.$refs.str.value = '';
       this.$emit('input', this.$refs.str.value);

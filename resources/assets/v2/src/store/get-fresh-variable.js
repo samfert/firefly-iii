@@ -24,7 +24,6 @@ import Post from "../api/v1/preferences/post.js";
 export function getFreshVariable(name, defaultValue = null) {
     let getter = (new Get);
     return getter.getByName(name).then((response) => {
-        // console.log('Get from API');
         return Promise.resolve(parseResponse(name, response));
     }).catch((response) => {
         if(response.status === 404) {

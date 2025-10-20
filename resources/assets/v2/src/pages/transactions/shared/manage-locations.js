@@ -56,7 +56,6 @@ function addPointToMap(e) {
 }
 
 function saveZoomOfMap(e) {
-    //let index = parseInt(e.sourceTarget._container.attributes['data-index'].value);
     let index = 0;
     const zoomEvent = new CustomEvent('location-zoom', {
         detail: {
@@ -89,7 +88,6 @@ export function addLocation(index) {
     if (typeof maps[index] === 'undefined') {
         // map holder is always the same:
 
-        //let holder = document.getElementById('location_map_' + index);
         let holder = document.getElementById('location_map');
         if (holder) {
             maps[index] = L.map(holder).setView([holder.dataset.latitude, holder.dataset.longitude], holder.dataset.zoomLevel);

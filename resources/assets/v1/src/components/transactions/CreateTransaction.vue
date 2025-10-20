@@ -280,23 +280,23 @@ export default {
     },
     methods: {
         prefillSourceAccount() {
-            if (0 === window.sourceId) {
+            if (0 === globalThis.sourceId) {
                 return;
             }
-            this.getAccount(window.sourceId, 'source_account');
+            this.getAccount(globalThis.sourceId, 'source_account');
         },
         prefillDestinationAccount() {
             if (0 === destinationId) {
                 return;
             }
-            this.getAccount(window.destinationId, 'destination_account');
+            this.getAccount(globalThis.destinationId, 'destination_account');
         },
         getAccount(accountId, slot) {
             const uri = './api/v1/accounts/' + accountId + '?_token=' + document.head.querySelector('meta[name="csrf-token"]').content;
             axios.get(uri).then(response => {
                 let model = response.data.data.attributes;
                 model.type = this.fullAccountType(model.type, model.liability_type);
-                model.id = parseInt(response.data.data.id);
+                model.id = Number.parseInt(response.data.data.id);
                 if ('source_account' === slot) {
                     this.selectedSourceAccount(0, model);
                 }
@@ -323,7 +323,6 @@ export default {
             return arr[searchType] ?? searchType;
         },
         convertData: function () {
-            // console.log('Now in convertData()');
             let data = {
                 'apply_rules': this.applyRules,
                 'fire_webhooks': this.fireWebhooks,
@@ -344,7 +343,6 @@ export default {
             // the presence of a source or destination account
             firstSource = this.transactions[0].source_account.type;
             firstDestination = this.transactions[0].destination_account.type;
-            // console.log('Type of first source is  ' + firstSource);
 
             if ('invalid' === transactionType && ['asset', 'Asset account', 'Loan', 'Debt', 'Mortgage'].includes(firstSource)) {
                 transactionType = 'withdrawal';
@@ -368,7 +366,6 @@ export default {
             return data;
         },
         convertDataRow(row, index, transactionType) {
-            // console.log('Now in convertDataRow()');
             let tagList = [];
             let foreignAmount = null;
             let foreignCurrency = null;
@@ -391,12 +388,12 @@ export default {
 
             // if type is 'withdrawal' and destination is empty, cash withdrawal.
             if (transactionType === 'withdrawal' && '' === destName) {
-                destId = window.cashAccountId;
+                destId = globalThis.cashAccountId;
             }
 
             // if type is 'deposit' and source is empty, cash deposit.
             if (transactionType === 'deposit' && '' === sourceName) {
-                sourceId = window.cashAccountId;
+                sourceId = globalThis.cashAccountId;
             }
 
             // if index is over 0 and type is withdrawal or transfer, take source from index 0.
@@ -420,7 +417,7 @@ export default {
             }
 
             // set foreign currency info:
-            if (row.foreign_amount.amount !== '' && parseFloat(row.foreign_amount.amount) !== .00) {
+            if (row.foreign_amount.amount !== '' && Number.parseFloat(row.foreign_amount.amount) !== .00) {
                 foreignAmount = row.foreign_amount.amount;
                 foreignCurrency = row.foreign_amount.currency_id;
             }
@@ -480,20 +477,19 @@ export default {
                 currentArray.foreign_currency_id = foreignCurrency;
             }
             // set budget id and piggy ID.
-            if (parseInt(row.budget) > 0) {
-                currentArray.budget_id = parseInt(row.budget);
+            if (Number.parseInt(row.budget) > 0) {
+                currentArray.budget_id = Number.parseInt(row.budget);
             }
-            if (parseInt(row.bill) > 0) {
-                currentArray.bill_id = parseInt(row.bill);
+            if (Number.parseInt(row.bill) > 0) {
+                currentArray.bill_id = Number.parseInt(row.bill);
             }
-            if (parseInt(row.piggy_bank) > 0) {
-                currentArray.piggy_bank_id = parseInt(row.piggy_bank);
+            if (Number.parseInt(row.piggy_bank) > 0) {
+                currentArray.piggy_bank_id = Number.parseInt(row.piggy_bank);
             }
             return currentArray;
         },
         // submit transaction
         submit(e) {
-            // console.log('Now in submit()');
             const uri = './api/v1/transactions?_token=' + document.head.querySelector('meta[name="csrf-token"]').content;
             const data = this.convertData();
 
@@ -504,7 +500,6 @@ export default {
                 // console.log('Did a successful POST');
                 // this method will ultimately send the user on (or not).
                 if (0 === this.collectAttachmentData(response)) {
-                    // console.log('Will now go to redirectUser()');
                     this.redirectUser(response.data.data.id, response.data.data);
                 }
             }).catch(error => {
@@ -530,7 +525,6 @@ export default {
             return div.innerHTML;
         },
         redirectUser(groupId, transactionData) {
-            // console.log('In redirectUser()');
             // console.log(transactionData);
             let title = null === transactionData.attributes.group_title ? transactionData.attributes.transactions[0].description : transactionData.attributes.group_title;
             // console.log('Title is "' + title + '"');
@@ -547,7 +541,6 @@ export default {
                     this.resetTransactions();
                     // do a short time out?
                     setTimeout(() => this.addTransactionToArray(), 50);
-                    //this.addTransactionToArray();
                 }
 
                 // clear errors:
@@ -557,13 +550,11 @@ export default {
                 let button = $('#submitButton');
                 button.removeAttr('disabled');
             } else {
-                //console.log('Will redirect to previous URL. (' + previousUrl + ')');
-                window.location.href = window.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
+                globalThis.location.href = globalThis.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
             }
         },
 
         collectAttachmentData(response) {
-            // console.log('Now incollectAttachmentData()');
             let groupId = response.data.data.id;
 
             // reverse list of transactions?
@@ -594,7 +585,6 @@ export default {
                 }
             }
             let count = toBeUploaded.length;
-            // console.log('Found ' + toBeUploaded.length + ' attachments.');
 
             // loop all uploads.
             for (const key in toBeUploaded) {
@@ -638,31 +628,26 @@ export default {
                     };
                     axios.post(uri, data)
                         .then(response => {
-                            // console.log('Created attachment #' + key);
                             // console.log('Uploading attachment #' + key);
                             const uploadUri = './api/v1/attachments/' + response.data.data.id + '/upload';
                             axios.post(uploadUri, fileData[key].content)
                                 .then(attachmentResponse => {
-                                    // console.log('Uploaded attachment #' + key);
                                     uploads++;
                                     if (uploads === count) {
                                         // finally we can redirect the user onwards.
                                         // console.log('FINAL UPLOAD');
                                         this.redirectUser(groupId, transactionData);
                                     }
-                                    // console.log('Upload complete!');
                                     return true;
                                 }).catch(error => {
                                 console.error('Could not upload');
                                 console.error(error);
-                                // console.log('Uploaded attachment #' + key);
                                 uploads++;
                                 if (uploads === count) {
                                     // finally we can redirect the user onwards.
                                     // console.log('FINAL UPLOAD');
                                     this.redirectUser(groupId, transactionData);
                                 }
-                                // console.log('Upload complete!');
                                 return false;
                             });
                         }).catch(error => {
@@ -674,7 +659,6 @@ export default {
                             // console.log('FINAL UPLOAD');
                             this.redirectUser(groupId, transactionData);
                         }
-                        // console.log('Upload complete!');
                         return false;
                     });
                 }
@@ -686,7 +670,6 @@ export default {
         setDefaultErrors: function () {
             for (const key in this.transactions) {
                 if (this.transactions.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294) {
-                    // console.log('Set default errors for key ' + key);
                     //this.transactions[key].description
                     this.transactions[key].errors = {
                         source_account: [],
@@ -737,7 +720,7 @@ export default {
                     }
                     if (key !== 'group_title') {
                         // lol dumbest way to explode "transactions.0.something" ever.
-                        transactionIndex = parseInt(key.split('.')[1]);
+                        transactionIndex = Number.parseInt(key.split('.')[1]);
                         fieldName = key.split('.')[2];
                         // set error in this object thing.
                         switch (fieldName) {
@@ -784,13 +767,11 @@ export default {
             }
         },
         resetTransactions: function () {
-            // console.log('Now in resetTransactions()');
             this.transactions = [];
             this.group_title = '';
 
         },
         addTransactionToArray: function (e) {
-            // console.log('Now in addTransactionToArray()');
             this.transactions.push({
                 description: "",
                 date: "",
@@ -871,7 +852,6 @@ export default {
                 let today = new Date();
                 this.transactions[0].date = today.getFullYear() + '-' + ("0" + (today.getMonth() + 1)).slice(-2) + '-' + ("0" + today.getDate()).slice(-2)
                 + 'T'+ ("0" + today.getHours()).slice(-2) +':' + ("0" + today.getMinutes()).slice(-2);
-                //console.log(this.transactions[0].date);
 
                 // call for extra clear thing:
                 // this.clearSource(0);
@@ -887,7 +867,6 @@ export default {
 
         deleteTransaction: function (index, event) {
             event.preventDefault();
-            // console.log('Remove transaction.');
             this.transactions.splice(index, 1);
         },
         limitSourceType: function (type) {
@@ -904,7 +883,6 @@ export default {
         },
 
         selectedSourceAccount: function (index, model) {
-            // console.log('Now in selectedSourceAccount()');
             if (typeof model === 'string') {
                 //console.log('model is string.')
                 // cant change types, only name.
@@ -930,13 +908,11 @@ export default {
                 }
 
                 // force types on destination selector.
-                this.transactions[index].destination_account.allowed_types = window.allowedOpposingTypes.source[model.type];
+                this.transactions[index].destination_account.allowed_types = globalThis.allowedOpposingTypes.source[model.type];
             }
-            //console.log('Transactions:');
             //console.log(this.transactions);
         },
         selectedDestinationAccount: function (index, model) {
-            // console.log('Now in selectedDestinationAccount()');
             if (typeof model === 'string') {
                 // cant change types, only name.
                 this.transactions[index].destination_account.name = model;
@@ -960,7 +936,7 @@ export default {
                 }
 
                 // force types on destination selector.
-                this.transactions[index].source_account.allowed_types = window.allowedOpposingTypes.destination[model.type];
+                this.transactions[index].source_account.allowed_types = globalThis.allowedOpposingTypes.destination[model.type];
             }
         },
         clearSource: function (index) {

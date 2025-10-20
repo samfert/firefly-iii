@@ -121,7 +121,6 @@ class AccountController extends Controller
         Log::debug('Done collecting balances');
         // loop the accounts, then check for balance and currency info.
         foreach ($accounts as $account) {
-            // Log::debug(sprintf('[a] Now in account #%d ("%s")', $account->id, $account->name));
             $expenses = $endBalances[$account->id] ?? false;
             if (false === $expenses) {
                 Log::error(sprintf('Found no end balance for account #%d', $account->id));
@@ -135,23 +134,19 @@ class AccountController extends Controller
              */
             foreach ($expenses as $key => $endBalance) {
                 if (!$this->convertToPrimary && 'pc_balance' === $key) {
-                    //                    Log::debug(sprintf('[a] Will skip expense array "%s"', $key));
 
                     continue;
                 }
                 if ($this->convertToPrimary && 'pc_balance' !== $key) {
-                    //                    Log::debug(sprintf('[b] Will skip expense array "%s"', $key));
 
                     continue;
                 }
-                // Log::debug(sprintf('Will process expense array "%s" with amount %s', $key, $endBalance));
                 $searchCode   = $this->convertToPrimary ? $this->primaryCurrency->code : $key;
                 $searchCode   = 'balance' === $searchCode || 'pc_balance' === $searchCode ? $this->primaryCurrency->code : $searchCode;
                 // Log::debug(sprintf('Search code is %s', $searchCode));
                 // see if there is an accompanying start amount.
                 // grab the difference and find the currency.
                 $startBalance = ($startBalances[$account->id][$key] ?? '0');
-                //                Log::debug(sprintf('Start balance is %s', $startBalance));
                 $diff         = bcsub($endBalance, $startBalance);
                 $currencies[$searchCode] ??= $this->currencyRepository->findByCode($searchCode);
                 if (0 !== bccomp($diff, '0')) {
@@ -382,7 +377,6 @@ class AccountController extends Controller
         $start          = clone session('start', today(config('app.timezone'))->startOfMonth());
         $end            = clone session('end', today(config('app.timezone'))->endOfMonth());
         $defaultSet     = $repository->getAccountsByType([AccountTypeEnum::DEFAULT->value, AccountTypeEnum::ASSET->value])->pluck('id')->toArray();
-        // Log::debug('Default set is ', $defaultSet);
         $frontpage      = Preferences::get('frontpageAccounts', $defaultSet);
         $frontpageArray = !is_array($frontpage->data) ? [] : $frontpage->data;
         Log::debug('Frontpage preference set is ', $frontpageArray);
@@ -536,7 +530,6 @@ class AccountController extends Controller
         Log::debug(sprintf('Start of loop, $carbon is %s', $carbon->format('Y-m-d H:i:s')));
         while ($end->gte($current)) {
             $momentBalance = $previous;
-            // $theDate       = $current->format('Y-m-d');
             Log::debug(sprintf('Now at %s, with momentBalance %s', $current->format('Y-m-d H:i:s'), json_encode($momentBalance)));
 
             // loop over the array with balances, find one that is earlier or on the same day.
@@ -662,7 +655,6 @@ class AccountController extends Controller
 
         // loop the accounts, then check for balance and currency info.
         foreach ($accounts as $account) {
-            // Log::debug(sprintf('[b] Now in account #%d ("%s")', $account->id, $account->name));
             $expenses = $endBalances[$account->id] ?? false;
             if (false === $expenses) {
                 Log::error(sprintf('Found no end balance for account #%d', $account->id));
@@ -676,23 +668,19 @@ class AccountController extends Controller
              */
             foreach ($expenses as $key => $endBalance) {
                 if (!$this->convertToPrimary && 'pc_balance' === $key) {
-                    //                    Log::debug(sprintf('[a] Will skip expense array "%s"', $key));
 
                     continue;
                 }
                 if ($this->convertToPrimary && 'pc_balance' !== $key) {
-                    //                    Log::debug(sprintf('[b] Will skip expense array "%s"', $key));
 
                     continue;
                 }
-                // Log::debug(sprintf('Will process expense array "%s" with amount %s', $key, $endBalance));
                 $searchCode   = $this->convertToPrimary ? $this->primaryCurrency->code : $key;
                 $searchCode   = 'balance' === $searchCode || 'pc_balance' === $searchCode ? $this->primaryCurrency->code : $searchCode;
                 // Log::debug(sprintf('Search code is %s', $searchCode));
                 // see if there is an accompanying start amount.
                 // grab the difference and find the currency.
                 $startBalance = ($startBalances[$account->id][$key] ?? '0');
-                // Log::debug(sprintf('Start balance is %s', $startBalance));
                 $diff         = bcsub($endBalance, $startBalance);
                 $currencies[$searchCode] ??= $this->currencyRepository->findByCode($searchCode);
                 if (0 !== bccomp($diff, '0')) {

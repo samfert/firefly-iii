@@ -118,7 +118,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
             )
         ;
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $dbQuery->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $dbQuery->whereIn('account_types.type', $types);
         }
@@ -132,7 +132,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
         $iban  = Steam::filterSpaces($iban);
         $query = $this->user->accounts()->where('iban', '!=', '')->whereNotNull('iban');
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $query->whereIn('account_types.type', $types);
         }
@@ -145,7 +145,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
     {
         $query   = $this->user->accounts();
 
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $query->whereIn('account_types.type', $types);
         }
@@ -183,7 +183,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
     {
         $query = $this->user->accounts();
 
-        if (0 !== count($accountIds)) {
+        if (!empty($accountIds)) {
             $query->whereIn('accounts.id', $accountIds);
         }
         $query->orderBy('accounts.order', 'ASC');
@@ -203,7 +203,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
                 'attachments',
             ]
         );
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
         $query->where('active', true);
@@ -267,7 +267,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
                 },
             ]
         );
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
         $query->where('active', 0);
@@ -480,19 +480,19 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
     {
         $res   = array_intersect([AccountTypeEnum::ASSET->value, AccountTypeEnum::MORTGAGE->value, AccountTypeEnum::LOAN->value, AccountTypeEnum::DEBT->value], $types);
         $query = $this->user->accounts();
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $query->accountTypeIn($types);
         }
 
         // add sort parameters. At this point they're filtered to allowed fields to sort by:
-        if (0 !== count($sort)) {
+        if (!empty($sort)) {
             foreach ($sort as $param) {
                 $query->orderBy($param[0], $param[1]);
             }
         }
 
-        if (0 === count($sort)) {
-            if (0 !== count($res)) {
+        if (empty($sort)) {
+            if (!empty($res)) {
                 $query->orderBy('accounts.order', 'ASC');
             }
             $query->orderBy('accounts.active', 'DESC');
@@ -636,7 +636,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
                 $dbQuery->whereLike('name', $search);
             }
         }
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $dbQuery->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $dbQuery->whereIn('account_types.type', $types);
         }
@@ -672,7 +672,7 @@ class AccountRepository implements AccountRepositoryInterface, UserGroupInterfac
                 );
             }
         }
-        if (0 !== count($types)) {
+        if (!empty($types)) {
             $dbQuery->leftJoin('account_types', 'accounts.account_type_id', '=', 'account_types.id');
             $dbQuery->whereIn('account_types.type', $types);
         }

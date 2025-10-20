@@ -57,7 +57,6 @@ class Installer
         $url    = $request->url();
         $strpos = stripos($url, '/install');
         if (false !== $strpos) {
-            // Log::debug(sprintf('URL is %s, will NOT run installer middleware', $url));
 
             return $next($request);
         }
@@ -82,7 +81,6 @@ class Installer
      */
     private function hasNoTables(): bool
     {
-        // Log::debug('Now in routine hasNoTables()');
 
         try {
             DB::table('users')->count();
@@ -106,7 +104,6 @@ class Installer
             throw new FireflyException(sprintf('Could not access the database: %s', $message), 0, $e);
         }
 
-        // Log::debug('Everything seems OK with the tables.');
 
         return false;
     }
@@ -147,7 +144,6 @@ class Installer
             return true;
         }
 
-        // Log::info(sprintf('Configured DB version (%d) equals expected DB version (%d)', $dbVersion, $configVersion));
 
         return false;
     }
@@ -177,7 +173,6 @@ class Installer
             return true;
         }
 
-        // Log::info(sprintf('Installed Firefly III version (%s) equals expected Firefly III version (%s)', $dbVersion, $configVersion));
 
         return false;
     }

@@ -71,7 +71,7 @@ let administrations = function () {
                     this.title = '';
                 }
                 if (!this.formStates.returnHereButton) {
-                    window.location.href = './administrations?user_group_id=' + parseInt(response.data.data.id) + '&message=created';
+                    globalThis.location.href = './administrations?user_group_id=' + Number.parseInt(response.data.data.id) + '&message=created';
                 }
             }).catch(error => {
                 this.errors.title = error.response.data.errors.title;
@@ -79,7 +79,7 @@ let administrations = function () {
 
         },
         cancelForm() {
-            window.location.href = './administrations';
+            globalThis.location.href = './administrations';
         },
         init() {
 
@@ -105,7 +105,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

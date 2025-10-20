@@ -33,7 +33,6 @@ function getViewRange(viewRange, today) {
     let start;
     let end;
 
-    // console.log('getViewRange: ' + viewRange);
 
     switch (viewRange) {
         case 'last365':

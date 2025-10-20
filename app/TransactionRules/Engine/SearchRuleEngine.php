@@ -295,7 +295,6 @@ class SearchRuleEngine implements RuleEngineInterface
                 }
 
                 return sprintf('%d%s', $group['id'], $str);
-                // Log::debug(sprintf('Return key: %s ', $key));
             }
         );
 

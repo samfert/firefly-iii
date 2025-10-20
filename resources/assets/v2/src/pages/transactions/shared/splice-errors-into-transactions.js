@@ -42,7 +42,7 @@ export function spliceErrorsIntoTransactions(errors, transactions) {
                 //this.group_title_errors = errors.errors[key];
                 continue;
             }
-            transactionIndex = parseInt(key.split('.')[1]);
+            transactionIndex = Number.parseInt(key.split('.')[1]);
             fieldName = key.split('.')[2];
             errorArray = cleanupErrors(key, fieldName, errors[key]);
             if (!transactions.hasOwnProperty(transactionIndex)) {

@@ -123,7 +123,7 @@ class BoxController extends Controller
             $incomes[$currencyId]  = app('amount')->formatAnything($currency, $incomes[$currencyId] ?? '0', false);
             $expenses[$currencyId] = app('amount')->formatAnything($currency, $expenses[$currencyId] ?? '0', false);
         }
-        if (0 === count($sums)) {
+        if (empty($sums)) {
             $currency                             = $this->primaryCurrency;
             $sums[$this->primaryCurrency->id]     = app('amount')->formatAnything($this->primaryCurrency, '0', false);
             $incomes[$this->primaryCurrency->id]  = app('amount')->formatAnything($this->primaryCurrency, '0', false);

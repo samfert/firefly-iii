@@ -343,7 +343,6 @@ class RecurringEnrichment implements EnrichmentInterface
             $transaction['primary_currency_symbol']         = $this->primaryCurrency->symbol;
             $transaction['primary_currency_decimal_places'] = $this->primaryCurrency->decimal_places;
 
-            // $transaction['foreign_currency_id'] = null;
             $transaction['foreign_currency_name']           = null;
             $transaction['foreign_currency_code']           = null;
             $transaction['foreign_currency_symbol']         = null;
@@ -480,7 +479,7 @@ class RecurringEnrichment implements EnrichmentInterface
 
     private function collectBillInfo(array $billIds): void
     {
-        if (0 === count($billIds)) {
+        if (empty($billIds)) {
             return;
         }
         $ids    = Arr::pluck($billIds, 'bill_id');
@@ -498,7 +497,7 @@ class RecurringEnrichment implements EnrichmentInterface
 
     private function collectPiggyBankInfo(array $piggyBankIds): void
     {
-        if (0 === count($piggyBankIds)) {
+        if (empty($piggyBankIds)) {
             return;
         }
         $ids        = Arr::pluck($piggyBankIds, 'piggy_bank_id');
@@ -516,7 +515,7 @@ class RecurringEnrichment implements EnrichmentInterface
 
     private function collectCategoryIdInfo(array $categoryIds): void
     {
-        if (0 === count($categoryIds)) {
+        if (empty($categoryIds)) {
             return;
         }
         $ids        = Arr::pluck($categoryIds, 'category_id');
@@ -537,7 +536,7 @@ class RecurringEnrichment implements EnrichmentInterface
      */
     private function collectCategoryNameInfo(array $categoryNames): void
     {
-        if (0 === count($categoryNames)) {
+        if (empty($categoryNames)) {
             return;
         }
         $factory = app(CategoryFactory::class);
@@ -555,7 +554,7 @@ class RecurringEnrichment implements EnrichmentInterface
 
     private function collectBudgetInfo(array $budgetIds): void
     {
-        if (0 === count($budgetIds)) {
+        if (empty($budgetIds)) {
             return;
         }
         $ids        = Arr::pluck($budgetIds, 'budget_id');

@@ -290,7 +290,6 @@ class AccountEnrichment implements EnrichmentInterface
 
             // get the current balance:
             $date                    = $this->getDate();
-            // $finalBalance            = Steam::finalAccountBalance($item, $date, $this->primaryCurrency, $this->convertToPrimary);
             $finalBalance            = $this->balances[$id];
             Log::debug(sprintf('Call finalAccountBalance(%s) with date/time "%s"', var_export($this->convertToPrimary, true), $date->toIso8601String()), $finalBalance);
 

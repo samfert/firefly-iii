@@ -145,7 +145,6 @@ export default {
 
     },
     clearCategory: function () {
-      //props.value = '';
       this.name = '';
       this.$refs.input.value = '';
       this.$emit('input', this.$refs.input.value);
@@ -169,7 +168,6 @@ export default {
     handleEnter: function (e) {
       // TODO feels sloppy
       if (e.keyCode === 13) {
-        //e.preventDefault();
       }
     }
   }

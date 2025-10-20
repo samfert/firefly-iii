@@ -64,7 +64,6 @@ export default {
       this.$emit('input', this.$refs.date.value);
     },
     clearDate: function () {
-      //props.value = '';
       this.name = '';
       this.$refs.date.value = '';
       this.$emit('input', this.$refs.date.value);

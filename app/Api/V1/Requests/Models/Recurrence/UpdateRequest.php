@@ -113,7 +113,7 @@ class UpdateRequest extends FormRequest
             }
             $return[] = $current;
         }
-        if (0 === count($return)) {
+        if (empty($return)) {
             return null;
         }
 
@@ -195,7 +195,6 @@ class UpdateRequest extends FormRequest
     {
         $validator->after(
             function (Validator $validator): void {
-                // $this->validateOneRecurrenceTransaction($validator);
                 // $this->validateOneRepetitionUpdate($validator);
 
                 /** @var Recurrence $recurrence */

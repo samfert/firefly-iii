@@ -76,7 +76,6 @@ class ChartRequest extends FormRequest
                 // validate transaction query data.
                 $data = $validator->getData();
                 if (!array_key_exists('accounts', $data)) {
-                    // $validator->errors()->add('accounts', trans('validation.filled', ['attribute' => 'accounts']));
                     return;
                 }
                 if (!is_array($data['accounts'])) {

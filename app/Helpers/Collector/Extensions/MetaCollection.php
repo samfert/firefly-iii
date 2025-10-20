@@ -328,7 +328,6 @@ trait MetaCollection
         $this->joinMetaDataTables();
         $url = (string) json_encode($url);
         $url = str_replace('\\', '\\\\', rtrim($url, '"'));
-        // var_dump($url);
 
         $this->query->where('journal_meta.name', '=', 'external_url');
         $this->query->whereNotLike('journal_meta.data', sprintf('%s%%', $url));
@@ -352,7 +351,6 @@ trait MetaCollection
         $this->joinMetaDataTables();
         $url = (string) json_encode($url);
         $url = str_replace('\\', '\\\\', rtrim($url, '"'));
-        // var_dump($url);
 
         $this->query->where('journal_meta.name', '=', 'external_url');
         $this->query->whereLike('journal_meta.data', sprintf('%s%%', $url));
@@ -403,7 +401,6 @@ trait MetaCollection
     {
         $internalReference = (string) json_encode($internalReference);
         $internalReference = str_replace('\\', '\\\\', trim($internalReference, '"'));
-        // var_dump($internalReference);
         // exit;
 
         $this->joinMetaDataTables();

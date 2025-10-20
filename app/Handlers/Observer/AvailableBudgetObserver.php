@@ -33,14 +33,12 @@ class AvailableBudgetObserver
 {
     public function created(AvailableBudget $availableBudget): void
     {
-        // Log::debug('Observe "created" of an available budget.');
         $this->updatePrimaryCurrencyAmount($availableBudget);
     }
 
     private function updatePrimaryCurrencyAmount(AvailableBudget $availableBudget): void
     {
         if (!Amount::convertToPrimary($availableBudget->user)) {
-            // Log::debug('Do not update primary currency available amount of the available budget.');
 
             return;
         }
@@ -58,7 +56,6 @@ class AvailableBudgetObserver
 
     public function updated(AvailableBudget $availableBudget): void
     {
-        // Log::debug('Observe "updated" of an available budget.');
         $this->updatePrimaryCurrencyAmount($availableBudget);
     }
 }

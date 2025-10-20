@@ -71,7 +71,6 @@ export default {
   },
   watch: {
     value: function () {
-      // console.log('budget: value changed to ' + this.value);
       this.selected = this.value;
     }
   },

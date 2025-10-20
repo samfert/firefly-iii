@@ -31,7 +31,6 @@ class BalanceController extends Controller
     private GroupCollectorInterface    $collector;
     private AccountRepositoryInterface $repository;
 
-    // private TransactionCurrency        $default;
 
     public function __construct()
     {

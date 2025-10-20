@@ -368,7 +368,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function excludeJournalIds(array $journalIds): GroupCollectorInterface
     {
-        if (0 !== count($journalIds)) {
+        if (!empty($journalIds)) {
             // make all integers.
             $integerIDs = array_map('intval', $journalIds);
 
@@ -383,7 +383,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function excludeSearchWords(array $array): GroupCollectorInterface
     {
-        if (0 === count($array)) {
+        if (empty($array)) {
             Log::debug('No excluded search words provided, skipping.');
 
             return $this;
@@ -871,7 +871,6 @@ class GroupCollector implements GroupCollectorInterface
     public function setLimit(int $limit): GroupCollectorInterface
     {
         $this->limit = $limit;
-        // app('log')->debug(sprintf('GroupCollector: The limit is now %d', $limit));
 
         return $this;
     }
@@ -941,7 +940,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function setJournalIds(array $journalIds): GroupCollectorInterface
     {
-        if (0 !== count($journalIds)) {
+        if (!empty($journalIds)) {
             // make all integers.
             $integerIDs = array_map('intval', $journalIds);
             Log::debug(sprintf('GroupCollector: setJournalIds: %s', implode(', ', $integerIDs)));
@@ -969,7 +968,6 @@ class GroupCollector implements GroupCollectorInterface
     {
         $page       = 0 === $page ? 1 : $page;
         $this->page = $page;
-        // app('log')->debug(sprintf('GroupCollector: page is now %d', $page));
 
         return $this;
     }
@@ -979,7 +977,7 @@ class GroupCollector implements GroupCollectorInterface
      */
     public function setSearchWords(array $array): GroupCollectorInterface
     {
-        if (0 === count($array)) {
+        if (empty($array)) {
             Log::debug('No words in array');
 
             return $this;
@@ -1062,7 +1060,6 @@ class GroupCollector implements GroupCollectorInterface
      */
     private function startQuery(): void
     {
-        // app('log')->debug('GroupCollector::startQuery');
         $this->query = $this->user
             // ->transactionGroups()
             // ->leftJoin('transaction_journals', 'transaction_journals.transaction_group_id', 'transaction_groups.id')
@@ -1126,7 +1123,6 @@ class GroupCollector implements GroupCollectorInterface
      */
     private function startQueryForGroup(): void
     {
-        // app('log')->debug('GroupCollector::startQuery');
         $this->query = $this->userGroup
             ->transactionJournals()
             ->leftJoin('transaction_groups', 'transaction_journals.transaction_group_id', 'transaction_groups.id')

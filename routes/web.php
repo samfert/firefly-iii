@@ -81,7 +81,6 @@ Route::group(
 Route::group(
     ['middleware' => 'binders-only', 'namespace' => 'FireflyIII\Http\Controllers\System'],
     static function (): void {
-        // Route::get('offline', static fn () => view('errors.offline'));
         Route::get('health', ['uses' => 'HealthcheckController@check', 'as' => 'healthcheck']);
     }
 );
@@ -368,7 +367,6 @@ Route::group(
     static function (): void {
         Route::get('', ['uses' => 'IndexController@index', 'as' => 'index']);
         Route::get('{fromCurrencyCode}/{toCurrencyCode}', ['uses' => 'IndexController@rates', 'as' => 'rates']);
-        //        Route::get('create', ['uses' => 'CreateController@create', 'as' => 'create']);
         //        Route::get('edit/{currency}', ['uses' => 'EditController@edit', 'as' => 'edit']);
         //        Route::get('delete/{currency}', ['uses' => 'DeleteController@delete', 'as' => 'delete']);
         //        Route::post('store', ['uses' => 'CreateController@store', 'as' => 'store']);
@@ -1426,9 +1424,7 @@ Route::group(
         Route::get('', ['uses' => 'UserGroup\IndexController@index', 'as' => 'index']);
         Route::get('create', ['uses' => 'UserGroup\CreateController@create', 'as' => 'create']);
         Route::get('edit/{userGroup}', ['uses' => 'UserGroup\EditController@edit', 'as' => 'edit']);
-        // Route::get('show/{userGroup}', ['uses' => 'UserGroup\ShowController@show', 'as' => 'show']);
 
-        //        Route::post('rescan/{bill}', ['uses' => 'Bill\ShowController@rescan', 'as' => 'rescan']);
         //        Route::get('delete/{bill}', ['uses' => 'Bill\DeleteController@delete', 'as' => 'delete']);
         //
         //        Route::post('store', ['uses' => 'Bill\CreateController@store', 'as' => 'store']);

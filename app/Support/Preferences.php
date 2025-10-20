@@ -91,7 +91,6 @@ class Preferences
         }
 
         if (null !== $preference) {
-            // Log::debug(sprintf('Found preference #%d for user #%d: %s', $preference->id, $user->id, $name));
 
             return $preference;
         }
@@ -220,7 +219,6 @@ class Preferences
             return null;
         }
         if ('' === $result->data) {
-            // Log::warning(sprintf('Empty encrypted preference found: "%s"', $name));
 
             return $result;
         }
@@ -232,7 +230,6 @@ class Preferences
                 Log::debug('Set data to NULL');
                 $result->data = null;
             }
-            // Log::error(sprintf('Could not decrypt preference "%s": %s', $name, $e->getMessage()));
 
             return $result;
         }
@@ -244,7 +241,6 @@ class Preferences
     {
         $result = $this->getForUser($user, $name, $default);
         if ('' === $result->data) {
-            // Log::warning(sprintf('Empty encrypted preference found: "%s"', $name));
 
             return $result;
         }
@@ -256,7 +252,6 @@ class Preferences
                 Log::debug('Set data to NULL');
                 $result->data = null;
             }
-            // Log::error(sprintf('Could not decrypt preference "%s": %s', $name, $e->getMessage()));
 
             return $result;
         }
@@ -287,7 +282,6 @@ class Preferences
         $instance     = PreferencesSingleton::getInstance();
         $pref         = $instance->getPreference('last_activity');
         if (null !== $pref) {
-            // Log::debug(sprintf('Found last activity in singleton: %s', $pref));
             return $pref;
         }
         $lastActivity = microtime();

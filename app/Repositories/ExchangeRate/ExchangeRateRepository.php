@@ -52,7 +52,6 @@ class ExchangeRateRepository implements ExchangeRateRepositoryInterface, UserGro
     #[Override]
     public function getRates(TransactionCurrency $from, TransactionCurrency $to): Collection
     {
-        // orderBy('date', 'DESC')->toRawSql();
         return
             $this->userGroup->currencyExchangeRates()
                 ->where(function (Builder $q1) use ($from, $to): void {

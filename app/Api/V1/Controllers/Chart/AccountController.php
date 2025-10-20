@@ -81,7 +81,6 @@ class AccountController extends Controller
         // move date to end of day
         $queryParameters['start']->startOfDay();
         $queryParameters['end']->endOfDay();
-        // Log::debug(sprintf('dashboard(), convert to primary: %s', var_export($this->convertToPrimary, true)));
 
         // loop each account, and collect info:
         /** @var Account $account */

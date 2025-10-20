@@ -82,7 +82,7 @@ let index = function () {
             this.notifications.wait.show = true;
             this.notifications.wait.text = i18next.t('firefly.wait_loading_data')
             this.transactions = [];
-            const urlParts = window.location.href.split('/');
+            const urlParts = globalThis.location.href.split('/');
             const type = urlParts[urlParts.length - 1];
             let getter = new Get();
 
@@ -145,9 +145,7 @@ let index = function () {
 
                             // set firstSplit = false for next run if applicable.
                             firstSplit = false;
-                            //console.log(transaction);
                             this.transactions.push(transaction);
-                            //this.gridOptions.rowData.push(transaction);
                         }
                     }
                 }
@@ -155,7 +153,6 @@ let index = function () {
             // only now, disable wait thing.
             this.notifications.wait.show = false;
             console.log('refresh!');
-            //this.table.refreshCells();
 
         },
     }
@@ -178,7 +175,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

@@ -99,7 +99,6 @@ const comps = {
 
 showInternalsButton();
 
-//let i18n;
 
 function loadPage(comps) {
     Object.keys(comps).forEach(comp => {
@@ -115,7 +114,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage(comps);
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage(comps);
 }

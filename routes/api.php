@@ -334,7 +334,6 @@ Route::group(
         Route::get('', ['uses' => 'IndexController@index', 'as' => 'index']);
         Route::get('{userGroup}', ['uses' => 'ShowController@show', 'as' => 'show']);
         Route::put('{userGroup}', ['uses' => 'UpdateController@update', 'as' => 'update']);
-        // Route::post('', ['uses' => 'StoreController@store', 'as' => 'store']);
         //        Route::put('{userGroup}', ['uses' => 'UpdateController@update', 'as' => 'update']);
         //        Route::post('{userGroup}/use', ['uses' => 'UpdateController@useUserGroup', 'as' => 'use']);
         //        Route::put('{userGroup}/update-membership', ['uses' => 'UpdateController@updateMembership', 'as' => 'updateMembership']);
@@ -389,9 +388,7 @@ Route::group(
     ],
     static function (): void {
         Route::get('', ['uses' => 'ShowController@index', 'as' => 'index']);
-        // Route::post('', ['uses' => 'StoreController@store', 'as' => 'store']);
         Route::get('{availableBudget}', ['uses' => 'ShowController@show', 'as' => 'show']);
-        // Route::put('{availableBudget}', ['uses' => 'UpdateController@update', 'as' => 'update']);
         // Route::delete('{availableBudget}', ['uses' => 'DestroyController@destroy', 'as' => 'delete']);
     }
 );
@@ -739,7 +736,6 @@ Route::group(
     static function (): void {
         Route::get('', ['uses' => 'PreferencesController@index', 'as' => 'index']);
         Route::post('', ['uses' => 'PreferencesController@store', 'as' => 'store']);
-        // Route::get('{preferenceList}', ['uses' => 'PreferencesController@showList', 'as' => 'show-list'])->where('preferenceList', ',+');
         Route::get('{preference}', ['uses' => 'PreferencesController@show', 'as' => 'show']);
         Route::put('{preference}', ['uses' => 'PreferencesController@update', 'as' => 'update']);
     }

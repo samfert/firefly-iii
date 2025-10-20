@@ -29,7 +29,6 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 
-// use Illuminate\Notifications\Slack\SlackMessage;
 
 /**
  * Class TestNotification
@@ -53,7 +52,6 @@ class UserTestNotificationSlack extends Notification
     public function toSlack(User $user): SlackMessage
     {
         return new SlackMessage()->content((string) trans('email.admin_test_subject'));
-        // return new SlackMessage()->text((string) trans('email.admin_test_subject'))->to($url);
     }
 
     /**

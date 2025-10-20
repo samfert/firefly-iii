@@ -128,7 +128,6 @@ export default {
       return this.error.length > 0;
     },
     clearDescription: function () {
-      //props.value = '';
       this.description = '';
       this.$refs.descr.value = '';
       this.$emit('input', this.$refs.descr.value);
@@ -142,7 +141,6 @@ export default {
     // TODO feels sloppy
 
       if (e.keyCode === 13) {
-        //e.preventDefault();
       }
     },
     selectedItem: function (e) {

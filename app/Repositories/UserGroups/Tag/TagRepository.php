@@ -40,7 +40,7 @@ class TagRepository implements TagRepositoryInterface
     public function searchTag(array $query, int $limit): Collection
     {
         $search = $this->userGroup->tags();
-        if (count($query) > 0) {
+        if (!empty($query)) {
             // split query on spaces just in case:
             $search->where(function (EloquentBuilder $q) use ($query): void {
                 foreach ($query as $line) {

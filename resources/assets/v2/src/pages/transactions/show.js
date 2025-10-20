@@ -70,16 +70,16 @@ let show = function () {
         init() {
             this.notifications.wait.show = true;
             this.notifications.wait.text = i18next.t('firefly.wait_loading_data')
-            const page = window.location.href.split('/');
-            const groupId = parseInt(page[page.length - 1]);
+            const page = globalThis.location.href.split('/');
+            const groupId = Number.parseInt(page[page.length - 1]);
             const getter = new Get();
             getter.show(groupId, {}).then((response) => {
                 const data = response.data.data;
-                this.groupProperties.id = parseInt(data.id);
+                this.groupProperties.id = Number.parseInt(data.id);
                 this.groupProperties.transactionType = data.attributes.transactions[0].type;
                 this.groupProperties.transactionTypeTranslated = i18next.t('firefly.' + data.attributes.transactions[0].type);
                 this.groupProperties.title = data.attributes.title ?? data.attributes.transactions[0].description;
-                this.entries = parseDownloadedSplits(data.attributes.transactions, parseInt(data.id));
+                this.entries = parseDownloadedSplits(data.attributes.transactions, Number.parseInt(data.id));
                 // remove waiting thing.
                 this.notifications.wait.show = false;
             }).then(() => {
@@ -90,13 +90,13 @@ let show = function () {
 
                         if (undefined === this.amounts[currencyCode]) {
                             this.amounts[currencyCode] = 0;
-                            this.amounts[currencyCode] += parseFloat(this.entries[i].amount);
+                            this.amounts[currencyCode] += Number.parseFloat(this.entries[i].amount);
                         }
                         if (null !== foreignCurrencyCode && '' !== foreignCurrencyCode && undefined === this.amounts[foreignCurrencyCode]) {
                             this.amounts[foreignCurrencyCode] = 0;
-                            this.amounts[foreignCurrencyCode] += parseFloat(this.entries[i].foreign_amount);
+                            this.amounts[foreignCurrencyCode] += Number.parseFloat(this.entries[i].foreign_amount);
                         }
-                        if (0 === parseInt(i)) {
+                        if (0 === Number.parseInt(i)) {
                             this.groupProperties.date = this.entries[i].date;
                         }
                     }
@@ -110,9 +110,9 @@ let show = function () {
                         // this is all manual work for now, and should be better
                         // TODO make better
                         current.addEventListener('save', function (e) {
-                            const journalId = parseInt(e.currentTarget.dataset.id);
-                            const groupId = parseInt(e.currentTarget.dataset.group);
-                            const length = parseInt(e.currentTarget.dataset.length); // TODO not happy with this.
+                            const journalId = Number.parseInt(e.currentTarget.dataset.id);
+                            const groupId = Number.parseInt(e.currentTarget.dataset.group);
+                            const length = Number.parseInt(e.currentTarget.dataset.length); // TODO not happy with this.
                             const newDescription = e.currentTarget.textContent;
                             console.log(length);
                             if (1 === length) {
@@ -151,7 +151,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

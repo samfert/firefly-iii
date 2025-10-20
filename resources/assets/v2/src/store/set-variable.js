@@ -23,15 +23,15 @@ import Post from "../api/v1/preferences/post.js";
 
 export function setVariable(name, value = null) {
 
-    // currently unused, window.X can be used by the blade template
+    // currently unused, globalThis.X can be used by the blade template
     // to make things available quicker than if the store has to grab it through the API.
     // then again, it's not that slow.
 
-    // set in window.x
+    // set in globalThis.x
     window[name] = value;
 
     // set in store:
-    window.store.set(name, value);
+    globalThis.store.set(name, value);
 
     // post to user preferences (because why not):
     let putter = new Put();

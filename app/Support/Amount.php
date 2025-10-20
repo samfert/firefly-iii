@@ -108,7 +108,6 @@ class Amount
         // fallback, the transaction has a foreign amount in $currency.
         if ($convertToPrimary && null !== $journal['foreign_amount'] && $currency->id === (int)$journal['foreign_currency_id']) {
             $amount = $journal['foreign_amount'];
-            // Log::debug(sprintf('Overruled, amount is now %s', $amount));
         }
 
         return (string)$amount;

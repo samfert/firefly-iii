@@ -172,7 +172,6 @@ class CreditRecalculateService
         }
         $startOfDebt    = $this->repository->getOpeningBalanceAmount($account, false) ?? '0';
         $leftOfDebt     = app('steam')->positive($startOfDebt);
-        //        Log::debug(sprintf('Start of debt is "%s", so initial left of debt is "%s"', app('steam')->bcround($startOfDebt, 2), app('steam')->bcround($leftOfDebt, 2)));
 
         /** @var AccountMetaFactory $factory */
         $factory        = app(AccountMetaFactory::class);
@@ -180,7 +179,6 @@ class CreditRecalculateService
         // amount is positive or negative, doesn't matter.
         $factory->crud($account, 'start_of_debt', $startOfDebt);
 
-        //        Log::debug(sprintf('Debt direction is "%s"', $direction));
 
         // now loop all transactions (except opening balance and credit thing)
         $transactions   = $account->transactions()
@@ -189,11 +187,9 @@ class CreditRecalculateService
             ->get(['transactions.*'])
         ;
         $total          = $transactions->count();
-        //        Log::debug(sprintf('Found %d transaction(s) to process.', $total));
 
         /** @var Transaction $transaction */
         foreach ($transactions as $transaction) {
-            //            Log::debug(sprintf('[%d/%d] Processing transaction.', $index + 1, $total));
             $leftOfDebt = $this->processTransaction($account, $direction, $transaction, $leftOfDebt);
         }
         $factory->crud($account, 'current_debt', $leftOfDebt);
@@ -229,7 +225,6 @@ class CreditRecalculateService
 
             return;
         }
-        // Log::debug('Opening balance is valid');
     }
 
     /**
@@ -254,19 +249,15 @@ class CreditRecalculateService
         $foreignCurrency = $transaction->foreignCurrency;
         $accountCurrency = $this->repository->getAccountCurrency($account);
         $type            = $journal->transactionType->type;
-        //        Log::debug(sprintf('Left of debt is: %s', app('steam')->bcround($leftOfDebt, 2)));
 
         if ('' === $direction) {
-            //            Log::warning('Direction is empty, so do nothing.');
 
             return $leftOfDebt;
         }
         if (TransactionTypeEnum::LIABILITY_CREDIT->value === $type || TransactionTypeEnum::OPENING_BALANCE->value === $type) {
-            // Log::warning(sprintf('Transaction type is "%s", so do nothing.', $type));
 
             return $leftOfDebt;
         }
-        //        Log::debug(sprintf('Liability direction is "%s"', $direction));
 
         // amount to use depends on the currency:
         $usedAmount      = $this->getAmountToUse($transaction, $accountCurrency, $foreignCurrency);
@@ -278,52 +269,44 @@ class CreditRecalculateService
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcadd($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 1 (withdrawal into credit liability): %s + %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
 
         if ($isSameAccount && $isCredit && $this->isWithdrawalOut($usedAmount, $type)) { // case 2
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcsub($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 2 (withdrawal away from liability): %s - %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
 
         if ($isSameAccount && $isCredit && $this->isDepositOut($usedAmount, $type)) { // case 3
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcsub($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 3 (deposit away from liability): %s - %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
 
         if ($isSameAccount && $isCredit && $this->isDepositIn($usedAmount, $type)) { // case 4
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcadd($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 4 (deposit into credit liability): %s + %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
         if ($isSameAccount && $isCredit && $this->isTransferIn($usedAmount, $type)) { // case 5
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcadd($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 5 (transfer into credit liability): %s + %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
         if ($isSameAccount && $isDebit && $this->isWithdrawalIn($usedAmount, $type)) { // case 6
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcsub($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 6 (withdrawal into debit liability): %s - %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
         if ($isSameAccount && $isDebit && $this->isDepositOut($usedAmount, $type)) { // case 7
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcadd($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 7 (deposit away from liability): %s + %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
         if ($isSameAccount && $isDebit && $this->isWithdrawalOut($usedAmount, $type)) { // case 8
             $usedAmount = app('steam')->positive($usedAmount);
 
             return bcadd($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case 8 (withdrawal away from liability): %s + %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
 
         if ($isSameAccount && $isDebit && $this->isTransferIn($usedAmount, $type)) { // case 9
@@ -346,7 +329,6 @@ class CreditRecalculateService
             $usedAmount = app('steam')->negative($usedAmount);
 
             return bcadd($leftOfDebt, (string) $usedAmount);
-            //            Log::debug(sprintf('Case X (all other cases): %s + %s = %s', app('steam')->bcround($leftOfDebt, 2), app('steam')->bcround($usedAmount, 2), app('steam')->bcround($result, 2)));
         }
 
         Log::warning(sprintf('[-1] Catch-all, should not happen. Left of debt = %s', app('steam')->bcround($leftOfDebt, 2)));
@@ -357,10 +339,8 @@ class CreditRecalculateService
     private function getAmountToUse(Transaction $transaction, TransactionCurrency $accountCurrency, ?TransactionCurrency $foreignCurrency): string
     {
         $usedAmount = $transaction->amount;
-        //        Log::debug(sprintf('Amount of transaction is %s', app('steam')->bcround($usedAmount, 2)));
         if ($foreignCurrency instanceof TransactionCurrency && $foreignCurrency->id === $accountCurrency->id) {
             $usedAmount = $transaction->foreign_amount;
-            //            Log::debug(sprintf('Overruled by foreign amount. Amount of transaction is now %s', app('steam')->bcround($usedAmount, 2)));
         }
 
         return $usedAmount;

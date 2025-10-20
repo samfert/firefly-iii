@@ -39,7 +39,6 @@ use Illuminate\Support\Facades\Log;
  */
 class ExchangeRateConverter
 {
-    // use ConvertsExchangeRates;
     private bool  $ignoreSettings = false;
     private array $prepared       = [];
     private int   $queryCount     = 0;
@@ -79,12 +78,10 @@ class ExchangeRateConverter
     public function getCurrencyRate(TransactionCurrency $from, TransactionCurrency $to, Carbon $date): string
     {
         if (false === $this->enabled()) {
-            // Log::debug('ExchangeRateConverter: disabled, return "1".');
 
             return '1';
         }
         if ($from->id === $to->id) {
-            //            Log::debug('ExchangeRateConverter: From and to are the same, return "1".');
 
             return '1';
         }
@@ -232,24 +229,20 @@ class ExchangeRateConverter
         $rate   = $this->getFromDB($currency->id, $euroId, $date->format('Y-m-d'));
 
         if (null !== $rate) {
-            //            app('log')->debug(sprintf('Rate for %s to EUR is %s.', $currency->code, $rate));
             return $rate;
         }
         $rate   = $this->getFromDB($euroId, $currency->id, $date->format('Y-m-d'));
         if (null !== $rate) {
             return bcdiv('1', $rate);
-            //            app('log')->debug(sprintf('Inverted rate for %s to EUR is %s.', $currency->code, $rate));
             // return $rate;
         }
         // grab backup values from config file:
         $backup = config(sprintf('cer.rates.%s', $currency->code));
         if (null !== $backup) {
             return bcdiv('1', (string) $backup);
-            // app('log')->debug(sprintf('Backup rate for %s to EUR is %s.', $currency->code, $backup));
             // return $backup;
         }
 
-        //        app('log')->debug(sprintf('No rate for %s to EUR.', $currency->code));
         return '0';
     }
 

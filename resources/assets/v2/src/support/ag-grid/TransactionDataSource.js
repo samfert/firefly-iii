@@ -88,8 +88,8 @@ import Get from "../../api/v2/model/transaction/get.js";
                         entry.user_group = current.attributes.user_group;
 
                         // create actual transaction:
-                        entry.id = parseInt(current.id);
-                        entry.transaction_journal_id = parseInt(transaction.transaction_journal_id);
+                        entry.id = Number.parseInt(current.id);
+                        entry.transaction_journal_id = Number.parseInt(transaction.transaction_journal_id);
                         entry.description = transaction.description;
                         entry.date = new Date(transaction.date);
 
@@ -114,8 +114,8 @@ import Get from "../../api/v2/model/transaction/get.js";
                         };
 
                         entry.amount = {
-                            id: parseInt(current.id),
-                            transaction_journal_id: parseInt(transaction.transaction_journal_id),
+                            id: Number.parseInt(current.id),
+                            transaction_journal_id: Number.parseInt(transaction.transaction_journal_id),
                             type: transaction.type,
                             amount: transaction.amount,
                             currency_code: transaction.currency_code,

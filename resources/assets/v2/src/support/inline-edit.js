@@ -21,8 +21,8 @@
 import DarkEditable from "../libraries/dark-editable/dark-editable.js";
 
 function inlineJournalDescription(element) {
-    const journalId = parseInt(element.dataset.id);
-    const groupId = parseInt(element.dataset.group);
+    const journalId = Number.parseInt(element.dataset.id);
+    const groupId = Number.parseInt(element.dataset.group);
     const opts = {
         pk: groupId,
         mode: 'inline',
