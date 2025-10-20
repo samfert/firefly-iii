@@ -61,7 +61,7 @@
         </include>
     </source>
     <coverage ignoreDeprecatedCodeUnits="true"
-              pathCoverage="true">
+              pathCoverage="false">
         <report>
             <clover outputFile="coverage.xml"/>
         </report>
