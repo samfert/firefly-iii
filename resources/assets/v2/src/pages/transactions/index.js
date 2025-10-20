@@ -82,7 +82,7 @@ let index = function () {
             this.notifications.wait.show = true;
             this.notifications.wait.text = i18next.t('firefly.wait_loading_data')
             this.transactions = [];
-            const urlParts = window.location.href.split('/');
+            const urlParts = globalThis.location.href.split('/');
             const type = urlParts[urlParts.length - 1];
             let getter = new Get();
 
@@ -178,7 +178,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

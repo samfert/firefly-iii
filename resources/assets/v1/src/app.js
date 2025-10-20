@@ -24,7 +24,7 @@
 */
 
 try {
-    window.$ = window.jQuery = require('jquery');
+    globalThis.$ = globalThis.jQuery = require('jquery');
 
     require('bootstrap-sass');
 } catch (e) {

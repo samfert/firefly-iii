@@ -217,14 +217,14 @@ export default {
     mounted() {
         // get from and to code from URL
         this.newDate = format(new Date, 'yyyy-MM-dd');
-        let parts = window.location.href.split('/');
+        let parts = globalThis.location.href.split('/');
         this.from_code = parts[parts.length - 2];
         this.to_code = parts[parts.length - 1];
 
-        const params = new Proxy(new URLSearchParams(window.location.search), {
+        const params = new Proxy(new URLSearchParams(globalThis.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
         });
-        this.page = parseInt(params.page ?? 1);
+        this.page = Number.parseInt(params.page ?? 1);
 
 
         this.downloadCurrencies();
@@ -378,7 +378,7 @@ export default {
 
                     }
                 }
-                this.totalPages = parseInt(response.data.meta.pagination.total_pages);
+                this.totalPages = Number.parseInt(response.data.meta.pagination.total_pages);
                 this.loading = false;
                 this.rates = Object.values(this.tempRates);
                 // console.log('Do not download more pages. Now on page ' + this.page + ' of ' + this.totalPages);

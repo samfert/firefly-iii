@@ -35,7 +35,7 @@ import pageNavigation from "../../support/page-navigation.js";
 
 
 // set type from URL
-const beforeQuery = window.location.href.split('?');
+const beforeQuery = globalThis.location.href.split('?');
 const urlParts = beforeQuery[0].split('/');
 const type = urlParts[urlParts.length - 1];
 
@@ -44,7 +44,7 @@ let sortDirection = '';
 let page = 1;
 
 // get sort parameters
-const params = new Proxy(new URLSearchParams(window.location.search), {
+const params = new Proxy(new URLSearchParams(globalThis.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
 sortingColumn = params.column ?? '';
@@ -54,7 +54,7 @@ if(sortingColumn[0] === '-') {
     sortDirection = 'desc';
 }
 
-page = parseInt(params.page ?? 1);
+page = Number.parseInt(params.page ?? 1);
 
 
 showInternalsButton();
@@ -161,7 +161,7 @@ let index = function () {
             setVariable(this.getPreferenceKey('filters'), this.filters);
 
             // hide modal
-            window.bootstrap.Modal.getInstance(document.getElementById('filterModal')).hide();
+            globalThis.bootstrap.Modal.getInstance(document.getElementById('filterModal')).hide();
             this.loadAccounts();
         },
         saveGroupedAccounts() {
@@ -210,7 +210,7 @@ let index = function () {
         updatePageUrl() {
             this.pageUrl = this.generatePageUrl(true);
 
-            window.history.pushState({}, "", this.pageUrl);
+            globalThis.history.pushState({}, "", this.pageUrl);
         },
         generatePageUrl(includePageNr) {
             let url = './accounts/' + type + '?column=' + this.pageOptions.sortingColumn + '&direction=' + this.pageOptions.sortDirection + '&page=';
@@ -363,8 +363,8 @@ let index = function () {
             delete filters.type;
 
             // get start and end from the store:
-            const start = new Date(window.store.get('start'));
-            const end = new Date(window.store.get('end'));
+            const start = new Date(globalThis.store.get('start'));
+            const end = new Date(globalThis.store.get('end'));
             const today = new Date();
 
             let params = {
@@ -391,7 +391,7 @@ let index = function () {
                     if (response.data.hasOwnProperty(i)) {
                         let current = response.data[i];
                         let account = {
-                            id: parseInt(current.id),
+                            id: Number.parseInt(current.id),
                             active: current.attributes.active,
                             name: current.attributes.name,
                             nameEditorVisible: false,
@@ -418,7 +418,7 @@ let index = function () {
                         if (!groupedAccounts.hasOwnProperty(groupId)) {
                             groupedAccounts[groupId] = {
                                 group: {
-                                    id: '0' === groupId || null === groupId ? null : parseInt(groupId),
+                                    id: '0' === groupId || null === groupId ? null : Number.parseInt(groupId),
                                     title: current.attributes.object_group_title, // are ignored if group id is null.
                                     order: current.attributes.object_group_order,
                                 },
@@ -471,7 +471,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

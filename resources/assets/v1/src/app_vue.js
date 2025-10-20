@@ -25,8 +25,8 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n'
 import * as uiv from 'uiv';
 
-window.vuei18n = VueI18n;
-window.uiv = uiv;
+globalThis.vuei18n = VueI18n;
+globalThis.uiv = uiv;
 Vue.use(vuei18n);
 Vue.use(uiv);
-window.Vue = Vue;
+globalThis.Vue = Vue;

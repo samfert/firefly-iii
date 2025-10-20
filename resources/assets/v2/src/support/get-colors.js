@@ -40,13 +40,13 @@ let index = 0;
 
 // or cycle through X colors:
 
-if ('light' === window.theme) {
+if ('light' === globalThis.theme) {
     // red.lighten(0.3).clearer(0.3);
     // green.lighten(0.3).clearer(0.3);
     // blue.lighten(0.3).clearer(0.3);
     // orange.lighten(0.3).clearer(0.3);
 }
-if ('dark' === window.theme) {
+if ('dark' === globalThis.theme) {
     red.darken(0.3).desaturate(0.3);
     green.darken(0.3).desaturate(0.3);
     blue.darken(0.3).desaturate(0.3);

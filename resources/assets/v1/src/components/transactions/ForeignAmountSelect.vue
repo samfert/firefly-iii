@@ -32,7 +32,7 @@
                 <option
                     v-for="currency in this.enabledCurrencies"
                     :label="currency.attributes.name"
-                    :selected="parseInt(value.currency_id) === parseInt(currency.id)"
+                    :selected="Number.parseInt(value.currency_id) === Number.parseInt(currency.id)"
                     :value="currency.id"
 
                 >
@@ -138,7 +138,7 @@ export default {
                 for (const key in this.currencies) {
                     if (this.currencies.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294) {
                         if (
-                            parseInt(this.currencies[key].id) === parseInt(this.destination.currency_id)
+                            Number.parseInt(this.currencies[key].id) === Number.parseInt(this.destination.currency_id)
                         ) {
                             // console.log('Enable currency!!');
                             // console.log(this.destination);

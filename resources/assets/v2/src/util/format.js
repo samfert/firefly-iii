@@ -92,7 +92,7 @@ const locales = {
 // by providing a default string of 'PP' or any of its variants for `formatStr`
 // it will format dates in whichever way is appropriate to the locale
 export default function (date, formatStr = 'PP') {
-    let locale = window.__localeId__.replace('_', '');
+    let locale = globalThis.__localeId__.replace('_', '');
     return format(date, formatStr, {
         locale: locales[locale] ?? locales[locale.slice(0, 2)] ?? locales['enUS'] // or global.__localeId__
     })

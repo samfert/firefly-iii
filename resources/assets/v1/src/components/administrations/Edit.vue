@@ -110,8 +110,8 @@ export default {
         };
     },
     mounted() {
-        const page = window.location.href.split('/');
-        const administrationId = parseInt(page[page.length - 1]);
+        const page = globalThis.location.href.split('/');
+        const administrationId = Number.parseInt(page[page.length - 1]);
         this.downloadAdministration(administrationId);
     },
     methods: {
@@ -121,7 +121,7 @@ export default {
                 this.administration = {
                     id: current.id,
                     title: current.attributes.title,
-                    currency_id: parseInt(current.attributes.primary_currency_id),
+                    currency_id: Number.parseInt(current.attributes.primary_currency_id),
                     currency_code: current.attributes.primary_currency_code,
                     currency_name: current.attributes.primary_currency_name,
                 };
@@ -143,13 +143,13 @@ export default {
             // collect data
             let data = {
                 title: this.administration.title,
-                primary_currency_id: parseInt(this.administration.currency_id),
+                primary_currency_id: Number.parseInt(this.administration.currency_id),
             };
 
             // post!
             axios.put('./api/v1/user-groups/' + this.administration.id, data).then((response) => {
-                let administrationId = parseInt(response.data.data.id);
-                window.location.href = './administrations?user_group_id=' + administrationId + '&message=updated';
+                let administrationId = Number.parseInt(response.data.data.id);
+                globalThis.location.href = './administrations?user_group_id=' + administrationId + '&message=updated';
             }).catch((error) => {
 
                 this.error_message = error.response.data.message;

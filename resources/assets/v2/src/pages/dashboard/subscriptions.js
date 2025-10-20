@@ -33,12 +33,12 @@ let subscriptionData = {};
 let convertToPrimary = false;
 
 function addObjectGroupInfo(data) {
-    let objectGroupId = parseInt(data.object_group_id);
+    let objectGroupId = Number.parseInt(data.object_group_id);
     if (!subscriptionData.hasOwnProperty(objectGroupId)) {
         subscriptionData[objectGroupId] = {
             id: objectGroupId,
             title: null === data.object_group_title ? i18next.t('firefly.default_group_title_name_plain') : data.object_group_title,
-            order: parseInt(data.object_group_order),
+            order: Number.parseInt(data.object_group_order),
             payment_info: {},
             bills: [],
         };
@@ -63,7 +63,7 @@ function parseBillInfo(data) {
         name: data.attributes.name,
         amount_min: data.attributes.amount_min,
         amount_max: data.attributes.amount_max,
-        amount: (parseFloat(data.attributes.amount_max) + parseFloat(data.attributes.amount_min)) / 2,
+        amount: (Number.parseFloat(data.attributes.amount_max) + Number.parseFloat(data.attributes.amount_min)) / 2,
         currency_code: data.attributes.currency_code,
         // paid transactions:
         transactions: [],
@@ -97,7 +97,7 @@ function parsePaidTransactions(paid_dates, bill) {
             const currentPayment = paid_dates[i];
             // console.log(currentPayment);
             // math: -100+(paid/expected)*100
-            let percentage = Math.round(-100 + ((parseFloat(currentPayment.amount) ) / parseFloat(bill.amount)) * 100);
+            let percentage = Math.round(-100 + ((Number.parseFloat(currentPayment.amount) ) / Number.parseFloat(bill.amount)) * 100);
             let currentTransaction = {
                 amount: formatMoney(currentPayment.amount, currentPayment.currency_code),
                 percentage: percentage,
@@ -116,8 +116,8 @@ function parsePaidTransactions(paid_dates, bill) {
 }
 
 function isInRange(bill) {
-    let start = new Date(window.store.get('start'));
-    let end = new Date(window.store.get('end'));
+    let start = new Date(globalThis.store.get('start'));
+    let end = new Date(globalThis.store.get('end'));
     for(let i in bill.pay_dates) {
         if (bill.pay_dates.hasOwnProperty(i)) {
             let currentDate = bill.pay_dates[i];
@@ -142,7 +142,7 @@ function downloadSubscriptions(params) {
                     let current = data[i];
                     if (current.attributes.active && current.attributes.pay_dates.length > 0) {
                         // create or update object group
-                        let objectGroupId = parseInt(current.attributes.object_group_id);
+                        let objectGroupId = Number.parseInt(current.attributes.object_group_id);
                         addObjectGroupInfo(current.attributes);
 
                         // create and update the bill.
@@ -188,7 +188,7 @@ function downloadSubscriptions(params) {
                                             unpaid: 0,
                                         };
                                     }
-                                    const amount = parseFloat(currentJournal.amount) * -1;
+                                    const amount = Number.parseFloat(currentJournal.amount) * -1;
                                     subscriptionData[objectGroupId].payment_info[currentJournal.currency_code].paid += amount;
                                 }
                             }
@@ -197,7 +197,7 @@ function downloadSubscriptions(params) {
                 }
             }
             // if next page, return the same function + 1 page:
-            if (parseInt(response.data.meta.pagination.total_pages) > params.page) {
+            if (Number.parseInt(response.data.meta.pagination.total_pages) > params.page) {
                 params.page++;
                 return downloadSubscriptions(params);
             }
@@ -226,11 +226,11 @@ export default () => ({
 
     startSubscriptions() {
         this.loading = true;
-        let start = new Date(window.store.get('start'));
-        let end = new Date(window.store.get('end'));
+        let start = new Date(globalThis.store.get('start'));
+        let end = new Date(globalThis.store.get('end'));
 
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(getCacheKey('ds_sub_data', {start: start, end: end}));
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(getCacheKey('ds_sub_data', {start: start, end: end}));
 
         if (cacheValid && typeof cachedData !== 'undefined' && false) {
             console.error('cannot handle yet');
@@ -323,7 +323,7 @@ export default () => ({
 
 
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
@@ -331,7 +331,7 @@ export default () => ({
                 this.startSubscriptions();
             }
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }

@@ -46,23 +46,23 @@ export default () => ({
 
     init() {
         this.range = {
-            start: new Date(window.store.get('start')),
-            end: new Date(window.store.get('end'))
+            start: new Date(globalThis.store.get('start')),
+            end: new Date(globalThis.store.get('end'))
         };
         this.defaultRange = {
-            start: new Date(window.store.get('start')),
-            end: new Date(window.store.get('end'))
+            start: new Date(globalThis.store.get('start')),
+            end: new Date(globalThis.store.get('end'))
         };
-        this.language = window.store.get('language');
-        this.locale = window.store.get('locale');
+        this.language = globalThis.store.get('language');
+        this.locale = globalThis.store.get('locale');
         this.locale = 'equal' === this.locale ? this.language : this.locale;
-        window.__localeId__ = this.language;
+        globalThis.__localeId__ = this.language;
         this.buildDateRange();
 
-        window.store.observe('start', (newValue) => {
+        globalThis.store.observe('start', (newValue) => {
             this.range.start = new Date(newValue);
         });
-        window.store.observe('end', (newValue) => {
+        globalThis.store.observe('end', (newValue) => {
             this.range.end = new Date(newValue);
             this.buildDateRange();
         });
@@ -170,8 +170,8 @@ export default () => ({
         let end = new Date(target.getAttribute('data-end'));
         // console.log('MainApp: Change date range', start, end);
 
-        window.store.set('start', start);
-        window.store.set('end', end);
+        globalThis.store.set('start', start);
+        globalThis.store.set('end', end);
         //this.buildDateRange();
         return false;
     },

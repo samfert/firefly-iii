@@ -29,7 +29,7 @@ export default function (amount, currencyCode) {
         console.warn('format-money: currencyCode is not a valid ISO 4217 code:', currencyCode);
         return '';
     }
-    let locale = window.__localeId__.replace('_', '-');
+    let locale = globalThis.__localeId__.replace('_', '-');
 
     return Intl.NumberFormat(locale, {
         style: 'currency',

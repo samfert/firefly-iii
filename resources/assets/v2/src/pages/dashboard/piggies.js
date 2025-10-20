@@ -33,13 +33,13 @@ export default () => ({
     sankeyGrouping: 'account',
     piggies: [],
     getFreshData() {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         // needs user data.
         const cacheKey = getCacheKey(PIGGY_CACHE_KEY, {convertToPrimary: this.convertToPrimary, start: start, end: end});
 
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(cacheKey);
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(cacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             apiData = cachedData;
@@ -56,18 +56,18 @@ export default () => ({
         this.downloadPiggyBanks(params);
     },
     downloadPiggyBanks(params) {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey(PIGGY_CACHE_KEY, {start: start, end: end});
         const getter = new Get();
         getter.list(params).then((response) => {
             apiData = [...apiData, ...response.data.data];
-            if (parseInt(response.data.meta.pagination.total_pages) > params.page) {
+            if (Number.parseInt(response.data.meta.pagination.total_pages) > params.page) {
                 params.page++;
                 this.downloadPiggyBanks(params);
                 return;
             }
-            window.store.set(cacheKey, apiData);
+            globalThis.store.set(cacheKey, apiData);
             this.parsePiggies();
             this.loading = false;
         });
@@ -95,7 +95,7 @@ export default () => ({
                 let piggy = {
                     id: current.id,
                     name: current.attributes.name,
-                    percentage: parseInt(current.attributes.percentage),
+                    percentage: Number.parseInt(current.attributes.percentage),
                     amount: this.convertToPrimary ? current.attributes.pc_current_amount : current.attributes.current_amount,
                     // left to save
                     left_to_save: this.convertToPrimary ? current.attributes.pc_left_to_save : current.attributes.left_to_save,
@@ -136,7 +136,7 @@ export default () => ({
             this.loadPiggyBanks();
 
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
@@ -144,7 +144,7 @@ export default () => ({
             apiData = [];
             this.loadPiggyBanks();
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }

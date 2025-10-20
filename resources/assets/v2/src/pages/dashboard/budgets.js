@@ -67,12 +67,12 @@ export default () => ({
         chart = new Chart(document.querySelector("#budget-chart"), options);
     },
     getFreshData() {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey('ds_bdg_chart', {convertToPrimary: this.convertToPrimary, start: start, end: end});
-        //const cacheValid = window.store.get('cacheValid');
+        //const cacheValid = globalThis.store.get('cacheValid');
         const cacheValid = false;
-        let cachedData = window.store.get(cacheKey);
+        let cachedData = globalThis.store.get(cacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             chartData = cachedData; // save chart data for later.
@@ -85,14 +85,14 @@ export default () => ({
         dashboard.dashboard(start, end, null).then((response) => {
             chartData = response.data; // save chart data for later.
             this.drawChart(this.generateOptions(chartData));
-            window.store.set(cacheKey, chartData);
+            globalThis.store.set(cacheKey, chartData);
             this.loading = false;
         });
     },
     generateOptions(data) {
         currencies = [];
         let options = getDefaultChartSettings('bar');
-        options.options.locale = window.store.get('locale').replace('_', '-');
+        options.options.locale = globalThis.store.get('locale').replace('_', '-');
         options.options.plugins = {
             tooltip: {
                 callbacks: {
@@ -141,11 +141,11 @@ export default () => ({
 
                 currencies.push(current.currency_code);
                 // series 0: budgeted
-                options.data.datasets[0].data.push(parseFloat(current.entries.budgeted));
+                options.data.datasets[0].data.push(Number.parseFloat(current.entries.budgeted));
                 // series 1: spent
-                options.data.datasets[1].data.push(parseFloat(current.entries.spent) * -1);
+                options.data.datasets[1].data.push(Number.parseFloat(current.entries.spent) * -1);
                 // series 2: overspent
-                // options.data.datasets[2].data.push(parseFloat(current.entries.overspent));
+                // options.data.datasets[2].data.push(Number.parseFloat(current.entries.overspent));
             }
         }
         // the currency format callback for the Y axis is AlWAYS based on whatever the first currency is.
@@ -174,7 +174,7 @@ export default () => ({
                 this.loadChart();
             }
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
@@ -184,7 +184,7 @@ export default () => ({
                 this.loadChart();
             }
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }

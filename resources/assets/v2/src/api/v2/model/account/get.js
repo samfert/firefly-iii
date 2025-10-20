@@ -43,8 +43,8 @@ export default class Get {
         // first, check API in some consistent manner.
         // then, load if necessary.
         const cacheKey = getCacheKey('/api/v1/accounts', params);
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(cacheKey);
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(cacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             console.log('Cache is valid, return cache.');
@@ -55,7 +55,7 @@ export default class Get {
 
         return api.get('/api/v1/accounts', {params: params}).then(response => {
             console.log('Cache is invalid, return fresh.');
-            window.store.set(cacheKey, response.data);
+            globalThis.store.set(cacheKey, response.data);
             return Promise.resolve({data: response.data.data, meta: response.data.meta});
         });
     }

@@ -280,23 +280,23 @@ export default {
     },
     methods: {
         prefillSourceAccount() {
-            if (0 === window.sourceId) {
+            if (0 === globalThis.sourceId) {
                 return;
             }
-            this.getAccount(window.sourceId, 'source_account');
+            this.getAccount(globalThis.sourceId, 'source_account');
         },
         prefillDestinationAccount() {
             if (0 === destinationId) {
                 return;
             }
-            this.getAccount(window.destinationId, 'destination_account');
+            this.getAccount(globalThis.destinationId, 'destination_account');
         },
         getAccount(accountId, slot) {
             const uri = './api/v1/accounts/' + accountId + '?_token=' + document.head.querySelector('meta[name="csrf-token"]').content;
             axios.get(uri).then(response => {
                 let model = response.data.data.attributes;
                 model.type = this.fullAccountType(model.type, model.liability_type);
-                model.id = parseInt(response.data.data.id);
+                model.id = Number.parseInt(response.data.data.id);
                 if ('source_account' === slot) {
                     this.selectedSourceAccount(0, model);
                 }
@@ -391,12 +391,12 @@ export default {
 
             // if type is 'withdrawal' and destination is empty, cash withdrawal.
             if (transactionType === 'withdrawal' && '' === destName) {
-                destId = window.cashAccountId;
+                destId = globalThis.cashAccountId;
             }
 
             // if type is 'deposit' and source is empty, cash deposit.
             if (transactionType === 'deposit' && '' === sourceName) {
-                sourceId = window.cashAccountId;
+                sourceId = globalThis.cashAccountId;
             }
 
             // if index is over 0 and type is withdrawal or transfer, take source from index 0.
@@ -420,7 +420,7 @@ export default {
             }
 
             // set foreign currency info:
-            if (row.foreign_amount.amount !== '' && parseFloat(row.foreign_amount.amount) !== .00) {
+            if (row.foreign_amount.amount !== '' && Number.parseFloat(row.foreign_amount.amount) !== .00) {
                 foreignAmount = row.foreign_amount.amount;
                 foreignCurrency = row.foreign_amount.currency_id;
             }
@@ -480,14 +480,14 @@ export default {
                 currentArray.foreign_currency_id = foreignCurrency;
             }
             // set budget id and piggy ID.
-            if (parseInt(row.budget) > 0) {
-                currentArray.budget_id = parseInt(row.budget);
+            if (Number.parseInt(row.budget) > 0) {
+                currentArray.budget_id = Number.parseInt(row.budget);
             }
-            if (parseInt(row.bill) > 0) {
-                currentArray.bill_id = parseInt(row.bill);
+            if (Number.parseInt(row.bill) > 0) {
+                currentArray.bill_id = Number.parseInt(row.bill);
             }
-            if (parseInt(row.piggy_bank) > 0) {
-                currentArray.piggy_bank_id = parseInt(row.piggy_bank);
+            if (Number.parseInt(row.piggy_bank) > 0) {
+                currentArray.piggy_bank_id = Number.parseInt(row.piggy_bank);
             }
             return currentArray;
         },
@@ -558,7 +558,7 @@ export default {
                 button.removeAttr('disabled');
             } else {
                 //console.log('Will redirect to previous URL. (' + previousUrl + ')');
-                window.location.href = window.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
+                globalThis.location.href = globalThis.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
             }
         },
 
@@ -737,7 +737,7 @@ export default {
                     }
                     if (key !== 'group_title') {
                         // lol dumbest way to explode "transactions.0.something" ever.
-                        transactionIndex = parseInt(key.split('.')[1]);
+                        transactionIndex = Number.parseInt(key.split('.')[1]);
                         fieldName = key.split('.')[2];
                         // set error in this object thing.
                         switch (fieldName) {
@@ -930,7 +930,7 @@ export default {
                 }
 
                 // force types on destination selector.
-                this.transactions[index].destination_account.allowed_types = window.allowedOpposingTypes.source[model.type];
+                this.transactions[index].destination_account.allowed_types = globalThis.allowedOpposingTypes.source[model.type];
             }
             //console.log('Transactions:');
             //console.log(this.transactions);
@@ -960,7 +960,7 @@ export default {
                 }
 
                 // force types on destination selector.
-                this.transactions[index].source_account.allowed_types = window.allowedOpposingTypes.destination[model.type];
+                this.transactions[index].source_account.allowed_types = globalThis.allowedOpposingTypes.destination[model.type];
             }
         },
         clearSource: function (index) {

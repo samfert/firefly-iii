@@ -412,8 +412,8 @@ export default {
         },
         getGroup() {
             // console.log('EditTransaction: getGroup()');
-            const page = window.location.href.split('/');
-            const groupId = parseInt(page[page.length - 1]);
+            const page = globalThis.location.href.split('/');
+            const groupId = Number.parseInt(page[page.length - 1]);
 
 
             const uri = './api/v1/transactions/' + groupId;
@@ -462,12 +462,12 @@ export default {
                 }
             }
             // console.log('source allowed types for a ' + transaction.type);
-            //console.log(window.expectedSourceTypes.source[transaction.type]);
-            // console.log(window.expectedSourceTypes.source[this.ucFirst(transaction.type)]);
+            //console.log(globalThis.expectedSourceTypes.source[transaction.type]);
+            // console.log(globalThis.expectedSourceTypes.source[this.ucFirst(transaction.type)]);
             // console.log('destination allowed types for a ' + transaction.type);
-            // console.log(window.expectedSourceTypes.destination[this.ucFirst(transaction.type)]);
-            if (typeof window.expectedSourceTypes === 'undefined') {
-                console.error('window.expectedSourceTypes is unexpectedly empty.')
+            // console.log(globalThis.expectedSourceTypes.destination[this.ucFirst(transaction.type)]);
+            if (typeof globalThis.expectedSourceTypes === 'undefined') {
+                console.error('globalThis.expectedSourceTypes is unexpectedly empty.')
             }
             let result = {
                 transaction_journal_id: transaction.transaction_journal_id,
@@ -529,7 +529,7 @@ export default {
                     currency_name: transaction.currency_name,
                     currency_code: transaction.currency_code,
                     currency_decimal_places: transaction.currency_decimal_places,
-                    allowed_types: window.expectedSourceTypes.source[this.ucFirst(transaction.type)]
+                    allowed_types: globalThis.expectedSourceTypes.source[this.ucFirst(transaction.type)]
                 },
                 destination_account: {
                     id: transaction.destination_id,
@@ -539,7 +539,7 @@ export default {
                     currency_name: transaction.currency_name,
                     currency_code: transaction.currency_code,
                     currency_decimal_places: transaction.currency_decimal_places,
-                    allowed_types: window.expectedSourceTypes.destination[this.ucFirst(transaction.type)]
+                    allowed_types: globalThis.expectedSourceTypes.destination[this.ucFirst(transaction.type)]
                 }
             };
             // console.log('Source currency id is      ' + result.source_account.currency_id);
@@ -676,12 +676,12 @@ export default {
 
             // if type is 'withdrawal' and destination is empty, cash withdrawal.
             if (transactionType === 'withdrawal' && '' === destName) {
-                destId = window.cashAccountId;
+                destId = globalThis.cashAccountId;
             }
 
             // if type is 'deposit' and source is empty, cash deposit.
             if (transactionType === 'deposit' && '' === sourceName) {
-                sourceId = window.cashAccountId;
+                sourceId = globalThis.cashAccountId;
             }
 
             // if index is over 0 and type is withdrawal or transfer, take source from index 0.
@@ -705,7 +705,7 @@ export default {
                 }
             }
             // set foreign currency info:
-            if (typeof row.foreign_amount.amount !== 'undefined' && row.foreign_amount.amount.toString() !== '' && parseFloat(row.foreign_amount.amount) !== .00) {
+            if (typeof row.foreign_amount.amount !== 'undefined' && row.foreign_amount.amount.toString() !== '' && Number.parseFloat(row.foreign_amount.amount) !== .00) {
                 foreignAmount = row.foreign_amount.amount;
                 foreignCurrency = row.foreign_amount.currency_id;
             }
@@ -772,16 +772,16 @@ export default {
             }
 
             // set budget id and piggy ID.
-            currentArray.budget_id = parseInt(row.budget);
-            if (parseInt(row.bill) > 0) {
-                currentArray.bill_id = parseInt(row.bill);
+            currentArray.budget_id = Number.parseInt(row.budget);
+            if (Number.parseInt(row.bill) > 0) {
+                currentArray.bill_id = Number.parseInt(row.bill);
             }
-            if (0 === parseInt(row.bill)) {
+            if (0 === Number.parseInt(row.bill)) {
                 currentArray.bill_id = null;
             }
 
-            if (parseInt(row.piggy_bank) > 0) {
-                currentArray.piggy_bank_id = parseInt(row.piggy_bank);
+            if (Number.parseInt(row.piggy_bank) > 0) {
+                currentArray.piggy_bank_id = Number.parseInt(row.piggy_bank);
             }
             if (this.isReconciled && !this.storeAsNew && true === row.reconciled) {
                 // drop content from array:
@@ -806,8 +806,8 @@ export default {
             let button = $('#submitButton');
             button.prop("disabled", true);
 
-            const page = window.location.href.split('/');
-            const groupId = parseInt(page[page.length - 1]);
+            const page = globalThis.location.href.split('/');
+            const groupId = Number.parseInt(page[page.length - 1]);
             let uri = './api/v1/transactions/' + groupId + '?_token=' + document.head.querySelector('meta[name="csrf-token"]').content;
             let method = 'PUT';
             if (this.storeAsNew) {
@@ -863,9 +863,9 @@ export default {
                 }
             } else {
                 if (this.storeAsNew) {
-                    window.location.href = window.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
+                    globalThis.location.href = globalThis.previousUrl + '?transaction_group_id=' + groupId + '&message=created';
                 } else {
-                    window.location.href = window.previousUrl + '?transaction_group_id=' + groupId + '&message=updated';
+                    globalThis.location.href = globalThis.previousUrl + '?transaction_group_id=' + groupId + '&message=updated';
                 }
             }
             // console.log('End of redirectUser');
@@ -1119,7 +1119,7 @@ export default {
                     }
                     if (key !== 'group_title') {
                         // lol dumbest way to explode "transactions.0.something" ever.
-                        transactionIndex = parseInt(key.split('.')[1]);
+                        transactionIndex = Number.parseInt(key.split('.')[1]);
                         fieldName = key.split('.')[2];
                         // set error in this object thing.
                         switch (fieldName) {

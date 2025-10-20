@@ -118,15 +118,15 @@ export default {
   },
   methods: {
     getWebhook: function () {
-      const page = window.location.href.split('/');
-      const webhookId = parseInt(page[page.length - 1]);
+      const page = globalThis.location.href.split('/');
+      const webhookId = Number.parseInt(page[page.length - 1]);
       this.downloadWebhook(webhookId);
     },
     downloadWebhook: function (id) {
       axios.get('./api/v1/webhooks/' + id).then(response => {
         // console.log(response.data.data.attributes);
         this.title = response.data.data.attributes.title;
-        this.id = parseInt(response.data.data.id);
+        this.id = Number.parseInt(response.data.data.id);
 
         // trigger value on content
         console.log('Trigger is ' + response.data.data.attributes.trigger);
@@ -204,8 +204,8 @@ export default {
 
       // post!
       axios.put('./api/v1/webhooks/' + this.id, data).then((response) => {
-        let webhookId = parseInt(response.data.data.id);
-        window.location.href = window.previousUrl + '?webhook_id=' + webhookId + '&message=updated';
+        let webhookId = Number.parseInt(response.data.data.id);
+        globalThis.location.href = globalThis.previousUrl + '?webhook_id=' + webhookId + '&message=updated';
       }).catch((error) => {
 
         this.error_message = error.response.data.message;

@@ -46,14 +46,14 @@ export default () => ({
     },
 
     getFreshData() {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         // TODO cache key is hard coded, problem?
         const boxesCacheKey = getCacheKey('ds_boxes_data', {convertToPrimary: this.convertToPrimary, start: start, end: end});
         cleanupCache();
 
-        //const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(boxesCacheKey);
+        //const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(boxesCacheKey);
         const cacheValid = false; // force refresh
 
         if (cacheValid && typeof cachedData !== 'undefined') {
@@ -67,7 +67,7 @@ export default () => ({
         let getter = new Summary();
         getter.get(format(start, 'yyyy-MM-dd'), format(end, 'yyyy-MM-dd'), null).then((response) => {
             this.boxData = response.data;
-            window.store.set(boxesCacheKey, response.data);
+            globalThis.store.set(boxesCacheKey, response.data);
             this.generateOptions(this.boxData);
         });
     },
@@ -169,7 +169,7 @@ export default () => ({
             this.convertToPrimary = values[1];
             this.loadBoxes();
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
@@ -177,7 +177,7 @@ export default () => ({
             this.boxData = null;
             this.loadBoxes();
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }

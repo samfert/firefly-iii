@@ -260,12 +260,12 @@ let transactions = function () {
         },
 
         changedAmount(e) {
-            const index = parseInt(e.target.dataset.index);
-            this.entries[index].amount = parseFloat(e.target.value);
+            const index = Number.parseInt(e.target.dataset.index);
+            this.entries[index].amount = Number.parseFloat(e.target.value);
             this.groupProperties.totalAmount = 0;
             for (let i in this.entries) {
                 if (this.entries.hasOwnProperty(i)) {
-                    this.groupProperties.totalAmount = this.groupProperties.totalAmount + parseFloat(this.entries[i].amount);
+                    this.groupProperties.totalAmount = this.groupProperties.totalAmount + Number.parseFloat(this.entries[i].amount);
                 }
             }
         },
@@ -391,7 +391,7 @@ let transactions = function () {
             poster.post(submission).then((response) => {
                 const group = response.data.data;
                 // submission was a success!
-                this.groupProperties.id = parseInt(group.id);
+                this.groupProperties.id = Number.parseInt(group.id);
                 this.groupProperties.title = group.attributes.group_title ?? group.attributes.transactions[0].description
                 console.log('group title is now: ', this.groupProperties.title);
 
@@ -444,7 +444,7 @@ let transactions = function () {
                 }
                 return;
             }
-            window.location = 'transactions/show/' + this.groupProperties.id + '?transaction_group_id=' + this.groupProperties.id + '&message=created';
+            globalThis.location = 'transactions/show/' + this.groupProperties.id + '?transaction_group_id=' + this.groupProperties.id + '&message=created';
         },
 
         parseErrors(data) {
@@ -545,7 +545,7 @@ let transactions = function () {
             // remove location from entry, fire event, do nothing else (the map is somebody else's problem).
 
             const target = e.currentTarget;
-            const index = parseInt(target.attributes['data-index'].value);
+            const index = Number.parseInt(target.attributes['data-index'].value);
             this.entries[index].hasLocation = false;
             this.entries[index].latitude = null;
             this.entries[index].longitude = null;
@@ -580,7 +580,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

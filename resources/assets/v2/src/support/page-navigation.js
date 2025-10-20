@@ -72,8 +72,8 @@ function logarithmicPaginationLinks(lastPage, matchPage, linkURL) {
 
 export default function pageNavigation(totalPages, currentPage, navigationURL) {
 
-    totalPages = parseInt(totalPages);
-    currentPage = parseInt(currentPage);
+    totalPages = Number.parseInt(totalPages);
+    currentPage = Number.parseInt(currentPage);
     let html = '<nav aria-label="Page navigation">';
     html += '<ul class="pagination">';
     if(currentPage > 1) {

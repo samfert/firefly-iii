@@ -22,16 +22,16 @@ import Get from "../api/v1/configuration/get.js";
 import {parseResponse} from "./get-variable.js";
 
 export function getConfiguration(name, defaultValue = null) {
-    const validCache = window.store.get('cacheValid');
-    // currently unused, window.X can be used by the blade template
+    const validCache = globalThis.store.get('cacheValid');
+    // currently unused, globalThis.X can be used by the blade template
     // to make things available quicker than if the store has to grab it through the API.
     // then again, it's not that slow.
-    if (validCache && window.hasOwnProperty(name)) {
+    if (validCache && globalThis.hasOwnProperty(name)) {
         console.log('Return configuration "' + name + '" from window: ' + window[name]);
         return Promise.resolve(window[name]);
     }
     // load from store2, if it's present.
-    const fromStore = window.store.get(name);
+    const fromStore = globalThis.store.get(name);
     if (validCache && typeof fromStore !== 'undefined') {
         console.log('Return configuration "' + name + '" from store: ' + fromStore);
         return Promise.resolve(fromStore);
@@ -49,7 +49,7 @@ export function getConfiguration(name, defaultValue = null) {
 }
 export function parseConfigurationResponse(name, response) {
     let value = response.data.data.value;
-    window.store.set(name, value);
+    globalThis.store.set(name, value);
     return value;
 }
 

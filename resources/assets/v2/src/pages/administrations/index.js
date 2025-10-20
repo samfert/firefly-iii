@@ -53,7 +53,7 @@ let index = function () {
             this.loadAdministrations();
         },
         useAdministration(id) {
-            let groupId = parseInt(id);
+            let groupId = Number.parseInt(id);
             // try to post "use", then reload administrations.
             (new Post()).use(groupId).then(response => {
                this.loadAdministrations();
@@ -70,7 +70,7 @@ let index = function () {
                     if (response.data.data.hasOwnProperty(i)) {
                         let current = response.data.data[i];
                         let group = {
-                            id: parseInt(current.id),
+                            id: Number.parseInt(current.id),
                             title: current.attributes.title,
                             in_use: current.attributes.in_use,
                             owner: '',
@@ -134,7 +134,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

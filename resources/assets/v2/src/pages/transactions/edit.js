@@ -161,7 +161,7 @@ let transactions = function () {
             putter.put(submission, {id: this.groupProperties.id}).then((response) => {
                 const group = response.data.data;
                 // submission was a success!
-                this.groupProperties.id = parseInt(group.id);
+                this.groupProperties.id = Number.parseInt(group.id);
                 this.groupProperties.title = group.attributes.group_title ?? group.attributes.transactions[0].description
 
                 // process attachments, if any:
@@ -275,15 +275,15 @@ let transactions = function () {
 
         getTransactionGroup() {
             this.entries = [];
-            const page = window.location.href.split('/');
-            const groupId = parseInt(page[page.length - 1]);
+            const page = globalThis.location.href.split('/');
+            const groupId = Number.parseInt(page[page.length - 1]);
             const getter = new Get();
             getter.show(groupId, {}).then((response) => {
                 const data = response.data.data;
-                this.groupProperties.id = parseInt(data.id);
+                this.groupProperties.id = Number.parseInt(data.id);
                 this.groupProperties.transactionType = data.attributes.transactions[0].type.toLowerCase();
                 this.groupProperties.title = data.attributes.title ?? data.attributes.transactions[0].description;
-                this.entries = parseDownloadedSplits(data.attributes.transactions, parseInt(data.id));
+                this.entries = parseDownloadedSplits(data.attributes.transactions, Number.parseInt(data.id));
 
                 // remove waiting thing.
                 this.notifications.wait.show = false;
@@ -291,7 +291,7 @@ let transactions = function () {
                 this.groupProperties.totalAmount = 0;
                 for (let i in this.entries) {
                     if (this.entries.hasOwnProperty(i)) {
-                        this.groupProperties.totalAmount = this.groupProperties.totalAmount + parseFloat(this.entries[i].amount);
+                        this.groupProperties.totalAmount = this.groupProperties.totalAmount + Number.parseFloat(this.entries[i].amount);
                         // TODO this does not include all possible types.
                         this.filters.source.push(this.entries[i].source_account.type);
                         this.filters.destination.push(this.entries[i].destination_account.type);
@@ -377,12 +377,12 @@ let transactions = function () {
         },
 
         changedAmount(e) {
-            const index = parseInt(e.target.dataset.index);
-            this.entries[index].amount = parseFloat(e.target.value);
+            const index = Number.parseInt(e.target.dataset.index);
+            this.entries[index].amount = Number.parseFloat(e.target.value);
             this.groupProperties.totalAmount = 0;
             for (let i in this.entries) {
                 if (this.entries.hasOwnProperty(i)) {
-                    this.groupProperties.totalAmount = this.groupProperties.totalAmount + parseFloat(this.entries[i].amount);
+                    this.groupProperties.totalAmount = this.groupProperties.totalAmount + Number.parseFloat(this.entries[i].amount);
                 }
             }
         },
@@ -399,7 +399,7 @@ let transactions = function () {
                 this.notifications.success.text = i18next.t('firefly.updated_journal_js', {description: this.groupProperties.title});
                 return;
             }
-            window.location = 'transactions/show/' + this.groupProperties.id + '?transaction_group_id=' + this.groupProperties.id + '&message=updated';
+            globalThis.location = 'transactions/show/' + this.groupProperties.id + '?transaction_group_id=' + this.groupProperties.id + '&message=updated';
         },
         // TODO is a duplicate
         parseErrors(data) {
@@ -447,7 +447,7 @@ document.addEventListener('firefly-iii-bootstrapped', () => {
     loadPage();
 });
 // or is bootstrapped before event is triggered.
-if (window.bootstrapped) {
+if (globalThis.bootstrapped) {
     console.log('Loaded through window variable.');
     loadPage();
 }

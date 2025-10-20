@@ -224,11 +224,11 @@ export default () => ({
     },
     parseTransaction(transaction) {
         let currencyCode = transaction.currency_code;
-        let amount       = parseFloat(transaction.amount);
+        let amount       = Number.parseFloat(transaction.amount);
         let flowKey;
         if (this.convertToPrimary) {
             currencyCode = transaction.primary_currency_code;
-            amount       = parseFloat(transaction.pc_amount);
+            amount       = Number.parseFloat(transaction.pc_amount);
         }
         if ('deposit' === transaction.type) {
             this.parseDeposit(transaction, currencyCode, amount);
@@ -337,12 +337,12 @@ export default () => ({
 
     },
     getFreshData() {
-        const start    = new Date(window.store.get('start'));
-        const end      = new Date(window.store.get('end'));
+        const start    = new Date(globalThis.store.get('start'));
+        const end      = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey(SANKEY_CACHE_KEY, {start: start, end: end});
 
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData   = window.store.get(cacheKey);
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData   = globalThis.store.get(cacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             transactions = cachedData;
@@ -361,8 +361,8 @@ export default () => ({
         this.downloadTransactions(params);
     },
     downloadTransactions(params) {
-        const start    = new Date(window.store.get('start'));
-        const end      = new Date(window.store.get('end'));
+        const start    = new Date(globalThis.store.get('start'));
+        const end      = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey(SANKEY_CACHE_KEY, {convertToPrimary: this.convertToPrimary, start: start, end: end});
 
         //console.log('Downloading page ' + params.page + '...');
@@ -371,13 +371,13 @@ export default () => ({
             transactions = [...transactions, ...response.data.data];
             //this.drawChart(this.generateOptions(response.data));
             //this.loading = false;
-            if (parseInt(response.data.meta.pagination.total_pages) > params.page) {
+            if (Number.parseInt(response.data.meta.pagination.total_pages) > params.page) {
                 // continue to next page.
                 params.page++;
                 this.downloadTransactions(params);
                 return;
             }
-            window.store.set(cacheKey, transactions);
+            globalThis.store.set(cacheKey, transactions);
             this.drawChart(this.generateOptions());
             this.loading = false;
         });
@@ -422,7 +422,7 @@ export default () => ({
             this.loadChart();
 
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
@@ -430,7 +430,7 @@ export default () => ({
             this.transactions = [];
             this.loadChart();
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }

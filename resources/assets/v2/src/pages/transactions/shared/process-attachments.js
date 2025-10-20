@@ -29,7 +29,7 @@ let uploadFiles = function (fileData) {
         if (fileData.hasOwnProperty(key) && /^0$|^[1-9]\d*$/.test(key) && key <= 4294967294 && false === hasError) {
             let poster = new AttachmentPost();
             poster.post(fileData[key].name, 'TransactionJournal', fileData[key].journal).then(response => {
-                let attachmentId = parseInt(response.data.data.id);
+                let attachmentId = Number.parseInt(response.data.data.id);
                 poster.upload(attachmentId, fileData[key].content).then(attachmentResponse => {
                     uploads++;
                     if (uploads === count) {

@@ -58,12 +58,12 @@ export default () => ({
 
 
     getFreshData() {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         const chartCacheKey = getCacheKey(this.localCacheKey('chart'), {convertToPrimary: this.convertToPrimary, start: start, end: end})
 
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(chartCacheKey);
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(chartCacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             console.log('Generate from cache: ', chartCacheKey);
@@ -75,7 +75,7 @@ export default () => ({
         dashboard.dashboard(start, end, null).then((response) => {
             this.chartData = response.data;
             // cache generated options:
-            window.store.set(chartCacheKey, response.data);
+            globalThis.store.set(chartCacheKey, response.data);
             console.log('Generate FRESH!');
             this.drawChart(this.generateOptions(this.chartData));
             this.loading = false;
@@ -137,7 +137,7 @@ export default () => ({
                     options.options.scales[code] = {
                         id: currency,
                         type: 'linear',
-                        position: 1 === parseInt(currency) ? 'right' : 'left',
+                        position: 1 === Number.parseInt(currency) ? 'right' : 'left',
                         ticks: {
                             callback: function (value, index, values) {
                                 return formatMoney(value, currencies[currency]);
@@ -182,12 +182,12 @@ export default () => ({
             this.loadingAccounts = false;
             return;
         }
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         const accountCacheKey = getCacheKey(this.localCacheKey('data'), {start: start, end: end});
 
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(accountCacheKey);
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(accountCacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             this.accountList = cachedData;
@@ -208,7 +208,7 @@ export default () => ({
                 if (account.hasOwnProperty(i)) {
                     let accountId = account[i];
                     // grab account info for box:
-                    (new Get).show(accountId, new Date(window.store.get('end'))).then((response) => {
+                    (new Get).show(accountId, new Date(globalThis.store.get('end'))).then((response) => {
                         let parent = response.data.data;
 
                         // apply function to each element of parent:
@@ -222,8 +222,8 @@ export default () => ({
                         // get groups for account:
                         const params = {
                             page: 1,
-                            start: new Date(window.store.get('start')),
-                            end: new Date(window.store.get('end')),
+                            start: new Date(globalThis.store.get('start')),
+                            end: new Date(globalThis.store.get('end')),
                         };
                         (new Get).transactions(parent.id, params).then((response) => {
                             let groups = [];
@@ -240,10 +240,10 @@ export default () => ({
                                 for (let iii = 0; iii < current.attributes.transactions.length; iii++) {
                                     let currentTransaction = current.attributes.transactions[iii];
                                     //console.log(currentTransaction);
-                                    let amountRaw = 'withdrawal' === currentTransaction.type ? parseFloat(currentTransaction.amount) * -1 : parseFloat(currentTransaction.amount);
+                                    let amountRaw = 'withdrawal' === currentTransaction.type ? Number.parseFloat(currentTransaction.amount) * -1 : Number.parseFloat(currentTransaction.amount);
 
                                     // if transfer and source is this account, multiply again
-                                    if('transfer' === currentTransaction.type && parseInt(currentTransaction.source_id) === accountId) { //
+                                    if('transfer' === currentTransaction.type && Number.parseInt(currentTransaction.source_id) === accountId) { //
                                         amountRaw = amountRaw * -1;
                                     }
 
@@ -272,7 +272,7 @@ export default () => ({
 
                                 this.accountList = accounts;
                                 this.loadingAccounts = false;
-                                window.store.set(accountCacheKey, accounts);
+                                globalThis.store.set(accountCacheKey, accounts);
                             }
                         });
                     });
@@ -299,7 +299,7 @@ export default () => ({
             this.loadChart();
             this.loadAccounts();
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
@@ -310,7 +310,7 @@ export default () => ({
             this.loadChart();
             this.loadAccounts();
         });
-        window.store.observe('convert_to_primary', () => {
+        globalThis.store.observe('convert_to_primary', () => {
             if (!afterPromises) {
                 return;
             }

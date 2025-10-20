@@ -41,7 +41,7 @@ export function getVariables(preferences) {
 
 export function parseResponse(name, response) {
     let value = response.data.data.attributes.data;
-    window.store.set(name, value);
+    globalThis.store.set(name, value);
     return value;
 }
 

@@ -78,7 +78,7 @@ export default () => ({
                         let amount = 0.0;
                         if (code === ii) {
                             // this series' currency matches this column's currency.
-                            amount = parseFloat(current.amount);
+                            amount = Number.parseFloat(current.amount);
                             yAxis = 'y' + current.currency_code;
                         }
                         if (series[ii].data.hasOwnProperty(current.label)) {
@@ -144,12 +144,12 @@ export default () => ({
 
     },
     getFreshData() {
-        const start = new Date(window.store.get('start'));
-        const end = new Date(window.store.get('end'));
+        const start = new Date(globalThis.store.get('start'));
+        const end = new Date(globalThis.store.get('end'));
         const cacheKey = getCacheKey('ds_ct_chart', {convertToPrimary: this.convertToPrimary, start: start, end: end});
 
-        const cacheValid = window.store.get('cacheValid');
-        let cachedData = window.store.get(cacheKey);
+        const cacheValid = globalThis.store.get('cacheValid');
+        let cachedData = globalThis.store.get(cacheKey);
 
         if (cacheValid && typeof cachedData !== 'undefined') {
             chartData = cachedData; // save chart data for later.
@@ -162,7 +162,7 @@ export default () => ({
         dashboard.dashboard(start, end, null).then((response) => {
             chartData = response.data; // save chart data for later.
             this.drawChart(this.generateOptions(response.data));
-            window.store.set(cacheKey, chartData);
+            globalThis.store.set(cacheKey, chartData);
             this.loading = false;
         });
     },
@@ -187,14 +187,14 @@ export default () => ({
             afterPromises = true;
             this.loadChart();
         });
-        window.store.observe('end', () => {
+        globalThis.store.observe('end', () => {
             if (!afterPromises) {
                 return;
             }
             this.chartData = null;
             this.loadChart();
         });
-        window.store.observe('convert_to_primary', (newValue) => {
+        globalThis.store.observe('convert_to_primary', (newValue) => {
             if (!afterPromises) {
                 return;
             }
