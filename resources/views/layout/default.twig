@@ -93,9 +93,10 @@
 
 </head>
 <body class="skin-firefly-iii sidebar-mini hold-transition">
+<a href="#main-content" class="skip-links">{{ 'skip_to_main_content'|_ }}</a>
 <div class="wrapper" id="app">
 
-    <header class="main-header">
+    <header class="main-header" role="banner">
 
         {# Logo #}
         <a href="{{ route('index') }}" class="logo">
@@ -114,9 +115,9 @@
 
                     <li class="hidden-sm hidden-xs">
                         <a href="#" id="help" data-route="{{ original_route_name }}"
-                           data-extra="{{ objectType|default("") }}">
+                           data-extra="{{ objectType|default("") }}" aria-label="{{ 'help'|_ }}">
                             <span class="fa fa-question-circle" data-route="{{ original_route_name }}"
-                                  data-extra="{{ objectType|default("") }}"></span>
+                                  data-extra="{{ objectType|default("") }}" aria-hidden="true"></span>
                         </a>
                     </li>
 
@@ -132,21 +133,21 @@
                     </span>
                     </li>
                     <li id="sidebar-toggle">
-                        <a href="#" data-toggle="control-sidebar"><span class="fa fa-plus-circle"></span></a>
+                        <a href="#" data-toggle="control-sidebar" aria-label="{{ 'toggle_sidebar'|_ }}"><span class="fa fa-plus-circle" aria-hidden="true"></span></a>
                     </li>
                 </ul>
             </div>
 
         </nav>
     </header>
-    <aside class="main-sidebar">
+    <aside class="main-sidebar" role="navigation" aria-label="{{ 'main_navigation'|_ }}">
         <section class="sidebar">
             <form action="{{ route('search.index') }}" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input autocomplete="off" type="text" name="search" class="form-control"
                            placeholder="{{ 'searchPlaceholder'|_ }}" value="{{ query }}" spellcheck="false"/>
                     <span class="input-group-btn">
-                <button type='submit' name='go' id='search-btn' class="btn btn-flat"><span class="fa fa-search"></span></button>
+                <button type='submit' name='go' id='search-btn' class="btn btn-flat" aria-label="{{ 'search'|_ }}"><span class="fa fa-search" aria-hidden="true"></span></button>
               </span>
                 </div>
             </form>
@@ -155,7 +156,7 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header">
+        <section class="content-header" id="main-content" role="main">
             {% include('partials.page-header') %}
             {% block breadcrumbs %}{% endblock %}
         </section>
@@ -176,7 +177,7 @@
             {% block content %}{% endblock %}
         </section>
     </div>
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="pull-right">
             <b class="hidden-xs">{{ 'version'|_ }}</b> <a
                 href="{{ route('debug') }}">{{ Config.get('firefly.version') }}</a>
