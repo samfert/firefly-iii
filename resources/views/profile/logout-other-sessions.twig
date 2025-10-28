@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <h1>{{ 'logout_other_sessions'|_ }}</h1>
     <form method="POST" action="{{ route('profile.logout-others.post') }}" accept-charset="UTF-8" class="form-horizontal">
         <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
@@ -12,7 +13,7 @@
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'logout_other_sessions'|_ }}</h3>
+                        <h2 class="box-title">{{ 'logout_other_sessions'|_ }}</h2>
                     </div>
                     <div class="box-body">
                         <div class="form-group">

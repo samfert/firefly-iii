@@ -1,36 +1,36 @@
-<table class="table table-hover table-compressed table-responsive ">
+<table class="table table-hover table-compressed table-responsive" aria-label="{{ 'transaction_audit_table'|_ }}">
     <thead>
     <tr class="ignore">
-        <th class="hide-buttons">&nbsp;</th>
-        <th class="hide-icon">&nbsp;</th>
+        <th class="hide-buttons" scope="col">&nbsp;</th>
+        <th class="hide-icon" scope="col">&nbsp;</th>
 
-        <th class="hide-description">{{ trans('list.description') }}</th>
-        <th class="hide-balance_before" style="text-align: right;">{{ trans('list.balance_before') }}</th>
-        <th class="hide-amount" style="text-align: right;">{{ trans('list.amount') }}</th>
-        <th class="hide-balance_after" style="text-align: right;">{{ trans('list.balance_after') }}</th>
+        <th class="hide-description" scope="col">{{ trans('list.description') }}</th>
+        <th class="hide-balance_before" scope="col" style="text-align: right;">{{ trans('list.balance_before') }}</th>
+        <th class="hide-amount" scope="col" style="text-align: right;">{{ trans('list.amount') }}</th>
+        <th class="hide-balance_after" scope="col" style="text-align: right;">{{ trans('list.balance_after') }}</th>
 
-        <th class="hide-date">{{ trans('list.date') }}</th>
+        <th class="hide-date" scope="col">{{ trans('list.date') }}</th>
         {# new optional fields (3x) #}
-        <th class="hide-from">{{ trans('list.from') }}</th>
-        <th class="hide-to">{{ trans('list.to') }}</th>
+        <th class="hide-from" scope="col">{{ trans('list.from') }}</th>
+        <th class="hide-to" scope="col">{{ trans('list.to') }}</th>
 
-        <th class="hide-budget"><span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}"></span></th>
-        <th class="hide-category"><span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}"></span></th>
-        <th class="hide-bill">{{ trans('list.bill') }}</th>
+        <th class="hide-budget" scope="col"><span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}" aria-hidden="true"></span><span class="sr-only">{{ trans('list.budget') }}</span></th>
+        <th class="hide-category" scope="col"><span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}" aria-hidden="true"></span><span class="sr-only">{{ trans('list.category') }}</span></th>
+        <th class="hide-bill" scope="col">{{ trans('list.bill') }}</th>
 
         {# more optional fields (2x) #}
-        <th class="hide-create_date">{{ trans('list.create_date') }}</th>
-        <th class="hide-update_date">{{ trans('list.update_date') }}</th>
+        <th class="hide-create_date" scope="col">{{ trans('list.create_date') }}</th>
+        <th class="hide-update_date" scope="col">{{ trans('list.update_date') }}</th>
 
-        <th class="hide-notes">{{ trans('list.notes') }}</th>
+        <th class="hide-notes" scope="col">{{ trans('list.notes') }}</th>
 
         {# even more optional fields #}
-        <th class="hide-interest_date">{{ trans('list.interest_date') }}</th>
-        <th class="hide-book_date">{{ trans('list.book_date') }}</th>
-        <th class="hide-process_date">{{ trans('list.process_date') }}</th>
-        <th class="hide-due_date">{{ trans('list.due_date') }}</th>
-        <th class="hide-payment_date">{{ trans('list.payment_date') }}</th>
-        <th class="hide-invoice_date">{{ trans('list.invoice_date') }}</th>
+        <th class="hide-interest_date" scope="col">{{ trans('list.interest_date') }}</th>
+        <th class="hide-book_date" scope="col">{{ trans('list.book_date') }}</th>
+        <th class="hide-process_date" scope="col">{{ trans('list.process_date') }}</th>
+        <th class="hide-due_date" scope="col">{{ trans('list.due_date') }}</th>
+        <th class="hide-payment_date" scope="col">{{ trans('list.payment_date') }}</th>
+        <th class="hide-invoice_date" scope="col">{{ trans('list.invoice_date') }}</th>
 
     </tr>
     </thead>

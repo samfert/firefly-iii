@@ -3,7 +3,7 @@
 
     <div class="col-sm-8">
         <div class="input-group">
-            {{ Html.input('number', name, value).id(options.id).attribute('step',options.step).attribute('autocomplete','off').attribute('spellcheck', 'false').class('form-control').attribute('placeholder',options.placeholder) }}
+            {{ Html.input('number', name, value).id(options.id).attribute('step',options.step).attribute('autocomplete','off').attribute('spellcheck', 'false').class('form-control').attribute('placeholder',options.placeholder).attribute('aria-describedby', (options.helpText ? name ~ '_help' : '') ~ (errors.has(name) ? ' ' ~ name ~ '_error' : '')).attribute('aria-invalid', errors.has(name) ? 'true' : 'false').attribute('aria-required', options.required ? 'true' : 'false') }}
             <div class="input-group-addon">%</div>
         </div>
         {% include 'form.help' %}

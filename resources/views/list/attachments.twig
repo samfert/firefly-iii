@@ -1,4 +1,11 @@
-<table class="table table-responsive table-hover">
+<table class="table table-responsive table-hover" aria-label="{{ 'attachments_list'|_ }}">
+    <thead class="sr-only">
+        <tr>
+            <th scope="col">{{ 'actions'|_ }}</th>
+            <th scope="col">{{ 'attachment'|_ }}</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for attachment in attachments %}
         <tr>
             <td style="width:120px;">
@@ -44,4 +51,5 @@
             </td>
         </tr>
     {% endfor %}
+    </tbody>
 </table>

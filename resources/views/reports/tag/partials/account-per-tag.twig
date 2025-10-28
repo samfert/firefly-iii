@@ -1,9 +1,9 @@
-<table class="table table-hover sortable">
+<table class="table table-hover sortable" aria-label="{{ 'account_per_tag_table'|_ }}">
     <thead>
     <tr>
-        <th data-defaultsign="az">{{ 'name'|_ }}</th>
+        <th data-defaultsign="az" scope="col">{{ 'name'|_ }}</th>
         {% for tag in tags %}
-            <th data-defaultsign="_19" style="text-align: right;">{{ tag.tag }}</th>
+            <th data-defaultsign="_19" style="text-align: right;" scope="col">{{ tag.tag }}</th>
         {% endfor %}
     </tr>
     </thead>

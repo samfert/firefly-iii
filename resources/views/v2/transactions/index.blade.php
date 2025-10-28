@@ -5,12 +5,13 @@
 @section('content')
     <div class="app-content">
         <div class="container-fluid" x-data="index">
+            <h1 class="sr-only">{{ 'transactions'|_ }}</h1>
             <x-messages></x-messages>
             <div class="row mb-3">
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Info</h3>
+                            <h2 class="card-title">Info</h2>
                         </div>
                         <div class="card-body">
                             some chart
@@ -20,7 +21,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Info</h3>
+                            <h2 class="card-title">Info</h2>
                         </div>
                         <div class="card-body">
                             Same
@@ -30,7 +31,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Info</h3>
+                            <h2 class="card-title">Info</h2>
                         </div>
                         <div class="card-body">
                             Same
@@ -66,29 +67,29 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="row">
-                                <h3 class="card-title">Transactions</h3>
+                                <h2 class="card-title">Transactions</h2>
                             </div>
                         </div>
                         <div class="card-body p-0">
 
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped" aria-label="Transactions list">
                                 <thead>
                                 <tr>
-                                    <th>
+                                    <th scope="col">
                                         Icon
                                     </th>
                                     <template x-if="tableColumns.description.enabled">
-                                        <th>Description</th>
+                                        <th scope="col">Description</th>
                                     </template>
                                     <template x-if="tableColumns.source.enabled">
-                                        <th>From</th>
+                                        <th scope="col">From</th>
                                     </template>
                                     <template x-if="tableColumns.destination.enabled">
-                                        <th>To</th>
+                                        <th scope="col">To</th>
                                     </template>
                                     <template x-if="tableColumns.amount.enabled">
-                                        <th>Amount</th>
+                                        <th scope="col">Amount</th>
                                     </template>
                                 </tr>
                                 </thead>
@@ -174,7 +175,7 @@
                 <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Sidebar</h3>
+                            <h2 class="card-title">Sidebar</h2>
                         </div>
                         <div class="card-body">
                             I like sidebar

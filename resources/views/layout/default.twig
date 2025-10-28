@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ trans('config.html_language') }}">
+<html lang="{{ trans('config.html_language') }}" dir="ltr">
 <head>
     <!--
     If the base href URL begins with "http://" but you are sure it should start with "https://",
@@ -93,9 +93,13 @@
 
 </head>
 <body class="skin-firefly-iii sidebar-mini hold-transition">
+<div class="skip-links">
+    <a href="#main-content" class="skip-links">{{ 'skip_to_content'|_ }}</a>
+    <a href="#main-navigation" class="skip-links">{{ 'skip_to_navigation'|_ }}</a>
+</div>
 <div class="wrapper" id="app">
 
-    <header class="main-header">
+    <header class="main-header" role="banner">
 
         {# Logo #}
         <a href="{{ route('index') }}" class="logo">
@@ -105,8 +109,8 @@
             <span class="logo-lg"><strong>Firefly</strong>III</span>
         </a>
 
-        <nav class="navbar navbar-static-top" role="navigation">
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <nav class="navbar navbar-static-top" role="navigation" aria-label="{{ 'main_navigation'|_ }}">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" aria-expanded="false" aria-controls="main-navigation">
                 <span class="sr-only">{{ 'toggleNavigation'|_ }}</span>
             </a>
             <div class="navbar-custom-menu">
@@ -139,7 +143,7 @@
 
         </nav>
     </header>
-    <aside class="main-sidebar">
+    <aside class="main-sidebar" role="complementary">
         <section class="sidebar">
             <form action="{{ route('search.index') }}" method="get" class="sidebar-form">
                 <div class="input-group">
@@ -154,7 +158,7 @@
         </section>
     </aside>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" role="main" id="main-content">
         <section class="content-header">
             {% include('partials.page-header') %}
             {% block breadcrumbs %}{% endblock %}
@@ -176,7 +180,7 @@
             {% block content %}{% endblock %}
         </section>
     </div>
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="pull-right">
             <b class="hidden-xs">{{ 'version'|_ }}</b> <a
                 href="{{ route('debug') }}">{{ Config.get('firefly.version') }}</a>
@@ -190,10 +194,10 @@
     {% include('partials.control-bar') %}
 
 </div>
-<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-hidden="true">
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" id="helpModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="helpModal" aria-labelledby="helpTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -247,6 +251,7 @@
 {# Firefly III code #}
 <script type="text/javascript" src="v1/js/ff/firefly.js?v={{ FF_VERSION }}" nonce="{{ JS_NONCE }}"></script>
 <script type="text/javascript" src="v1/js/ff/help.js?v={{ FF_VERSION }}" nonce="{{ JS_NONCE }}"></script>
+<script type="text/javascript" src="v2/js/accessibility.js?v={{ FF_VERSION }}" nonce="{{ JS_NONCE }}"></script>
 {% if not shownDemo %}
     <script type="text/javascript" nonce="{{ JS_NONCE }}">
         var routeForTour = "{{ current_route_name }}";
@@ -280,7 +285,7 @@
     </script>
     <noscript><p><img
                 src="//{{ config('firefly.tracker_url') }}/matomo.php?idsite={{ config('firefly.tracker_site_id') }}&amp;rec=1"
-                style="border:0;" alt=""/></p></noscript>
+                style="border:0;" alt="Matomo tracking pixel"/></p></noscript>
 {% endif %}
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

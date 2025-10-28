@@ -8,7 +8,7 @@
         <div class="col-12 mb-2" x-model="account">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
+                    <h2 class="card-title">
                         <a :href="'{{ route('accounts.show', '') }}/' + account.id"
                            x-text="account.name"></a>
 
@@ -26,7 +26,13 @@
                     <p class="text-center small" x-show="account.groups.length < 1">
                         {{ __('firefly.no_transactions_period') }}
                     </p>
-                    <table class="table table-sm" x-show="account.groups.length > 0">
+                    <table class="table table-sm" x-show="account.groups.length > 0" aria-label="{{ __('firefly.recent_transactions') }}">
+                        <thead class="sr-only">
+                            <tr>
+                                <th scope="col">{{ __('firefly.description') }}</th>
+                                <th scope="col">{{ __('firefly.amount') }}</th>
+                            </tr>
+                        </thead>
                         <tbody>
                         <template x-for="group in account.groups">
                             <tr>

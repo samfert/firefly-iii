@@ -1,11 +1,11 @@
-<table class="table table-hover sortable">
+<table class="table table-hover sortable" aria-label="{{ 'top_income_transactions'|_ }}">
     <thead>
     <tr>
-        <th data-defaultsort="disabled">{{ 'description'|_ }}</th>
-        <th data-defaultsign="month">{{ 'date'|_ }}</th>
-        <th data-defaultsign="az">{{ 'account'|_ }}</th>
-        <th data-defaultsign="az">{{ 'category'|_ }}</th>
-        <th data-defaultsign="_19" style="text-align: right;">{{ 'amount'|_ }}</th>
+        <th data-defaultsort="disabled" scope="col">{{ 'description'|_ }}</th>
+        <th data-defaultsign="month" scope="col">{{ 'date'|_ }}</th>
+        <th data-defaultsign="az" scope="col">{{ 'account'|_ }}</th>
+        <th data-defaultsign="az" scope="col">{{ 'category'|_ }}</th>
+        <th data-defaultsign="_19" style="text-align: right;" scope="col">{{ 'amount'|_ }}</th>
     </tr>
     </thead>
     <tbody>

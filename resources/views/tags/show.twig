@@ -9,7 +9,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'meta_data'|_ }}</h3>
+                    <h2 class="box-title">{{ 'meta_data'|_ }}</h2>
 
 
                     <div class="box-tools pull-right">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" aria-label="{{ 'tag_metadata_table'|_ }}">
                         {% if tag.description %}
                             <tr>
                                 <td>
@@ -177,7 +177,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'location'|_ }}</h3>
+                    <h2 class="box-title">{{ 'location'|_ }}</h2>
                     <div class="box-tools pull-right">
                         <div class="btn-group">
                             <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><span
@@ -208,9 +208,9 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">
+                        <h2 class="box-title">
                             {{ 'attachments'|_ }}
-                        </h3>
+                        </h2>
                     </div>
                     <div class="box-body no-padding">
                         {% include 'list.attachments' %}
@@ -232,7 +232,7 @@
         <div class="{% if periods|length > 0 %}col-lg-10 col-md-10 col-sm-12 col-xs-12{% else %}col-lg-12 col-md-12 col-sm-12 col-xs-12{% endif %}">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ 'transactions'|_ }}</h3>
+                    <h2 class="box-title">{{ 'transactions'|_ }}</h2>
 
 
                     <div class="box-tools pull-right">

@@ -10,7 +10,7 @@
     <div class="col-lg-8 col-md-12 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">
+                <h1 class="box-title">
                     {{ array.title }}
 
                     ({{ array.type }})
@@ -18,10 +18,10 @@
                     {% if array.active == false %}
                         ({{ 'inactive'|_|lower }})
                     {% endif %}
-                </h3>
+                </h1>
             </div>
             <div class="box-body">
-                <h4>{{ 'transaction_journal_meta'|_ }}</h4>
+                <h2>{{ 'transaction_journal_meta'|_ }}</h2>
                 {% if array.nr_of_repetitions > 0 %}
                 <p>
                     {% if array.journal_count >= array.nr_of_repetitions %}
@@ -46,7 +46,7 @@
                         <li>{{ rep.description }}</li>
                     {% endfor %}
                 </ul>
-                <h4>{{ 'attachments'|_ }}</h4>
+                <h2>{{ 'attachments'|_ }}</h2>
                 {% include 'list.attachments' with {attachments: array.attachments} %}
             </div>
             <div class="box-footer">
@@ -63,9 +63,9 @@
     <div class="col-lg-4 col-md-12 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">
+                <h2 class="box-title">
                     {{ ('expected_'~array.type~'s')|_ }}
-                </h3>
+                </h2>
             </div>
             <div class="box-body">
                 {% if null != array.repeat_until and today > array.repeat_until %}
@@ -84,7 +84,7 @@
                             {% endif %}
                         </strong>
                     </p>
-                    <table class="table" aria-label="Table">
+                    <table class="table" aria-label="{{ 'expected_occurrences'|_ }}">
                         <tbody>
                         {% for occ in rep.occurrences %}
                             <tr>
@@ -120,21 +120,21 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">
+                <h2 class="box-title">
                     {{ 'transaction_data'|_ }}
-                </h3>
+                </h2>
             </div>
             <div class="box-body no-padding">
-                <table class="table table-hover sortable">
+                <table class="table table-hover sortable" aria-label="{{ 'transaction_data'|_ }}">
                     <thead>
                     <tr>
-                        <th data-defaultsign="az">{{ trans('list.description') }}</th>
-                        <th data-defaultsign="az">{{ trans('list.source') }}</th>
-                        <th data-defaultsign="az">{{ trans('list.destination') }}</th>
-                        <th data-defaultsign="_19">{{ trans('list.amount') }}</th>
-                        <th data-defaultsign="az">{{ trans('list.category') }}</th>
-                        <th data-defaultsign="az">{{ trans('list.budget') }}</th>
-                        <th>{{ trans('list.other_meta_data') }}</th>
+                        <th scope="col" data-defaultsign="az">{{ trans('list.description') }}</th>
+                        <th scope="col" data-defaultsign="az">{{ trans('list.source') }}</th>
+                        <th scope="col" data-defaultsign="az">{{ trans('list.destination') }}</th>
+                        <th scope="col" data-defaultsign="_19">{{ trans('list.amount') }}</th>
+                        <th scope="col" data-defaultsign="az">{{ trans('list.category') }}</th>
+                        <th scope="col" data-defaultsign="az">{{ trans('list.budget') }}</th>
+                        <th scope="col">{{ trans('list.other_meta_data') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -200,9 +200,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">
+                    <h2 class="box-title">
                         {{ ('created_'~array.type~'s')|_ }}
-                    </h3>
+                    </h2>
                 </div>
                 <div class="box-body">
                     {% include 'list.groups' %}

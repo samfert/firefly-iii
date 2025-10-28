@@ -2,12 +2,13 @@
 @section('content')
     <div class="app-content">
         <div class="container-fluid" x-data="index">
+            <h1 class="visually-hidden">{{ __('firefly.accounts') }}</h1>
             <x-messages></x-messages>
             <div class="row mb-3">
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('firefly.net_worth') }}</h3>
+                            <h2 class="card-title">{{ __('firefly.net_worth') }}</h2>
                         </div>
                         <div class="card-body">
                             TODO
@@ -17,7 +18,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('firefly.in_out_period') }}</h3>
+                            <h2 class="card-title">{{ __('firefly.in_out_period') }}</h2>
                         </div>
                         <div class="card-body">
                             TODO
@@ -27,7 +28,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">TODO</h3>
+                            <h2 class="card-title">TODO</h2>
                         </div>
                         <div class="card-body">
                             TODO
@@ -47,17 +48,17 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="card-title">
+                                    <h2 class="card-title">
                                         <span x-show="null === set.group.id">{{ __('firefly.undefined_accounts') }}</span>
                                         <span x-show="null !== set.group.id" x-text="set.group.title"></span>
-                                    </h3>
+                                    </h2>
                                 </div>
                                 <div class="col text-end">
                                 </div>
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <table class="table">
+                            <table class="table" role="table" aria-label="{{ __('firefly.accounts_table') }}"
                                 <thead>
                                 <tr x-show="hasFilters()">
                                     <td x-show="tableColumns.drag_and_drop.visible && tableColumns.drag_and_drop.enabled">
@@ -96,22 +97,22 @@
                                     <td x-show="tableColumns.menu.visible && tableColumns.menu.enabled">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <th x-show="tableColumns.drag_and_drop.visible && tableColumns.drag_and_drop.enabled">
+                                    <th x-show="tableColumns.drag_and_drop.visible && tableColumns.drag_and_drop.enabled" scope="col" aria-label="{{ __('firefly.drag_and_drop') }}">
                                         &nbsp;
                                     </th>
-                                    <th x-show="tableColumns.active.visible && tableColumns.active.enabled">
-                                        <a href="#" x-on:click.prevent="sort('active')">{{ __('list.active') }}</a>
+                                    <th x-show="tableColumns.active.visible && tableColumns.active.enabled" scope="col">
+                                        <a href="#" x-on:click.prevent="sort('active')" :aria-label="'{{ __('list.active') }}' + (pageOptions.sortingColumn === 'active' ? (pageOptions.sortDirection === 'asc' ? ' {{ __('firefly.sorted_ascending') }}' : ' {{ __('firefly.sorted_descending') }}') : '')">{{ __('list.active') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'active' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-short-wide"></em>
+                                            class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></em>
                                         <em x-show="pageOptions.sortingColumn === 'active' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-down-wide-short"></em>
+                                            class="fa-solid fa-arrow-down-wide-short" aria-hidden="true"></em>
                                     </th>
-                                    <th x-show="tableColumns.name.visible && tableColumns.name.enabled">
-                                        <a href="#" x-on:click.prevent="sort('name')">{{ __('list.name') }}</a>
+                                    <th x-show="tableColumns.name.visible && tableColumns.name.enabled" scope="col">
+                                        <a href="#" x-on:click.prevent="sort('name')" :aria-label="'{{ __('list.name') }}' + (pageOptions.sortingColumn === 'name' ? (pageOptions.sortDirection === 'asc' ? ' {{ __('firefly.sorted_ascending') }}' : ' {{ __('firefly.sorted_descending') }}') : '')">{{ __('list.name') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-a-z"></em>
-                                        <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'desc'" class="fa-solid fa-arrow-down-z-a"></em>
-                                        <a @click.prevent="showFilterDialog('name')" href="#" data-bs-toggle="modal" data-bs-target="#filterModal"><em class="fa-solid fa-magnifying-glass"></em></a>
+                                            class="fa-solid fa-arrow-down-a-z" aria-hidden="true"></em>
+                                        <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'desc'" class="fa-solid fa-arrow-down-z-a" aria-hidden="true"></em>
+                                        <a @click.prevent="showFilterDialog('name')" href="#" data-bs-toggle="modal" data-bs-target="#filterModal" aria-label="{{ __('firefly.filter_by_name') }}"><em class="fa-solid fa-magnifying-glass" aria-hidden="true"></em></a>
 
                                     </th>
                                     <th x-show="tableColumns.type.visible && tableColumns.type.enabled">{{ __('list.type') }}</th>

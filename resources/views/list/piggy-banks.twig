@@ -1,13 +1,13 @@
-<table class="table table-hover table-condensed" id="piggy-sortable">
+<table class="table table-hover table-condensed" id="piggy-sortable" aria-label="{{ 'piggy_banks_table'|_ }}">
     <thead>
     <tr>
-        <th colspan="2">&nbsp;</th>
-        <th>{{ 'piggy_bank'|_ }}</th>
-        <th style="text-align: right;">{{ 'saved_so_far'|_ }}</th>
-        <th colspan="3" class="hidden-sm hidden-xs">&nbsp;</th>
-        <th style="text-align: right;" class="hidden-sm hidden-xs">{{ 'target_amount'|_ }}</th>
-        <th style="text-align: right;" class="hidden-sm hidden-xs">{{ 'left_to_save'|_ }}</th>
-        <th style="text-align: right;" class="hidden-sm hidden-xs">{{ 'suggested_savings_per_month'|_ }}</th>
+        <th scope="col" colspan="2">{{ 'actions'|_ }}</th>
+        <th scope="col">{{ 'piggy_bank'|_ }}</th>
+        <th scope="col" style="text-align: right;">{{ 'saved_so_far'|_ }}</th>
+        <th scope="col" colspan="3" class="hidden-sm hidden-xs">{{ 'progress_actions'|_ }}</th>
+        <th scope="col" style="text-align: right;" class="hidden-sm hidden-xs">{{ 'target_amount'|_ }}</th>
+        <th scope="col" style="text-align: right;" class="hidden-sm hidden-xs">{{ 'left_to_save'|_ }}</th>
+        <th scope="col" style="text-align: right;" class="hidden-sm hidden-xs">{{ 'suggested_savings_per_month'|_ }}</th>
     </tr>
     </thead>
 

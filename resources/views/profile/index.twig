@@ -160,7 +160,7 @@
                 <div role="tabpanel" class="tab-pane" id="delete">
                     <div class="box box-default">
                         <div class="box-header with-border">
-                            <h3 class="box-title">{{ 'purge_data_title'|_ }}</h3>
+                            <h2 class="box-title">{{ 'purge_data_title'|_ }}</h2>
                         </div>
                         <div class="box-body with-border">
                             <div class="col-lg-12">
@@ -181,14 +181,14 @@
                     <!-- delete stuff -->
                     <div class="box box-default">
                         <div class="box-header with-border">
-                            <h3 class="box-title">{{ 'delete_data_title'|_ }}</h3>
+                            <h2 class="box-title">{{ 'delete_data_title'|_ }}</h2>
                         </div>
                         <div class="box-body with-border">
                             <div class="col-lg-12">
                                 <p class="text-info">
                                     {{ 'permanent_delete_stuff'|_ }}
                                 </p>
-                                <h4>{{ 'financial_control'|_ }}</h4>
+                                <h3>{{ 'financial_control'|_ }}</h3>
                                 <div class="btn-group">
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_budgets')|escape('html') }}"
@@ -205,7 +205,7 @@
                                             data-type="piggy_banks" class="confirm btn btn-danger btn-sm"><span
                                                 class="fa fa-bullseye"></span> {{ 'delete_all_piggy_banks'|_ }}</button>
                                 </div>
-                                <h4>{{ 'automation'|_ }}</h4>
+                                <h3>{{ 'automation'|_ }}</h3>
                                 <div class="btn-group">
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_rules')|escape('html') }}"
@@ -219,7 +219,7 @@
                                     </button>
                                 </div>
 
-                                <h4>{{ 'classification'|_ }}</h4>
+                                <h3>{{ 'classification'|_ }}</h3>
                                 <div class="btn-group">
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_categories')|escape('html') }}"
@@ -238,7 +238,7 @@
                                     </button>
                                 </div>
 
-                                <h4>{{ 'accounts'|_ }}</h4>
+                                <h3>{{ 'accounts'|_ }}</h3>
                                 <p>
                                     <em class="text-danger">{{ 'also_delete_transactions'|_ }}</em>
                                 </p>
@@ -269,7 +269,7 @@
                                             data-type="liabilities" class="confirm btn btn-danger btn-sm"><span
                                                 class="fa fa-ticket"></span> {{ 'delete_all_liabilities'|_ }}</button>
                                 </div>
-                                <h4>{{ 'accounts'|_ }}</h4>
+                                <h3>{{ 'accounts'|_ }}</h3>
                                 <p>
                                     <em class="text-info">
                                         {{ 'delete_unused_accounts'|_ }}
@@ -284,7 +284,7 @@
                                 </div>
 
 
-                                <h4> {{ 'transactions'|_ }}</h4>
+                                <h3>{{ 'transactions'|_ }}</h3>
                                 <div class="btn-group">
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_transactions')|escape('html') }}"

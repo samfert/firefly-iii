@@ -1,36 +1,36 @@
 <div style="padding-left:8px;">
     {{ accounts.links('pagination.bootstrap-4')|raw }}
 </div>
-<table class="table table-responsive table-hover" id="sortable-table">
+<table class="table table-responsive table-hover" id="sortable-table" aria-label="{{ trans('list.accounts_table') }}">
     <thead>
     <tr>
-        <th class="hidden-sm hidden-xs">&nbsp;</th>
-        <th>{{ trans('list.name') }}</th>
+        <th scope="col" class="hidden-sm hidden-xs">&nbsp;</th>
+        <th scope="col">{{ trans('list.name') }}</th>
         {% if objectType == 'asset' %}
-            <th class="hidden-sm hidden-xs hidden-md">{{ trans('list.role') }}</th>
+            <th scope="col" class="hidden-sm hidden-xs hidden-md">{{ trans('list.role') }}</th>
         {% endif %}
         {% if objectType == 'liabilities' %}
-            <th>{{ trans('list.liability_type') }}</th>
-            <th>{{ trans('form.liability_direction') }}</th>
-            <th>{{ trans('list.interest') }} ({{ trans('list.interest_period') }})</th>
+            <th scope="col">{{ trans('list.liability_type') }}</th>
+            <th scope="col">{{ trans('form.liability_direction') }}</th>
+            <th scope="col">{{ trans('list.interest') }} ({{ trans('list.interest_period') }})</th>
         {% endif %}
-        <th class="hidden-sm hidden-xs">{{ trans('form.account_number') }}</th>
+        <th scope="col" class="hidden-sm hidden-xs">{{ trans('form.account_number') }}</th>
         {% if objectType != 'liabilities' %}
-            <th style="text-align: right;">{{ trans('list.currentBalance') }}</th>
+            <th scope="col" style="text-align: right;">{{ trans('list.currentBalance') }}</th>
         {% endif %}
         {% if objectType == 'liabilities' %}
-            <th style="text-align: right;">
+            <th scope="col" style="text-align: right;">
                 {{ trans('firefly.left_in_debt') }}
             </th>
         {% endif %}
-        <th class="hidden-sm hidden-xs">{{ trans('list.active') }}</th>
+        <th scope="col" class="hidden-sm hidden-xs">{{ trans('list.active') }}</th>
         {# hide last activity to make room for other stuff #}
         {% if objectType != 'liabilities' %}
-            <th class="hidden-sm hidden-xs hidden-md">{{ trans('list.lastActivity') }}</th>
+            <th scope="col" class="hidden-sm hidden-xs hidden-md">{{ trans('list.lastActivity') }}</th>
         {% endif %}
-        <th style="width:15%;"
+        <th scope="col" style="width:15%;"
             class="hidden-sm hidden-xs hidden-md">{{ trans('list.balanceDiff') }}</th>
-        <th class="hidden-sm hidden-xs">&nbsp;</th>
+        <th scope="col" class="hidden-sm hidden-xs">&nbsp;</th>
     </tr>
     </thead>
     <tbody>

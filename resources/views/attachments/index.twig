@@ -9,20 +9,20 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">
+                    <h1 class="box-title">
                         {{ 'list_all_attachments'|_ }}
-                    </h3>
+                    </h1>
                 </div>
                 <div class="box-body no-padding">
-                    <table class="table table-striped sortable">
+                    <table class="table table-striped sortable" aria-label="{{ 'list_all_attachments'|_ }}">
                         <thead>
                         <tr>
-                            <th data-defaultsign="_19">&nbsp;</th>
-                            <th data-defaultsign="az">{{ trans('list.file_name') }}</th>
-                            <th data-defaultsign="_19">{{ trans('list.file_size') }}</th>
-                            <th data-defaultsign="az">{{ trans('list.file_type') }}</th>
-                            <th data-defaultsign="az">{{ trans('list.attached_to') }}</th>
-                            <th data-defaultsign="_19">{{ trans('list.file_exists') }}</th>
+                            <th data-defaultsign="_19" scope="col">{{ 'actions'|_ }}</th>
+                            <th data-defaultsign="az" scope="col">{{ trans('list.file_name') }}</th>
+                            <th data-defaultsign="_19" scope="col">{{ trans('list.file_size') }}</th>
+                            <th data-defaultsign="az" scope="col">{{ trans('list.file_type') }}</th>
+                            <th data-defaultsign="az" scope="col">{{ trans('list.attached_to') }}</th>
+                            <th data-defaultsign="_19" scope="col">{{ trans('list.file_exists') }}</th>
                         </tr>
                         </thead>
                         <tbody>

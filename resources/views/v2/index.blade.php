@@ -37,7 +37,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><a href="#" title="Something">Income + sum</a></h3>
+                            <h2 class="card-title"><a href="#" title="Something">Income + sum</a></h2>
                         </div>
                         <div class="card-body">
                             <p>
@@ -54,7 +54,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="internalsModalLabel">{{ __('firefly.page_settings_header') }}</h1>
+                        <h2 class="modal-title fs-5" id="internalsModalLabel">{{ __('firefly.page_settings_header') }}</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

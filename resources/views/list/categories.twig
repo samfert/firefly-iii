@@ -1,12 +1,12 @@
 <div style="padding-left:8px;">
     {{ categories.links('pagination.bootstrap-4')|raw }}
 </div>
-<table class="table table-hover sortable">
+<table class="table table-hover sortable" aria-label="{{ 'categories_table'|_ }}">
     <thead>
     <tr>
-        <th data-defaultsort="disabled">&nbsp;</th>
-        <th data-defaultsign="az">{{ trans('list.name') }}</th>
-        <th data-defaultsign="month" class="hidden-sm hidden-xs">{{ trans('list.lastActivity') }}</th>
+        <th data-defaultsort="disabled" scope="col">&nbsp;</th>
+        <th data-defaultsign="az" scope="col">{{ trans('list.name') }}</th>
+        <th data-defaultsign="month" class="hidden-sm hidden-xs" scope="col">{{ trans('list.lastActivity') }}</th>
     </tr>
     </thead>
     <tbody>

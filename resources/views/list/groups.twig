@@ -1,4 +1,4 @@
-<table class="table table-condensed table-hover table-responsive">
+<table class="table table-condensed table-hover table-responsive" role="table" aria-label="{{ 'transaction_list'|_ }}">
     <thead>
     <tr>
         {% if showCategory or showBudget %}
@@ -30,23 +30,23 @@
         </td>
     </tr>
     <tr>
-        <th class="hidden-xs">&nbsp;</th>
-        <th>{{ trans('list.description') }}</th>
-        <th>{{ trans('list.amount') }}</th>
+        <th class="hidden-xs" scope="col">&nbsp;</th>
+        <th scope="col">{{ trans('list.description') }}</th>
+        <th scope="col">{{ trans('list.amount') }}</th>
         {% if config('firefly.feature_flags.running_balance_column') %}
-        <th>{{ trans('list.running_balance') }}</th>
+        <th scope="col">{{ trans('list.running_balance') }}</th>
         {% endif %}
-        <th>{{ trans('list.date') }}</th>
-        <th>{{ trans('list.source_account') }}</th>
-        <th>{{ trans('list.destination_account') }}</th>
+        <th scope="col">{{ trans('list.date') }}</th>
+        <th scope="col">{{ trans('list.source_account') }}</th>
+        <th scope="col">{{ trans('list.destination_account') }}</th>
         {% if showCategory %}
-            <th class="hidden-xs">{{ trans('list.category') }}</th>
+            <th class="hidden-xs" scope="col">{{ trans('list.category') }}</th>
         {% endif %}
         {% if showBudget %}
-            <th class="hidden-xs">{{ trans('list.budget') }}</th>
+            <th class="hidden-xs" scope="col">{{ trans('list.budget') }}</th>
         {% endif %}
-        <th class="hidden-xs">&nbsp;</th><!-- actions -->
-        <th class="hidden-xs">&nbsp;</th><!-- checkbox -->
+        <th class="hidden-xs" scope="col">{{ 'actions'|_ }}</th>
+        <th class="hidden-xs" scope="col">{{ 'select'|_ }}</th>
     </tr>
     </thead>
     <tbody>

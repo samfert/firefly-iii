@@ -13,10 +13,10 @@
                             <h3 class="card-title">{{ __('firefly.basic_journal_information') }}</h3>
                         </div>
                         <div class="card-body p-0">
-                            <table class="table table-x table-hover">
+                            <table class="table table-x table-hover" aria-label="{{ __('firefly.basic_journal_information') }}">
                                 <tbody>
                                 <tr>
-                                    <th style="width:10%;">
+                                    <th scope="row" style="width:10%;">
                                         <template x-if="'Withdrawal' === groupProperties.transactionType">
                                             <em class="fa fa-solid fa-arrow-left"
                                                 :title="groupProperties.transactionTypeTranslated"></em>
@@ -39,7 +39,7 @@
                                     <td><span class="group_title" :data-group="groupProperties.id" x-text="groupProperties.title"></span></td>
                                 </tr>
                                 <tr>
-                                    <th><em class="fa-solid fa-calendar-alt" title="{{ __('list.date') }}"/></th>
+                                    <th scope="row"><em class="fa-solid fa-calendar-alt" title="{{ __('list.date') }}"/></th>
                                     <td><span x-text="format(groupProperties.date)"></span></td>
                                 </tr>
                                 </tbody>
@@ -127,7 +127,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col">
-                    <h4>{{ __('firefly.transaction_journal_information') }}</h4>
+                    <h2>{{ __('firefly.transaction_journal_information') }}</h2>
                 </div>
             </div>
             <div class="row">
@@ -138,7 +138,7 @@
 
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3 class="card-title">
+                                <h4 class="card-title">
                                     <span
                                         class="journal_description"
                                           data-type="text"
@@ -153,7 +153,7 @@
                                         <span x-text="index + 1"></span> / <span x-text="entries.length"></span>
                                     </span>
                                     </template>
-                                </h3>
+                                </h4>
                             </div>
                             <div class="card-body p-0">
                                 <table class="table table-x table-hover">
@@ -269,28 +269,28 @@
                         </div>
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3 class="card-title">Transaction links TODO</h3>
+                                <h4 class="card-title">Transaction links TODO</h4>
                             </div>
                             <div class="card-body p-0">
                             </div>
                         </div>
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3 class="card-title">Piggy bank events TODO</h3>
+                                <h4 class="card-title">Piggy bank events TODO</h4>
                             </div>
                             <div class="card-body p-0">
                             </div>
                         </div>
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3 class="card-title">Attachments TODO</h3>
+                                <h4 class="card-title">Attachments TODO</h4>
                             </div>
                             <div class="card-body p-0">
                             </div>
                         </div>
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3 class="card-title">Audit log entries TODO</h3>
+                                <h4 class="card-title">Audit log entries TODO</h4>
                             </div>
                             <div class="card-body p-0">
                             </div>

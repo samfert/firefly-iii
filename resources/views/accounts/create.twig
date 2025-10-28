@@ -3,6 +3,8 @@
     {{ Breadcrumbs.render(Route.getCurrentRoute.getName, objectType) }}
 {% endblock %}
 {% block content %}
+    <h1>{{ ('create_new_' ~ objectType ~ '_account')|_ }}</h1>
+    
     <!-- set location data high up -->
     <script type="text/javascript" nonce="{{ JS_NONCE }}">
         var locations = {{ locations|json_encode|raw }};

@@ -1,4 +1,12 @@
-<table class="table" aria-label="Table">
+<table class="table" aria-label="{{ 'audit_log_entries'|_ }}">
+    <thead>
+        <tr>
+            <th scope="col" style="width:20%;">{{ 'changer'|_ }}</th>
+            <th scope="col" style="width:30%;">{{ 'action'|_ }}</th>
+            <th scope="col">{{ 'details'|_ }}</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for logEntry in logEntries %}
         <tr>
             <th style="width:20%;" scope="row">
@@ -103,4 +111,5 @@
 
         </tr>
     {% endfor %}
+    </tbody>
 </table>
