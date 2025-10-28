@@ -18,31 +18,44 @@
   - along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 <template>
-  <div class="form-group" v-bind:class="{ 'has-error': hasError()}">
+  <div class="form-group" v-bind:class="{ 'has-error': hasError()}" role="group" :aria-labelledby="'label-' + inputName + '-' + index">
     <div class="col-sm-12 text-sm">
-      {{ inputDescription }}
+      <label :id="'label-' + inputName + '-' + index" :for="'input-' + inputName + '-' + index">
+        {{ inputDescription }}
+      </label>
     </div>
     <div class="col-sm-12">
       <div class="input-group">
         <input
             spellcheck="false"
             ref="input"
+            :id="'input-' + inputName + '-' + index"
             :data-index="index"
             :disabled="inputDisabled"
             :name="inputName"
             :placeholder="inputDescription"
             :title="inputDescription"
+            :aria-label="inputDescription"
+            :aria-describedby="hasError() ? 'error-' + inputName + '-' + index : null"
+            :aria-invalid="hasError() ? 'true' : 'false'"
             autocomplete="off"
             class="form-control"
             data-role="input"
             type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-autocomplete="list"
             v-on:submit.prevent>
         <span class="input-group-btn">
             <button
                 class="btn btn-default"
                 tabIndex="-1"
                 type="button"
-                v-on:click="clearSource"><i class="fa fa-trash-o"></i></button>
+                :aria-label="$t('firefly.clear_account_selection')"
+                v-on:click="clearSource">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <span class="sr-only">{{ $t('firefly.clear_account_selection') }}</span>
+            </button>
         </span>
       </div>
       <typeahead
@@ -53,18 +66,26 @@
           :target="target"
           item-key="name_with_balance"
           v-on:input="selectedItem"
+          role="listbox"
+          :aria-label="$t('firefly.account_suggestions')"
       >
         <template slot="item" slot-scope="props">
-          <li v-for="(item, index) in props.items" :class="{active:props.activeIndex===index}">
-            <a role="button" @click="props.select(item)">
+          <li v-for="(item, index) in props.items" 
+              :class="{active:props.activeIndex===index}"
+              role="option"
+              :aria-selected="props.activeIndex===index ? 'true' : 'false'"
+              :id="'option-' + inputName + '-' + index + '-' + item.id">
+            <a role="button" @click="props.select(item)" :aria-label="$t('firefly.select_account', {name: item.name_with_balance})">
               <span v-html="betterHighlight(item)"></span>
             </a>
           </li>
         </template>
       </typeahead>
-      <ul v-for="error in this.error" class="list-unstyled">
-        <li class="text-danger">{{ error }}</li>
-      </ul>
+      <div v-if="hasError()" :id="'error-' + inputName + '-' + index" role="alert" aria-live="polite">
+        <ul class="list-unstyled">
+          <li v-for="error in this.error" class="text-danger">{{ error }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 

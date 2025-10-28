@@ -19,16 +19,20 @@
   -->
 
 <template>
-  <div class="form-group" v-bind:class="{ 'has-error': hasError()}">
+  <div class="form-group" v-bind:class="{ 'has-error': hasError()}" role="group" aria-labelledby="amount-label">
     <div class="col-sm-8 col-sm-offset-4 text-sm">
-      {{ $t('firefly.amount') }}
+      <label id="amount-label" for="amount-input">{{ $t('firefly.amount') }}</label>
     </div>
-    <label ref="cur" class="col-sm-4 control-label"></label>
+    <label ref="cur" class="col-sm-4 control-label" id="currency-label" aria-live="polite"></label>
     <div class="col-sm-8">
       <div class="input-group">
         <input ref="amount" spellcheck="false"
+               id="amount-input"
                :title="$t('firefly.amount')"
                :value="value"
+               :aria-label="$t('firefly.amount')"
+               :aria-describedby="hasError() ? 'amount-error' : 'currency-label'"
+               :aria-invalid="hasError() ? 'true' : 'false'"
                autocomplete="off"
                class="form-control"
                name="amount[]"
@@ -42,14 +46,20 @@
                 class="btn btn-default"
                 tabIndex="-1"
                 type="button"
-                v-on:click="clearAmount"><i class="fa fa-trash-o"></i></button>
+                :aria-label="$t('firefly.clear_amount')"
+                v-on:click="clearAmount">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <span class="sr-only">{{ $t('firefly.clear_amount') }}</span>
+            </button>
         </span>
       </div>
     </div>
 
-    <ul v-for="error in this.error" class="list-unstyled">
-      <li class="text-danger">{{ error }}</li>
-    </ul>
+    <div v-if="hasError()" id="amount-error" role="alert" aria-live="polite">
+      <ul class="list-unstyled">
+        <li v-for="error in this.error" class="text-danger">{{ error }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
