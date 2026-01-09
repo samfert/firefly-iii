@@ -28,7 +28,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class CalculateXOccurrencesSince
+ * Trait CalculateXOccurrencesSince
+ *
+ * Calculo de ocorrencias desde uma data.
+ * Fornece metodos para calcular X ocorrencias de transacoes recorrentes a partir de uma data.
  */
 trait CalculateXOccurrencesSince
 {
