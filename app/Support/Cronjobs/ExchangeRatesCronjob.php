@@ -32,6 +32,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class ExchangeRatesCronjob
+ *
+ * Cronjob para download de taxas de cambio.
+ * Executa periodicamente para atualizar taxas de cambio de moedas.
  */
 class ExchangeRatesCronjob extends AbstractCronjob
 {

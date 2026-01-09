@@ -25,6 +25,12 @@ namespace FireflyIII\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class FireflyConfig
+ *
+ * Facade para configuracoes do Firefly III.
+ * Fornece acesso estatico aos metodos de configuracao do sistema.
+ */
 class FireflyConfig extends Facade
 {
     /**

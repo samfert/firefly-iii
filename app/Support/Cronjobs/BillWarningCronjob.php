@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class BillWarningCronjob
+ *
+ * Cronjob para notificacoes de faturas.
+ * Executa periodicamente para enviar alertas sobre faturas proximas do vencimento.
  */
 class BillWarningCronjob extends AbstractCronjob
 {

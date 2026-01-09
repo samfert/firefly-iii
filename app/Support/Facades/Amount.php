@@ -25,6 +25,12 @@ namespace FireflyIII\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Amount
+ *
+ * Facade para formatacao de valores monetarios.
+ * Fornece acesso estatico aos metodos de formatacao de valores.
+ */
 class Amount extends Facade
 {
     /**

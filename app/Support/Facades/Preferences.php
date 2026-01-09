@@ -25,6 +25,12 @@ namespace FireflyIII\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Preferences
+ *
+ * Facade para preferencias de usuario.
+ * Fornece acesso estatico aos metodos de preferencias do usuario.
+ */
 class Preferences extends Facade
 {
     public function __construct()

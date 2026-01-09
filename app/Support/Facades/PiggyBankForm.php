@@ -26,7 +26,10 @@ namespace FireflyIII\Support\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class PiggyBankForm.
+ * Class PiggyBankForm
+ *
+ * Facade para formularios de cofrinho.
+ * Fornece acesso estatico aos metodos de formulario de cofrinho.
  */
 class PiggyBankForm extends Facade
 {

@@ -26,7 +26,10 @@ namespace FireflyIII\Support\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class RuleForm.
+ * Class RuleForm
+ *
+ * Facade para formularios de regra.
+ * Fornece acesso estatico aos metodos de formulario de regra.
  */
 class RuleForm extends Facade
 {

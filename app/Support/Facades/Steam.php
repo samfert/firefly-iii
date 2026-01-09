@@ -25,6 +25,12 @@ namespace FireflyIII\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Steam
+ *
+ * Facade para utilitarios do Firefly III.
+ * Fornece acesso estatico aos metodos utilitarios do sistema.
+ */
 class Steam extends Facade
 {
     /**

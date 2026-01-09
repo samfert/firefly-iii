@@ -33,10 +33,8 @@ use Throwable;
 /**
  * Class AccountForm
  *
- * All form methods that are account related.
- *
- * TODO describe all methods
- * TODO optimize repositories and methods.
+ * Classe de formulario de conta.
+ * Fornece metodos para renderizar campos de formulario relacionados a contas.
  */
 class AccountForm
 {

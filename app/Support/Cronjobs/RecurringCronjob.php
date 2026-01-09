@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class RecurringCronjob
+ *
+ * Cronjob para criacao de transacoes recorrentes.
+ * Executa periodicamente para criar transacoes baseadas em recorrencias.
  */
 class RecurringCronjob extends AbstractCronjob
 {

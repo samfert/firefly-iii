@@ -65,6 +65,9 @@ use League\Csv\Writer;
 
 /**
  * Class ExportDataGenerator
+ *
+ * Gerador de dados de exportacao.
+ * Fornece metodos para exportar contas, faturas, orcamentos, categorias e transacoes em CSV.
  */
 class ExportDataGenerator
 {
