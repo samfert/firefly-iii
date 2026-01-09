@@ -29,7 +29,9 @@ use FireflyIII\Models\TransactionCurrency;
 use Illuminate\Database\QueryException;
 
 /**
- * Class TransactionCurrencyFactory
+ * Class TransactionCurrencyFactory.
+ *
+ * Fabrica para criacao de moedas de transacao.
  */
 class TransactionCurrencyFactory
 {

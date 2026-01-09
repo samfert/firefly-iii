@@ -37,9 +37,9 @@ use FireflyIII\User;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Factory to create or return accounts.
+ * Class AccountFactory.
  *
- * Class AccountFactory
+ * Fabrica para criacao de contas.
  */
 class AccountFactory
 {

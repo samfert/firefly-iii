@@ -33,7 +33,9 @@ use FireflyIII\User;
 use Illuminate\Database\QueryException;
 
 /**
- * Class BillFactory
+ * Class BillFactory.
+ *
+ * Fabrica para criacao de faturas.
  */
 class BillFactory
 {

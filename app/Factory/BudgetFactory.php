@@ -28,6 +28,8 @@ use FireflyIII\User;
 
 /**
  * Class BudgetFactory.
+ *
+ * Fabrica para criacao de orcamentos.
  */
 class BudgetFactory
 {

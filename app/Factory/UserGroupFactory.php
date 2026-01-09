@@ -31,7 +31,9 @@ use FireflyIII\Models\UserGroup;
 use FireflyIII\Models\UserRole;
 
 /**
- * Class UserGroupFactory
+ * Class UserGroupFactory.
+ *
+ * Fabrica para criacao de grupos de usuario.
  */
 class UserGroupFactory
 {

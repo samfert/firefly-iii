@@ -28,9 +28,9 @@ use FireflyIII\Models\TransactionJournal;
 use FireflyIII\Repositories\PiggyBank\PiggyBankRepositoryInterface;
 
 /**
- * Create piggy bank events.
+ * Class PiggyBankEventFactory.
  *
- * Class PiggyBankEventFactory
+ * Fabrica para criacao de eventos de cofrinho.
  */
 class PiggyBankEventFactory
 {
