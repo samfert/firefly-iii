@@ -36,6 +36,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface WebhookRepositoryInterface
  *
+ * Interface para repositorio de webhooks.
+ * Define metodos para criar, atualizar, excluir e consultar webhooks de notificacao.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

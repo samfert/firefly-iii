@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface TransactionTypeRepositoryInterface
  *
+ * Interface para repositorio de tipos de transacoes.
+ * Define metodos para consultar tipos de transacoes (deposito, saque, transferencia).
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

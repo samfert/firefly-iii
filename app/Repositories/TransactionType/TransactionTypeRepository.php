@@ -30,6 +30,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class TransactionTypeRepository
+ *
+ * Repositorio para gerenciamento de tipos de transacoes.
+ * Fornece metodos para consultar tipos de transacoes (deposito, saque, transferencia).
  */
 class TransactionTypeRepository implements TransactionTypeRepositoryInterface
 {
