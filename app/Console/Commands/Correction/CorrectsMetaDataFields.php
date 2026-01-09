@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class CorrectsMetaDataFields
+ *
+ * Comando para corrigir campos de metadados.
+ * Renomeia campos de metadados alterados.
+ */
 class CorrectsMetaDataFields extends Command
 {
     use ShowsFriendlyMessages;

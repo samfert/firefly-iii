@@ -34,6 +34,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class CorrectsTransactionTypes
+ *
+ * Comando para corrigir tipos de transacao.
+ * Garante que todas as transacoes sejam do tipo correto baseado em origem e destino.
+ */
 class CorrectsTransactionTypes extends Command
 {
     use ShowsFriendlyMessages;

@@ -30,6 +30,12 @@ use FireflyIII\Models\TransactionJournal;
 use FireflyIII\Models\TransactionType;
 use Illuminate\Console\Command;
 
+/**
+ * Class RemovesBills
+ *
+ * Comando para remover faturas.
+ * Remove faturas de transacoes que nao deveriam ter uma.
+ */
 class RemovesBills extends Command
 {
     use ShowsFriendlyMessages;
