@@ -24,6 +24,11 @@ declare(strict_types=1);
 
 namespace FireflyIII\Enums;
 
+/**
+ * Enum SearchDirection.
+ *
+ * Enumeracao de direcao de busca.
+ */
 enum SearchDirection
 {
     case SOURCE;

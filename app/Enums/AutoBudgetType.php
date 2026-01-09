@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Enum AutoBudgetType
+ * Enum AutoBudgetType.
+ *
+ * Enumeracao de tipos de orcamento automatico.
  */
 enum AutoBudgetType: int
 {
