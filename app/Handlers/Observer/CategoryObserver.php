@@ -29,9 +29,17 @@ use FireflyIII\Repositories\Attachment\AttachmentRepositoryInterface;
 
 /**
  * Class CategoryObserver
+ *
+ * Observador para categorias.
+ * Limpa anexos e notas ao excluir categoria.
  */
 class CategoryObserver
 {
+    /**
+     * Processa exclusao de categoria.
+     *
+     * @param Category $category Categoria sendo excluida
+     */
     public function deleting(Category $category): void
     {
         app('log')->debug('Observe "deleting" of a category.');

@@ -32,9 +32,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class PiggyBankObserver
+ *
+ * Observador para cofrinhos.
+ * Atualiza valores de moeda primaria e limpa dados relacionados.
  */
 class PiggyBankObserver
 {
+    /**
+     * Processa criacao de cofrinho.
+     *
+     * @param PiggyBank $piggyBank Cofrinho criado
+     */
     public function created(PiggyBank $piggyBank): void
     {
         Log::debug('Observe "created" of a piggy bank.');
