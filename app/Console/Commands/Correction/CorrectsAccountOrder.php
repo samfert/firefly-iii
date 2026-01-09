@@ -29,6 +29,12 @@ use FireflyIII\Repositories\Account\AccountRepositoryInterface;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class CorrectsAccountOrder
+ *
+ * Comando para corrigir ordem de contas.
+ * Garante que a ordem das contas esteja correta.
+ */
 class CorrectsAccountOrder extends Command
 {
     use ShowsFriendlyMessages;

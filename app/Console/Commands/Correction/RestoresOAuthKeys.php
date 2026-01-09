@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use FireflyIII\Support\System\OAuthKeys;
 use Illuminate\Console\Command;
 
+/**
+ * Class RestoresOAuthKeys
+ *
+ * Comando para restaurar chaves OAuth.
+ * Restaura as chaves OAuth geradas para o sistema.
+ */
 class RestoresOAuthKeys extends Command
 {
     use ShowsFriendlyMessages;

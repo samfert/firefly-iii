@@ -49,6 +49,12 @@ use Illuminate\Database\Query\Builder as DatabaseBuilder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class CorrectsPrimaryCurrencyAmounts
+ *
+ * Comando para recalcular valores em moeda primaria.
+ * Recalcula valores em moeda primaria para todos os objetos.
+ */
 class CorrectsPrimaryCurrencyAmounts extends Command
 {
     use ShowsFriendlyMessages;

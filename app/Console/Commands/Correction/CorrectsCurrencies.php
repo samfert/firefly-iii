@@ -37,6 +37,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Console\Command\Command as CommandAlias;
 
+/**
+ * Class CorrectsCurrencies
+ *
+ * Comando para corrigir moedas.
+ * Habilita todas as moedas em uso no sistema.
+ */
 class CorrectsCurrencies extends Command
 {
     use ShowsFriendlyMessages;
