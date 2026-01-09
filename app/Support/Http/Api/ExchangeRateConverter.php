@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class ExchangeRateConverter
+ *
+ * Conversor de taxa de cambio.
+ * Converte valores entre moedas usando taxas de cambio armazenadas.
  */
 class ExchangeRateConverter
 {

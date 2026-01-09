@@ -42,6 +42,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Trait AugumentData
+ *
+ * Trait para aumento de dados.
+ * Fornece metodos para combinar e agrupar dados de contas, orcamentos e categorias.
  */
 trait AugumentData
 {

@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Request;
 
 /**
  * Trait GetRuleConfiguration
+ *
+ * Trait para obtencao de configuracao de regras.
+ * Fornece metodos para obter gatilhos e acoes de regras.
  */
 trait GetRuleConfiguration
 {

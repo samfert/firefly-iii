@@ -28,6 +28,9 @@ use FireflyIII\Enums\TransactionTypeEnum;
 
 /**
  * Trait TransactionFilter
+ *
+ * Trait para filtragem de transacoes.
+ * Mapeia tipos de transacao para filtragem em requisicoes da API.
  */
 trait TransactionFilter
 {
