@@ -27,6 +27,8 @@ use Carbon\Carbon;
 
 /**
  * Interface FiscalHelperInterface.
+ *
+ * Interface para helpers de ano fiscal.
  */
 interface FiscalHelperInterface
 {

@@ -35,6 +35,8 @@ use Illuminate\Support\Collection;
 
 /**
  * Class PopupReport.
+ *
+ * Helper para relatorios popup.
  */
 class PopupReport implements PopupReportInterface
 {

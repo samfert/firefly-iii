@@ -39,7 +39,9 @@ use Illuminate\Support\Facades\Log;
 use function Safe\json_encode;
 
 /**
- * Trait MetaCollection
+ * Trait MetaCollection.
+ *
+ * Trait para coleta de transacoes por metadados.
  */
 trait MetaCollection
 {

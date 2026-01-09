@@ -32,7 +32,9 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Collection;
 
 /**
- * Interface NetWorthInterface
+ * Interface NetWorthInterface.
+ *
+ * Interface para helpers de patrimonio liquido.
  */
 interface NetWorthInterface
 {

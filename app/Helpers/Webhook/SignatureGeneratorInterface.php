@@ -27,7 +27,9 @@ namespace FireflyIII\Helpers\Webhook;
 use FireflyIII\Models\WebhookMessage;
 
 /**
- * Interface SignatureGeneratorInterface
+ * Interface SignatureGeneratorInterface.
+ *
+ * Interface para geradores de assinaturas de webhook.
  */
 interface SignatureGeneratorInterface
 {

@@ -29,7 +29,9 @@ use FireflyIII\User;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Trait CollectorProperties
+ * Trait CollectorProperties.
+ *
+ * Trait com propriedades do coletor de transacoes.
  */
 trait CollectorProperties
 {

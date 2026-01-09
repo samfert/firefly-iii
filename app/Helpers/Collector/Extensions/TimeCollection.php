@@ -28,7 +28,9 @@ use Carbon\Carbon;
 use FireflyIII\Helpers\Collector\GroupCollectorInterface;
 
 /**
- * Trait TimeCollection
+ * Trait TimeCollection.
+ *
+ * Trait para coleta de transacoes por tempo.
  */
 trait TimeCollection
 {

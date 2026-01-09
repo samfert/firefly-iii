@@ -29,6 +29,8 @@ use FireflyIII\Models\Category;
 
 /**
  * Interface PopupReportInterface.
+ *
+ * Interface para relatorios popup.
  */
 interface PopupReportInterface
 {

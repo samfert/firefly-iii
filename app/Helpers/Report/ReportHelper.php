@@ -33,10 +33,12 @@ use Illuminate\Support\Collection;
 
 /**
  * Class ReportHelper.
+ *
+ * Helper para geracao de relatorios.
  */
 class ReportHelper implements ReportHelperInterface
 {
-    /** @var BudgetRepositoryInterface The budget repository */
+    /** @var BudgetRepositoryInterface Repositorio de orcamentos */
     protected $budgetRepository;
 
     /**

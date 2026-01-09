@@ -28,7 +28,9 @@ use FireflyIII\Helpers\Collector\GroupCollectorInterface;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 
 /**
- * Trait AmountCollection
+ * Trait AmountCollection.
+ *
+ * Trait para coleta de transacoes por valor.
  */
 trait AmountCollection
 {

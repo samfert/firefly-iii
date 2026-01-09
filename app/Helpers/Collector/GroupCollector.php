@@ -51,7 +51,9 @@ use Override;
 use function Safe\json_decode;
 
 /**
- * Class GroupCollector
+ * Class GroupCollector.
+ *
+ * Coletor de grupos de transacoes.
  */
 class GroupCollector implements GroupCollectorInterface
 {

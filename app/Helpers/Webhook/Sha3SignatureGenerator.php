@@ -32,10 +32,13 @@ use JsonException;
 use function Safe\json_encode;
 
 /**
- * Class Sha3SignatureGenerator
+ * Class Sha3SignatureGenerator.
+ *
+ * Gerador de assinaturas SHA3 para webhooks.
  */
 class Sha3SignatureGenerator implements SignatureGeneratorInterface
 {
+    /** @var int Versao do gerador */
     private int $version = 1;
 
     /**
