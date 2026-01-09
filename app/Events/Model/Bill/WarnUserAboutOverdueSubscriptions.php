@@ -8,6 +8,11 @@ use FireflyIII\Events\Event;
 use FireflyIII\User;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class WarnUserAboutOverdueSubscriptions
+ *
+ * Evento para avisar usuario sobre assinaturas vencidas.
+ */
 class WarnUserAboutOverdueSubscriptions extends Event
 {
     use SerializesModels;
