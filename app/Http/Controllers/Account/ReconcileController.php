@@ -43,7 +43,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 /**
- * Class ReconcileController.
+ * Class ReconcileController
+ *
+ * Controlador responsavel pela reconciliacao de contas.
+ * Permite ao usuario verificar e ajustar saldos de contas
+ * comparando com extratos bancarios e criando transacoes de ajuste.
  */
 class ReconcileController extends Controller
 {
@@ -193,7 +197,14 @@ class ReconcileController extends Controller
     }
 
     /**
-     * Creates a reconciliation group.
+     * Cria uma transacao de reconciliacao para ajustar o saldo da conta.
+     *
+     * @param Account $account    Conta a ser reconciliada
+     * @param Carbon  $start      Data inicial do periodo
+     * @param Carbon  $end        Data final do periodo
+     * @param string  $difference Diferenca a ser ajustada
+     *
+     * @return string Mensagem de erro ou string vazia em caso de sucesso
      *
      * @throws DuplicateTransactionException
      */

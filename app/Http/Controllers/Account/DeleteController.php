@@ -35,6 +35,10 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de contas no sistema.
+ * Permite excluir contas e opcionalmente mover transacoes
+ * para outra conta antes da exclusao.
  */
 class DeleteController extends Controller
 {

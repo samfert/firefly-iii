@@ -36,7 +36,11 @@ use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
 /**
- * Class NewUserController.
+ * Class NewUserController
+ *
+ * Controlador responsavel pela configuracao inicial de novos usuarios.
+ * Exibe o formulario de boas-vindas e cria as contas iniciais
+ * (conta corrente, poupanca e carteira) para o usuario.
  */
 class NewUserController extends Controller
 {

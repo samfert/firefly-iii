@@ -42,7 +42,19 @@ use function Safe\realpath;
 use function Safe\ini_get;
 
 /**
- * Class Controller.
+ * Class Controller
+ *
+ * Classe base abstrata para todos os controladores do Firefly III.
+ * Fornece funcionalidades comuns como autenticacao, validacao,
+ * configuracao de moeda primaria e compartilhamento de variaveis de view.
+ *
+ * @property string                   $name              Nome do controlador
+ * @property bool                     $convertToPrimary  Se deve converter valores para moeda primaria
+ * @property string                   $dateTimeFormat    Formato de data e hora
+ * @property TransactionCurrency|null $primaryCurrency   Moeda primaria do usuario
+ * @property string                   $monthAndDayFormat Formato de mes e dia
+ * @property string                   $monthFormat       Formato de mes
+ * @property string                   $redirectUrl       URL de redirecionamento padrao
  *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  * @SuppressWarnings("PHPMD.NumberOfChildren")

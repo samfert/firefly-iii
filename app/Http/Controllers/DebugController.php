@@ -58,6 +58,10 @@ use const PHP_SAPI;
 
 /**
  * Class DebugController
+ *
+ * Controlador responsavel por funcionalidades de depuracao e diagnostico.
+ * Fornece informacoes sobre o sistema, limpa caches, exibe logs e
+ * permite testar erros para verificar o tratamento de excecoes.
  */
 class DebugController extends Controller
 {
@@ -162,9 +166,13 @@ class DebugController extends Controller
         return view('test.api-test');
     }
 
+    /**
+     * Gera a tabela HTML com informacoes de depuracao.
+     *
+     * @return string HTML da tabela de depuracao
+     */
     private function generateTable(): string
     {
-        // system information:
         $system = $this->getSystemInformation();
         $docker = $this->getBuildInfo();
         $app    = $this->getAppInfo();
@@ -173,6 +181,11 @@ class DebugController extends Controller
         return (string) view('partials.debug-table', compact('system', 'docker', 'app', 'user'));
     }
 
+    /**
+     * Obtem informacoes do sistema como versao do PHP, banco de dados, etc.
+     *
+     * @return array<string, mixed> Array com informacoes do sistema
+     */
     private function getSystemInformation(): array
     {
         $maxFileSize   = Steam::phpBytes((string) ini_get('upload_max_filesize'));
@@ -196,6 +209,11 @@ class DebugController extends Controller
         ];
     }
 
+    /**
+     * Obtem informacoes de build do Docker, se disponivel.
+     *
+     * @return array<string, mixed> Array com informacoes de build
+     */
     private function getBuildInfo(): array
     {
         $return = [
@@ -234,6 +252,11 @@ class DebugController extends Controller
         return $return;
     }
 
+    /**
+     * Obtem informacoes da aplicacao como modo debug, idioma padrao, etc.
+     *
+     * @return array<string, mixed> Array com informacoes da aplicacao
+     */
     private function getAppInfo(): array
     {
         $userGuard      = config('auth.defaults.guard');
@@ -266,6 +289,11 @@ class DebugController extends Controller
         ];
     }
 
+    /**
+     * Obtem informacoes do usuario atual como idioma, locale, moeda primaria, etc.
+     *
+     * @return array<string, mixed> Array com informacoes do usuario
+     */
     private function getUserInfo(): array
     {
         $userFlags      = $this->getUserFlags();
@@ -299,6 +327,11 @@ class DebugController extends Controller
         ];
     }
 
+    /**
+     * Gera flags visuais indicando recursos utilizados pelo usuario.
+     *
+     * @return string String com emojis representando recursos utilizados
+     */
     private function getUserFlags(): string
     {
         $flags      = [];
@@ -350,6 +383,15 @@ class DebugController extends Controller
         return implode(' ', $flags);
     }
 
+    /**
+     * Exibe todas as rotas disponiveis na aplicacao (apenas para proprietarios).
+     *
+     * @param Request $request Requisicao HTTP
+     *
+     * @return never Este metodo sempre termina com exit
+     *
+     * @throws NotFoundHttpException Se o usuario nao for proprietario
+     */
     public function routes(Request $request): never
     {
         if (!auth()->user()->hasRole('owner')) {

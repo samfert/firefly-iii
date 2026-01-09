@@ -44,6 +44,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de contas.
+ * Mostra transacoes, saldos, graficos e informacoes completas
+ * de uma conta especifica com suporte a filtros de periodo.
  */
 class ShowController extends Controller
 {

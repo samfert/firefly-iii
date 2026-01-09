@@ -40,6 +40,10 @@ use Illuminate\View\View;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de contas existentes.
+ * Permite modificar propriedades da conta como nome, moeda,
+ * saldo inicial, localizacao e configuracoes especificas.
  */
 class EditController extends Controller
 {

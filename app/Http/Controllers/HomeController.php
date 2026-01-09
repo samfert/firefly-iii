@@ -40,7 +40,11 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class HomeController.
+ * Class HomeController
+ *
+ * Controlador responsavel pela pagina inicial (dashboard) do Firefly III.
+ * Exibe o resumo financeiro do usuario, incluindo contas, transacoes
+ * recentes e informacoes sobre faturas.
  */
 class HomeController extends Controller
 {
@@ -139,6 +143,13 @@ class HomeController extends Controller
         throw new FireflyException('Invalid layout configuration');
     }
 
+    /**
+     * Renderiza a pagina inicial usando o layout V1.
+     *
+     * @param AccountRepositoryInterface $repository Repositorio de contas
+     *
+     * @return mixed View da pagina inicial V1
+     */
     private function indexV1(AccountRepositoryInterface $repository): mixed
     {
         $types          = config('firefly.accountTypesByIdentifier.asset');
@@ -182,6 +193,11 @@ class HomeController extends Controller
         return view('index', compact('count', 'subTitle', 'transactions', 'billCount', 'start', 'end', 'today', 'pageTitle'));
     }
 
+    /**
+     * Renderiza a pagina inicial usando o layout V2.
+     *
+     * @return mixed View da pagina inicial V2
+     */
     private function indexV2(): mixed
     {
         $subTitle  = (string) trans('firefly.welcome_back');

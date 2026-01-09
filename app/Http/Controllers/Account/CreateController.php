@@ -40,6 +40,10 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de novas contas no sistema.
+ * Permite criar contas de ativos, passivos, despesas e receitas
+ * com suporte a anexos e localizacao geografica.
  */
 class CreateController extends Controller
 {

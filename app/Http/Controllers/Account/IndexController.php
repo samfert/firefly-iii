@@ -38,6 +38,10 @@ use Illuminate\View\View;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de contas no sistema.
+ * Exibe contas ativas e inativas com informacoes de saldo,
+ * atividade recente e estatisticas do periodo.
  */
 class IndexController extends Controller
 {
@@ -123,6 +127,14 @@ class IndexController extends Controller
         return view('accounts.index', compact('objectType', 'inactivePage', 'subTitleIcon', 'subTitle', 'page', 'accounts'));
     }
 
+    /**
+     * Calcula a diferenca entre saldos iniciais e finais.
+     *
+     * @param array<string, string> $startBalances Saldos iniciais por moeda
+     * @param array<string, string> $endBalances   Saldos finais por moeda
+     *
+     * @return array<string, string> Diferencas calculadas por moeda
+     */
     private function subtract(array $startBalances, array $endBalances): array
     {
         $result = [];
