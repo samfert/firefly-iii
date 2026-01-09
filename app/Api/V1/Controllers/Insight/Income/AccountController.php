@@ -34,8 +34,9 @@ use Illuminate\Http\JsonResponse;
 /**
  * Class AccountController
  *
- * Shows income information grouped or limited by date.
- * I.e. all income grouped by account + currency.
+ * Controlador da API responsavel por insights de receitas por conta.
+ * Exibe informacoes de receitas agrupadas por conta de destino
+ * ou origem com suporte a filtragem por periodo.
  */
 class AccountController extends Controller
 {

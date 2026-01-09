@@ -34,6 +34,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class PeriodController
+ *
+ * Controlador da API responsavel por insights de despesas por periodo.
+ * Exibe o total de despesas em um periodo especifico
+ * com suporte a conversao para moeda primaria.
  */
 class PeriodController extends Controller
 {

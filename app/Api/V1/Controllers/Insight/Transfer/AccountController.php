@@ -32,6 +32,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class AccountController
+ *
+ * Controlador da API responsavel por insights de transferencias por conta.
+ * Exibe informacoes de transferencias entre contas de ativos
+ * com suporte a filtragem por periodo.
  */
 class AccountController extends Controller
 {

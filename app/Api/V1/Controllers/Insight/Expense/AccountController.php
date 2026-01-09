@@ -34,8 +34,9 @@ use Illuminate\Http\JsonResponse;
 /**
  * Class AccountController
  *
- * Shows expense information grouped or limited by date.
- * I.e. all expenses grouped by account + currency.
+ * Controlador da API responsavel por insights de despesas por conta.
+ * Exibe informacoes de despesas agrupadas por conta de origem
+ * ou destino com suporte a filtragem por periodo.
  */
 class AccountController extends Controller
 {

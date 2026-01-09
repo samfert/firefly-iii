@@ -34,6 +34,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class TagController
+ *
+ * Controlador da API responsavel por insights de receitas por tag.
+ * Exibe informacoes de receitas agrupadas por tag
+ * incluindo receitas sem tag definida.
  */
 class TagController extends Controller
 {

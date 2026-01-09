@@ -35,6 +35,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class CategoryController
+ *
+ * Controlador da API responsavel por insights de despesas por categoria.
+ * Exibe informacoes de despesas agrupadas por categoria
+ * incluindo despesas sem categoria definida.
  */
 class CategoryController extends Controller
 {
