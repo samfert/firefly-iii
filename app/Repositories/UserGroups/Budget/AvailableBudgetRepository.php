@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\Log;
 /**
  * Class AvailableBudgetRepository
  *
+ * Repositorio de orcamento disponivel para grupos de usuarios.
+ * Fornece metodos para consultar valores disponiveis para orcamento por periodo.
+ *
  * @deprecated
  */
 class AvailableBudgetRepository implements AvailableBudgetRepositoryInterface

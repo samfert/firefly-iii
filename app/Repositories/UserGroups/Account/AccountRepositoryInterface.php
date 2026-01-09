@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface AccountRepositoryInterface
  *
+ * Interface para repositorio de contas de grupos de usuarios.
+ * Define metodos para consultar, buscar e atualizar contas do grupo.
+ *
  * @deprecated
  */
 interface AccountRepositoryInterface

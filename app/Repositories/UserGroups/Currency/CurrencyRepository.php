@@ -46,6 +46,9 @@ use function Safe\json_encode;
 /**
  * Class CurrencyRepository
  *
+ * Repositorio de moedas para grupos de usuarios.
+ * Fornece metodos para gerenciar moedas, incluindo ativacao, desativacao e definicao de moeda padrao.
+ *
  * @deprecated
  */
 class CurrencyRepository implements CurrencyRepositoryInterface

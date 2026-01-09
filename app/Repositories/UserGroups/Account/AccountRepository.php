@@ -45,6 +45,9 @@ use function Safe\json_encode;
 /**
  * Class AccountRepository
  *
+ * Repositorio de contas para grupos de usuarios.
+ * Fornece metodos para consultar, buscar e atualizar contas do grupo.
+ *
  * @deprecated
  */
 class AccountRepository implements AccountRepositoryInterface
