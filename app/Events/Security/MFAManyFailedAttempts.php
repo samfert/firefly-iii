@@ -29,6 +29,11 @@ use FireflyIII\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class MFAManyFailedAttempts
+ *
+ * Evento disparado quando ha muitas tentativas falhas de MFA.
+ */
 class MFAManyFailedAttempts extends Event
 {
     use SerializesModels;

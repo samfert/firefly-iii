@@ -29,6 +29,11 @@ use FireflyIII\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class EnabledMFA
+ *
+ * Evento disparado quando MFA e habilitado para um usuario.
+ */
 class EnabledMFA extends Event
 {
     use SerializesModels;

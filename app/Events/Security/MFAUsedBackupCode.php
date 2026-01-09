@@ -29,6 +29,11 @@ use FireflyIII\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class MFAUsedBackupCode
+ *
+ * Evento disparado quando um codigo de backup MFA e usado.
+ */
 class MFAUsedBackupCode extends Event
 {
     use SerializesModels;
