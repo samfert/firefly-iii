@@ -42,6 +42,9 @@ use Illuminate\View\View;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de regras de automacao.
+ * Permite modificar gatilhos, acoes e configuracoes da regra.
  */
 class EditController extends Controller
 {

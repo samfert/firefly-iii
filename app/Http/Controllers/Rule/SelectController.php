@@ -42,7 +42,11 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 /**
- * Class SelectController.
+ * Class SelectController
+ *
+ * Controlador responsavel pela selecao e teste de regras.
+ * Permite testar gatilhos de regras e executar regras em
+ * transacoes existentes selecionadas.
  */
 class SelectController extends Controller
 {

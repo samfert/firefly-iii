@@ -44,6 +44,10 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de regras de automacao.
+ * Permite criar regras com gatilhos e acoes para automatizar
+ * a categorizacao e modificacao de transacoes.
  */
 class CreateController extends Controller
 {

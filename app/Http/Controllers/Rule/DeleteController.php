@@ -33,6 +33,9 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de regras de automacao.
+ * Permite excluir regras e seus gatilhos e acoes associados.
  */
 class DeleteController extends Controller
 {
