@@ -29,8 +29,19 @@ use FireflyIII\Support\Facades\Amount;
 use FireflyIII\Support\Http\Api\ExchangeRateConverter;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class PiggyBankEventObserver
+ *
+ * Observador para eventos de cofrinho.
+ * Atualiza valores de moeda primaria.
+ */
 class PiggyBankEventObserver
 {
+    /**
+     * Processa criacao de evento de cofrinho.
+     *
+     * @param PiggyBankEvent $event Evento criado
+     */
     public function created(PiggyBankEvent $event): void
     {
         Log::debug('Observe "created" of a piggy bank event.');

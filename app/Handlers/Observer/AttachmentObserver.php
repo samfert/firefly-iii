@@ -27,9 +27,17 @@ use FireflyIII\Models\Attachment;
 
 /**
  * Class AttachmentObserver
+ *
+ * Observador para anexos.
+ * Limpa notas ao excluir anexo.
  */
 class AttachmentObserver
 {
+    /**
+     * Processa exclusao de anexo.
+     *
+     * @param Attachment $attachment Anexo sendo excluido
+     */
     public function deleting(Attachment $attachment): void
     {
         app('log')->debug('Observe "deleting" of an attachment.');

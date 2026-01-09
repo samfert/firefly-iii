@@ -30,9 +30,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class TransactionJournalObserver
+ *
+ * Observador para diarios de transacao.
+ * Limpa transacoes, anexos e links ao excluir.
  */
 class TransactionJournalObserver
 {
+    /**
+     * Processa exclusao de diario de transacao.
+     *
+     * @param TransactionJournal $transactionJournal Diario sendo excluido
+     */
     public function deleting(TransactionJournal $transactionJournal): void
     {
         Log::debug('Observe "deleting" of a transaction journal.');
