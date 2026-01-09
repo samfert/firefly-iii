@@ -28,8 +28,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Sends user link for new password.
- * Class RequestedNewPassword
+ * Class RequestedNewPassword.
+ *
+ * Email enviado quando o usuario solicita uma nova senha.
  */
 class RequestedNewPassword extends Mailable
 {
