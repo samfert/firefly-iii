@@ -27,8 +27,14 @@ namespace FireflyIII\TransactionRules\Expressions;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\ExpressionLanguage\SyntaxError;
 
+/**
+ * Class ActionExpression
+ *
+ * Avaliador de expressoes para acoes de regras.
+ */
 class ActionExpression
 {
+    /** @var array Nomes de variaveis disponiveis nas expressoes */
     private static array                $NAMES
         = [
             //        'transaction_group_id',

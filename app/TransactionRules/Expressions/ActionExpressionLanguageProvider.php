@@ -28,10 +28,19 @@ use Symfony\Component\ExpressionLanguage\ExpressionFunction;
 use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 
 /**
+ * Class ActionExpressionLanguageProvider
+ *
+ * Provedor de funcoes para linguagem de expressao de acoes.
+ *
  * @SuppressWarnings("PHPMD.UnusedFormalParameter")
  */
 class ActionExpressionLanguageProvider implements ExpressionFunctionProviderInterface
 {
+    /**
+     * Retorna as funcoes disponiveis para expressoes.
+     *
+     * @return array Lista de funcoes de expressao
+     */
     public function getFunctions(): array
     {
         $function = function ($arguments, $str): string {

@@ -30,10 +30,12 @@ use FireflyIII\TransactionRules\Actions\ActionInterface;
 
 /**
  * Class ActionFactory can create actions.
+ *
+ * Fabrica para criar instancias de acoes de regras.
  */
 class ActionFactory
 {
-    /** @var array array of action types */
+    /** @var array Mapa de tipos de acao para classes */
     protected static array $actionTypes = [];
 
     /**
