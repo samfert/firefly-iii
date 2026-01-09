@@ -29,8 +29,19 @@ use FireflyIII\Support\Facades\Amount;
 use FireflyIII\Support\Http\Api\ExchangeRateConverter;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class AutoBudgetObserver
+ *
+ * Observador para orcamentos automaticos.
+ * Atualiza valores de moeda primaria.
+ */
 class AutoBudgetObserver
 {
+    /**
+     * Processa criacao de orcamento automatico.
+     *
+     * @param AutoBudget $autoBudget Orcamento automatico criado
+     */
     public function created(AutoBudget $autoBudget): void
     {
         Log::debug('Observe "created" of an auto budget.');
