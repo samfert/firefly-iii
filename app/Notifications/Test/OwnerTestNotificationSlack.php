@@ -32,7 +32,9 @@ use Illuminate\Notifications\Notification;
 // use Illuminate\Notifications\Slack\SlackMessage;
 
 /**
- * Class TestNotification
+ * Class OwnerTestNotificationSlack
+ *
+ * Notificacao de teste via Slack para proprietario.
  */
 class OwnerTestNotificationSlack extends Notification
 {

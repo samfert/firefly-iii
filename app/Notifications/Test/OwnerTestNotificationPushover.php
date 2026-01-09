@@ -34,7 +34,9 @@ use NotificationChannels\Pushover\PushoverMessage;
 // use Illuminate\Notifications\Slack\SlackMessage;
 
 /**
- * Class TestNotification
+ * Class OwnerTestNotificationPushover
+ *
+ * Notificacao de teste via Pushover para proprietario.
  */
 class OwnerTestNotificationPushover extends Notification
 {
