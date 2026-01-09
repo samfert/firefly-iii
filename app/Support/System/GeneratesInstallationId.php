@@ -29,6 +29,9 @@ use Ramsey\Uuid\Uuid;
 
 /**
  * Trait GeneratesInstallationId
+ *
+ * Gerador de ID de instalacao.
+ * Fornece metodo para gerar e armazenar um ID unico para a instalacao do Firefly III.
  */
 trait GeneratesInstallationId
 {
