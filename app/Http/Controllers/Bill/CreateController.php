@@ -37,6 +37,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de novas faturas recorrentes.
+ * Permite criar faturas com periodos de repeticao, valores minimos e maximos,
+ * e suporte a anexos.
  */
 class CreateController extends Controller
 {

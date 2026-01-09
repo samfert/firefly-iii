@@ -41,6 +41,10 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de faturas recorrentes.
+ * Exibe todas as faturas com informacoes de pagamento, valores esperados
+ * e organizacao por grupos de objetos.
  */
 class IndexController extends Controller
 {
@@ -149,6 +153,12 @@ class IndexController extends Controller
     }
 
     /**
+     * Calcula os totais por moeda e grupo de faturas.
+     *
+     * @param array $bills Array de faturas agrupadas
+     *
+     * @return array Totais calculados por grupo e moeda
+     *
      * @throws FireflyException
      */
     private function getSums(array $bills): array
@@ -202,6 +212,14 @@ class IndexController extends Controller
         return $sums;
     }
 
+    /**
+     * Calcula o valor medio da fatura por periodo.
+     *
+     * @param array  $bill  Dados da fatura
+     * @param string $range Periodo de visualizacao (1M, 1Y, etc.)
+     *
+     * @return string Valor medio por periodo
+     */
     private function amountPerPeriod(array $bill, string $range): string
     {
         $avg        = bcdiv(bcadd((string)$bill['amount_min'], (string)$bill['amount_max']), '2');
@@ -243,6 +261,13 @@ class IndexController extends Controller
         return $perPeriod;
     }
 
+    /**
+     * Calcula os totais gerais de todas as faturas.
+     *
+     * @param array $sums Totais por grupo
+     *
+     * @return array Totais consolidados por moeda
+     */
     private function getTotals(array $sums): array
     {
         $totals = [];

@@ -48,6 +48,10 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de faturas recorrentes.
+ * Mostra transacoes associadas, medias de pagamento e permite reescanear
+ * transacoes para vincular a fatura.
  */
 class ShowController extends Controller
 {

@@ -37,6 +37,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de faturas recorrentes existentes.
+ * Permite modificar valores, periodos, datas e outras propriedades da fatura.
  */
 class EditController extends Controller
 {
