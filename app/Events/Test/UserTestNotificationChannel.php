@@ -27,6 +27,11 @@ namespace FireflyIII\Events\Test;
 use FireflyIII\User;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class UserTestNotificationChannel
+ *
+ * Evento para testar canal de notificacao de usuario.
+ */
 class UserTestNotificationChannel
 {
     use SerializesModels;

@@ -27,6 +27,11 @@ namespace FireflyIII\Events\Test;
 use FireflyIII\Notifications\Notifiables\OwnerNotifiable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class OwnerTestNotificationChannel
+ *
+ * Evento para testar canal de notificacao do proprietario.
+ */
 class OwnerTestNotificationChannel
 {
     use SerializesModels;

@@ -26,6 +26,11 @@ namespace FireflyIII\Events\Security;
 
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class UnknownUserAttemptedLogin
+ *
+ * Evento disparado quando um usuario desconhecido tenta fazer login.
+ */
 class UnknownUserAttemptedLogin
 {
     use SerializesModels;
