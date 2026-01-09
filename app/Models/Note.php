@@ -29,6 +29,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Note
+ *
+ * Representa uma nota de texto associada a entidades do sistema.
+ * Notas podem ser anexadas a transacoes, contas, orcamentos e outras
+ * entidades para adicionar informacoes contextuais.
+ *
+ * @property int                 $id            Identificador unico da nota
+ * @property int                 $noteable_id   ID da entidade associada
+ * @property string              $noteable_type Tipo da entidade associada
+ * @property string|null         $title         Titulo da nota
+ * @property string|null         $text          Conteudo da nota
+ * @property \Carbon\Carbon      $created_at    Data de criacao
+ * @property \Carbon\Carbon      $updated_at    Data de atualizacao
+ * @property \Carbon\Carbon|null $deleted_at    Data de exclusao (soft delete)
+ * @property-read Model          $noteable      Entidade associada
+ */
 class Note extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -37,13 +54,20 @@ class Note extends Model
     protected $fillable = ['title', 'text', 'noteable_id', 'noteable_type'];
 
     /**
-     * Get all the owning noteable models.
+     * Retorna a entidade proprietaria desta nota.
+     *
+     * @return MorphTo Relacionamento polimorfico com a entidade proprietaria
      */
     public function noteable(): MorphTo
     {
         return $this->morphTo();
     }
 
+    /**
+     * Accessor para garantir que o ID da entidade seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da entidade
+     */
     protected function noteableId(): Attribute
     {
         return Attribute::make(
@@ -51,6 +75,11 @@ class Note extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

@@ -28,17 +28,45 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Class RuleTrigger
+ *
+ * Representa um gatilho (trigger) que ativa uma regra.
+ * Gatilhos definem condicoes que devem ser atendidas para
+ * que as acoes da regra sejam executadas.
+ *
+ * @property int            $id              Identificador unico do gatilho
+ * @property int            $rule_id         ID da regra associada
+ * @property string         $trigger_type    Tipo do gatilho (ex: description_contains)
+ * @property string         $trigger_value   Valor do gatilho
+ * @property int            $order           Ordem de avaliacao
+ * @property bool           $active          Se o gatilho esta ativo
+ * @property bool           $stop_processing Se deve parar o processamento apos este gatilho
+ * @property \Carbon\Carbon $created_at      Data de criacao
+ * @property \Carbon\Carbon $updated_at      Data de atualizacao
+ * @property-read Rule      $rule            Regra associada
+ */
 class RuleTrigger extends Model
 {
     use ReturnsIntegerIdTrait;
 
     protected $fillable = ['rule_id', 'trigger_type', 'trigger_value', 'order', 'active', 'stop_processing'];
 
+    /**
+     * Retorna a regra associada a este gatilho.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo Rule
+     */
     public function rule(): BelongsTo
     {
         return $this->belongsTo(Rule::class);
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de avaliacao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -46,6 +74,11 @@ class RuleTrigger extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID da regra seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da regra
+     */
     protected function ruleId(): Attribute
     {
         return Attribute::make(
@@ -53,6 +86,11 @@ class RuleTrigger extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

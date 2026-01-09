@@ -36,6 +36,36 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Recurrence
+ *
+ * Representa uma transacao recorrente no sistema Firefly III.
+ * Transacoes recorrentes sao criadas automaticamente em intervalos
+ * definidos, como pagamentos mensais, salarios, etc.
+ *
+ * @property int                                 $id                  Identificador unico da recorrencia
+ * @property int                                 $user_id             ID do usuario proprietario
+ * @property int                                 $user_group_id       ID do grupo de usuarios
+ * @property int                                 $transaction_type_id ID do tipo de transacao
+ * @property string                              $title               Titulo da recorrencia
+ * @property string|null                         $description         Descricao da recorrencia
+ * @property \Carbon\Carbon                      $first_date          Data da primeira ocorrencia
+ * @property \Carbon\Carbon|null                 $repeat_until        Data limite para repeticoes
+ * @property \Carbon\Carbon|null                 $latest_date         Data da ultima ocorrencia
+ * @property int                                 $repetitions         Numero de repeticoes
+ * @property bool                                $apply_rules         Se deve aplicar regras
+ * @property bool                                $active              Se a recorrencia esta ativa
+ * @property \Carbon\Carbon                      $created_at          Data de criacao
+ * @property \Carbon\Carbon                      $updated_at          Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at          Data de exclusao (soft delete)
+ * @property-read User                           $user                Usuario proprietario
+ * @property-read TransactionType                $transactionType     Tipo de transacao
+ * @property-read \Illuminate\Support\Collection $recurrenceMeta      Metadados da recorrencia
+ * @property-read \Illuminate\Support\Collection $recurrenceRepetitions Repeticoes
+ * @property-read \Illuminate\Support\Collection $recurrenceTransactions Transacoes
+ * @property-read \Illuminate\Support\Collection $attachments         Anexos
+ * @property-read \Illuminate\Support\Collection $notes               Notas
+ */
 class Recurrence extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -70,49 +100,91 @@ class Recurrence extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario desta recorrencia.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todos os anexos associados a esta recorrencia.
+     *
+     * @return MorphMany Colecao polimorfica de Attachment
+     */
     public function attachments(): MorphMany
     {
         return $this->morphMany(Attachment::class, 'attachable');
     }
 
     /**
-     * Get all the notes.
+     * Retorna todas as notas associadas a esta recorrencia.
+     *
+     * @return MorphMany Colecao polimorfica de Note
      */
     public function notes(): MorphMany
     {
         return $this->morphMany(Note::class, 'noteable');
     }
 
+    /**
+     * Retorna todos os metadados desta recorrencia.
+     *
+     * @return HasMany Colecao de RecurrenceMeta relacionados
+     */
     public function recurrenceMeta(): HasMany
     {
         return $this->hasMany(RecurrenceMeta::class);
     }
 
+    /**
+     * Retorna todas as repeticoes desta recorrencia.
+     *
+     * @return HasMany Colecao de RecurrenceRepetition relacionadas
+     */
     public function recurrenceRepetitions(): HasMany
     {
         return $this->hasMany(RecurrenceRepetition::class);
     }
 
+    /**
+     * Retorna todas as transacoes desta recorrencia.
+     *
+     * @return HasMany Colecao de RecurrenceTransaction relacionadas
+     */
     public function recurrenceTransactions(): HasMany
     {
         return $this->hasMany(RecurrenceTransaction::class);
     }
 
+    /**
+     * Retorna a moeda associada a esta recorrencia.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionCurrency
+     */
     public function transactionCurrency(): BelongsTo
     {
         return $this->belongsTo(TransactionCurrency::class);
     }
 
+    /**
+     * Retorna o tipo de transacao desta recorrencia.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionType
+     */
     public function transactionType(): BelongsTo
     {
         return $this->belongsTo(TransactionType::class);
     }
 
+    /**
+     * Accessor para garantir que o ID do tipo de transacao seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do tipo de transacao
+     */
     protected function transactionTypeId(): Attribute
     {
         return Attribute::make(
@@ -120,6 +192,11 @@ class Recurrence extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

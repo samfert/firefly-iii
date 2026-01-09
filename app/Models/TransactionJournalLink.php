@@ -30,6 +30,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class TransactionJournalLink
+ *
+ * Representa um link entre dois diarios de transacao no sistema Firefly III.
+ * Links permitem conectar transacoes relacionadas, como pagamentos e reembolsos,
+ * ou transacoes que se referem uma a outra.
+ *
+ * @property int                                 $id             Identificador unico do link
+ * @property int                                 $link_type_id   ID do tipo de link
+ * @property int                                 $source_id      ID do diario de origem
+ * @property int                                 $destination_id ID do diario de destino
+ * @property \Carbon\Carbon                      $created_at     Data de criacao
+ * @property \Carbon\Carbon                      $updated_at     Data de atualizacao
+ * @property-read LinkType                       $linkType       Tipo de link
+ * @property-read TransactionJournal             $source         Diario de origem
+ * @property-read TransactionJournal             $destination    Diario de destino
+ * @property-read \Illuminate\Support\Collection $notes          Notas
+ */
 class TransactionJournalLink extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -60,29 +78,51 @@ class TransactionJournalLink extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o diario de transacao de destino deste link.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionJournal
+     */
     public function destination(): BelongsTo
     {
         return $this->belongsTo(TransactionJournal::class, 'destination_id');
     }
 
+    /**
+     * Retorna o tipo de link deste relacionamento.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo LinkType
+     */
     public function linkType(): BelongsTo
     {
         return $this->belongsTo(LinkType::class);
     }
 
     /**
-     * Get all of the notes.
+     * Retorna todas as notas associadas a este link.
+     *
+     * @return MorphMany Colecao polimorfica de Note
      */
     public function notes(): MorphMany
     {
         return $this->morphMany(Note::class, 'noteable');
     }
 
+    /**
+     * Retorna o diario de transacao de origem deste link.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionJournal
+     */
     public function source(): BelongsTo
     {
         return $this->belongsTo(TransactionJournal::class, 'source_id');
     }
 
+    /**
+     * Accessor para garantir que o ID do destino seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do destino
+     */
     protected function destinationId(): Attribute
     {
         return Attribute::make(
@@ -90,6 +130,11 @@ class TransactionJournalLink extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID do tipo de link seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do tipo de link
+     */
     protected function linkTypeId(): Attribute
     {
         return Attribute::make(
@@ -97,6 +142,11 @@ class TransactionJournalLink extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID da origem seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da origem
+     */
     protected function sourceId(): Attribute
     {
         return Attribute::make(
@@ -104,6 +154,11 @@ class TransactionJournalLink extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

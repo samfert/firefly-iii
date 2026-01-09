@@ -30,6 +30,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
+/**
+ * Class Location
+ *
+ * Representa uma localizacao geografica associada a entidades do sistema.
+ * Permite armazenar coordenadas de latitude e longitude para contas,
+ * transacoes e outras entidades que podem ter uma localizacao fisica.
+ *
+ * @property int                                 $id             Identificador unico da localizacao
+ * @property int                                 $locatable_id   ID da entidade associada
+ * @property string                              $locatable_type Tipo da entidade associada
+ * @property float|null                          $latitude       Latitude da localizacao
+ * @property float|null                          $longitude      Longitude da localizacao
+ * @property int|null                            $zoom_level     Nivel de zoom do mapa
+ * @property \Carbon\Carbon                      $created_at     Data de criacao
+ * @property \Carbon\Carbon                      $updated_at     Data de atualizacao
+ * @property-read Model                          $locatable      Entidade associada
+ * @property-read \Illuminate\Support\Collection $accounts       Contas nesta localizacao
+ * @property-read \Illuminate\Support\Collection $transactionJournals Transacoes nesta localizacao
+ */
 class Location extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -37,7 +56,12 @@ class Location extends Model
     protected $fillable = ['locatable_id', 'locatable_type', 'latitude', 'longitude', 'zoom_level'];
 
     /**
-     * Add rules for locations.
+     * Adiciona regras de validacao para localizacoes.
+     * Define regras para latitude, longitude e nivel de zoom.
+     *
+     * @param array $rules Array de regras existentes
+     *
+     * @return array Array de regras com as regras de localizacao adicionadas
      */
     public static function requestRules(array $rules): array
     {
@@ -48,24 +72,41 @@ class Location extends Model
         return $rules;
     }
 
+    /**
+     * Retorna todas as contas associadas a esta localizacao.
+     *
+     * @return MorphMany Colecao polimorfica de Account
+     */
     public function accounts(): MorphMany
     {
         return $this->morphMany(Account::class, 'locatable');
     }
 
     /**
-     * Get all the owning attachable models.
+     * Retorna a entidade proprietaria desta localizacao.
+     *
+     * @return MorphTo Relacionamento polimorfico com a entidade proprietaria
      */
     public function locatable(): MorphTo
     {
         return $this->morphTo();
     }
 
+    /**
+     * Retorna todos os diarios de transacao associados a esta localizacao.
+     *
+     * @return MorphMany Colecao polimorfica de TransactionJournal
+     */
     public function transactionJournals(): MorphMany
     {
         return $this->morphMany(TransactionJournal::class, 'locatable');
     }
 
+    /**
+     * Accessor para garantir que o ID da entidade localizavel seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da entidade
+     */
     protected function locatableId(): Attribute
     {
         return Attribute::make(
@@ -73,6 +114,11 @@ class Location extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

@@ -32,6 +32,23 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use function Safe\json_decode;
 use function Safe\json_encode;
 
+/**
+ * Class TransactionJournalMeta
+ *
+ * Armazena metadados adicionais para diarios de transacao.
+ * Permite armazenar informacoes extras como datas de juros,
+ * datas de processamento, referencias externas, etc.
+ *
+ * @property int                    $id                     Identificador unico do metadado
+ * @property int                    $transaction_journal_id ID do diario de transacao
+ * @property string                 $name                   Nome/chave do metadado
+ * @property mixed                  $data                   Dados do metadado (armazenados como JSON)
+ * @property string                 $hash                   Hash dos dados para verificacao
+ * @property \Carbon\Carbon         $created_at             Data de criacao
+ * @property \Carbon\Carbon         $updated_at             Data de atualizacao
+ * @property \Carbon\Carbon|null    $deleted_at             Data de exclusao (soft delete)
+ * @property-read TransactionJournal $transactionJournal    Diario de transacao associado
+ */
 class TransactionJournalMeta extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -42,7 +59,10 @@ class TransactionJournalMeta extends Model
     protected $table    = 'journal_meta';
 
     /**
-     * @return mixed
+     * Accessor e mutator para os dados do metadado.
+     * Decodifica JSON ao ler e codifica ao salvar, gerando um hash.
+     *
+     * @return Attribute Atributo computado para os dados
      */
     protected function data(): Attribute
     {
@@ -53,11 +73,21 @@ class TransactionJournalMeta extends Model
         });
     }
 
+    /**
+     * Retorna o diario de transacao associado a este metadado.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionJournal
+     */
     public function transactionJournal(): BelongsTo
     {
         return $this->belongsTo(TransactionJournal::class);
     }
 
+    /**
+     * Accessor para garantir que o ID do diario seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do diario de transacao
+     */
     protected function transactionJournalId(): Attribute
     {
         return Attribute::make(
@@ -65,6 +95,11 @@ class TransactionJournalMeta extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

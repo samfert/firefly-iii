@@ -34,6 +34,28 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Tag
+ *
+ * Representa uma tag para classificar transacoes no sistema Firefly III.
+ * Tags permitem ao usuario adicionar marcadores personalizados as transacoes
+ * para facilitar a organizacao e busca.
+ *
+ * @property int                                 $id              Identificador unico da tag
+ * @property int                                 $user_id         ID do usuario proprietario
+ * @property int                                 $user_group_id   ID do grupo de usuarios
+ * @property string                              $tag             Nome da tag
+ * @property string|null                         $description     Descricao da tag
+ * @property string|null                         $tag_mode        Modo da tag
+ * @property \Carbon\Carbon|null                 $date            Data associada a tag
+ * @property \Carbon\Carbon                      $created_at      Data de criacao
+ * @property \Carbon\Carbon                      $updated_at      Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at      Data de exclusao (soft delete)
+ * @property-read User                           $user            Usuario proprietario
+ * @property-read \Illuminate\Support\Collection $transactionJournals Transacoes com esta tag
+ * @property-read \Illuminate\Support\Collection $attachments     Anexos
+ * @property-read \Illuminate\Support\Collection $locations       Localizacoes
+ */
 class Tag extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -67,26 +89,51 @@ class Tag extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario desta tag.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todos os anexos associados a esta tag.
+     *
+     * @return MorphMany Colecao polimorfica de Attachment
+     */
     public function attachments(): MorphMany
     {
         return $this->morphMany(Attachment::class, 'attachable');
     }
 
+    /**
+     * Retorna todas as localizacoes associadas a esta tag.
+     *
+     * @return MorphMany Colecao polimorfica de Location
+     */
     public function locations(): MorphMany
     {
         return $this->morphMany(Location::class, 'locatable');
     }
 
+    /**
+     * Retorna todos os diarios de transacao com esta tag.
+     *
+     * @return BelongsToMany Colecao de TransactionJournal relacionados
+     */
     public function transactionJournals(): BelongsToMany
     {
         return $this->belongsToMany(TransactionJournal::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

@@ -31,6 +31,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class BudgetLimit
+ *
+ * Define um limite de gastos para um orcamento em um periodo especifico.
+ * Permite ao usuario definir quanto pode gastar em um orcamento durante
+ * um intervalo de datas, com suporte a diferentes moedas.
+ *
+ * @property int                      $id                      Identificador unico do limite
+ * @property int                      $budget_id               ID do orcamento associado
+ * @property int                      $transaction_currency_id ID da moeda
+ * @property string                   $amount                  Valor limite
+ * @property string                   $native_amount           Valor na moeda nativa
+ * @property \Carbon\Carbon           $start_date              Data de inicio do periodo
+ * @property \Carbon\Carbon           $end_date                Data de fim do periodo
+ * @property \Carbon\Carbon           $created_at              Data de criacao
+ * @property \Carbon\Carbon           $updated_at              Data de atualizacao
+ * @property-read Budget              $budget                  Orcamento associado
+ * @property-read TransactionCurrency $transactionCurrency     Moeda do limite
+ * @property-read \Illuminate\Support\Collection $notes        Notas associadas
+ */
 class BudgetLimit extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -59,26 +79,40 @@ class BudgetLimit extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o orcamento associado a este limite.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo Budget
+     */
     public function budget(): BelongsTo
     {
         return $this->belongsTo(Budget::class);
     }
 
     /**
-     * Get all the notes.
+     * Retorna todas as notas associadas a este limite de orcamento.
+     *
+     * @return MorphMany Colecao polimorfica de Note
      */
     public function notes(): MorphMany
     {
         return $this->morphMany(Note::class, 'noteable');
     }
 
+    /**
+     * Retorna a moeda associada a este limite de orcamento.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionCurrency
+     */
     public function transactionCurrency(): BelongsTo
     {
         return $this->belongsTo(TransactionCurrency::class);
     }
 
     /**
-     * Get the amount
+     * Accessor para garantir que o valor limite seja retornado como string.
+     *
+     * @return Attribute Atributo computado para o valor limite
      */
     protected function amount(): Attribute
     {
@@ -87,6 +121,11 @@ class BudgetLimit extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID do orcamento seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do orcamento
+     */
     protected function budgetId(): Attribute
     {
         return Attribute::make(
@@ -94,6 +133,11 @@ class BudgetLimit extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID da moeda seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da moeda
+     */
     protected function transactionCurrencyId(): Attribute
     {
         return Attribute::make(
@@ -101,6 +145,11 @@ class BudgetLimit extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

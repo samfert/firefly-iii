@@ -28,12 +28,30 @@ use FireflyIII\Support\Models\ReturnsIntegerIdTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Class UserRole
+ *
+ * Representa um papel de usuario dentro de um grupo no sistema Firefly III.
+ * Papeis definem permissoes e niveis de acesso dentro de grupos de usuarios,
+ * como proprietario, membro completo, somente leitura, etc.
+ *
+ * @property int                                 $id               Identificador unico do papel
+ * @property string                              $title            Titulo do papel
+ * @property \Carbon\Carbon                      $created_at       Data de criacao
+ * @property \Carbon\Carbon                      $updated_at       Data de atualizacao
+ * @property-read \Illuminate\Support\Collection $groupMemberships Membros com este papel
+ */
 class UserRole extends Model
 {
     use ReturnsIntegerIdTrait;
 
     protected $fillable = ['title'];
 
+    /**
+     * Retorna todas as associacoes de membros com este papel.
+     *
+     * @return HasMany Colecao de GroupMembership relacionadas
+     */
     public function groupMemberships(): HasMany
     {
         return $this->hasMany(GroupMembership::class);

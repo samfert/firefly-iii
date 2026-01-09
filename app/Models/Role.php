@@ -28,17 +28,42 @@ use FireflyIII\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * Class Role
+ *
+ * Representa um papel (role) de usuario no sistema Firefly III.
+ * Papeis definem permissoes e niveis de acesso, como administrador,
+ * usuario padrao, etc.
+ *
+ * @property int                                 $id           Identificador unico do papel
+ * @property string                              $name         Nome do papel
+ * @property string|null                         $display_name Nome de exibicao do papel
+ * @property string|null                         $description  Descricao do papel
+ * @property \Carbon\Carbon                      $created_at   Data de criacao
+ * @property \Carbon\Carbon                      $updated_at   Data de atualizacao
+ * @property-read \Illuminate\Support\Collection $users        Usuarios com este papel
+ */
 class Role extends Model
 {
     use ReturnsIntegerIdTrait;
 
     protected $fillable = ['name', 'display_name', 'description'];
 
+    /**
+     * Retorna todos os usuarios que possuem este papel.
+     *
+     * @return BelongsToMany Colecao de User relacionados
+     */
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

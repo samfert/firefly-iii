@@ -31,6 +31,23 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Class GroupMembership
+ *
+ * Representa a associacao entre um usuario e um grupo de usuarios.
+ * Define qual papel (role) o usuario tem dentro de um grupo especifico,
+ * permitindo controle de acesso granular.
+ *
+ * @property int            $id            Identificador unico da associacao
+ * @property int            $user_id       ID do usuario
+ * @property int            $user_group_id ID do grupo de usuarios
+ * @property int            $user_role_id  ID do papel do usuario no grupo
+ * @property \Carbon\Carbon $created_at    Data de criacao
+ * @property \Carbon\Carbon $updated_at    Data de atualizacao
+ * @property-read User      $user          Usuario associado
+ * @property-read UserGroup $userGroup     Grupo de usuarios
+ * @property-read UserRole  $userRole      Papel do usuario no grupo
+ */
 class GroupMembership extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -38,21 +55,41 @@ class GroupMembership extends Model
 
     protected $fillable = ['user_id', 'user_group_id', 'user_role_id'];
 
+    /**
+     * Retorna o usuario associado a esta membresia.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna o grupo de usuarios ao qual esta membresia pertence.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo UserGroup
+     */
     public function userGroup(): BelongsTo
     {
         return $this->belongsTo(UserGroup::class);
     }
 
+    /**
+     * Retorna o papel do usuario neste grupo.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo UserRole
+     */
     public function userRole(): BelongsTo
     {
         return $this->belongsTo(UserRole::class);
     }
 
+    /**
+     * Accessor para garantir que o ID do papel seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do papel
+     */
     protected function userRoleId(): Attribute
     {
         return Attribute::make(
@@ -60,6 +97,11 @@ class GroupMembership extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

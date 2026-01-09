@@ -32,6 +32,24 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class TransactionGroup
+ *
+ * Representa um grupo de transacoes no sistema Firefly III.
+ * Grupos de transacoes permitem agrupar multiplas transacoes relacionadas,
+ * como transacoes divididas (split transactions).
+ *
+ * @property int                                 $id              Identificador unico do grupo
+ * @property int                                 $user_id         ID do usuario proprietario
+ * @property int                                 $user_group_id   ID do grupo de usuarios
+ * @property string|null                         $title           Titulo do grupo de transacoes
+ * @property \Carbon\Carbon                      $created_at      Data de criacao
+ * @property \Carbon\Carbon                      $updated_at      Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at      Data de exclusao (soft delete)
+ * @property-read User                           $user            Usuario proprietario
+ * @property-read UserGroup                      $userGroup       Grupo de usuarios
+ * @property-read \Illuminate\Support\Collection $transactionJournals Diarios de transacao neste grupo
+ */
 class TransactionGroup extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -71,21 +89,41 @@ class TransactionGroup extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario deste grupo de transacoes.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todos os diarios de transacao neste grupo.
+     *
+     * @return HasMany Colecao de TransactionJournal relacionados
+     */
     public function transactionJournals(): HasMany
     {
         return $this->hasMany(TransactionJournal::class);
     }
 
+    /**
+     * Retorna o grupo de usuarios ao qual este grupo de transacoes pertence.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo UserGroup
+     */
     public function userGroup(): BelongsTo
     {
         return $this->belongsTo(UserGroup::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

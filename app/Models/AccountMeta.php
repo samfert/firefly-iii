@@ -31,6 +31,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use function Safe\json_decode;
 use function Safe\json_encode;
 
+/**
+ * Class AccountMeta
+ *
+ * Armazena metadados adicionais para contas financeiras.
+ * Permite armazenar informacoes extras como numero da conta, BIC, codigo do banco,
+ * e outros dados especificos que nao fazem parte do modelo principal de conta.
+ *
+ * @property int            $id         Identificador unico do metadado
+ * @property int            $account_id ID da conta associada
+ * @property string         $name       Nome/chave do metadado
+ * @property string         $data       Valor do metadado (armazenado como JSON)
+ * @property \Carbon\Carbon $created_at Data de criacao
+ * @property \Carbon\Carbon $updated_at Data de atualizacao
+ * @property-read Account   $account    Conta associada
+ */
 class AccountMeta extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -38,16 +53,32 @@ class AccountMeta extends Model
     protected $fillable = ['account_id', 'name', 'data'];
     protected $table    = 'account_meta';
 
+    /**
+     * Retorna a conta associada a este metadado.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo Account
+     */
     public function account(): BelongsTo
     {
         return $this->belongsTo(Account::class);
     }
 
+    /**
+     * Accessor e mutator para o campo data.
+     * Decodifica JSON ao ler e codifica ao salvar.
+     *
+     * @return Attribute Atributo computado para manipulacao de dados JSON
+     */
     protected function data(): Attribute
     {
         return Attribute::make(get: fn (mixed $value) => (string) json_decode((string) $value, true), set: fn (mixed $value) => ['data' => json_encode($value)]);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

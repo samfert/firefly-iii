@@ -33,6 +33,27 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class RuleGroup
+ *
+ * Representa um grupo de regras no sistema Firefly III.
+ * Grupos de regras permitem organizar regras relacionadas e
+ * controlar a ordem de execucao das regras.
+ *
+ * @property int                                 $id              Identificador unico do grupo
+ * @property int                                 $user_id         ID do usuario proprietario
+ * @property int                                 $user_group_id   ID do grupo de usuarios
+ * @property string                              $title           Titulo do grupo de regras
+ * @property string|null                         $description     Descricao do grupo
+ * @property int                                 $order           Ordem de execucao
+ * @property bool                                $active          Se o grupo esta ativo
+ * @property bool                                $stop_processing Se deve parar o processamento apos este grupo
+ * @property \Carbon\Carbon                      $created_at      Data de criacao
+ * @property \Carbon\Carbon                      $updated_at      Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at      Data de exclusao (soft delete)
+ * @property-read User                           $user            Usuario proprietario
+ * @property-read \Illuminate\Support\Collection $rules           Regras neste grupo
+ */
 class RuleGroup extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -64,16 +85,31 @@ class RuleGroup extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario deste grupo de regras.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todas as regras neste grupo.
+     *
+     * @return HasMany Colecao de Rule relacionadas
+     */
     public function rules(): HasMany
     {
         return $this->hasMany(Rule::class);
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de execucao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -81,6 +117,11 @@ class RuleGroup extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [
