@@ -35,13 +35,27 @@ use FireflyIII\Repositories\PiggyBank\PiggyBankRepositoryInterface;
 use FireflyIII\User;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class UpdatePiggyBank
+ *
+ * Acao para atualizar cofrinho com base em transacao.
+ */
 class UpdatePiggyBank implements ActionInterface
 {
     /**
-     * TriggerInterface constructor.
+     * Construtor da acao.
+     *
+     * @param RuleAction $action Acao da regra
      */
     public function __construct(private readonly RuleAction $action) {}
 
+    /**
+     * Executa a acao no diario de transacao.
+     *
+     * @param array $journal Dados do diario
+     *
+     * @return bool True se executado com sucesso
+     */
     public function actOnArray(array $journal): bool
     {
         $actionValue = $this->action->getValue($journal);
