@@ -36,7 +36,10 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 /**
- * Class Preferences.
+ * Class Preferences
+ *
+ * Classe de gerenciamento de preferencias de usuario.
+ * Fornece metodos para obter, definir e excluir preferencias do usuario.
  */
 class Preferences
 {

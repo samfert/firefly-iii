@@ -28,6 +28,9 @@ use ArrayObject;
 
 /**
  * Class NullArrayObject
+ *
+ * ArrayObject que retorna null para chaves inexistentes.
+ * Evita erros ao acessar indices que nao existem no array.
  */
 class NullArrayObject extends ArrayObject
 {

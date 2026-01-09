@@ -33,6 +33,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class WholePeriodChartGenerator
+ *
+ * Gerador de graficos de categoria para periodo completo.
+ * Gera dados de graficos mostrando gastos e receitas por categoria ao longo do tempo.
  */
 class WholePeriodChartGenerator
 {

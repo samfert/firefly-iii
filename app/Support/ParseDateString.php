@@ -34,6 +34,9 @@ use function Safe\preg_match;
 
 /**
  * Class ParseDateString
+ *
+ * Classe de parsing de strings de data.
+ * Fornece metodos para converter strings em objetos Carbon, incluindo datas relativas.
  */
 class ParseDateString
 {

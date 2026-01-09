@@ -33,7 +33,10 @@ use Illuminate\Support\Facades\Log;
 use Exception;
 
 /**
- * Class FireflyConfig.
+ * Class FireflyConfig
+ *
+ * Classe de gerenciamento de configuracoes do Firefly III.
+ * Fornece metodos para obter, definir e excluir configuracoes do sistema.
  */
 class FireflyConfig
 {
