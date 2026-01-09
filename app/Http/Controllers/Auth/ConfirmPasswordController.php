@@ -31,6 +31,10 @@ use Illuminate\Foundation\Auth\ConfirmsPasswords;
 
 /**
  * Class ConfirmPasswordController
+ *
+ * Controlador responsavel pela confirmacao de senha.
+ * Solicita que usuarios confirmem sua senha antes de
+ * acessar areas sensiveis do sistema.
  */
 class ConfirmPasswordController extends Controller
 {

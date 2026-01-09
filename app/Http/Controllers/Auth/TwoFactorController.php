@@ -39,7 +39,11 @@ use Illuminate\Support\Facades\Log;
 use PragmaRX\Google2FALaravel\Support\Authenticator;
 
 /**
- * Class TwoFactorController.
+ * Class TwoFactorController
+ *
+ * Controlador responsavel pela autenticacao de dois fatores (2FA).
+ * Gerencia validacao de codigos MFA, codigos de backup e
+ * historico de tentativas de autenticacao.
  */
 class TwoFactorController extends Controller
 {

@@ -51,9 +51,9 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 /**
  * Class LoginController
  *
- * This controller handles authenticating users for the application and
- * redirecting them to your home screen. The controller uses a trait
- * to conveniently provide its functionality to your applications.
+ * Controlador responsavel pela autenticacao de usuarios.
+ * Gerencia login, logout e protecao contra tentativas
+ * excessivas de acesso (throttling).
  */
 class LoginController extends Controller
 {
