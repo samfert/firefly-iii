@@ -36,9 +36,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoredGroupEventHandler
+ *
+ * Manipulador de eventos para grupos de transacao armazenados.
+ * Processa regras, recalcula credito e dispara webhooks.
  */
 class StoredGroupEventHandler
 {
+    /**
+     * Executa todos os manipuladores para o evento.
+     *
+     * @param StoredTransactionGroup $event Evento de grupo armazenado
+     */
     public function runAllHandlers(StoredTransactionGroup $event): void
     {
         $this->processRules($event);

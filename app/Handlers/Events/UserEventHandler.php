@@ -61,7 +61,8 @@ use Exception;
 /**
  * Class UserEventHandler.
  *
- * This class responds to any events that have anything to do with the User object.
+ * Manipulador de eventos relacionados ao usuario.
+ * Processa registro, login, alteracao de email e notificacoes.
  *
  * The method name reflects what is being done. This is in the present tense.
  */

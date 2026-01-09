@@ -30,9 +30,17 @@ use FireflyIII\Repositories\AuditLogEntry\ALERepositoryInterface;
 
 /**
  * Class AuditEventHandler
+ *
+ * Manipulador de eventos de auditoria.
+ * Armazena logs de auditoria para alteracoes no sistema.
  */
 class AuditEventHandler
 {
+    /**
+     * Armazena evento de auditoria.
+     *
+     * @param TriggeredAuditLog $event Evento de log de auditoria
+     */
     public function storeAuditEvent(TriggeredAuditLog $event): void
     {
         $array      = [

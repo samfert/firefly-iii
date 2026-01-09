@@ -41,9 +41,17 @@ use Exception;
 
 /**
  * Class AdminEventHandler.
+ *
+ * Manipulador de eventos administrativos.
+ * Envia notificacoes para administradores sobre convites, logins e versoes.
  */
 class AdminEventHandler
 {
+    /**
+     * Envia notificacao de convite criado.
+     *
+     * @param InvitationCreated $event Evento de convite criado
+     */
     public function sendInvitationNotification(InvitationCreated $event): void
     {
         $sendMail = app('fireflyconfig')->get('notification_invite_created', true)->data;
