@@ -36,10 +36,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class NewBackupCodesNotification
+ *
+ * Notificacao de novos codigos de backup gerados.
+ */
 class NewBackupCodesNotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario que gerou novos codigos
+     */
     public function __construct(private User $user) {}
 
     /**

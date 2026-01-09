@@ -36,10 +36,21 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class MFAManyFailedAttemptsNotification
+ *
+ * Notificacao de muitas tentativas de MFA falhas.
+ */
 class MFAManyFailedAttemptsNotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user  Usuario com tentativas falhas
+     * @param int  $count Numero de tentativas falhas
+     */
     public function __construct(private User $user, private int $count) {}
 
     public function toArray(User $notifiable): array

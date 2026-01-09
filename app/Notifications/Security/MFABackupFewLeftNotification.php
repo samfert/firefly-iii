@@ -36,10 +36,21 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class MFABackupFewLeftNotification
+ *
+ * Notificacao de poucos codigos de backup restantes.
+ */
 class MFABackupFewLeftNotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user  Usuario com poucos codigos
+     * @param int  $count Numero de codigos restantes
+     */
     public function __construct(private User $user, private int $count) {}
 
     /**
