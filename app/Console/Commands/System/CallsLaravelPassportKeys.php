@@ -30,6 +30,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Command\Command as CommandAlias;
 
+/**
+ * Class CallsLaravelPassportKeys
+ *
+ * Comando para gerar chaves do Passport.
+ * Executa o comando passport:keys do Laravel para gerar chaves de criptografia.
+ */
 class CallsLaravelPassportKeys extends Command
 {
     use ShowsFriendlyMessages;

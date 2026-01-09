@@ -28,6 +28,12 @@ use Carbon\Carbon;
 use FireflyIII\Support\System\GeneratesInstallationId;
 use Illuminate\Console\Command;
 
+/**
+ * Class OutputsInstructions
+ *
+ * Comando de instrucoes.
+ * Exibe instrucoes de instalacao e atualizacao do Firefly III.
+ */
 class OutputsInstructions extends Command
 {
     use GeneratesInstallationId;

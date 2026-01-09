@@ -29,7 +29,10 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Override;
 
 /**
- * File to make sure commands work.
+ * Class Kernel
+ *
+ * Kernel do console.
+ * Registra comandos e define o agendamento de tarefas da aplicacao.
  */
 class Kernel extends ConsoleKernel
 {

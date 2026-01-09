@@ -47,9 +47,11 @@ use function Safe\mb_regex_encoding;
 use function Safe\json_encode;
 
 /**
- * This command was inspired by https://github.com/elliot-gh. It will check all amount fields
- * and their values and correct them to the correct number of decimal places. This fixes issues where
- * Firefly III would store 0.01 as 0.01000000000000000020816681711721685132943093776702880859375.
+ * Class ForcesDecimalSize
+ *
+ * Comando para corrigir tamanho decimal.
+ * Verifica e corrige campos de valor para o numero correto de casas decimais.
+ * Inspirado por https://github.com/elliot-gh.
  */
 class ForcesDecimalSize extends Command
 {

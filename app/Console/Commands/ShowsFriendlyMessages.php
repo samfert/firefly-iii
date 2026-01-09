@@ -26,6 +26,9 @@ namespace FireflyIII\Console\Commands;
 
 /**
  * Trait ShowsFriendlyMessages
+ *
+ * Mensagens amigaveis para comandos.
+ * Fornece metodos para exibir mensagens formatadas no console.
  */
 trait ShowsFriendlyMessages
 {

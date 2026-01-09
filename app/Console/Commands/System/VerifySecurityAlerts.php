@@ -32,6 +32,12 @@ use League\Flysystem\FilesystemException;
 
 use function Safe\json_decode;
 
+/**
+ * Class VerifySecurityAlerts
+ *
+ * Comando para verificar alertas de seguranca.
+ * Verifica e exibe alertas de seguranca para a versao atual do Firefly III.
+ */
 class VerifySecurityAlerts extends Command
 {
     use ShowsFriendlyMessages;

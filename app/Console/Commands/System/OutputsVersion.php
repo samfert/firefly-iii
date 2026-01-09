@@ -26,6 +26,12 @@ namespace FireflyIII\Console\Commands\System;
 
 use Illuminate\Console\Command;
 
+/**
+ * Class OutputsVersion
+ *
+ * Comando para exibir versao.
+ * Exibe a versao atual do Firefly III no console.
+ */
 class OutputsVersion extends Command
 {
     protected $description = 'Outputs the Firefly III version';
