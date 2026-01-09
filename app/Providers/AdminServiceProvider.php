@@ -30,7 +30,9 @@ use Illuminate\Support\ServiceProvider;
 use Override;
 
 /**
- * Class AdminServiceProvider
+ * Class AdminServiceProvider.
+ *
+ * Provedor de servicos de administracao.
  */
 class AdminServiceProvider extends ServiceProvider
 {

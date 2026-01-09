@@ -34,7 +34,9 @@ use Override;
 use function Safe\preg_match;
 
 /**
- * Class AppServiceProvider
+ * Class AppServiceProvider.
+ *
+ * Provedor de servicos da aplicacao.
  */
 class AppServiceProvider extends ServiceProvider
 {

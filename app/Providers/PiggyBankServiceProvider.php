@@ -31,6 +31,8 @@ use Override;
 
 /**
  * Class PiggyBankServiceProvider.
+ *
+ * Provedor de servicos de cofrinhos.
  */
 class PiggyBankServiceProvider extends ServiceProvider
 {

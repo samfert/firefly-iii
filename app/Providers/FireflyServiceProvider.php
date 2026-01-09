@@ -81,6 +81,8 @@ use Override;
 /**
  * Class FireflyServiceProvider.
  *
+ * Provedor de servicos principal do Firefly III.
+ *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */
 class FireflyServiceProvider extends ServiceProvider

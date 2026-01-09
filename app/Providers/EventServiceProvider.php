@@ -105,6 +105,8 @@ use Override;
 /**
  * Class EventServiceProvider.
  *
+ * Provedor de servicos de eventos.
+ *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */
 class EventServiceProvider extends ServiceProvider

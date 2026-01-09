@@ -35,6 +35,8 @@ use Override;
 
 /**
  * Class CategoryServiceProvider.
+ *
+ * Provedor de servicos de categorias.
  */
 class CategoryServiceProvider extends ServiceProvider
 {

@@ -33,6 +33,8 @@ use Override;
 
 /**
  * Class TagServiceProvider.
+ *
+ * Provedor de servicos de tags.
  */
 class TagServiceProvider extends ServiceProvider
 {

@@ -35,6 +35,8 @@ use Override;
 
 /**
  * Class AccountServiceProvider.
+ *
+ * Provedor de servicos de contas.
  */
 class AccountServiceProvider extends ServiceProvider
 {
