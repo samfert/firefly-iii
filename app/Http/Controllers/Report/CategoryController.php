@@ -39,7 +39,11 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 /**
- * Class CategoryController.
+ * Class CategoryController
+ *
+ * Controlador responsavel pela geracao de relatorios de categorias.
+ * Gera visoes parciais com receitas e despesas por categoria,
+ * incluindo medias, maiores transacoes e distribuicao por periodo.
  */
 class CategoryController extends Controller
 {

@@ -32,7 +32,11 @@ use FireflyIII\Support\CacheProperties;
 use Illuminate\Support\Collection;
 
 /**
- * Class OperationsController.
+ * Class OperationsController
+ *
+ * Controlador responsavel pela geracao de relatorios de operacoes.
+ * Gera visoes parciais com resumos de receitas e despesas,
+ * mostrando totais por moeda e periodo.
  */
 class OperationsController extends Controller
 {
