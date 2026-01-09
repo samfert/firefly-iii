@@ -25,5 +25,7 @@ namespace FireflyIII\Generator\Report\Audit;
 
 /**
  * Class MultiYearReportGenerator.
+ *
+ * Gerador de relatorios de auditoria multi-anuais.
  */
 class MultiYearReportGenerator extends MonthReportGenerator {}

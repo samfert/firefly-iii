@@ -28,6 +28,8 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface ReportGeneratorInterface.
+ *
+ * Interface para geradores de relatorios.
  */
 interface ReportGeneratorInterface
 {

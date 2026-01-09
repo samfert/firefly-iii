@@ -25,5 +25,7 @@ namespace FireflyIII\Generator\Report\Tag;
 
 /**
  * Class YearReportGenerator.
+ *
+ * Gerador de relatorios anuais por tag.
  */
 class YearReportGenerator extends MonthReportGenerator {}

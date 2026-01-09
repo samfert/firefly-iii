@@ -31,12 +31,21 @@ use Throwable;
 
 /**
  * Class MonthReportGenerator.
+ *
+ * Gerador de relatorios mensais por conta.
  */
 class MonthReportGenerator implements ReportGeneratorInterface
 {
+    /** @var Collection Contas envolvidas */
     private Collection $accounts;
+
+    /** @var Carbon Data final */
     private Carbon     $end;
+
+    /** @var Collection Contas de despesa */
     private Collection $expense;
+
+    /** @var Carbon Data inicial */
     private Carbon     $start;
 
     /**

@@ -33,14 +33,25 @@ use Throwable;
 
 /**
  * Class MonthReportGenerator.
+ *
+ * Gerador de relatorios mensais por orcamento.
  * TODO include info about tags.
  */
 class MonthReportGenerator implements ReportGeneratorInterface
 {
+    /** @var Collection Contas envolvidas */
     private Collection $accounts;
+
+    /** @var Collection Orcamentos envolvidos */
     private Collection $budgets;
+
+    /** @var Carbon Data final */
     private Carbon     $end;
+
+    /** @var array Despesas */
     private array      $expenses;
+
+    /** @var Carbon Data inicial */
     private Carbon     $start;
 
     /**

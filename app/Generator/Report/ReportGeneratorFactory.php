@@ -28,6 +28,8 @@ use FireflyIII\Exceptions\FireflyException;
 
 /**
  * Class ReportGeneratorFactory.
+ *
+ * Fabrica para criar geradores de relatorios.
  */
 class ReportGeneratorFactory
 {
