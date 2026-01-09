@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class RepairsPostgresSequences
+ *
+ * Comando para reparar sequencias PostgreSQL.
+ * Corrige problemas com sequencias de autoincremento no PostgreSQL.
+ */
 class RepairsPostgresSequences extends Command
 {
     use ShowsFriendlyMessages;

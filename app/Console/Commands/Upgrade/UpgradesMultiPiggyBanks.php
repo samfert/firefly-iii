@@ -32,6 +32,12 @@ use FireflyIII\Repositories\PiggyBank\PiggyBankRepositoryInterface;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class UpgradesMultiPiggyBanks
+ *
+ * Comando para atualizar cofrinhos.
+ * Atualiza cofrinhos para suportar multiplas contas.
+ */
 class UpgradesMultiPiggyBanks extends Command
 {
     use ShowsFriendlyMessages;

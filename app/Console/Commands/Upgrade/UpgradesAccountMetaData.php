@@ -29,6 +29,12 @@ use FireflyIII\Exceptions\FireflyException;
 use FireflyIII\Models\AccountMeta;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesAccountMetaData
+ *
+ * Comando para renomear metadados de contas.
+ * Renomeia metadados de contas para o novo formato.
+ */
 class UpgradesAccountMetaData extends Command
 {
     use ShowsFriendlyMessages;
