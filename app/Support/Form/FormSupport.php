@@ -32,6 +32,9 @@ use Throwable;
 
 /**
  * Trait FormSupport
+ *
+ * Trait de suporte a formularios.
+ * Fornece metodos utilitarios para renderizacao de campos de formulario.
  */
 trait FormSupport
 {

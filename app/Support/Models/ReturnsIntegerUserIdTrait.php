@@ -28,6 +28,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Trait ReturnsIntegerUserIdTrait
+ *
+ * Trait para retornar IDs de usuario como inteiro.
+ * Garante que user_id e user_group_id sejam sempre retornados como inteiros.
  */
 trait ReturnsIntegerUserIdTrait
 {

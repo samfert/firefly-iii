@@ -26,6 +26,12 @@ namespace FireflyIII\Support\Request;
 
 use FireflyIII\Exceptions\FireflyException;
 
+/**
+ * Trait GetFilterInstructions
+ *
+ * Trait para obtencao de instrucoes de filtro.
+ * Processa parametros de filtro em requisicoes da API.
+ */
 trait GetFilterInstructions
 {
     private const string INVALID_FILTER = '%INVALID_JAMES_%';

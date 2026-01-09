@@ -29,7 +29,9 @@ use FireflyIII\Repositories\RuleGroup\RuleGroupRepositoryInterface;
 
 /**
  * Class RuleForm
- * TODO cleanup and describe
+ *
+ * Classe de formulario de regra.
+ * Fornece metodos para renderizar campos de formulario relacionados a regras.
  */
 class RuleForm
 {

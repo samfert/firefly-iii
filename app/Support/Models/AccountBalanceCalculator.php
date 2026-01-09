@@ -36,9 +36,8 @@ use Illuminate\Support\Facades\Log;
 /**
  * Class AccountBalanceCalculator
  *
- * This class started as a piece of code to create and calculate "account balance" objects, but they
- * are at the moment unused. Instead, each transaction gets a before/after balance and an indicator if this
- * balance is up-to-date. This class now contains some methods to recalculate those amounts.
+ * Calculadora de saldo de conta.
+ * Recalcula saldos de transacoes e contas, mantendo valores antes/depois atualizados.
  */
 class AccountBalanceCalculator
 {
