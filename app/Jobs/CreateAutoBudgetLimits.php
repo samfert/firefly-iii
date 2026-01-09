@@ -39,7 +39,9 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
 
 /**
- * Class CreateAutoBudgetLimits
+ * Class CreateAutoBudgetLimits.
+ *
+ * Job para criacao de limites de orcamento automatico.
  */
 class CreateAutoBudgetLimits implements ShouldQueue
 {

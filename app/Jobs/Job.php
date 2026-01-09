@@ -27,6 +27,8 @@ use Illuminate\Bus\Queueable;
 
 /**
  * Class Job.
+ *
+ * Classe base abstrata para jobs.
  */
 abstract class Job
 {
