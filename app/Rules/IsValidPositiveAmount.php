@@ -32,6 +32,11 @@ use Closure;
 
 use function Safe\json_encode;
 
+/**
+ * Class IsValidPositiveAmount.
+ *
+ * Regra de validacao para valor positivo valido.
+ */
 class IsValidPositiveAmount implements ValidationRule
 {
     use ValidatesAmountsTrait;

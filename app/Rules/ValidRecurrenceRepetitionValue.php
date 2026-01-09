@@ -30,7 +30,9 @@ use Closure;
 use InvalidArgumentException;
 
 /**
- * Class ValidRecurrenceRepetitionValue
+ * Class ValidRecurrenceRepetitionValue.
+ *
+ * Regra de validacao para valor de repeticao de recorrencia.
  */
 class ValidRecurrenceRepetitionValue implements ValidationRule
 {

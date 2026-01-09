@@ -29,7 +29,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class ValidJournals
+ * Class ValidJournals.
+ *
+ * Regra de validacao para lancamentos validos.
  */
 class ValidJournals implements ValidationRule
 {

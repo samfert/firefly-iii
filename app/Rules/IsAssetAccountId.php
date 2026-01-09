@@ -29,7 +29,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class IsAssetAccountId
+ * Class IsAssetAccountId.
+ *
+ * Regra de validacao para ID de conta de ativo.
  */
 class IsAssetAccountId implements ValidationRule
 {

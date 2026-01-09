@@ -29,6 +29,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 use Override;
 
+/**
+ * Class IsValidAccountType.
+ *
+ * Regra de validacao para tipo de conta valido.
+ */
 class IsValidAccountType implements ValidationRule
 {
     use AccountFilter;

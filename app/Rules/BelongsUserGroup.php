@@ -36,7 +36,10 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class BelongsUserGroup
+ * Class BelongsUserGroup.
+ *
+ * Regra de validacao para pertencimento a grupo de usuario.
+ *
  * TODO this method has a lot in common with BelongsUser but will check if the UserGroup
  * TODO that is submitted is valid. This method will not validate if the user has a valid ROLE in this
  * TODO group.

@@ -32,7 +32,9 @@ use JsonException;
 use function Safe\json_decode;
 
 /**
- * Class IsValidBulkClause
+ * Class IsValidBulkClause.
+ *
+ * Regra de validacao para clausula de operacao em massa.
  */
 class IsValidBulkClause implements ValidationRule
 {

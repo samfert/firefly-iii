@@ -44,7 +44,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class IsValidAttachmentModel
+ * Class IsValidAttachmentModel.
+ *
+ * Regra de validacao para modelo de anexo valido.
  */
 class IsValidAttachmentModel implements ValidationRule
 {

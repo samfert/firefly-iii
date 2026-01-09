@@ -30,7 +30,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class IsTransferAccount
+ * Class IsTransferAccount.
+ *
+ * Regra de validacao para conta de transferencia.
  */
 class IsTransferAccount implements ValidationRule
 {

@@ -31,7 +31,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class UniqueIban
+ * Class UniqueIban.
+ *
+ * Regra de validacao para IBAN unico.
  */
 class UniqueIban implements ValidationRule
 {
