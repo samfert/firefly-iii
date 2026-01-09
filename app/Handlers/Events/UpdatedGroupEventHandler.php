@@ -40,9 +40,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdatedGroupEventHandler
+ *
+ * Manipulador de eventos para grupos de transacao atualizados.
+ * Processa regras, recalcula credito e dispara webhooks.
  */
 class UpdatedGroupEventHandler
 {
+    /**
+     * Executa todos os manipuladores para o evento.
+     *
+     * @param UpdatedTransactionGroup $event Evento de grupo atualizado
+     */
     public function runAllHandlers(UpdatedTransactionGroup $event): void
     {
         $this->unifyAccounts($event);

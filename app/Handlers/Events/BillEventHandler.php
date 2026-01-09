@@ -36,9 +36,17 @@ use Illuminate\Support\Facades\Notification;
 
 /**
  * Class BillEventHandler
+ *
+ * Manipulador de eventos para faturas e assinaturas.
+ * Envia notificacoes sobre faturas vencidas e lembretes.
  */
 class BillEventHandler
 {
+    /**
+     * Avisa sobre assinaturas vencidas.
+     *
+     * @param WarnUserAboutOverdueSubscriptions $event Evento de assinaturas vencidas
+     */
     public function warnAboutOverdueSubscriptions(WarnUserAboutOverdueSubscriptions $event): void
     {
         Log::debug(sprintf('Now in %s', __METHOD__));

@@ -34,9 +34,18 @@ use FireflyIII\Models\PiggyBankEvent;
 
 /**
  * Class PiggyBankEventHandler
+ *
+ * Manipulador de eventos para cofrinhos.
+ * Processa alteracoes de nome e valores de cofrinhos.
  */
 class PiggyBankEventHandler
 {
+    /**
+     * Processa alteracao de nome do cofrinho.
+     * Atualiza regras que referenciam o nome antigo.
+     *
+     * @param ChangedName $event Evento de alteracao de nome
+     */
     public function changedPiggyBankName(ChangedName $event): void
     {
         // loop all accounts, collect all user's rules.
