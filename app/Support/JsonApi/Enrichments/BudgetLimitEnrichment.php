@@ -17,6 +17,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class BudgetLimitEnrichment
+ *
+ * Enriquecedor de limite de orcamento.
+ * Adiciona notas, despesas e informacoes de moeda aos limites de orcamento.
+ */
 class BudgetLimitEnrichment implements EnrichmentInterface
 {
     private User                $user;

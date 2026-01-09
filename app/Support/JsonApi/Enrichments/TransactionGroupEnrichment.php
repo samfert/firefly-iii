@@ -43,6 +43,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Override;
 
+/**
+ * Class TransactionGroupEnrichment
+ *
+ * Enriquecedor de grupo de transacao.
+ * Adiciona notas, tags, metadados, localizacoes e contagem de anexos aos grupos de transacao.
+ */
 class TransactionGroupEnrichment implements EnrichmentInterface
 {
     private array          $attachmentCount = [];

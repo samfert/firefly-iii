@@ -14,6 +14,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class CategoryEnrichment
+ *
+ * Enriquecedor de categoria.
+ * Adiciona notas, gastos, receitas e transferencias as categorias.
+ */
 class CategoryEnrichment implements EnrichmentInterface
 {
     private Collection $collection;

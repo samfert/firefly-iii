@@ -49,7 +49,9 @@ use Override;
 /**
  * Class AccountEnrichment
  *
- * This class "enriches" accounts and adds data from other tables and models to each account model.
+ * Enriquecedor de contas.
+ * Adiciona dados de outras tabelas e modelos a cada modelo de conta,
+ * incluindo metadados, notas, localizacoes, saldos e grupos de objetos.
  */
 class AccountEnrichment implements EnrichmentInterface
 {
