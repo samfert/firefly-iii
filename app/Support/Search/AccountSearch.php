@@ -33,6 +33,9 @@ use function Safe\json_encode;
 
 /**
  * Class AccountSearch
+ *
+ * Busca de contas.
+ * Implementa busca de contas por nome, IBAN, numero ou ID.
  */
 class AccountSearch implements GenericSearchInterface
 {

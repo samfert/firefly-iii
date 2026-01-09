@@ -55,6 +55,9 @@ use TypeError;
 /**
  * Class OperatorQuerySearch
  *
+ * Busca de transacoes por operadores.
+ * Implementa busca avancada usando operadores de consulta para filtrar transacoes.
+ *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */
 class OperatorQuerySearch implements SearchInterface
