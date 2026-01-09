@@ -28,7 +28,10 @@ use FireflyIII\User;
 use Illuminate\Http\Request;
 
 /**
- * Class ApiDemoUser.
+ * Class ApiDemoUser
+ *
+ * Middleware para protecao de usuarios demo na API.
+ * Bloqueia requisicoes de usuarios com role 'demo' para proteger dados de demonstracao.
  */
 class ApiDemoUser
 {
