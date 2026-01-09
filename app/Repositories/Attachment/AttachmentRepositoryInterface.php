@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface AttachmentRepositoryInterface.
  *
+ * Interface para repositorio de anexos.
+ * Define metodos para criar, atualizar, excluir e consultar anexos de transacoes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

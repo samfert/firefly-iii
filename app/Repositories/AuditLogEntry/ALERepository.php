@@ -30,6 +30,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class ALERepository
+ *
+ * Repositorio para gerenciamento de entradas de log de auditoria.
+ * Fornece metodos para criar e consultar registros de auditoria do sistema.
  */
 class ALERepository implements ALERepositoryInterface
 {

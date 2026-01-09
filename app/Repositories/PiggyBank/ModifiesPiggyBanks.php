@@ -41,6 +41,9 @@ use Exception;
 
 /**
  * Trait ModifiesPiggyBanks
+ *
+ * Trait para modificacao de cofrinhos.
+ * Fornece metodos para adicionar, remover e atualizar valores em cofrinhos.
  */
 trait ModifiesPiggyBanks
 {
