@@ -42,6 +42,10 @@ use Illuminate\View\View;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de orcamentos.
+ * Mostra transacoes associadas, limites de orcamento e permite
+ * visualizar transacoes sem orcamento definido.
  */
 class ShowController extends Controller
 {

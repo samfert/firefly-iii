@@ -45,6 +45,10 @@ use Illuminate\View\View;
 
 /**
  * Class BudgetLimitController
+ *
+ * Controlador responsavel pelo gerenciamento de limites de orcamento.
+ * Permite criar, editar e excluir limites de orcamento por periodo
+ * e moeda, com calculo de gastos e saldo restante.
  */
 class BudgetLimitController extends Controller
 {

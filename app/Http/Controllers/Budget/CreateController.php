@@ -38,6 +38,10 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de novos orcamentos.
+ * Permite criar orcamentos com configuracoes de auto-orcamento,
+ * periodos de repeticao e suporte a anexos.
  */
 class CreateController extends Controller
 {

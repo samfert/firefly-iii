@@ -47,6 +47,10 @@ use Illuminate\View\View;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de orcamentos.
+ * Exibe todos os orcamentos com informacoes de gastos, limites
+ * e disponibilidade por periodo.
  */
 class IndexController extends Controller
 {
@@ -161,6 +165,14 @@ class IndexController extends Controller
         );
     }
 
+    /**
+     * Obtem todos os orcamentos disponiveis para o periodo.
+     *
+     * @param Carbon $start Data inicial do periodo
+     * @param Carbon $end   Data final do periodo
+     *
+     * @return array Lista de orcamentos disponiveis com gastos e valores orcados
+     */
     private function getAllAvailableBudgets(Carbon $start, Carbon $end): array
     {
         Log::debug(sprintf('Start of getAllAvailableBudgets("%s", "%s")', $start->format('Y-m-d H:i:s'), $end->format('Y-m-d H:i:s')));
@@ -194,6 +206,16 @@ class IndexController extends Controller
         return $availableBudgets;
     }
 
+    /**
+     * Obtem todos os orcamentos ativos com limites e gastos.
+     *
+     * @param Carbon              $start           Data inicial do periodo
+     * @param Carbon              $end             Data final do periodo
+     * @param Collection          $currencies      Colecao de moedas disponiveis
+     * @param TransactionCurrency $primaryCurrency Moeda primaria do usuario
+     *
+     * @return array Lista de orcamentos com informacoes completas
+     */
     private function getAllBudgets(Carbon $start, Carbon $end, Collection $currencies, TransactionCurrency $primaryCurrency): array
     {
         // get all budgets, and paginate them into $budgets.
@@ -252,6 +274,13 @@ class IndexController extends Controller
         return $budgets;
     }
 
+    /**
+     * Calcula os totais de orcamentos, gastos e saldo restante.
+     *
+     * @param array $budgets Lista de orcamentos
+     *
+     * @return array Totais por moeda (orcado, gasto, restante)
+     */
     private function getSums(array $budgets): array
     {
         $sums = [
