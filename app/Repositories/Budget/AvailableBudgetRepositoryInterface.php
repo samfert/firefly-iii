@@ -37,6 +37,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface AvailableBudgetRepositoryInterface
  *
+ * Interface para repositorio de orcamento disponivel.
+ * Define metodos para gerenciar valores disponiveis para orcamento por periodo.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

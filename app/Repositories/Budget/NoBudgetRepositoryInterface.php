@@ -36,6 +36,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface NoBudgetRepositoryInterface
  *
+ * Interface para repositorio de transacoes sem orcamento.
+ * Define metodos para consultar gastos sem orcamento definido.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

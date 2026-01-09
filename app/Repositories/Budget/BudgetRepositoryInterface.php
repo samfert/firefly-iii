@@ -34,7 +34,10 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Collection;
 
 /**
- * Interface BudgetRepositoryInterface.
+ * Interface BudgetRepositoryInterface
+ *
+ * Interface para repositorio de orcamentos.
+ * Define metodos para gerenciamento de orcamentos, limites e auto-orcamentos.
  *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()

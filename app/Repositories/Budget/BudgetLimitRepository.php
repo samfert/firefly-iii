@@ -40,6 +40,9 @@ use Override;
 
 /**
  * Class BudgetLimitRepository
+ *
+ * Repositorio para limites de orcamento.
+ * Fornece metodos para criar, atualizar e consultar limites de orcamento.
  */
 class BudgetLimitRepository implements BudgetLimitRepositoryInterface, UserGroupInterface
 {
