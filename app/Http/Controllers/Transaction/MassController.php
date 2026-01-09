@@ -44,7 +44,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View as IlluminateView;
 
 /**
- * Class MassController.
+ * Class MassController
+ *
+ * Controlador responsavel pela edicao e exclusao em massa de transacoes.
+ * Permite modificar ou excluir multiplas transacoes simultaneamente,
+ * incluindo alteracao de datas, descricoes, contas e categorias.
  */
 class MassController extends Controller
 {

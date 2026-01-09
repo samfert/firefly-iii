@@ -39,6 +39,10 @@ use Illuminate\View\View;
 
 /**
  * Class BulkController
+ *
+ * Controlador responsavel pela edicao em massa de transacoes.
+ * Permite modificar orcamento, categoria e tags de multiplas
+ * transacoes simultaneamente.
  */
 class BulkController extends Controller
 {

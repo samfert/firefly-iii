@@ -40,6 +40,10 @@ use function Safe\parse_url;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de transacoes.
+ * Permite criar novas transacoes (despesas, receitas, transferencias)
+ * e clonar transacoes existentes.
  */
 class CreateController extends Controller
 {
