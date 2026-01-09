@@ -36,10 +36,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class MFAUsedBackupCodeNotification
+ *
+ * Notificacao de uso de codigo de backup MFA.
+ */
 class MFAUsedBackupCodeNotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario que usou codigo de backup
+     */
     public function __construct(private User $user) {}
 
     /**

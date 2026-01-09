@@ -37,10 +37,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class UserFailedLoginAttempt
+ *
+ * Notificacao de tentativa de login falha.
+ */
 class UserFailedLoginAttempt extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario da tentativa
+     */
     public function __construct(private User $user) {}
 
     public function toArray(User $notifiable): array
