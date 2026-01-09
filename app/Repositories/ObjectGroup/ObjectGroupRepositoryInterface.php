@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface ObjectGroupRepositoryInterface
  *
+ * Interface para repositorio de grupos de objetos.
+ * Define metodos para criar, atualizar, excluir e consultar grupos de objetos.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

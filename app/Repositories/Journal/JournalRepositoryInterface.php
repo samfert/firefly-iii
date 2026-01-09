@@ -38,6 +38,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface JournalRepositoryInterface
  *
+ * Interface para repositorio de diarios de transacoes.
+ * Define metodos para criar, atualizar, excluir e consultar transacoes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

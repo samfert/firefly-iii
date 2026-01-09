@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface NoCategoryRepositoryInterface
  *
+ * Interface para repositorio de transacoes sem categoria.
+ * Define metodos para consultar despesas e receitas sem categoria definida.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

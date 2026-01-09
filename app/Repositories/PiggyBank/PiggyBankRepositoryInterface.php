@@ -38,6 +38,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface PiggyBankRepositoryInterface.
  *
+ * Interface para repositorio de cofrinhos.
+ * Define metodos para criar, atualizar, excluir e consultar cofrinhos de poupanca.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

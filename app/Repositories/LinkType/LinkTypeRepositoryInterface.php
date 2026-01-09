@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface LinkTypeRepositoryInterface.
  *
+ * Interface para repositorio de tipos de links entre transacoes.
+ * Define metodos para criar, atualizar, excluir e consultar tipos de links.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class ObjectGroupRepository
+ *
+ * Repositorio para gerenciamento de grupos de objetos.
+ * Fornece metodos para criar, atualizar, excluir e consultar grupos de objetos.
  */
 class ObjectGroupRepository implements ObjectGroupRepositoryInterface, UserGroupInterface
 {
