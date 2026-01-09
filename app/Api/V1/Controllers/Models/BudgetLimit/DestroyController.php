@@ -34,6 +34,9 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de limites de orcamento.
+ * Remove limites de orcamento do sistema atraves da API REST.
  */
 class DestroyController extends Controller
 {

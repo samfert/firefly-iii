@@ -41,6 +41,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de anexos.
+ * Cria novos anexos e faz upload de arquivos atraves da API REST.
  */
 class StoreController extends Controller
 {

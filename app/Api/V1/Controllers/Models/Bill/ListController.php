@@ -43,6 +43,9 @@ use League\Fractal\Resource\Collection as FractalCollection;
 
 /**
  * Class ListController
+ *
+ * Controlador da API responsavel pela listagem de recursos relacionados a faturas.
+ * Lista anexos, regras e transacoes associados a uma fatura especifica.
  */
 class ListController extends Controller
 {

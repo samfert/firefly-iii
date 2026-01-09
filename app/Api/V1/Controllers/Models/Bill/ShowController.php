@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de faturas.
+ * Lista todas as faturas ou exibe detalhes de uma fatura especifica.
  */
 class ShowController extends Controller
 {

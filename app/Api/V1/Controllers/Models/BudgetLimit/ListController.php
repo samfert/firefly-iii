@@ -40,6 +40,9 @@ use League\Fractal\Resource\Collection as FractalCollection;
 
 /**
  * Class ListController
+ *
+ * Controlador da API responsavel pela listagem de transacoes de limites de orcamento.
+ * Lista transacoes associadas a um limite de orcamento especifico.
  */
 class ListController extends Controller
 {

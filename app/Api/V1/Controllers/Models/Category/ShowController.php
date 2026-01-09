@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de categorias.
+ * Lista todas as categorias ou exibe detalhes de uma categoria especifica.
  */
 class ShowController extends Controller
 {

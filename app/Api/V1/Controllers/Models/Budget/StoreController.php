@@ -36,6 +36,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de orcamentos.
+ * Cria novos orcamentos no sistema atraves da API REST.
  */
 class StoreController extends Controller
 {

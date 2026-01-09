@@ -31,6 +31,9 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de contas.
+ * Remove contas do sistema atraves da API REST.
  */
 class DestroyController extends Controller
 {

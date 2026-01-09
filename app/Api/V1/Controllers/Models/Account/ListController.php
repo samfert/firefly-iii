@@ -45,6 +45,9 @@ use League\Fractal\Resource\Collection as FractalCollection;
 
 /**
  * Class ListController
+ *
+ * Controlador da API responsavel pela listagem de recursos relacionados a contas.
+ * Lista anexos, cofrinhos e transacoes associados a uma conta especifica.
  */
 class ListController extends Controller
 {

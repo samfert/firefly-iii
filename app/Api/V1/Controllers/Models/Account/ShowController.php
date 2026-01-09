@@ -41,6 +41,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de contas.
+ * Lista todas as contas ou exibe detalhes de uma conta especifica.
  */
 class ShowController extends Controller
 {
