@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace FireflyIII\Support\Singleton;
 
+/**
+ * Class PreferencesSingleton
+ *
+ * Singleton de preferencias.
+ * Armazena preferencias em memoria para acesso rapido durante a requisicao.
+ */
 class PreferencesSingleton
 {
     private static ?PreferencesSingleton $instance = null;

@@ -28,7 +28,10 @@ namespace FireflyIII\Support\Search\QueryParser;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Base class for all nodes
+ * Class Node
+ *
+ * Classe base para nos de busca.
+ * Representa um no na arvore de parsing de consultas de busca.
  */
 abstract class Node
 {
