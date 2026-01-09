@@ -37,6 +37,9 @@ use Exception;
 
 /**
  * Class RuleRepository.
+ *
+ * Repositorio principal para gerenciamento de regras de automacao.
+ * Fornece metodos para criar, atualizar, excluir e consultar regras de transacoes.
  */
 class RuleRepository implements RuleRepositoryInterface, UserGroupInterface
 {

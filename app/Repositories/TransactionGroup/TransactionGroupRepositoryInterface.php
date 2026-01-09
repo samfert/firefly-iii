@@ -38,6 +38,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface TransactionGroupRepositoryInterface
  *
+ * Interface para repositorio de grupos de transacoes.
+ * Define metodos para criar, atualizar, excluir e consultar grupos de transacoes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

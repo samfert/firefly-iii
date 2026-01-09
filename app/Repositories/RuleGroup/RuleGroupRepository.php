@@ -36,6 +36,9 @@ use Exception;
 
 /**
  * Class RuleGroupRepository.
+ *
+ * Repositorio principal para gerenciamento de grupos de regras.
+ * Fornece metodos para criar, atualizar, excluir e consultar grupos de regras.
  */
 class RuleGroupRepository implements RuleGroupRepositoryInterface, UserGroupInterface
 {

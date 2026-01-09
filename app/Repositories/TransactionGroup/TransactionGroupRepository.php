@@ -54,6 +54,9 @@ use function Safe\json_decode;
 
 /**
  * Class TransactionGroupRepository
+ *
+ * Repositorio principal para gerenciamento de grupos de transacoes.
+ * Fornece metodos para criar, atualizar, excluir e consultar grupos de transacoes.
  */
 class TransactionGroupRepository implements TransactionGroupRepositoryInterface, UserGroupInterface
 {

@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface TagRepositoryInterface.
  *
+ * Interface para repositorio de tags.
+ * Define metodos para criar, atualizar, excluir e consultar tags de transacoes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()
