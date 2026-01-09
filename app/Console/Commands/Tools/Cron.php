@@ -37,6 +37,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use InvalidArgumentException;
 
+/**
+ * Class Cron
+ *
+ * Comando de cron.
+ * Executa todas as tarefas agendadas do Firefly III (taxas de cambio, transacoes recorrentes, etc).
+ */
 class Cron extends Command
 {
     use ShowsFriendlyMessages;

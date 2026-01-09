@@ -29,6 +29,12 @@ use Illuminate\Console\Command;
 use PDO;
 use PDOException;
 
+/**
+ * Class CreatesDatabase
+ *
+ * Comando para criar banco de dados.
+ * Tenta criar o banco de dados MySQL se ele ainda nao existir.
+ */
 class CreatesDatabase extends Command
 {
     use ShowsFriendlyMessages;
