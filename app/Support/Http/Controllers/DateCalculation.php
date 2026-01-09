@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Trait DateCalculation
+ *
+ * Trait para calculos de data.
+ * Fornece metodos para calcular dias ativos e periodos.
  */
 trait DateCalculation
 {

@@ -34,6 +34,9 @@ use FireflyIII\Support\Cronjobs\WebhookCronjob;
 
 /**
  * Trait CronRunner
+ *
+ * Trait para execucao de cronjobs.
+ * Fornece metodos para executar tarefas agendadas do sistema.
  */
 trait CronRunner
 {

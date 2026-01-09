@@ -35,6 +35,9 @@ use Illuminate\Routing\Redirector;
 
 /**
  * Trait UserNavigation
+ *
+ * Trait para navegacao de usuario.
+ * Fornece metodos para redirecionamento e navegacao entre paginas.
  */
 trait UserNavigation
 {

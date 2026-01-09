@@ -36,6 +36,9 @@ use Throwable;
 
 /**
  * Trait ModelInformation
+ *
+ * Trait para informacoes de modelo.
+ * Fornece metodos para obter gatilhos e acoes baseados em modelos.
  */
 trait ModelInformation
 {

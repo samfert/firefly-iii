@@ -29,6 +29,12 @@ use FireflyIII\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
+/**
+ * Interface EnrichmentInterface
+ *
+ * Interface para enriquecimento de dados.
+ * Define metodos para enriquecer colecoes e modelos com dados adicionais.
+ */
 interface EnrichmentInterface
 {
     public function enrich(Collection $collection): Collection;
