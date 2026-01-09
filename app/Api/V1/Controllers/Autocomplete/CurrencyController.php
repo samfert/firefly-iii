@@ -34,6 +34,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class CurrencyController
+ *
+ * Controlador da API responsavel pelo autocomplete de moedas.
+ * Fornece sugestoes de moedas para campos de busca com
+ * informacoes de codigo, simbolo e casas decimais.
  */
 class CurrencyController extends Controller
 {

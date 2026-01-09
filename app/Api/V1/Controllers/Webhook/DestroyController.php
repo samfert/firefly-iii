@@ -36,6 +36,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de webhooks.
+ * Permite excluir webhooks, mensagens de webhook e tentativas
+ * de envio de mensagens de webhook.
  */
 class DestroyController extends Controller
 {

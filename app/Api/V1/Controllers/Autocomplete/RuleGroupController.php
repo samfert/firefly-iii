@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class RuleGroupController
+ *
+ * Controlador da API responsavel pelo autocomplete de grupos de regras.
+ * Fornece sugestoes de grupos de regras para campos de busca
+ * com informacoes de titulo e descricao.
  */
 class RuleGroupController extends Controller
 {

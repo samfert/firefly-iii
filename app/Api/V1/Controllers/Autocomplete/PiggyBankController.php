@@ -34,6 +34,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class PiggyBankController
+ *
+ * Controlador da API responsavel pelo autocomplete de cofrinhos.
+ * Fornece sugestoes de cofrinhos para campos de busca com
+ * informacoes de saldo, moeda e grupo de objetos.
  */
 class PiggyBankController extends Controller
 {

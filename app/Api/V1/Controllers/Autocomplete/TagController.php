@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class TagController
+ *
+ * Controlador da API responsavel pelo autocomplete de tags.
+ * Fornece sugestoes de tags para campos de busca
+ * com informacoes de ID e nome da tag.
  */
 class TagController extends Controller
 {

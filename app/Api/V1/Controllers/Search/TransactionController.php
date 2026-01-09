@@ -36,6 +36,10 @@ use League\Fractal\Resource\Collection;
 
 /**
  * Class TransactionController
+ *
+ * Controlador da API responsavel pela busca de transacoes.
+ * Permite pesquisar transacoes usando queries complexas
+ * com suporte a paginacao e enriquecimento de dados.
  */
 class TransactionController extends Controller
 {

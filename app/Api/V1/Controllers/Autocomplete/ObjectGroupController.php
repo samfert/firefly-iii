@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class ObjectGroupController
+ *
+ * Controlador da API responsavel pelo autocomplete de grupos de objetos.
+ * Fornece sugestoes de grupos para campos de busca com
+ * informacoes de ID e titulo.
  */
 class ObjectGroupController extends Controller
 {

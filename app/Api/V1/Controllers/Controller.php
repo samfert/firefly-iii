@@ -52,6 +52,11 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 /**
  * Class Controller.
  *
+ * Classe base abstrata para todos os controladores da API V1.
+ * Fornece funcionalidades comuns como gerenciamento de parametros,
+ * validacao de headers HTTP, conversao de moedas e serializacao JSON API.
+ * Todos os controladores da API devem estender esta classe.
+ *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  * @SuppressWarnings("PHPMD.NumberOfChildren")
  */

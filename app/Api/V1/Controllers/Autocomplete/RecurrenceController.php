@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class RecurrenceController
+ *
+ * Controlador da API responsavel pelo autocomplete de recorrencias.
+ * Fornece sugestoes de transacoes recorrentes para campos de busca
+ * com informacoes de titulo e descricao.
  */
 class RecurrenceController extends Controller
 {

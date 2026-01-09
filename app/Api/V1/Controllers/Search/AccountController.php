@@ -40,6 +40,10 @@ use League\Fractal\Resource\Collection as FractalCollection;
 
 /**
  * Class AccountController
+ *
+ * Controlador da API responsavel pela busca de contas.
+ * Permite pesquisar contas por ID, nome, IBAN ou numero,
+ * com suporte a filtragem por tipo de conta.
  */
 class AccountController extends Controller
 {
