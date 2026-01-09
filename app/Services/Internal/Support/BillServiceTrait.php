@@ -30,6 +30,9 @@ use FireflyIII\Models\RuleAction;
 
 /**
  * Trait BillServiceTrait
+ *
+ * Trait com funcionalidades de servico de contas a pagar.
+ * Fornece metodos para atualizar acoes de regras e notas de faturas.
  */
 trait BillServiceTrait
 {

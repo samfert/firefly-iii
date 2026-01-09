@@ -28,6 +28,9 @@ use FireflyIII\Models\WebhookMessage;
 
 /**
  * Interface WebhookSenderInterface
+ *
+ * Interface para servicos de envio de webhooks.
+ * Define metodos para configurar e enviar mensagens de webhook.
  */
 interface WebhookSenderInterface
 {

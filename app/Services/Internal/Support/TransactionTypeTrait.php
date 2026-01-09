@@ -30,6 +30,9 @@ use FireflyIII\Models\TransactionType;
 
 /**
  * Trait TransactionTypeTrait
+ *
+ * Trait com funcionalidades de tipos de transacao.
+ * Fornece metodo para encontrar tipos de transacao por nome.
  */
 trait TransactionTypeTrait
 {

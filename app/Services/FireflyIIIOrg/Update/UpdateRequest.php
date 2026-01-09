@@ -35,6 +35,9 @@ use function Safe\json_decode;
 
 /**
  * Class UpdateRequest
+ *
+ * Servico para verificacao de atualizacoes do Firefly III.
+ * Contata o servidor de atualizacoes e compara versoes para notificar o usuario.
  */
 class UpdateRequest implements UpdateRequestInterface
 {

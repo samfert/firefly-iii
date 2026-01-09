@@ -28,7 +28,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 
 /**
- * Class PwndVerifierV2.
+ * Class PwndVerifierV2
+ *
+ * Verificador de senhas usando a API Have I Been Pwned.
+ * Verifica se uma senha foi comprometida em vazamentos de dados conhecidos.
  */
 class PwndVerifierV2 implements Verifier
 {

@@ -51,9 +51,10 @@ use FireflyIII\Validation\AccountValidator;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class to centralise code that updates a journal given the input by system.
- *
  * Class JournalUpdateService
+ *
+ * Servico para atualizacao de diarios de transacoes.
+ * Centraliza o codigo que atualiza um diario com base nos dados de entrada do sistema.
  */
 class JournalUpdateService
 {

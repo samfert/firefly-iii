@@ -37,6 +37,9 @@ use FireflyIII\Models\TransactionJournalMeta;
 
 /**
  * Class GroupCloneService
+ *
+ * Servico para clonagem de grupos de transacoes.
+ * Gerencia a duplicacao de grupos, diarios, transacoes e metadados associados.
  */
 class GroupCloneService
 {

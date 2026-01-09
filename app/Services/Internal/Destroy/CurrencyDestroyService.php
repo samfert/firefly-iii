@@ -28,6 +28,9 @@ use FireflyIII\Models\TransactionCurrency;
 
 /**
  * Class CurrencyDestroyService
+ *
+ * Servico para exclusao de moedas.
+ * Gerencia a exclusao segura de moedas de transacao.
  */
 class CurrencyDestroyService
 {

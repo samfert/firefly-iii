@@ -29,6 +29,9 @@ use FireflyIII\Models\TransactionGroup;
 
 /**
  * Class TransactionGroupDestroyService
+ *
+ * Servico para exclusao de grupos de transacoes.
+ * Gerencia a exclusao segura de grupos e seus diarios de transacoes.
  */
 class TransactionGroupDestroyService
 {

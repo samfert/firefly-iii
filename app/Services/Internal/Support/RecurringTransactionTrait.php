@@ -47,6 +47,9 @@ use function Safe\json_encode;
 
 /**
  * Trait RecurringTransactionTrait
+ *
+ * Trait com funcionalidades de transacoes recorrentes.
+ * Fornece metodos para criar, atualizar e excluir repeticoes e transacoes recorrentes.
  */
 trait RecurringTransactionTrait
 {

@@ -44,6 +44,9 @@ use Illuminate\Support\Facades\Validator;
 
 /**
  * Trait AccountServiceTrait
+ *
+ * Trait com funcionalidades de servico de contas.
+ * Fornece metodos para gerenciar metadados, saldos iniciais e notas de contas.
  */
 trait AccountServiceTrait
 {
