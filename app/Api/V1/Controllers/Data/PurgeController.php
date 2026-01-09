@@ -42,6 +42,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class PurgeController
+ *
+ * Controlador da API responsavel pela limpeza de dados excluidos.
+ * Remove permanentemente registros que foram soft-deleted
+ * como orcamentos, faturas, contas e transacoes.
  */
 class PurgeController extends Controller
 {

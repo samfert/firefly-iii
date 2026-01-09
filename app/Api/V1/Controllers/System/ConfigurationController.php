@@ -40,6 +40,10 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * Class ConfigurationController
+ *
+ * Controlador da API responsavel pela configuracao do sistema.
+ * Permite visualizar e atualizar configuracoes dinamicas
+ * como modo demo, verificacao de atualizacoes e modo usuario unico.
  */
 class ConfigurationController extends Controller
 {

@@ -32,6 +32,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class CronController
+ *
+ * Controlador da API responsavel pela execucao de tarefas cron.
+ * Executa tarefas agendadas como transacoes recorrentes, orcamentos
+ * automaticos, taxas de cambio e notificacoes de faturas.
  */
 class CronController extends Controller
 {

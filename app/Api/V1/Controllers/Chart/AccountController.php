@@ -40,6 +40,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class AccountController
+ *
+ * Controlador da API responsavel por graficos de contas.
+ * Gera dados para graficos de saldo de contas ao longo do tempo
+ * com suporte a conversao de moedas.
  */
 class AccountController extends Controller
 {

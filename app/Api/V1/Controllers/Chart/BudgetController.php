@@ -44,6 +44,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class BudgetController
+ *
+ * Controlador da API responsavel por graficos de orcamentos.
+ * Gera dados para graficos de gastos vs orcado, incluindo
+ * valores restantes e excedidos por periodo.
  */
 class BudgetController extends Controller
 {

@@ -34,12 +34,9 @@ use Illuminate\Http\JsonResponse;
 /**
  * Class TransactionController
  *
- * Endpoint to update transactions by submitting
- * (optional) a "where" clause and an "update"
- * clause.
- *
- * Because this is a security nightmare waiting to happen validation
- * is pretty strict.
+ * Controlador da API responsavel por operacoes em massa de transacoes.
+ * Permite atualizar transacoes em lote usando clausulas "where" e "update"
+ * com validacao rigorosa por questoes de seguranca.
  */
 class TransactionController extends Controller
 {
