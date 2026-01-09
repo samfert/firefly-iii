@@ -39,6 +39,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
+/**
+ * Class UpgradesToGroups
+ *
+ * Comando para migrar para grupos.
+ * Migra a estrutura de transacoes pre-4.7.8 para a estrutura 4.7.8+ com grupos.
+ */
 class UpgradesToGroups extends Command
 {
     use ShowsFriendlyMessages;

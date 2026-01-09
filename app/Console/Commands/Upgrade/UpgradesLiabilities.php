@@ -34,6 +34,12 @@ use FireflyIII\Services\Internal\Support\CreditRecalculateService;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesLiabilities
+ *
+ * Comando para atualizar passivos.
+ * Atualiza passivos para a nova estrutura 5.6.0.
+ */
 class UpgradesLiabilities extends Command
 {
     use ShowsFriendlyMessages;

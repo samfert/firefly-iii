@@ -33,6 +33,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class UpgradesJournalMetaData
+ *
+ * Comando para migrar metadados de diarios.
+ * Move metadados de volta para diarios em vez de transacoes individuais.
+ */
 class UpgradesJournalMetaData extends Command
 {
     use ShowsFriendlyMessages;

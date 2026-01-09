@@ -29,6 +29,12 @@ use FireflyIII\Models\Note;
 use FireflyIII\Models\TransactionJournalMeta;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesJournalNotes
+ *
+ * Comando para migrar notas de diarios.
+ * Migra notas de metadados de transacoes para a tabela de notas.
+ */
 class UpgradesJournalNotes extends Command
 {
     use ShowsFriendlyMessages;
