@@ -36,6 +36,12 @@ use FireflyIII\Repositories\Journal\JournalCLIRepositoryInterface;
 use FireflyIII\Repositories\Journal\JournalRepositoryInterface;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesVariousCurrencyInformation
+ *
+ * Comando para atualizar informacoes de moeda.
+ * Atualiza informacoes de moeda em saques, depositos e saldos iniciais.
+ */
 class UpgradesVariousCurrencyInformation extends Command
 {
     use ShowsFriendlyMessages;

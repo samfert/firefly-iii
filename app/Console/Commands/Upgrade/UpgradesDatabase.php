@@ -38,6 +38,12 @@ try {
 use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesDatabase
+ *
+ * Comando para atualizar banco de dados.
+ * Executa todas as migracoes e comandos de atualizacao do banco de dados.
+ */
 class UpgradesDatabase extends Command
 {
     use ShowsFriendlyMessages;

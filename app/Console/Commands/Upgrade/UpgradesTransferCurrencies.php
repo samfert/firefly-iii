@@ -34,6 +34,12 @@ use FireflyIII\Repositories\Account\AccountRepositoryInterface;
 use FireflyIII\Repositories\Journal\JournalCLIRepositoryInterface;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesTransferCurrencies
+ *
+ * Comando para atualizar moedas de transferencias.
+ * Verifica e corrige informacoes de moeda em transacoes de transferencia.
+ */
 class UpgradesTransferCurrencies extends Command
 {
     use ShowsFriendlyMessages;
