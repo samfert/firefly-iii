@@ -29,11 +29,19 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class AbstractTransformer
+ *
+ * Classe base abstrata para transformadores de API.
  */
 abstract class AbstractTransformer extends TransformerAbstract
 {
+    /** @var ParameterBag Parametros da requisicao */
     protected ParameterBag $parameters;
 
+    /**
+     * Obtem os parametros da requisicao.
+     *
+     * @return ParameterBag Parametros
+     */
     final public function getParameters(): ParameterBag
     {
         return $this->parameters;

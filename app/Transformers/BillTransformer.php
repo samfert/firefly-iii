@@ -30,9 +30,12 @@ use FireflyIII\Support\Facades\Amount;
 
 /**
  * Class BillTransformer
+ *
+ * Transformador de faturas para API.
  */
 class BillTransformer extends AbstractTransformer
 {
+    /** @var TransactionCurrency Moeda primaria */
     private readonly TransactionCurrency $primary;
 
     /**

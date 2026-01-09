@@ -31,9 +31,12 @@ use FireflyIII\Support\Facades\Amount;
 
 /**
  * Class PiggyBankTransformer
+ *
+ * Transformador de cofrinhos para API.
  */
 class PiggyBankTransformer extends AbstractTransformer
 {
+    /** @var TransactionCurrency Moeda primaria */
     private TransactionCurrency                   $primaryCurrency;
 
     /**

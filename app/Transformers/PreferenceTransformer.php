@@ -28,6 +28,8 @@ use FireflyIII\Models\Preference;
 
 /**
  * Class PreferenceTransformer
+ *
+ * Transformador de preferencias para API.
  */
 class PreferenceTransformer extends AbstractTransformer
 {

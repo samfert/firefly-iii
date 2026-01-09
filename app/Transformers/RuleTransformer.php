@@ -32,9 +32,12 @@ use FireflyIII\Repositories\Rule\RuleRepositoryInterface;
 
 /**
  * Class RuleTransformer
+ *
+ * Transformador de regras para API.
  */
 class RuleTransformer extends AbstractTransformer
 {
+    /** @var RuleRepositoryInterface Repositorio de regras */
     private readonly RuleRepositoryInterface $ruleRepository;
 
     /**

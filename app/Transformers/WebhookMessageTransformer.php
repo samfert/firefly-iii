@@ -32,6 +32,8 @@ use function Safe\json_encode;
 
 /**
  * Class WebhookMessageTransformer
+ *
+ * Transformador de mensagens de webhook para API.
  */
 class WebhookMessageTransformer extends AbstractTransformer
 {

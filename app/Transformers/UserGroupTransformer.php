@@ -33,11 +33,18 @@ use Illuminate\Support\Collection;
 
 /**
  * Class UserGroupTransformer
+ *
+ * Transformador de grupos de usuarios para API.
  */
 class UserGroupTransformer extends AbstractTransformer
 {
+    /** @var array Grupos em uso */
     private array $inUse;
+
+    /** @var array Membros dos grupos */
     private array $memberships;
+
+    /** @var array Visibilidade de membros */
     private array $membershipsVisible;
 
     public function __construct()

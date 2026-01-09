@@ -28,6 +28,8 @@ use FireflyIII\Models\LinkType;
 
 /**
  * Class LinkTypeTransformer
+ *
+ * Transformador de tipos de link para API.
  */
 class LinkTypeTransformer extends AbstractTransformer
 {

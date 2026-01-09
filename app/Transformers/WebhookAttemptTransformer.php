@@ -28,6 +28,8 @@ use FireflyIII\Models\WebhookAttempt;
 
 /**
  * Class WebhookAttemptTransformer
+ *
+ * Transformador de tentativas de webhook para API.
  */
 class WebhookAttemptTransformer extends AbstractTransformer
 {

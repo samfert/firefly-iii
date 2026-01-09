@@ -28,6 +28,8 @@ use FireflyIII\Models\RuleGroup;
 
 /**
  * Class RuleGroupTransformer
+ *
+ * Transformador de grupos de regras para API.
  */
 class RuleGroupTransformer extends AbstractTransformer
 {

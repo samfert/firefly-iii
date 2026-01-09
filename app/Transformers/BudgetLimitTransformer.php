@@ -33,14 +33,21 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class BudgetLimitTransformer
+ *
+ * Transformador de limites de orcamento para API.
  */
 class BudgetLimitTransformer extends AbstractTransformer
 {
+    /** @var array Includes disponiveis */
     protected array               $availableIncludes
         = [
             'budget',
         ];
+
+    /** @var bool Se deve converter para moeda primaria */
     protected bool                $convertToPrimary;
+
+    /** @var TransactionCurrency Moeda primaria */
     protected TransactionCurrency $primaryCurrency;
 
     public function __construct()

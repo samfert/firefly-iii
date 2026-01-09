@@ -28,6 +28,8 @@ use FireflyIII\Models\TransactionCurrency;
 
 /**
  * Class CurrencyTransformer
+ *
+ * Transformador de moedas para API.
  */
 class CurrencyTransformer extends AbstractTransformer
 {

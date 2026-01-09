@@ -29,7 +29,9 @@ use FireflyIII\Models\Recurrence;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class RecurringTransactionTransformer
+ * Class RecurrenceTransformer
+ *
+ * Transformador de transacoes recorrentes para API.
  */
 class RecurrenceTransformer extends AbstractTransformer
 {

@@ -31,9 +31,12 @@ use FireflyIII\Support\Facades\Steam;
 
 /**
  * Class CategoryTransformer
+ *
+ * Transformador de categorias para API.
  */
 class CategoryTransformer extends AbstractTransformer
 {
+    /** @var TransactionCurrency Moeda primaria */
     private readonly TransactionCurrency $primaryCurrency;
 
     /**

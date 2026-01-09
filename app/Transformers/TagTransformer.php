@@ -29,6 +29,8 @@ use FireflyIII\Models\Tag;
 
 /**
  * Class TagTransformer
+ *
+ * Transformador de tags para API.
  */
 class TagTransformer extends AbstractTransformer
 {

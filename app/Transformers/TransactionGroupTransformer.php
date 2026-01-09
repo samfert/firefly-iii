@@ -42,11 +42,18 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class TransactionGroupTransformer
+ *
+ * Transformador de grupos de transacoes para API.
  */
 class TransactionGroupTransformer extends AbstractTransformer
 {
+    /** @var TransactionGroupRepositoryInterface Repositorio de grupos de transacoes */
     private readonly TransactionGroupRepositoryInterface $groupRepos;
+
+    /** @var array Campos de metadados de data */
     private readonly array                               $metaDateFields;
+
+    /** @var array Campos de metadados */
     private readonly array                               $metaFields;
 
     /**

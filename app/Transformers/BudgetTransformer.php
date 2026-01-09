@@ -33,11 +33,18 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class BudgetTransformer
+ *
+ * Transformador de orcamentos para API.
  */
 class BudgetTransformer extends AbstractTransformer
 {
+    /** @var bool Se deve converter para moeda primaria */
     private readonly bool                $convertToPrimary;
+
+    /** @var TransactionCurrency Moeda primaria */
     private readonly TransactionCurrency $primaryCurrency;
+
+    /** @var array Tipos de auto-orcamento */
     private array                        $types;
 
     /**

@@ -31,6 +31,8 @@ use FireflyIII\Models\Webhook;
 
 /**
  * Class WebhookTransformer
+ *
+ * Transformador de webhooks para API.
  */
 class WebhookTransformer extends AbstractTransformer
 {
