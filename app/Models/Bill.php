@@ -36,6 +36,46 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Bill
+ *
+ * Represents a recurring bill or subscription that the user expects to pay regularly.
+ * Bills help users track expected expenses like rent, utilities, subscriptions, and
+ * other recurring payments. Firefly III can automatically match incoming transactions
+ * to bills based on configurable matching rules.
+ *
+ * Bills have a minimum and maximum expected amount range, allowing for variable
+ * recurring expenses. They also support various repeat frequencies (daily, weekly,
+ * monthly, quarterly, half-yearly, yearly) and can be configured to skip certain
+ * occurrences.
+ *
+ * Key features:
+ * - Automatic transaction matching based on description patterns
+ * - Flexible repeat frequencies for various billing cycles
+ * - Amount range support for variable bills
+ * - End date and extension date for time-limited bills
+ * - Timezone-aware date handling
+ * - Can be organized into object groups
+ *
+ * @property int $id Primary key identifier
+ * @property int $user_id Foreign key to the owning user
+ * @property int $user_group_id Foreign key to the user group
+ * @property string $name Display name of the bill
+ * @property string $match Matching pattern for automatic transaction linking
+ * @property string $amount_min Minimum expected amount
+ * @property string $amount_max Maximum expected amount
+ * @property \Carbon\Carbon $date Next expected date of the bill
+ * @property string $repeat_freq Repeat frequency (daily, weekly, monthly, etc.)
+ * @property int $skip Number of periods to skip between occurrences
+ * @property bool $automatch Whether to automatically match transactions
+ * @property bool $active Whether the bill is currently active
+ * @property int $transaction_currency_id Foreign key to the currency
+ * @property \Carbon\Carbon|null $end_date When the bill expires
+ * @property \Carbon\Carbon|null $extension_date Extended end date
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ */
 class Bill extends Model
 {
     use ReturnsIntegerIdTrait;

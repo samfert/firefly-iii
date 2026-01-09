@@ -20,6 +20,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * User Model
+ *
+ * This file contains the User model which is the central authentication and
+ * authorization entity in Firefly III. The User model extends Laravel's
+ * Authenticatable class and implements various traits for API tokens,
+ * notifications, and custom ID handling.
+ *
+ * Users own all financial data in the system including accounts, transactions,
+ * budgets, categories, bills, and rules. The model provides relationships to
+ * all these entities and handles user-specific functionality like password
+ * resets, notification routing, and role-based access control.
+ */
+
 declare(strict_types=1);
 
 namespace FireflyIII;
@@ -69,13 +83,60 @@ use NotificationChannels\Pushover\PushoverReceiver;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Exception;
 
+/**
+ * Class User
+ *
+ * Represents a user account in Firefly III. This is the central authentication
+ * and authorization entity that owns all financial data in the system.
+ *
+ * Users can have multiple roles (admin, demo, etc.) and can be members of
+ * user groups for shared financial management. Each user has their own set
+ * of accounts, transactions, budgets, categories, bills, rules, and other
+ * financial entities.
+ *
+ * Key features:
+ * - API token authentication via Laravel Passport
+ * - Multi-channel notifications (email, Slack, Pushover)
+ * - Role-based access control for admin functions
+ * - User group membership for shared finances
+ * - LDAP integration support (deprecated)
+ * - Two-factor authentication support
+ *
+ * @property int $id Primary key identifier
+ * @property string $email User's email address (unique)
+ * @property string $password Hashed password
+ * @property bool $blocked Whether the user account is blocked
+ * @property string|null $blocked_code Reason code for blocking
+ * @property int|null $user_group_id Current active user group
+ * @property string|null $remember_token Token for "remember me" functionality
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;
     use Notifiable;
     use ReturnsIntegerIdTrait;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = ['email', 'password', 'blocked', 'blocked_code', 'user_group_id'];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden   = ['password', 'remember_token'];
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
     protected $table    = 'users';
 
     /**

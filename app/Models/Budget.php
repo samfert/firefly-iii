@@ -35,6 +35,34 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Budget
+ *
+ * Represents a budget category for expense tracking and financial planning.
+ * Budgets help users allocate money for specific spending categories and
+ * track their expenses against those allocations.
+ *
+ * Budgets can have limits set for specific time periods through BudgetLimit
+ * records, and can be configured for automatic replenishment through AutoBudget.
+ * Transactions can be assigned to budgets to track spending against the budget.
+ *
+ * Key features:
+ * - Supports budget limits for time-based spending caps
+ * - Auto-budget functionality for automatic limit creation
+ * - Can be linked to transactions and transaction journals
+ * - Supports attachments and notes for additional context
+ * - Soft deletion for data preservation
+ *
+ * @property int $id Primary key identifier
+ * @property int $user_id Foreign key to the owning user
+ * @property int $user_group_id Foreign key to the user group
+ * @property string $name Display name of the budget
+ * @property bool $active Whether the budget is currently active
+ * @property int $order Display order for sorting
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ */
 class Budget extends Model
 {
     use ReturnsIntegerIdTrait;

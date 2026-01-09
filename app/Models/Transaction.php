@@ -34,6 +34,40 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Transaction
+ *
+ * Represents a single leg of a financial transaction in the double-entry bookkeeping system.
+ * In Firefly III, every transaction journal has at least two Transaction records: one with
+ * a positive amount (credit) and one with a negative amount (debit), ensuring the books
+ * always balance.
+ *
+ * Transactions are linked to accounts and can be categorized using budgets and categories.
+ * They support multiple currencies through the foreign_amount and foreign_currency_id fields,
+ * allowing for currency conversion tracking.
+ *
+ * Key concepts:
+ * - Each Transaction belongs to a TransactionJournal (the parent record)
+ * - Positive amounts represent money coming into an account
+ * - Negative amounts represent money leaving an account
+ * - The sum of all transactions in a journal should equal zero
+ *
+ * @property int $id Primary key identifier
+ * @property int $account_id Foreign key to the associated account
+ * @property int $transaction_journal_id Foreign key to the parent transaction journal
+ * @property string $description Description of this transaction leg
+ * @property string $amount The transaction amount (positive or negative)
+ * @property string|null $native_amount Amount in the user's native currency
+ * @property string|null $foreign_amount Amount in a foreign currency
+ * @property string|null $native_foreign_amount Foreign amount in native currency
+ * @property int $identifier Identifier for ordering within a journal
+ * @property int $transaction_currency_id Foreign key to the transaction currency
+ * @property int|null $foreign_currency_id Foreign key to the foreign currency
+ * @property bool $reconciled Whether this transaction has been reconciled
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ */
 class Transaction extends Model
 {
     use HasFactory;
@@ -58,7 +92,12 @@ class Transaction extends Model
     protected $hidden = ['encrypted'];
 
     /**
-     * Get the account this object belongs to.
+     * Get the account this transaction belongs to.
+     *
+     * Every transaction is associated with exactly one account,
+     * representing either the source or destination of funds.
+     *
+     * @return BelongsTo Relationship to the Account model
      */
     public function account(): BelongsTo
     {
@@ -66,7 +105,12 @@ class Transaction extends Model
     }
 
     /**
-     * Get the budget(s) this object belongs to.
+     * Get the budgets associated with this transaction.
+     *
+     * Transactions can be assigned to one or more budgets for
+     * expense tracking and budget management purposes.
+     *
+     * @return BelongsToMany Many-to-many relationship to Budget models
      */
     public function budgets(): BelongsToMany
     {
@@ -74,7 +118,12 @@ class Transaction extends Model
     }
 
     /**
-     * Get the category(ies) this object belongs to.
+     * Get the categories associated with this transaction.
+     *
+     * Categories provide a way to classify transactions for
+     * reporting and analysis purposes.
+     *
+     * @return BelongsToMany Many-to-many relationship to Category models
      */
     public function categories(): BelongsToMany
     {
@@ -82,7 +131,12 @@ class Transaction extends Model
     }
 
     /**
-     * Get the currency this object belongs to.
+     * Get the foreign currency for this transaction.
+     *
+     * Used when the transaction involves a currency different
+     * from the account's primary currency.
+     *
+     * @return BelongsTo Relationship to the TransactionCurrency model
      */
     public function foreignCurrency(): BelongsTo
     {
@@ -90,7 +144,14 @@ class Transaction extends Model
     }
 
     /**
-     * Check for transactions AFTER a specified date.
+     * Query scope to filter transactions after a specified date.
+     *
+     * Joins the transaction_journals table if not already joined
+     * and filters to only include transactions on or after the given date.
+     *
+     * @param Builder $query The query builder instance
+     * @param Carbon $date The start date for filtering
+     * @return void
      */
     #[Scope]
     protected function after(Builder $query, Carbon $date): void
@@ -102,7 +163,13 @@ class Transaction extends Model
     }
 
     /**
-     * Check if a table is joined.
+     * Check if a table has already been joined in the query.
+     *
+     * Utility method to prevent duplicate joins which would cause SQL errors.
+     *
+     * @param Builder $query The query builder instance
+     * @param string $table The table name to check for
+     * @return bool True if the table is already joined, false otherwise
      */
     public static function isJoined(Builder $query, string $table): bool
     {
@@ -118,7 +185,14 @@ class Transaction extends Model
     }
 
     /**
-     * Check for transactions BEFORE the specified date.
+     * Query scope to filter transactions before a specified date.
+     *
+     * Joins the transaction_journals table if not already joined
+     * and filters to only include transactions on or before the given date.
+     *
+     * @param Builder $query The query builder instance
+     * @param Carbon $date The end date for filtering
+     * @return void
      */
     #[Scope]
     protected function before(Builder $query, Carbon $date): void
@@ -129,6 +203,17 @@ class Transaction extends Model
         $query->where('transaction_journals.date', '<=', $date->format('Y-m-d 23:59:59'));
     }
 
+    /**
+     * Query scope to filter transactions by their type.
+     *
+     * Joins the transaction_journals and transaction_types tables if not
+     * already joined and filters by the specified transaction types
+     * (e.g., withdrawal, deposit, transfer).
+     *
+     * @param Builder $query The query builder instance
+     * @param array $types Array of transaction type strings to filter by
+     * @return void
+     */
     #[Scope]
     protected function transactionTypes(Builder $query, array $types): void
     {
@@ -143,18 +228,40 @@ class Transaction extends Model
     }
 
     /**
-     * @param mixed $value
+     * Set the amount attribute as a string.
+     *
+     * Ensures amounts are stored as strings for precise decimal handling
+     * and to avoid floating-point precision issues.
+     *
+     * @param mixed $value The amount value to set
+     * @return void
      */
     public function setAmountAttribute($value): void
     {
         $this->attributes['amount'] = (string) $value;
     }
 
+    /**
+     * Get the primary currency for this transaction.
+     *
+     * The transaction currency is the main currency in which
+     * the transaction amount is denominated.
+     *
+     * @return BelongsTo Relationship to the TransactionCurrency model
+     */
     public function transactionCurrency(): BelongsTo
     {
         return $this->belongsTo(TransactionCurrency::class);
     }
 
+    /**
+     * Get the transaction journal this transaction belongs to.
+     *
+     * The transaction journal is the parent record that groups
+     * related transactions together in the double-entry system.
+     *
+     * @return BelongsTo Relationship to the TransactionJournal model
+     */
     public function transactionJournal(): BelongsTo
     {
         return $this->belongsTo(TransactionJournal::class);

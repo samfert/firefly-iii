@@ -41,6 +41,14 @@
 - [Do you need help, or do you want to get in touch?](#do-you-need-help-or-do-you-want-to-get-in-touch)
 - [Acknowledgements](#acknowledgements)
 
+- [Technical Architecture](#technical-architecture)
+- [Development Setup](#development-setup)
+- [Project Structure](#project-structure)
+- [API Documentation](#api-documentation)
+- [Database Schema](#database-schema)
+- [Testing](#testing)
+- [Configuration](#configuration)
+
 <!-- /MarkdownTOC -->
 
 ## About Firefly III
@@ -173,7 +181,115 @@ Over time, [many people have contributed to Firefly III](https://github.com/fire
 
 The Firefly III logo is made by the excellent Cherie Woo.
 
-[packagist-shield]: https://img.shields.io/packagist/v/grumpydictator/firefly-iii.svg?style=flat-square
+## Technical Architecture
+
+Firefly III is built on the Laravel PHP framework (version 12) and follows a clean, modular architecture based on established design patterns.
+
+### Technology Stack
+
+The application uses PHP 8.4+ with Laravel 12 as the core framework, supporting both MySQL and PostgreSQL databases. The frontend combines Twig templating with modern JavaScript, while Redis handles caching and session management. Authentication is managed through Laravel Passport for API tokens and Laravel's built-in authentication for web sessions.
+
+### Core Design Patterns
+
+The codebase implements the Repository Pattern to abstract data access, separating business logic from database operations. This is complemented by a Service Layer that encapsulates complex business logic, and an Event-Driven Architecture using Laravel's event system for decoupled components. The application follows Double-Entry Bookkeeping principles where every transaction creates balanced debit and credit entries.
+
+### Key Architectural Components
+
+Models represent the core data entities (Account, Transaction, Budget, etc.) with Eloquent ORM relationships. Repositories provide data access abstraction through interfaces like AccountRepositoryInterface. Services contain business logic for operations like transaction creation and rule processing. Controllers handle HTTP requests and delegate to services, while Transformers format data for API responses using the Fractal library.
+
+## Development Setup
+
+### Prerequisites
+
+Before setting up the development environment, ensure you have PHP 8.4 or higher with required extensions (bcmath, curl, fileinfo, intl, json, mbstring, openssl, pdo, session, xml), Composer for PHP dependency management, Node.js and npm for frontend assets, and either MySQL 8.0+ or PostgreSQL 12+.
+
+### Local Installation
+
+Clone the repository and install dependencies by running `composer install` followed by `npm install`. Copy the environment file with `cp .env.example .env` and generate an application key using `php artisan key:generate`. Configure your database connection in the .env file, then run migrations with `php artisan migrate --seed`. Finally, start the development server with `php artisan serve`.
+
+### Environment Configuration
+
+Key environment variables include APP_KEY (auto-generated application encryption key), DB_CONNECTION (database driver: mysql or pgsql), DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD for database configuration. MAIL_MAILER configures the email driver, and APP_URL sets the application URL for links.
+
+## Project Structure
+
+The application follows Laravel's standard directory structure with some Firefly III-specific additions.
+
+### Directory Overview
+
+The `app/` directory contains the core application code including Models (Eloquent models for all entities), Http/Controllers (web and API controllers), Repositories (data access layer implementations), Services (business logic services), Events and Listeners (event-driven components), Jobs (queued background tasks), and Transformers (API response formatters).
+
+The `config/` directory holds configuration files, with firefly.php containing application-specific settings. The `database/` directory includes migrations (database schema definitions) and seeders (initial data population). The `routes/` directory defines web.php for web routes, api.php for API endpoints, and console.php for Artisan commands. The `resources/` directory contains views (Twig templates), lang (translation files), and assets (CSS/JS source files). Finally, `tests/` contains Unit and Feature test suites.
+
+### Key Model Relationships
+
+Account is the central entity linked to transactions, with types including Asset, Expense, Revenue, and Liability. TransactionJournal groups related Transaction records in the double-entry system. Budget and Category provide transaction classification, while Bill tracks recurring expected expenses. Rule defines automation triggers and actions, and PiggyBank manages savings goals linked to accounts.
+
+## API Documentation
+
+Firefly III provides a comprehensive REST API for programmatic access to all features.
+
+### Authentication
+
+The API uses OAuth2 authentication via Laravel Passport. Generate a Personal Access Token through the web interface under Profile > OAuth, then include the token in requests using the Authorization header with Bearer token format.
+
+### API Versioning
+
+The current API version is 2.1.0. All endpoints are prefixed with `/api/v1/` for consistency.
+
+### Common Endpoints
+
+Account management is available at GET/POST `/api/v1/accounts` for listing and creating accounts, and GET/PUT/DELETE `/api/v1/accounts/{id}` for individual account operations. Transaction management uses GET/POST `/api/v1/transactions` and GET/PUT/DELETE `/api/v1/transactions/{id}`. Budget operations are at `/api/v1/budgets` endpoints, and category management at `/api/v1/categories`.
+
+### Response Format
+
+All API responses use JSON format with consistent structure. Successful responses include a "data" key with the requested resource(s), while error responses include "message" and "errors" keys with details.
+
+## Database Schema
+
+The database uses a normalized relational schema optimized for financial data integrity.
+
+### Core Tables
+
+The `users` table stores user accounts and authentication data. The `accounts` table contains financial accounts with foreign keys to account_types and users. The `transactions` table holds individual transaction legs with amounts and account references. The `transaction_journals` table groups transactions into complete financial events. The `budgets` and `categories` tables provide classification systems, while `bills` tracks recurring expected expenses. The `rules`, `rule_triggers`, and `rule_actions` tables define automation logic.
+
+### Key Relationships
+
+Users own all financial data through user_id foreign keys. Accounts belong to AccountTypes which define their behavior. TransactionJournals contain multiple Transactions (minimum 2 for double-entry). Budgets and Categories link to transactions through pivot tables, and Bills link to TransactionJournals for recurring expense tracking.
+
+## Testing
+
+The project includes comprehensive test suites for ensuring code quality.
+
+### Running Tests
+
+Execute the full test suite with `php artisan test` or `./vendor/bin/phpunit`. Run only unit tests using `composer unit-test` and integration tests with `composer integration-test`. Generate a coverage report using `composer coverage`.
+
+### Test Structure
+
+Unit tests in `tests/Unit/` test individual classes in isolation. Feature tests in `tests/Feature/` test complete features and API endpoints. The project uses PHPUnit 12 as the testing framework with Laravel's testing utilities.
+
+### Code Quality Tools
+
+PHPStan performs static analysis (run with `./vendor/bin/phpstan analyse`). Laravel Pint handles code style checking, and SonarQube integration is available for comprehensive code quality analysis.
+
+## Configuration
+
+Firefly III offers extensive configuration options through environment variables and the config files.
+
+### Feature Flags
+
+Located in `config/firefly.php`, feature flags control optional functionality. The `webhooks` flag enables webhook support for external integrations. The `export` flag enables data export functionality. The `handle_debts` flag enables liability/debt management features.
+
+### Security Settings
+
+AUTHENTICATION_GUARD configures the authentication method (default: web). DISABLE_FRAME_HEADER controls X-Frame-Options header. DISABLE_CSP_HEADER controls Content-Security-Policy header. ALLOW_WEBHOOKS enables/disables webhook functionality.
+
+### Localization
+
+The application supports 30+ languages configured in `config/firefly.php`. DEFAULT_LANGUAGE sets the default language (e.g., en_US). DEFAULT_LOCALE configures number and date formatting. Users can override these in their preferences.
+
+[packagist-shield]:https://img.shields.io/packagist/v/grumpydictator/firefly-iii.svg?style=flat-square
 [packagist-url]: https://packagist.org/packages/grumpydictator/firefly-iii
 [license-shield]: https://img.shields.io/github/license/firefly-iii/firefly-iii.svg?style=flat-square
 [license-url]: https://www.gnu.org/licenses/agpl-3.0.html
@@ -189,4 +305,4 @@ The Firefly III logo is made by the excellent Cherie Woo.
 [sc-vuln-shield]: https://sonarcloud.io/api/project_badges/measure?project=firefly-iii_firefly-iii&metric=vulnerabilities
 [sc-project-url]: https://sonarcloud.io/dashboard?id=firefly-iii_firefly-iii
 [bp-badge]: https://bestpractices.coreinfrastructure.org/projects/6335/badge
-[bp-url]: https://bestpractices.coreinfrastructure.org/projects/6335 
+[bp-url]: https://bestpractices.coreinfrastructure.org/projects/6335    
