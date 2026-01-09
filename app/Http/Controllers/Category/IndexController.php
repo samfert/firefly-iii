@@ -35,6 +35,9 @@ use Illuminate\View\View;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de categorias.
+ * Exibe todas as categorias com informacoes de ultima atividade.
  */
 class IndexController extends Controller
 {
