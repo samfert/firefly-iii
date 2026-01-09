@@ -31,7 +31,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class Date.
+ * Class Date
+ *
+ * Binder de rota para datas.
+ * Converte strings de data em objetos Carbon, incluindo palavras magicas.
  */
 class Date implements BinderInterface
 {

@@ -35,7 +35,10 @@ use Illuminate\Support\Collection;
 use NumberFormatter;
 
 /**
- * Class Amount.
+ * Class Amount
+ *
+ * Classe de suporte para formatacao de valores monetarios.
+ * Fornece metodos para formatar valores em diferentes moedas e locales.
  */
 class Amount
 {

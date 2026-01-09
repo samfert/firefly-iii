@@ -30,7 +30,10 @@ use Illuminate\Support\Collection;
 use Throwable;
 
 /**
- * Class ExpandedForm.
+ * Class ExpandedForm
+ *
+ * Classe de suporte para formularios expandidos.
+ * Fornece metodos para renderizar campos de formulario com estilos e validacao.
  */
 class ExpandedForm
 {

@@ -29,7 +29,10 @@ use Illuminate\Support\Collection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class AccountList.
+ * Class AccountList
+ *
+ * Binder de rota para listas de contas.
+ * Converte IDs de contas em colecao de modelos Account.
  */
 class AccountList implements BinderInterface
 {

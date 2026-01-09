@@ -28,7 +28,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class CurrencyCode.
+ * Class CurrencyCode
+ *
+ * Binder de rota para codigos de moeda.
+ * Converte codigos de moeda em modelos TransactionCurrency.
  */
 class CurrencyCode implements BinderInterface
 {

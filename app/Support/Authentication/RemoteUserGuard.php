@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class RemoteUserGuard
+ *
+ * Guarda de autenticacao para usuarios remotos.
+ * Implementa autenticacao baseada em cabecalhos HTTP para SSO.
  */
 class RemoteUserGuard implements Guard
 {

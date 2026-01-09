@@ -29,7 +29,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class JournalList.
+ * Class JournalList
+ *
+ * Binder de rota para listas de diarios de transacoes.
+ * Converte IDs de diarios em array de transacoes extraidas.
  */
 class JournalList implements BinderInterface
 {

@@ -31,6 +31,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class CLIToken
+ *
+ * Binder de rota para tokens de CLI.
+ * Valida tokens de acesso para comandos de linha de comando.
  */
 class CLIToken implements BinderInterface
 {
