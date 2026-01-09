@@ -32,6 +32,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de webhooks.
+ * Exibe todos os webhooks configurados pelo usuario.
  */
 class IndexController extends Controller
 {

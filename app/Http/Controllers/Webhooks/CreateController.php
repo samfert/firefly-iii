@@ -32,6 +32,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de webhooks.
+ * Permite criar novos webhooks para notificacoes automaticas
+ * quando eventos ocorrem no sistema.
  */
 class CreateController extends Controller
 {

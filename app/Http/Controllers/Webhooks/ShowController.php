@@ -34,6 +34,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de webhooks.
+ * Mostra configuracoes, historico de mensagens e status do webhook.
  */
 class ShowController extends Controller
 {
