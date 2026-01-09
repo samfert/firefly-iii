@@ -30,6 +30,12 @@ use FireflyIII\User;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Command\Command as CommandAlias;
 
+/**
+ * Class CorrectsPreferences
+ *
+ * Comando para corrigir preferencias.
+ * Adiciona ID de grupo de usuario as preferencias para administracao especifica.
+ */
 class CorrectsPreferences extends Command
 {
     protected $description = 'Give Firefly III preferences a user group ID so they can be made administration specific.';

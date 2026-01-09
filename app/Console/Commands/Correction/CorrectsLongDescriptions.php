@@ -30,6 +30,12 @@ use FireflyIII\Models\TransactionJournal;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class CorrectsLongDescriptions
+ *
+ * Comando para corrigir descricoes longas.
+ * Trunca descricoes de diarios e grupos que excedem o limite maximo.
+ */
 class CorrectsLongDescriptions extends Command
 {
     use ShowsFriendlyMessages;

@@ -28,6 +28,12 @@ use FireflyIII\Models\Account;
 use FireflyIII\Services\Internal\Support\CreditRecalculateService;
 use Illuminate\Console\Command;
 
+/**
+ * Class TriggersCreditCalculation
+ *
+ * Comando para recalcular creditos.
+ * Aciona o servico de recalculo de credito para passivos.
+ */
 class TriggersCreditCalculation extends Command
 {
     protected $description = 'Triggers the credit recalculation service for liabilities.';

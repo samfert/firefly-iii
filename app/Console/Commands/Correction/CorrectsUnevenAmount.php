@@ -38,6 +38,12 @@ use Illuminate\Support\Facades\Log;
 use ValueError;
 use stdClass;
 
+/**
+ * Class CorrectsUnevenAmount
+ *
+ * Comando para corrigir valores desiguais.
+ * Corrige diarios com valores desiguais entre transacoes de origem e destino.
+ */
 class CorrectsUnevenAmount extends Command
 {
     use ShowsFriendlyMessages;
