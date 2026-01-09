@@ -39,7 +39,11 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class ReportController.
+ * Class ReportController
+ *
+ * Controlador responsavel pela geracao de graficos para relatorios.
+ * Gera graficos de patrimonio liquido e operacoes (receitas/despesas)
+ * para relatorios de periodo.
  */
 class ReportController extends Controller
 {

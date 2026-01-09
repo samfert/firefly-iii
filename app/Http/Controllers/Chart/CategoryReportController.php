@@ -34,9 +34,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
 /**
- * Separate controller because many helper functions are shared.
- *
  * Class CategoryReportController
+ *
+ * Controlador responsavel pela geracao de graficos de relatorios de categoria.
+ * Gera graficos de despesas e receitas por categoria, orcamento, conta de origem
+ * e conta de destino para relatorios de categoria.
  */
 class CategoryReportController extends Controller
 {

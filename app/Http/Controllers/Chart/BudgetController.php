@@ -45,7 +45,11 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class BudgetController.
+ * Class BudgetController
+ *
+ * Controlador responsavel pela geracao de graficos relacionados a orcamentos.
+ * Gera graficos de gastos por orcamento, limites de orcamento, despesas
+ * por conta de ativos, categoria e conta de despesas.
  */
 class BudgetController extends Controller
 {

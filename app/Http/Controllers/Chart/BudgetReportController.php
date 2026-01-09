@@ -35,9 +35,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
 /**
- * Separate controller because many helper functions are shared.
- *
  * Class BudgetReportController
+ *
+ * Controlador responsavel pela geracao de graficos de relatorios de orcamento.
+ * Gera graficos de despesas por orcamento, categoria, conta de origem
+ * e conta de destino para relatorios de orcamento.
  */
 class BudgetReportController extends Controller
 {

@@ -34,6 +34,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class TransactionController
+ *
+ * Controlador responsavel pela geracao de graficos de transacoes.
+ * Gera graficos de transacoes agrupadas por orcamento, categoria,
+ * conta de origem e conta de destino.
  */
 class TransactionController extends Controller
 {

@@ -41,7 +41,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
 /**
- * Class CategoryController.
+ * Class CategoryController
+ *
+ * Controlador responsavel pela geracao de graficos relacionados a categorias.
+ * Gera graficos de gastos e receitas por categoria, incluindo graficos
+ * de periodo e graficos para relatorios.
  */
 class CategoryController extends Controller
 {
