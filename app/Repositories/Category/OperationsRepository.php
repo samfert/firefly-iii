@@ -37,6 +37,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class OperationsRepository
+ *
+ * Repositorio de operacoes de categorias.
+ * Fornece metodos para calcular despesas, receitas e transferencias por categoria.
  */
 class OperationsRepository implements OperationsRepositoryInterface, UserGroupInterface
 {

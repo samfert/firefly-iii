@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 /**
  * Class TagRepository
  *
+ * Repositorio de tags para grupos de usuarios.
+ * Fornece metodos para buscar tags do grupo.
+ *
  * @deprecated
  */
 class TagRepository implements TagRepositoryInterface

@@ -35,6 +35,9 @@ use Override;
 /**
  * Class ExchangeRateRepository
  *
+ * Repositorio de taxas de cambio para grupos de usuarios.
+ * Fornece metodos para gerenciar taxas de conversao entre moedas.
+ *
  * @deprecated
  */
 class ExchangeRateRepository implements ExchangeRateRepositoryInterface

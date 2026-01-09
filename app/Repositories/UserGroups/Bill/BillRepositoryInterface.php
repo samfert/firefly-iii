@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface BillRepositoryInterface
  *
+ * Interface para repositorio de contas a pagar de grupos de usuarios.
+ * Define metodos para gerenciar contas recorrentes e calcular pagamentos.
+ *
  * @deprecated
  */
 interface BillRepositoryInterface

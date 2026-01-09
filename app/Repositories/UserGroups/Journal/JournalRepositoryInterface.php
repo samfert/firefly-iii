@@ -29,6 +29,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface JournalRepositoryInterface
  *
+ * Interface para repositorio de diarios de transacoes de grupos de usuarios.
+ * Define metodos para buscar descricoes de transacoes.
+ *
  * @deprecated
  */
 interface JournalRepositoryInterface

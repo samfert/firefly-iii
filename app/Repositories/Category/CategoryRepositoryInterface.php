@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface CategoryRepositoryInterface.
  *
+ * Interface para repositorio de categorias.
+ * Define metodos para criar, atualizar, excluir e consultar categorias de transacoes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()
