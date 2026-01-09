@@ -34,6 +34,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class VersionCheckEventHandler
+ *
+ * Manipulador de eventos para verificacao de versao.
+ * Verifica se ha atualizacoes disponiveis no GitHub.
  */
 class VersionCheckEventHandler
 {

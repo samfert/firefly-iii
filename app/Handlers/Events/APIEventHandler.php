@@ -32,11 +32,17 @@ use Exception;
 
 /**
  * Class APIEventHandler
+ *
+ * Manipulador de eventos da API.
+ * Processa eventos relacionados a tokens de acesso.
  */
 class APIEventHandler
 {
     /**
-     * Respond to the creation of an access token.
+     * Responde a criacao de um token de acesso.
+     * Envia notificacao ao usuario sobre o novo token.
+     *
+     * @param AccessTokenCreated $event Evento de token criado
      */
     public function accessTokenCreated(AccessTokenCreated $event): void
     {

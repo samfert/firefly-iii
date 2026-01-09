@@ -41,8 +41,19 @@ use FireflyIII\Notifications\Security\NewBackupCodesNotification;
 use Illuminate\Support\Facades\Notification;
 use Exception;
 
+/**
+ * Class MFAHandler
+ *
+ * Manipulador de eventos de autenticacao multi-fator (MFA).
+ * Envia notificacoes relacionadas a eventos de MFA.
+ */
 class MFAHandler
 {
+    /**
+     * Envia email quando restam poucos codigos de backup.
+     *
+     * @param MFABackupFewLeft $event Evento de poucos codigos restantes
+     */
     public function sendBackupFewLeftMail(MFABackupFewLeft $event): void
     {
         app('log')->debug(sprintf('Now in %s', __METHOD__));
