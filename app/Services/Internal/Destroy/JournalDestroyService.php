@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class JournalDestroyService
+ *
+ * Servico para exclusao de diarios de transacoes.
+ * Gerencia a exclusao segura de transacoes e seus metadados relacionados.
  */
 class JournalDestroyService
 {

@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de regras de automacao.
+ * Valida e processa dados de criacao de regras incluindo gatilhos e acoes.
  */
 class StoreRequest extends FormRequest
 {

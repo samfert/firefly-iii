@@ -26,7 +26,10 @@ namespace FireflyIII\Support\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class CurrencyForm.
+ * Class CurrencyForm
+ *
+ * Facade para formularios de moeda.
+ * Fornece acesso estatico aos metodos de formulario de moeda.
  */
 class CurrencyForm extends Facade
 {

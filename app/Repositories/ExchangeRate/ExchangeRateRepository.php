@@ -33,6 +33,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Override;
 
+/**
+ * Class ExchangeRateRepository
+ *
+ * Repositorio para gerenciamento de taxas de cambio.
+ * Fornece metodos para criar, atualizar, excluir e consultar taxas de conversao entre moedas.
+ */
 class ExchangeRateRepository implements ExchangeRateRepositoryInterface, UserGroupInterface
 {
     use UserGroupTrait;

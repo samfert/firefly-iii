@@ -33,7 +33,9 @@ use Closure;
 use function Safe\json_encode;
 
 /**
- * Class UniqueAccountNumber
+ * Class UniqueAccountNumber.
+ *
+ * Regra de validacao para numero de conta unico.
  */
 class UniqueAccountNumber implements ValidationRule
 {

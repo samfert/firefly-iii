@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de anexos.
+ * Valida e processa dados de atualizacao de anexos para modelos do sistema.
  */
 class UpdateRequest extends FormRequest
 {

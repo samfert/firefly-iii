@@ -38,6 +38,9 @@ use Illuminate\View\View;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de categorias existentes.
+ * Permite modificar nome, notas e anexos da categoria.
  */
 class EditController extends Controller
 {

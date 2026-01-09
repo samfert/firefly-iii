@@ -35,7 +35,9 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Validator;
 
 /**
- * Class TransactionFactory
+ * Class TransactionFactory.
+ *
+ * Fabrica para criacao de transacoes.
  */
 class TransactionFactory
 {

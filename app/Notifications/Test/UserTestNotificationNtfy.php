@@ -34,7 +34,9 @@ use Wijourdil\NtfyNotificationChannel\Channels\NtfyChannel;
 // use Illuminate\Notifications\Slack\SlackMessage;
 
 /**
- * Class TestNotification
+ * Class UserTestNotificationNtfy
+ *
+ * Notificacao de teste via Ntfy para usuario.
  */
 class UserTestNotificationNtfy extends Notification
 {

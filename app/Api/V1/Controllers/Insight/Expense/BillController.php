@@ -35,6 +35,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class BillController
+ *
+ * Controlador da API responsavel por insights de despesas por fatura.
+ * Exibe informacoes de despesas agrupadas por fatura/assinatura
+ * com suporte a conversao de moedas.
  */
 class BillController extends Controller
 {

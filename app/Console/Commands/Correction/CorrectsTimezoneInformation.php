@@ -42,6 +42,12 @@ use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class CorrectsTimezoneInformation
+ *
+ * Comando para corrigir informacoes de fuso horario.
+ * Garante que todas as datas tenham um fuso horario definido.
+ */
 class CorrectsTimezoneInformation extends Command
 {
     use ShowsFriendlyMessages;

@@ -27,6 +27,12 @@ namespace FireflyIII\Console\Commands\System;
 use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 
+/**
+ * Class SetsLatestVersion
+ *
+ * Comando para definir versao mais recente.
+ * Atualiza a versao do banco de dados e do Firefly III na configuracao.
+ */
 class SetsLatestVersion extends Command
 {
     use ShowsFriendlyMessages;

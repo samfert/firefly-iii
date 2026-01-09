@@ -36,6 +36,10 @@ use function Safe\date;
 
 /**
  * Class ExportController
+ *
+ * Controlador da API responsavel pela exportacao de dados.
+ * Permite exportar contas, faturas, orcamentos, categorias,
+ * cofrinhos, recorrencias, regras, tags e transacoes em CSV.
  */
 class ExportController extends Controller
 {

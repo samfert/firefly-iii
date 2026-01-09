@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Notifications;
 
 /**
  * Class UrlValidator
+ *
+ * Validador de URL de webhook.
+ * Valida se uma URL e um webhook valido do Slack ou Discord.
  */
 class UrlValidator
 {

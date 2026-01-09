@@ -33,7 +33,8 @@ use Throwable;
 /**
  * Class CurrencyForm
  *
- * All currency related form methods.
+ * Classe de formulario de moeda.
+ * Fornece metodos para renderizar campos de formulario relacionados a moedas.
  */
 class CurrencyForm
 {

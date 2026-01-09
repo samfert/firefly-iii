@@ -51,6 +51,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao em massa de dados.
+ * Permite excluir orcamentos, faturas, cofrinhos, regras, categorias,
+ * tags, contas e transacoes de forma massiva.
  */
 class DestroyController extends Controller
 {

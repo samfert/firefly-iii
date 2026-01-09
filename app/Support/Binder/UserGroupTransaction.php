@@ -29,7 +29,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class UserGroupTransaction.
+ * Class UserGroupTransaction
+ *
+ * Binder de rota para transacoes de grupo de usuarios.
+ * Converte ID de transacao em modelo TransactionGroup do grupo do usuario.
  */
 class UserGroupTransaction implements BinderInterface
 {

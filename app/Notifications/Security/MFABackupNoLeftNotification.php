@@ -36,10 +36,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class MFABackupNoLeftNotification
+ *
+ * Notificacao de nenhum codigo de backup restante.
+ */
 class MFABackupNoLeftNotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario sem codigos de backup
+     */
     public function __construct(private User $user) {}
 
     /**

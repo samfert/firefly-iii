@@ -29,9 +29,12 @@ use FireflyIII\Repositories\Attachment\AttachmentRepositoryInterface;
 
 /**
  * Class AttachmentTransformer
+ *
+ * Transformador de anexos para API.
  */
 class AttachmentTransformer extends AbstractTransformer
 {
+    /** @var AttachmentRepositoryInterface Repositorio de anexos */
     private readonly AttachmentRepositoryInterface $repository;
 
     /**

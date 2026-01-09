@@ -30,6 +30,11 @@ use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
+/**
+ * Class IsValidDateRange.
+ *
+ * Regra de validacao para intervalo de datas valido.
+ */
 class IsValidDateRange implements ValidationRule
 {
     /**

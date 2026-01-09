@@ -27,6 +27,8 @@ namespace FireflyIII\Exceptions;
 use Exception;
 
 /**
- * Class ValidationExceptions.
+ * Class ValidationException.
+ *
+ * Excecao lancada quando uma validacao falha.
  */
 class ValidationException extends Exception {}

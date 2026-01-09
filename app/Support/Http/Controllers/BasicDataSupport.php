@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Trait BasicDataSupport
+ *
+ * Trait de suporte a dados basicos.
+ * Fornece metodos auxiliares para busca de dados em arrays.
  */
 trait BasicDataSupport
 {

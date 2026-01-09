@@ -35,6 +35,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de webhooks.
+ * Permite criar novos webhooks com configuracoes de URL,
+ * gatilho, resposta e status ativo.
  */
 class StoreController extends Controller
 {

@@ -28,6 +28,19 @@ use FireflyIII\Support\Models\ReturnsIntegerIdTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Class AccountType
+ *
+ * Define os diferentes tipos de contas suportados pelo Firefly III.
+ * Tipos incluem: conta corrente (Asset), despesa (Expense), receita (Revenue),
+ * cartao de credito (Credit Card), emprestimo (Loan), hipoteca (Mortgage), etc.
+ *
+ * @property int                                 $id         Identificador unico do tipo de conta
+ * @property string                              $type       Nome do tipo de conta
+ * @property \Carbon\Carbon                      $created_at Data de criacao
+ * @property \Carbon\Carbon                      $updated_at Data de atualizacao
+ * @property-read \Illuminate\Support\Collection $accounts   Contas deste tipo
+ */
 class AccountType extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -82,11 +95,21 @@ class AccountType extends Model
 
     protected $fillable                  = ['type'];
 
+    /**
+     * Retorna todas as contas associadas a este tipo de conta.
+     *
+     * @return HasMany Colecao de Account relacionadas a este tipo
+     */
     public function accounts(): HasMany
     {
         return $this->hasMany(Account::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

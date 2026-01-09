@@ -30,6 +30,9 @@ use Monolog\Handler\AbstractProcessingHandler;
 
 /**
  * Class AuditLogger
+ *
+ * Logger de auditoria.
+ * Configura o logger para registrar eventos de auditoria com formatacao personalizada.
  */
 class AuditLogger
 {

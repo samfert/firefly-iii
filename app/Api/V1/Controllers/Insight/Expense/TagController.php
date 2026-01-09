@@ -35,6 +35,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class TagController
+ *
+ * Controlador da API responsavel por insights de despesas por tag.
+ * Exibe informacoes de despesas agrupadas por tag
+ * incluindo despesas sem tag definida.
  */
 class TagController extends Controller
 {

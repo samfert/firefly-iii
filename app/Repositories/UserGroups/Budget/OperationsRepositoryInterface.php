@@ -30,6 +30,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface OperationsRepositoryInterface
  *
+ * Interface para operacoes de orcamento de grupos de usuarios.
+ * Define metodos para listar despesas por orcamento e periodo.
+ *
  * @deprecated
  */
 interface OperationsRepositoryInterface

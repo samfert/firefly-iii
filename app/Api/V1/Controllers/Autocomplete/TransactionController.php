@@ -36,6 +36,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class TransactionController
+ *
+ * Controlador da API responsavel pelo autocomplete de transacoes.
+ * Fornece sugestoes de transacoes para campos de busca
+ * com informacoes de descricao e ID do grupo.
  */
 class TransactionController extends Controller
 {

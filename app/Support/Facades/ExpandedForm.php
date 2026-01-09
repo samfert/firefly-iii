@@ -26,7 +26,10 @@ namespace FireflyIII\Support\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class ExpandedForm.
+ * Class ExpandedForm
+ *
+ * Facade para formularios expandidos.
+ * Fornece acesso estatico aos metodos de formulario expandido.
  */
 class ExpandedForm extends Facade
 {

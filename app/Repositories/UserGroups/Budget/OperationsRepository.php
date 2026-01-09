@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Class OperationsRepository
  *
+ * Repositorio de operacoes de orcamento para grupos de usuarios.
+ * Fornece metodos para listar despesas por orcamento e periodo.
+ *
  * @deprecated
  */
 class OperationsRepository implements OperationsRepositoryInterface

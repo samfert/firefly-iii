@@ -38,6 +38,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de transacoes.
+ * Remove transacoes e grupos de transacoes do sistema atraves da API REST.
  */
 class DestroyController extends Controller
 {

@@ -32,6 +32,12 @@ use FireflyIII\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 
+/**
+ * Class UpgradesCurrencyPreferences
+ *
+ * Comando para atualizar preferencias de moeda.
+ * Migra preferencias de moeda de usuarios para a nova estrutura.
+ */
 class UpgradesCurrencyPreferences extends Command
 {
     use ShowsFriendlyMessages;

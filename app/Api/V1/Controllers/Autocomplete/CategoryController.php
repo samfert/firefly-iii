@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class CategoryController
+ *
+ * Controlador da API responsavel pelo autocomplete de categorias.
+ * Fornece sugestoes de categorias para campos de busca
+ * com informacoes de ID e nome.
  */
 class CategoryController extends Controller
 {

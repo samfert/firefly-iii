@@ -34,6 +34,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class SubmitController
+ *
+ * Controlador da API responsavel pelo envio de webhooks.
+ * Permite disparar manualmente o envio de mensagens pendentes
+ * de um webhook especifico.
  */
 class SubmitController extends Controller
 {

@@ -37,6 +37,10 @@ use Illuminate\View\View;
 
 /**
  * Class AmountController
+ *
+ * Controlador responsavel pelo gerenciamento de valores em cofrinhos.
+ * Permite adicionar e remover dinheiro de cofrinhos, com suporte
+ * a multiplas contas e validacao de limites.
  */
 class AmountController extends Controller
 {

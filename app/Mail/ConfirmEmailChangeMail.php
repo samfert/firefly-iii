@@ -28,9 +28,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class ConfirmEmailChangeMail
+ * Class ConfirmEmailChangeMail.
  *
- * Sends message to new address to confirm change.
+ * Email de confirmacao de alteracao de email.
  */
 class ConfirmEmailChangeMail extends Mailable
 {

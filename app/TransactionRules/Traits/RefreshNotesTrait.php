@@ -28,8 +28,20 @@ use FireflyIII\Models\Note;
 use FireflyIII\Models\TransactionJournal;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Trait RefreshNotesTrait
+ *
+ * Trait para atualizar notas de transacoes.
+ */
 trait RefreshNotesTrait
 {
+    /**
+     * Atualiza as notas da transacao a partir do banco.
+     *
+     * @param array $transaction Dados da transacao
+     *
+     * @return array Transacao com notas atualizadas
+     */
     final protected function refreshNotes(array $transaction): array
     {
         $transaction['notes'] = '';

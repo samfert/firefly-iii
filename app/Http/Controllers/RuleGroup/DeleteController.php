@@ -35,6 +35,9 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de grupos de regras.
+ * Permite excluir grupos e mover regras para outros grupos.
  */
 class DeleteController extends Controller
 {

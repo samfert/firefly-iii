@@ -29,7 +29,9 @@ use FireflyIII\Models\AccountMeta;
 use FireflyIII\Support\Facades\Steam;
 
 /**
- * Class AccountMetaFactory
+ * Class AccountMetaFactory.
+ *
+ * Fabrica para criacao de metadados de conta.
  */
 class AccountMetaFactory
 {

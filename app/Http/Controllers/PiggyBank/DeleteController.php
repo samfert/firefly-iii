@@ -33,6 +33,9 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de cofrinhos.
+ * Permite excluir cofrinhos e seus eventos associados.
  */
 class DeleteController extends Controller
 {

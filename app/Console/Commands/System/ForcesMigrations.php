@@ -33,6 +33,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Class ForcesMigrations
+ *
+ * Comando para forcar migracoes.
+ * Executa todas as migracoes do banco de dados de forma forcada.
+ */
 class ForcesMigrations extends Command
 {
     use ShowsFriendlyMessages;

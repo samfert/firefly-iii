@@ -26,6 +26,11 @@ namespace FireflyIII\Entities;
 
 use FireflyIII\Models\Account;
 
+/**
+ * Class AccountBalance.
+ *
+ * Entidade para representacao de saldo de conta.
+ */
 class AccountBalance
 {
     public string $amount;

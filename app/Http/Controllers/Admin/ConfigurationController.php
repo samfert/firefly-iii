@@ -33,7 +33,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 /**
- * Class ConfigurationController.
+ * Class ConfigurationController
+ *
+ * Controlador responsavel pelas configuracoes globais da instancia.
+ * Permite configurar modo de usuario unico, modo demo e outras
+ * configuracoes do sistema.
  */
 class ConfigurationController extends Controller
 {

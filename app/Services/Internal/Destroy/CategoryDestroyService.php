@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class CategoryDestroyService
+ *
+ * Servico para exclusao de categorias.
+ * Gerencia a exclusao segura de categorias e suas relacoes com transacoes.
  */
 class CategoryDestroyService
 {

@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Class JournalAPIRepository
+ *
+ * Repositorio de API para gerenciamento de diarios de transacoes.
+ * Fornece metodos para consultar transacoes, anexos e eventos de cofrinhos via API.
  */
 class JournalAPIRepository implements JournalAPIRepositoryInterface, UserGroupInterface
 {

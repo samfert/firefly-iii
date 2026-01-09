@@ -34,7 +34,11 @@ use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
 /**
- * Class HomeController.
+ * Class UpdateController
+ *
+ * Controlador responsavel pela verificacao de atualizacoes do sistema.
+ * Permite configurar preferencias de atualizacao e verificar manualmente
+ * se ha novas versoes disponiveis do Firefly III.
  */
 class UpdateController extends Controller
 {

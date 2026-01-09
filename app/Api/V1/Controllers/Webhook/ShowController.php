@@ -44,6 +44,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de webhooks.
+ * Permite listar todos os webhooks, visualizar um webhook especifico
+ * e disparar webhooks manualmente para transacoes.
  */
 class ShowController extends Controller
 {

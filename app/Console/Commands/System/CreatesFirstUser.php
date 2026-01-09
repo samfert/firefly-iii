@@ -30,6 +30,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+/**
+ * Class CreatesFirstUser
+ *
+ * Comando para criar primeiro usuario.
+ * Cria um novo usuario administrador com senha gerada automaticamente.
+ */
 class CreatesFirstUser extends Command
 {
     use ShowsFriendlyMessages;

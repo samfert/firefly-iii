@@ -36,6 +36,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de webhooks.
+ * Permite modificar configuracoes de webhooks existentes
+ * como URL, gatilho, resposta e status ativo.
  */
 class UpdateController extends Controller
 {

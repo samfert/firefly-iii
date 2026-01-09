@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface OperationsRepositoryInterface
  *
+ * Interface para operacoes de categorias.
+ * Define metodos para calcular despesas, receitas e transferencias por categoria.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

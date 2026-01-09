@@ -32,6 +32,12 @@ use Illuminate\Console\Command;
 
 use function Safe\json_encode;
 
+/**
+ * Class UpgradesRecurrenceMetaData
+ *
+ * Comando para migrar metadados de recorrencias.
+ * Migra metadados de recorrencias para a nova estrutura.
+ */
 class UpgradesRecurrenceMetaData extends Command
 {
     use ShowsFriendlyMessages;

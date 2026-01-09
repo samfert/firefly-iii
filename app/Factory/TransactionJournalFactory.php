@@ -59,7 +59,9 @@ use JsonException;
 use function Safe\json_encode;
 
 /**
- * Class TransactionJournalFactory
+ * Class TransactionJournalFactory.
+ *
+ * Fabrica para criacao de lancamentos.
  *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  */

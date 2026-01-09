@@ -24,6 +24,12 @@ declare(strict_types=1);
 
 namespace FireflyIII\Support\Request;
 
+/**
+ * Trait GetSortInstructions
+ *
+ * Trait para obtencao de instrucoes de ordenacao.
+ * Processa parametros de ordenacao em requisicoes da API.
+ */
 trait GetSortInstructions
 {
     final public function getSortInstructions(string $key): array

@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use FireflyIII\Support\Models\AccountBalanceCalculator;
 use Illuminate\Console\Command;
 
+/**
+ * Class RepairsAccountBalances
+ *
+ * Comando para reparar saldos de contas.
+ * Recalcula todos os saldos de contas.
+ */
 class RepairsAccountBalances extends Command
 {
     use ShowsFriendlyMessages;

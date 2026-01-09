@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de webhooks.
+ * Valida e processa dados de atualizacao de webhooks incluindo gatilhos e respostas.
  */
 class UpdateRequest extends FormRequest
 {

@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use FireflyIII\Models\LinkType;
 use Illuminate\Console\Command;
 
+/**
+ * Class CreatesLinkTypes
+ *
+ * Comando para criar tipos de link.
+ * Cria todos os tipos de link padrao para vincular transacoes.
+ */
 class CreatesLinkTypes extends Command
 {
     use ShowsFriendlyMessages;

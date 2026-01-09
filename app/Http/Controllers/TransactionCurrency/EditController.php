@@ -37,6 +37,13 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
+/**
+ * Class EditController
+ *
+ * Controlador responsavel pela edicao de moedas.
+ * Permite que administradores modifiquem propriedades
+ * de moedas existentes no sistema.
+ */
 class EditController extends Controller
 {
     protected CurrencyRepositoryInterface $repository;

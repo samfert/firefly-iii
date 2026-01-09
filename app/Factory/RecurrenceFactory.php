@@ -33,7 +33,9 @@ use FireflyIII\User;
 use Illuminate\Support\MessageBag;
 
 /**
- * Class RecurrenceFactory
+ * Class RecurrenceFactory.
+ *
+ * Fabrica para criacao de transacoes recorrentes.
  */
 class RecurrenceFactory
 {

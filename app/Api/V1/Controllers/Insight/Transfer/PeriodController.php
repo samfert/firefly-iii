@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class PeriodController
+ *
+ * Controlador da API responsavel por insights de transferencias por periodo.
+ * Exibe o total de transferencias em um periodo especifico
+ * com suporte a conversao para moeda primaria.
  */
 class PeriodController extends Controller
 {

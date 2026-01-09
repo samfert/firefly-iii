@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class NoCategoryRepository
+ *
+ * Repositorio para transacoes sem categoria.
+ * Fornece metodos para consultar despesas e receitas sem categoria definida.
  */
 class NoCategoryRepository implements NoCategoryRepositoryInterface, UserGroupInterface
 {

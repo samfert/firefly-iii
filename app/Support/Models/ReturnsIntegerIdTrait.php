@@ -28,6 +28,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Trait ReturnsIntegerIdTrait
+ *
+ * Trait para retornar ID como inteiro.
+ * Garante que o atributo ID seja sempre retornado como inteiro.
  */
 trait ReturnsIntegerIdTrait
 {

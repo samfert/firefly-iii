@@ -55,6 +55,9 @@ use function Safe\json_decode;
 
 /**
  * Class RecurringRepository
+ *
+ * Repositorio para gerenciamento de transacoes recorrentes.
+ * Fornece metodos para criar, atualizar, excluir e consultar recorrencias.
  */
 class RecurringRepository implements RecurringRepositoryInterface, UserGroupInterface
 {

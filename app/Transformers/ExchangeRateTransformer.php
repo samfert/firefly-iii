@@ -27,10 +27,19 @@ namespace FireflyIII\Transformers;
 use FireflyIII\Models\CurrencyExchangeRate;
 use Illuminate\Support\Collection;
 
+/**
+ * Class ExchangeRateTransformer
+ *
+ * Transformador de taxas de cambio para API.
+ */
 class ExchangeRateTransformer extends AbstractTransformer
 {
     /**
-     * This method collects meta-data for one or all accounts in the transformer's collection.
+     * Coleta metadados para objetos na colecao.
+     *
+     * @param Collection $objects Colecao de objetos
+     *
+     * @return Collection Colecao com metadados
      */
     public function collectMetaData(Collection $objects): Collection
     {

@@ -35,6 +35,9 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de orcamentos.
+ * Permite excluir orcamentos e suas associacoes com transacoes.
  */
 class DeleteController extends Controller
 {

@@ -29,7 +29,10 @@ use Illuminate\Support\Collection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class BudgetList.
+ * Class BudgetList
+ *
+ * Binder de rota para listas de orcamentos.
+ * Converte IDs de orcamentos em colecao de modelos Budget.
  */
 class BudgetList implements BinderInterface
 {

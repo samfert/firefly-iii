@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 /**
  * Class JournalRepository
  *
+ * Repositorio de diarios de transacoes para grupos de usuarios.
+ * Fornece metodos para buscar descricoes de transacoes.
+ *
  * @deprecated
  */
 class JournalRepository implements JournalRepositoryInterface

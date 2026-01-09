@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Trait FiltersWeekends
+ *
+ * Filtro de fins de semana.
+ * Fornece metodos para ajustar datas de transacoes recorrentes que caem em fins de semana.
  */
 trait FiltersWeekends
 {

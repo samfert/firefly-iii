@@ -29,6 +29,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface BudgetRepositoryInterface
  *
+ * Interface para repositorio de orcamentos de grupos de usuarios.
+ * Define metodos para consultar orcamentos ativos e inativos.
+ *
  * @deprecated
  */
 interface BudgetRepositoryInterface

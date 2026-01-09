@@ -31,6 +31,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class TransactionType
+ *
+ * Representa um tipo de transacao no sistema Firefly III.
+ * Tipos incluem: Withdrawal (retirada), Deposit (deposito), Transfer (transferencia),
+ * Opening balance (saldo inicial), Reconciliation (reconciliacao), etc.
+ *
+ * @property int                                 $id                  Identificador unico do tipo
+ * @property string                              $type                Nome do tipo de transacao
+ * @property \Carbon\Carbon                      $created_at          Data de criacao
+ * @property \Carbon\Carbon                      $updated_at          Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at          Data de exclusao (soft delete)
+ * @property-read \Illuminate\Support\Collection $transactionJournals Diarios de transacao deste tipo
+ */
 class TransactionType extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -83,31 +97,61 @@ class TransactionType extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Verifica se este tipo e um deposito.
+     *
+     * @return bool True se for deposito, false caso contrario
+     */
     public function isDeposit(): bool
     {
         return TransactionTypeEnum::DEPOSIT->value === $this->type;
     }
 
+    /**
+     * Verifica se este tipo e um saldo inicial.
+     *
+     * @return bool True se for saldo inicial, false caso contrario
+     */
     public function isOpeningBalance(): bool
     {
         return TransactionTypeEnum::OPENING_BALANCE->value === $this->type;
     }
 
+    /**
+     * Verifica se este tipo e uma transferencia.
+     *
+     * @return bool True se for transferencia, false caso contrario
+     */
     public function isTransfer(): bool
     {
         return TransactionTypeEnum::TRANSFER->value === $this->type;
     }
 
+    /**
+     * Verifica se este tipo e uma retirada.
+     *
+     * @return bool True se for retirada, false caso contrario
+     */
     public function isWithdrawal(): bool
     {
         return TransactionTypeEnum::WITHDRAWAL->value === $this->type;
     }
 
+    /**
+     * Retorna todos os diarios de transacao deste tipo.
+     *
+     * @return HasMany Colecao de TransactionJournal relacionados
+     */
     public function transactionJournals(): HasMany
     {
         return $this->hasMany(TransactionJournal::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

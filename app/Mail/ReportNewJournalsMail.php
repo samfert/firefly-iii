@@ -34,7 +34,7 @@ use Illuminate\Support\Collection;
 /**
  * Class ReportNewJournalsMail.
  *
- * Sends a list of newly created journals to the user.
+ * Email de relatorio de novos lancamentos criados.
  */
 class ReportNewJournalsMail extends Mailable
 {

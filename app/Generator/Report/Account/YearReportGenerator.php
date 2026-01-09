@@ -27,6 +27,8 @@ use Override;
 
 /**
  * Class YearReportGenerator.
+ *
+ * Gerador de relatorios anuais por conta.
  */
 class YearReportGenerator extends MonthReportGenerator
 {

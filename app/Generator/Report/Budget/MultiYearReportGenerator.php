@@ -25,5 +25,7 @@ namespace FireflyIII\Generator\Report\Budget;
 
 /**
  * Class MultiYearReportGenerator.
+ *
+ * Gerador de relatorios multi-anuais por orcamento.
  */
 class MultiYearReportGenerator extends MonthReportGenerator {}

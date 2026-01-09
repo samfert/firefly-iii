@@ -37,7 +37,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 /**
- * Interface GroupCollectorInterface
+ * Interface GroupCollectorInterface.
+ *
+ * Interface para coletor de grupos de transacoes.
  */
 interface GroupCollectorInterface
 {

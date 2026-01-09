@@ -37,6 +37,9 @@ use Illuminate\View\View;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de regras de automacao.
+ * Exibe todas as regras organizadas por grupos de regras.
  */
 class IndexController extends Controller
 {

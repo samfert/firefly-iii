@@ -30,6 +30,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Translation\PotentiallyTranslatedString;
 use Closure;
 
+/**
+ * Class IsValidActionExpression.
+ *
+ * Regra de validacao para expressao de acao valida.
+ */
 class IsValidActionExpression implements ValidationRule
 {
     /**

@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface JournalCLIRepositoryInterface
  *
+ * Interface CLI para repositorio de diarios de transacoes.
+ * Define metodos para consultar transacoes, metadados e tags via linha de comando.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

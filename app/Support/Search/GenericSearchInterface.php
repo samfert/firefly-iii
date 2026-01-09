@@ -28,6 +28,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface GenericSearchInterface
+ *
+ * Interface generica de busca.
+ * Define o contrato para implementacoes de busca no sistema.
  */
 interface GenericSearchInterface
 {

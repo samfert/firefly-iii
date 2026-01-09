@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class OperationsRepository
+ *
+ * Repositorio de operacoes de tags.
+ * Fornece metodos para calcular despesas e receitas por tag.
  */
 class OperationsRepository implements OperationsRepositoryInterface, UserGroupInterface
 {

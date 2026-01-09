@@ -30,6 +30,12 @@ use FireflyIII\User;
 use Illuminate\Console\Command;
 use Exception;
 
+/**
+ * Class CreatesAccessTokens
+ *
+ * Comando para criar tokens de acesso.
+ * Cria tokens de acesso de usuario para acesso via linha de comando.
+ */
 class CreatesAccessTokens extends Command
 {
     use ShowsFriendlyMessages;

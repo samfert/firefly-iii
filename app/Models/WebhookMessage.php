@@ -32,6 +32,25 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class WebhookMessage
+ *
+ * Representa uma mensagem de webhook no sistema Firefly III.
+ * Mensagens contem os dados a serem enviados para o endpoint do webhook
+ * e rastreiam o status de envio.
+ *
+ * @property int                                 $id              Identificador unico da mensagem
+ * @property int                                 $webhook_id      ID do webhook associado
+ * @property string                              $uuid            UUID unico da mensagem
+ * @property array                               $message         Conteudo da mensagem (JSON)
+ * @property bool                                $sent            Se a mensagem foi enviada
+ * @property bool                                $errored         Se houve erro no envio
+ * @property array|null                          $logs            Logs de envio (JSON)
+ * @property \Carbon\Carbon                      $created_at      Data de criacao
+ * @property \Carbon\Carbon                      $updated_at      Data de atualizacao
+ * @property-read Webhook                        $webhook         Webhook associado
+ * @property-read \Illuminate\Support\Collection $webhookAttempts Tentativas de envio
+ */
 class WebhookMessage extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -59,18 +78,30 @@ class WebhookMessage extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o webhook associado a esta mensagem.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo Webhook
+     */
     public function webhook(): BelongsTo
     {
         return $this->belongsTo(Webhook::class);
     }
 
+    /**
+     * Retorna todas as tentativas de envio desta mensagem.
+     *
+     * @return HasMany Colecao de WebhookAttempt relacionadas
+     */
     public function webhookAttempts(): HasMany
     {
         return $this->hasMany(WebhookAttempt::class);
     }
 
     /**
-     * Get the amount
+     * Accessor para garantir que o status de envio seja retornado como booleano.
+     *
+     * @return Attribute Atributo computado para o status de envio
      */
     protected function sent(): Attribute
     {
@@ -79,6 +110,11 @@ class WebhookMessage extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID do webhook seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do webhook
+     */
     protected function webhookId(): Attribute
     {
         return Attribute::make(
@@ -86,6 +122,11 @@ class WebhookMessage extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

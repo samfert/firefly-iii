@@ -31,6 +31,12 @@ use FireflyIII\Models\BudgetLimit;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesBudgetLimits
+ *
+ * Comando para atualizar limites de orcamento.
+ * Adiciona moeda aos limites de orcamento existentes.
+ */
 class UpgradesBudgetLimits extends Command
 {
     use ShowsFriendlyMessages;

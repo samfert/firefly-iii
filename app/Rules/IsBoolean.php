@@ -28,7 +28,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class IsBoolean
+ * Class IsBoolean.
+ *
+ * Regra de validacao para valor booleano.
  */
 class IsBoolean implements ValidationRule
 {

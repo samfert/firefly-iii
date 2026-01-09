@@ -40,6 +40,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class ApplyRules
+ *
+ * Comando para aplicar regras.
+ * Aplica regras e grupos de regras a uma selecao de transacoes.
+ */
 class ApplyRules extends Command
 {
     use ShowsFriendlyMessages;

@@ -28,5 +28,7 @@ use Exception;
 
 /**
  * Class NotImplementedException.
+ *
+ * Excecao lancada quando uma funcionalidade nao foi implementada.
  */
 class NotImplementedException extends Exception {}

@@ -38,6 +38,9 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de cofrinhos.
+ * Mostra eventos de deposito/saque, progresso da meta e anexos.
  */
 class ShowController extends Controller
 {

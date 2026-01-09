@@ -27,6 +27,8 @@ use FireflyIII\Support\ChartColour;
 
 /**
  * Class ChartJsGenerator.
+ *
+ * Gerador de graficos compativel com Chart.js.
  */
 class ChartJsGenerator implements GeneratorInterface
 {

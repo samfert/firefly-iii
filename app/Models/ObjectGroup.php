@@ -33,6 +33,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class ObjectGroup
+ *
+ * Representa um grupo de objetos para organizar entidades relacionadas.
+ * Permite agrupar contas, faturas e cofrinhos em categorias logicas
+ * para melhor organizacao e visualizacao.
+ *
+ * @property int                                 $id            Identificador unico do grupo
+ * @property int                                 $user_id       ID do usuario proprietario
+ * @property int                                 $user_group_id ID do grupo de usuarios
+ * @property string                              $title         Titulo do grupo
+ * @property int                                 $order         Ordem de exibicao
+ * @property \Carbon\Carbon                      $created_at    Data de criacao
+ * @property \Carbon\Carbon                      $updated_at    Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at    Data de exclusao (soft delete)
+ * @property-read User                           $user          Usuario proprietario
+ * @property-read \Illuminate\Support\Collection $accounts      Contas neste grupo
+ * @property-read \Illuminate\Support\Collection $bills         Faturas neste grupo
+ * @property-read \Illuminate\Support\Collection $piggyBanks    Cofrinhos neste grupo
+ */
 class ObjectGroup extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -61,35 +81,51 @@ class ObjectGroup extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario deste grupo de objetos.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * @return MorphToMany
+     * Retorna todas as contas associadas a este grupo.
+     *
+     * @return MorphToMany Colecao polimorfica de Account
      */
-    public function accounts()
+    public function accounts(): MorphToMany
     {
         return $this->morphedByMany(Account::class, 'object_groupable');
     }
 
     /**
-     * @return MorphToMany
+     * Retorna todas as faturas associadas a este grupo.
+     *
+     * @return MorphToMany Colecao polimorfica de Bill
      */
-    public function bills()
+    public function bills(): MorphToMany
     {
         return $this->morphedByMany(Bill::class, 'object_groupable');
     }
 
     /**
-     * @return MorphToMany
+     * Retorna todos os cofrinhos associados a este grupo.
+     *
+     * @return MorphToMany Colecao polimorfica de PiggyBank
      */
-    public function piggyBanks()
+    public function piggyBanks(): MorphToMany
     {
         return $this->morphedByMany(PiggyBank::class, 'object_groupable');
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de exibicao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -97,6 +133,11 @@ class ObjectGroup extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

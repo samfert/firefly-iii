@@ -46,6 +46,12 @@ use FireflyIII\User;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 
+/**
+ * Class CorrectsGroupInformation
+ *
+ * Comando para corrigir informacoes de grupo.
+ * Garante que cada objeto esteja vinculado a um grupo.
+ */
 class CorrectsGroupInformation extends Command
 {
     use ShowsFriendlyMessages;

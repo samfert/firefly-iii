@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * enum AccountTypeEnum
+ * Enum AccountTypeEnum.
+ *
+ * Enumeracao de tipos de conta.
  */
 enum AccountTypeEnum: string
 {

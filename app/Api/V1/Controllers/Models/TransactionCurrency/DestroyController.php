@@ -36,6 +36,9 @@ use Illuminate\Validation\ValidationException;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de moedas.
+ * Remove moedas do sistema atraves da API REST.
  */
 class DestroyController extends Controller
 {

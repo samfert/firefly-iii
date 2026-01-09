@@ -38,6 +38,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Override;
 
+/**
+ * Class AvailableBudgetEnrichment
+ *
+ * Enriquecedor de orcamento disponivel.
+ * Adiciona informacoes de gastos dentro e fora de orcamentos.
+ */
 class AvailableBudgetEnrichment implements EnrichmentInterface
 {
     private User                                   $user;

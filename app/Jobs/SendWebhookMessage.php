@@ -33,7 +33,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class SendWebhookMessage
+ * Class SendWebhookMessage.
+ *
+ * Job para envio de mensagens de webhook.
  */
 class SendWebhookMessage implements ShouldQueue
 {

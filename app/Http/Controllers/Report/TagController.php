@@ -37,6 +37,10 @@ use Illuminate\View\View;
 
 /**
  * Class TagController
+ *
+ * Controlador responsavel pela geracao de relatorios de tags.
+ * Gera visoes parciais com receitas e despesas por tag,
+ * incluindo medias, maiores transacoes e distribuicao por conta.
  */
 class TagController extends Controller
 {

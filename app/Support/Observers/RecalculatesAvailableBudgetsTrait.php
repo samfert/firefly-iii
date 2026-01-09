@@ -16,6 +16,12 @@ use Spatie\Period\Boundaries;
 use Spatie\Period\Period;
 use Spatie\Period\Precision;
 
+/**
+ * Trait RecalculatesAvailableBudgetsTrait
+ *
+ * Recalculo de orcamentos disponiveis.
+ * Fornece metodos para atualizar orcamentos disponiveis quando limites de orcamento sao alterados.
+ */
 trait RecalculatesAvailableBudgetsTrait
 {
     private function updateAvailableBudget(BudgetLimit $budgetLimit): void

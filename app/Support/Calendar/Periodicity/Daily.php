@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Class Daily
+ *
+ * Periodicidade diaria.
+ * Calcula proxima data adicionando dias.
  */
 final class Daily extends Interval
 {

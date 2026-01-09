@@ -39,7 +39,11 @@ use League\Fractal\Resource\Collection as FractalCollection;
 use League\Fractal\Resource\Item;
 
 /**
- * Class UserController.
+ * Class UserController
+ *
+ * Controlador da API responsavel pelo gerenciamento de usuarios.
+ * Permite listar, criar, atualizar e excluir usuarios do sistema
+ * com controle de permissoes baseado em roles.
  */
 class UserController extends Controller
 {

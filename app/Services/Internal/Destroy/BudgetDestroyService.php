@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class BudgetDestroyService
+ *
+ * Servico para exclusao de orcamentos.
+ * Gerencia a exclusao segura de orcamentos e suas relacoes com transacoes.
  */
 class BudgetDestroyService
 {

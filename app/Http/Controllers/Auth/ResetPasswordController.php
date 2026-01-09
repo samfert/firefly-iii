@@ -38,9 +38,9 @@ use Illuminate\View\View;
 /**
  * Class ResetPasswordController
  *
- * This controller is responsible for handling password reset requests
- * and uses a simple trait to include this behavior. You're free to
- * explore this trait and override any methods you wish to tweak.
+ * Controlador responsavel pela redefinicao de senha.
+ * Processa tokens de redefinicao e permite que usuarios
+ * criem novas senhas apos validacao.
  */
 class ResetPasswordController extends Controller
 {

@@ -34,11 +34,18 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class AccountTransformer
+ *
+ * Transformador de contas para API.
  */
 class AccountTransformer extends AbstractTransformer
 {
+    /** @var bool Se deve converter para moeda primaria */
     protected bool                       $convertToPrimary;
+
+    /** @var TransactionCurrency Moeda primaria */
     protected TransactionCurrency        $primary;
+
+    /** @var AccountRepositoryInterface Repositorio de contas */
     protected AccountRepositoryInterface $repository;
 
     /**

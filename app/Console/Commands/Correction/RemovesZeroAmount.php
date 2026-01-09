@@ -29,6 +29,12 @@ use FireflyIII\Models\Transaction;
 use FireflyIII\Models\TransactionJournal;
 use Illuminate\Console\Command;
 
+/**
+ * Class RemovesZeroAmount
+ *
+ * Comando para remover valores zero.
+ * Exclui transacoes com valor zero.
+ */
 class RemovesZeroAmount extends Command
 {
     use ShowsFriendlyMessages;

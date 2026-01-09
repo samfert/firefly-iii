@@ -34,6 +34,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class TagController
+ *
+ * Controlador da API responsavel por insights de transferencias por tag.
+ * Exibe informacoes de transferencias agrupadas por tag
+ * incluindo transferencias sem tag definida.
  */
 class TagController extends Controller
 {

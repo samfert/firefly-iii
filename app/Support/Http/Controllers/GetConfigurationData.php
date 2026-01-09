@@ -31,6 +31,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Trait GetConfigurationData
+ *
+ * Trait para obtencao de dados de configuracao.
+ * Fornece metodos para obter configuracoes de data e passos de introducao.
  */
 trait GetConfigurationData
 {

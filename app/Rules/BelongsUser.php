@@ -35,7 +35,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class BelongsUser
+ * Class BelongsUser.
+ *
+ * Regra de validacao para pertencimento ao usuario.
  */
 class BelongsUser implements ValidationRule
 {

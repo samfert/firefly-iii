@@ -35,6 +35,12 @@ use FireflyIII\Repositories\Account\AccountRepositoryInterface;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 
+/**
+ * Class CorrectsOpeningBalanceCurrencies
+ *
+ * Comando para corrigir moedas de saldo inicial.
+ * Garante que as moedas das transacoes de saldo inicial correspondam as contas.
+ */
 class CorrectsOpeningBalanceCurrencies extends Command
 {
     use ShowsFriendlyMessages;

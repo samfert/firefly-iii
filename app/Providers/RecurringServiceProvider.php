@@ -31,6 +31,8 @@ use Override;
 
 /**
  * Class RecurringServiceProvider.
+ *
+ * Provedor de servicos de transacoes recorrentes.
  */
 class RecurringServiceProvider extends ServiceProvider
 {

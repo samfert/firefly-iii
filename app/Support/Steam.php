@@ -43,7 +43,10 @@ use function Safe\parse_url;
 use function Safe\preg_replace;
 
 /**
- * Class Steam.
+ * Class Steam
+ *
+ * Classe utilitaria principal do Firefly III.
+ * Fornece metodos para calculos de saldo, formatacao e operacoes diversas.
  */
 class Steam
 {

@@ -32,10 +32,15 @@ use FireflyIII\Support\Facades\Steam;
 
 /**
  * Class PiggyBankEventTransformer
+ *
+ * Transformador de eventos de cofrinhos para API.
  */
 class PiggyBankEventTransformer extends AbstractTransformer
 {
+    /** @var TransactionCurrency Moeda primaria */
     private TransactionCurrency $primaryCurrency;
+
+    /** @var bool Se deve converter para moeda primaria */
     private bool                $convertToPrimary = false;
 
     /**

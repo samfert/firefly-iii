@@ -44,7 +44,12 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Resource\Collection as FractalCollection;
 
-// Class ListController
+/**
+ * Class ListController
+ *
+ * Controlador da API responsavel pela listagem de recursos relacionados a orcamentos.
+ * Lista anexos, limites de orcamento e transacoes associados a um orcamento especifico.
+ */
 class ListController extends Controller
 {
     use TransactionFilter;

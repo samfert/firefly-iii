@@ -29,6 +29,13 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 
+/**
+ * Class CreateController
+ *
+ * Controlador responsavel pela criacao de grupos de usuarios.
+ * Permite criar novas administracoes para organizar
+ * usuarios e seus dados financeiros.
+ */
 class CreateController extends Controller
 {
     /**

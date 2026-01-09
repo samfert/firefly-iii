@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class CreateRequest
+ *
+ * Classe de requisicao para criacao de webhooks.
+ * Valida e processa dados de criacao de webhooks incluindo gatilhos e respostas.
  */
 class CreateRequest extends FormRequest
 {

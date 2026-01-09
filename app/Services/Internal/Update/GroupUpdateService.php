@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class GroupUpdateService
+ *
+ * Servico para atualizacao de grupos de transacoes.
+ * Gerencia a atualizacao de grupos, criacao e exclusao de diarios de transacoes.
  */
 class GroupUpdateService
 {

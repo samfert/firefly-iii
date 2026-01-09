@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Trait CalculateRangeOccurrences
+ *
+ * Calculo de ocorrencias em intervalo.
+ * Fornece metodos para calcular ocorrencias de transacoes recorrentes dentro de um intervalo de datas.
  */
 trait CalculateRangeOccurrences
 {

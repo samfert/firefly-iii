@@ -30,7 +30,9 @@ use Illuminate\Queue\SerializesModels;
 use Laravel\Passport\Client;
 
 /**
- * Class OAuthTokenCreatedMail
+ * Class OAuthTokenCreatedMail.
+ *
+ * Email enviado quando um cliente OAuth e criado.
  */
 class OAuthTokenCreatedMail extends Mailable
 {

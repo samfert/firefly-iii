@@ -29,6 +29,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface PiggyBankRepositoryInterface
  *
+ * Interface para repositorio de cofrinhos de grupos de usuarios.
+ * Define metodos para consultar cofrinhos do grupo.
+ *
  * @deprecated
  */
 interface PiggyBankRepositoryInterface

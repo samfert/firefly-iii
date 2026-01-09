@@ -43,6 +43,9 @@ use Exception;
 
 /**
  * Class CategoryRepository.
+ *
+ * Repositorio principal para gerenciamento de categorias.
+ * Fornece metodos para criar, atualizar, excluir e consultar categorias de transacoes.
  */
 class CategoryRepository implements CategoryRepositoryInterface, UserGroupInterface
 {

@@ -31,6 +31,8 @@ use Override;
 
 /**
  * Class RuleGroupServiceProvider.
+ *
+ * Provedor de servicos de grupos de regras.
  */
 class RuleGroupServiceProvider extends ServiceProvider
 {

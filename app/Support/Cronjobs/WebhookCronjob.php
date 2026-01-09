@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class WebhookCronjob
+ *
+ * Cronjob para envio de mensagens de webhook.
+ * Executa periodicamente para enviar webhooks pendentes.
  */
 class WebhookCronjob extends AbstractCronjob
 {

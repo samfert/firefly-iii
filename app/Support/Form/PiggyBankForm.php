@@ -30,7 +30,8 @@ use FireflyIII\Repositories\PiggyBank\PiggyBankRepositoryInterface;
 /**
  * Class PiggyBankForm
  *
- * TODO cleanup and describe.
+ * Classe de formulario de cofrinho.
+ * Fornece metodos para renderizar campos de formulario relacionados a cofrinhos.
  */
 class PiggyBankForm
 {

@@ -29,7 +29,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class AccessTokenCreatedMail
+ * Class AccessTokenCreatedMail.
+ *
+ * Email enviado quando um token de acesso e criado.
  */
 class AccessTokenCreatedMail extends Mailable
 {

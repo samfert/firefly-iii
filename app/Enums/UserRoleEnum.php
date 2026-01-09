@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class UserRoleEnum
+ * Enum UserRoleEnum.
+ *
+ * Enumeracao de papeis de usuario.
  */
 enum UserRoleEnum: string
 {

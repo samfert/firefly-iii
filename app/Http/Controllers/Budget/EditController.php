@@ -39,6 +39,10 @@ use Illuminate\View\View;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de orcamentos existentes.
+ * Permite modificar valores, configuracoes de auto-orcamento
+ * e outras propriedades do orcamento.
  */
 class EditController extends Controller
 {

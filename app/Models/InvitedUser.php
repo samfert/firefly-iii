@@ -32,6 +32,24 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class InvitedUser
+ *
+ * Representa um convite enviado para um novo usuario se juntar ao sistema.
+ * Armazena informacoes sobre o convite, incluindo codigo de convite,
+ * data de expiracao e status de resgate.
+ *
+ * @property int                 $id            Identificador unico do convite
+ * @property int                 $user_id       ID do usuario que enviou o convite
+ * @property int                 $user_group_id ID do grupo de usuarios
+ * @property string              $email         Email do usuario convidado
+ * @property string              $invite_code   Codigo unico do convite
+ * @property \Carbon\Carbon      $expires       Data de expiracao do convite
+ * @property bool                $redeemed      Se o convite foi resgatado
+ * @property \Carbon\Carbon      $created_at    Data de criacao
+ * @property \Carbon\Carbon      $updated_at    Data de atualizacao
+ * @property-read User           $user          Usuario que enviou o convite
+ */
 class InvitedUser extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -56,11 +74,21 @@ class InvitedUser extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario que enviou este convite.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

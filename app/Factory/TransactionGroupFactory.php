@@ -31,7 +31,9 @@ use FireflyIII\Models\UserGroup;
 use FireflyIII\User;
 
 /**
- * Class TransactionGroupFactory
+ * Class TransactionGroupFactory.
+ *
+ * Fabrica para criacao de grupos de transacao.
  */
 class TransactionGroupFactory
 {

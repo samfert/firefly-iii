@@ -30,6 +30,12 @@ use FireflyIII\Support\Request\ChecksLogin;
 use FireflyIII\Support\Request\ConvertsDataTypes;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de taxas de cambio.
+ * Valida e processa dados de criacao de taxas de cambio entre moedas.
+ */
 class StoreRequest extends FormRequest
 {
     use ChecksLogin;

@@ -41,6 +41,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class SearchRuleEngine
+ *
+ * Motor de regras baseado em busca.
+ * Executa regras usando o motor de busca para encontrar transacoes.
  */
 class SearchRuleEngine implements RuleEngineInterface
 {

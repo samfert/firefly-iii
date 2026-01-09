@@ -35,6 +35,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de anexos.
+ * Remove anexos do sistema atraves da API REST.
  */
 class DestroyController extends Controller
 {

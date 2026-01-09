@@ -37,6 +37,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface OperationsRepositoryInterface
  *
+ * Interface para operacoes de orcamento.
+ * Define metodos para calcular gastos e gerar relatorios de orcamento.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

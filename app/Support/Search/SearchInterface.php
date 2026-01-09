@@ -30,6 +30,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface SearchInterface.
+ *
+ * Interface de busca de transacoes.
+ * Define o contrato para implementacoes de busca avancada de transacoes.
  */
 interface SearchInterface
 {

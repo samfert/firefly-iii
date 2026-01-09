@@ -50,13 +50,24 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class StandardMessageGenerator
+ *
+ * Gerador padrao de mensagens de webhook.
  */
 class StandardMessageGenerator implements MessageGeneratorInterface
 {
+    /** @var Collection Objetos para gerar mensagens */
     private Collection     $objects;
+
+    /** @var WebhookTrigger Gatilho do webhook */
     private WebhookTrigger $trigger;
+
+    /** @var User Usuario */
     private User           $user;
+
+    /** @var int Versao do gerador */
     private int            $version = 0;
+
+    /** @var Collection Webhooks ativos */
     private Collection     $webhooks;
 
     public function __construct()

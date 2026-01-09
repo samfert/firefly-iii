@@ -28,7 +28,9 @@ use Illuminate\Support\Facades\Route;
 use Override;
 
 /**
- * Class RouteServiceProvider
+ * Class RouteServiceProvider.
+ *
+ * Provedor de servicos de rotas.
  */
 class RouteServiceProvider extends ServiceProvider
 {

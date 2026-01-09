@@ -35,7 +35,11 @@ use FireflyIII\Repositories\Budget\BudgetRepositoryInterface;
 use Illuminate\Support\Collection;
 
 /**
- * Class BalanceController.
+ * Class BalanceController
+ *
+ * Controlador responsavel pela geracao de relatorios de balanco.
+ * Gera visoes parciais com gastos por orcamento e conta,
+ * mostrando a distribuicao de despesas.
  */
 class BalanceController extends Controller
 {

@@ -36,6 +36,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface BillRepositoryInterface.
  *
+ * Interface para repositorio de contas a pagar.
+ * Define metodos para criar, atualizar, excluir e consultar contas recorrentes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

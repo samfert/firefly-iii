@@ -29,6 +29,12 @@ use FireflyIII\Models\Location;
 use FireflyIII\Models\Tag;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesTagLocations
+ *
+ * Comando para migrar localizacoes de tags.
+ * Migra dados de localizacao de tags para a tabela de localizacoes.
+ */
 class UpgradesTagLocations extends Command
 {
     use ShowsFriendlyMessages;

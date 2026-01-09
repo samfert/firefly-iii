@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class FrontpageChartGenerator
+ *
+ * Gerador de graficos de orcamento para pagina inicial.
+ * Gera dados de graficos mostrando gastos, restante e excesso por orcamento.
  */
 class FrontpageChartGenerator
 {

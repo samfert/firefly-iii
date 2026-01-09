@@ -32,6 +32,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de tags.
+ * Valida e processa dados de criacao de tags incluindo localizacao.
  */
 class StoreRequest extends FormRequest
 {

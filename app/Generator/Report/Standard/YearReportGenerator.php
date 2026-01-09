@@ -30,7 +30,9 @@ use Illuminate\Support\Collection;
 use Throwable;
 
 /**
- * Class MonthReportGenerator.
+ * Class YearReportGenerator.
+ *
+ * Gerador de relatorios anuais padrao.
  */
 class YearReportGenerator implements ReportGeneratorInterface
 {

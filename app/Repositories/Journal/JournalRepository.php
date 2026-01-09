@@ -42,6 +42,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class JournalRepository.
+ *
+ * Repositorio principal para gerenciamento de diarios de transacoes.
+ * Fornece metodos para criar, atualizar, excluir e consultar transacoes.
  */
 class JournalRepository implements JournalRepositoryInterface, UserGroupInterface
 {

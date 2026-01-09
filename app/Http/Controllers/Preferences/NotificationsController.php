@@ -26,4 +26,11 @@ namespace FireflyIII\Http\Controllers\Preferences;
 
 use FireflyIII\Http\Controllers\Controller;
 
+/**
+ * Class NotificationsController
+ *
+ * Controlador responsavel pelas preferencias de notificacoes.
+ * Gerencia configuracoes de alertas e avisos do sistema
+ * para o usuario.
+ */
 class NotificationsController extends Controller {}

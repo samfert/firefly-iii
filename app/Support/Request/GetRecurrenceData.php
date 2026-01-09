@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Request;
 
 /**
  * Trait GetRecurrenceData
+ *
+ * Trait para obtencao de dados de recorrencia.
+ * Processa dados de transacoes recorrentes em requisicoes.
  */
 trait GetRecurrenceData
 {

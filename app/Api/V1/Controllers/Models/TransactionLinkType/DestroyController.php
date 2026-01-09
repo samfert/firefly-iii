@@ -34,6 +34,9 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de tipos de links de transacoes.
+ * Remove tipos de links do sistema atraves da API REST.
  */
 class DestroyController extends Controller
 {

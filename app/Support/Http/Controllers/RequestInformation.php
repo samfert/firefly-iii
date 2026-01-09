@@ -40,6 +40,9 @@ use function Safe\parse_url;
 
 /**
  * Trait RequestInformation
+ *
+ * Trait para informacoes de requisicao.
+ * Fornece metodos para obter informacoes da requisicao e validar dados.
  */
 trait RequestInformation
 {

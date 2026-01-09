@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class TransactionTypeEnum
+ * Enum TransactionTypeEnum.
+ *
+ * Enumeracao de tipos de transacao.
  */
 enum TransactionTypeEnum: string
 {

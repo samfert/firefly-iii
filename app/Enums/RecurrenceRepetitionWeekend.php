@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class RecurrenceRepetitionWeekend
+ * Enum RecurrenceRepetitionWeekend.
+ *
+ * Enumeracao de comportamento de recorrencia em fim de semana.
  */
 enum RecurrenceRepetitionWeekend: int
 {

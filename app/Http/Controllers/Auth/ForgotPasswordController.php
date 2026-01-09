@@ -38,6 +38,10 @@ use function Safe\parse_url;
 
 /**
  * Class ForgotPasswordController
+ *
+ * Controlador responsavel pela recuperacao de senha.
+ * Envia emails com links de redefinicao de senha
+ * para usuarios que esqueceram suas credenciais.
  */
 class ForgotPasswordController extends Controller
 {

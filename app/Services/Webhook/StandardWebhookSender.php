@@ -39,6 +39,9 @@ use function Safe\json_encode;
 
 /**
  * Class StandardWebhookSender
+ *
+ * Servico padrao para envio de webhooks.
+ * Gerencia o envio de mensagens de webhook para URLs configuradas.
  */
 class StandardWebhookSender implements WebhookSenderInterface
 {

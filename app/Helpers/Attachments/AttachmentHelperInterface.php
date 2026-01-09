@@ -29,6 +29,8 @@ use Illuminate\Support\MessageBag;
 
 /**
  * Interface AttachmentHelperInterface.
+ *
+ * Interface para helpers de anexos.
  */
 interface AttachmentHelperInterface
 {

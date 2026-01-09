@@ -30,11 +30,15 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class WebhookEventHandler
+ *
+ * Manipulador de eventos para webhooks.
+ * Envia mensagens de webhook pendentes.
  */
 class WebhookEventHandler
 {
     /**
-     * Will try to send at most 3 messages so the flow doesn't get broken too much.
+     * Envia mensagens de webhook pendentes.
+     * Tenta enviar no maximo 5 mensagens para nao interromper o fluxo.
      */
     public function sendWebhookMessages(): void
     {

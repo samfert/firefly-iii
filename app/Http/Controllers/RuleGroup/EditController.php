@@ -37,6 +37,9 @@ use Illuminate\View\View;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de grupos de regras.
+ * Permite modificar titulo, descricao e ordem dos grupos.
  */
 class EditController extends Controller
 {

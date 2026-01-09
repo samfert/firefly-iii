@@ -30,6 +30,9 @@ use Illuminate\Support\Collection;
 /**
  * Class BudgetRepository
  *
+ * Repositorio de orcamentos para grupos de usuarios.
+ * Fornece metodos para consultar orcamentos ativos e inativos.
+ *
  * @deprecated
  */
 class BudgetRepository implements BudgetRepositoryInterface

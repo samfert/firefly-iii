@@ -38,6 +38,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de regras.
+ * Lista todas as regras ou exibe detalhes de uma regra especifica.
  */
 class ShowController extends Controller
 {

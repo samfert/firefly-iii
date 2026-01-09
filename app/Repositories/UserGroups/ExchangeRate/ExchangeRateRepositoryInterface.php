@@ -32,6 +32,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface ExchangeRateRepositoryInterface
  *
+ * Interface para repositorio de taxas de cambio de grupos de usuarios.
+ * Define metodos para gerenciar taxas de conversao entre moedas.
+ *
  * @deprecated
  */
 interface ExchangeRateRepositoryInterface

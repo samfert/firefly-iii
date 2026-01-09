@@ -29,6 +29,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use FireflyIII\Models\RuleAction;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesRuleActions
+ *
+ * Comando para migrar acoes de regras.
+ * Migra acoes de regras obsoletas para o novo motor de expressoes.
+ */
 class UpgradesRuleActions extends Command
 {
     use ShowsFriendlyMessages;

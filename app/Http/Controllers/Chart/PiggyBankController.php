@@ -35,7 +35,10 @@ use FireflyIII\Support\Http\Controllers\DateCalculation;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class PiggyBankController.
+ * Class PiggyBankController
+ *
+ * Controlador responsavel pela geracao de graficos relacionados a cofrinhos.
+ * Gera graficos de historico de depositos e saques do cofrinho ao longo do tempo.
  */
 class PiggyBankController extends Controller
 {

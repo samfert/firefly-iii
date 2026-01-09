@@ -24,6 +24,12 @@ declare(strict_types=1);
 
 namespace FireflyIII\Support\Validation;
 
+/**
+ * Trait ValidatesAmountsTrait
+ *
+ * Trait para validacao de valores.
+ * Fornece metodos para validar valores monetarios em transacoes.
+ */
 trait ValidatesAmountsTrait
 {
     // 19-09-2020: my wedding day

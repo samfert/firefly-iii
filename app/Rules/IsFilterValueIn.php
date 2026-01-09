@@ -27,6 +27,11 @@ namespace FireflyIII\Rules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
+/**
+ * Class IsFilterValueIn.
+ *
+ * Regra de validacao para valor de filtro em lista.
+ */
 class IsFilterValueIn implements ValidationRule
 {
     public function __construct(private readonly string $key, private readonly array $values) {}

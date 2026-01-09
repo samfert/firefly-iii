@@ -31,7 +31,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 /**
- * Class TestNotification
+ * Class OwnerTestNotificationEmail
+ *
+ * Notificacao de teste via email para proprietario.
  */
 class OwnerTestNotificationEmail extends Notification
 {

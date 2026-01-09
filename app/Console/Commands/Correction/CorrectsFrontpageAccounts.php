@@ -31,6 +31,12 @@ use FireflyIII\Repositories\Account\AccountRepositoryInterface;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class CorrectsFrontpageAccounts
+ *
+ * Comando para corrigir contas da pagina inicial.
+ * Remove contas excluidas ou de tipo incorreto das preferencias da pagina inicial.
+ */
 class CorrectsFrontpageAccounts extends Command
 {
     use ShowsFriendlyMessages;

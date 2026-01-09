@@ -28,7 +28,11 @@ use FireflyIII\User;
 use Illuminate\Http\Response;
 
 /**
- * Class HealthcheckController.
+ * Class HealthcheckController
+ *
+ * Controlador responsavel pela verificacao de saude do sistema.
+ * Fornece endpoint para monitoramento que verifica se a
+ * aplicacao e o banco de dados estao funcionando.
  */
 class HealthcheckController extends Controller
 {

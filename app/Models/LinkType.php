@@ -29,6 +29,23 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class LinkType
+ *
+ * Define tipos de links que podem conectar transacoes entre si.
+ * Permite criar relacionamentos semanticos entre transacoes,
+ * como "pago por", "reembolsado por", "relacionado a", etc.
+ *
+ * @property int                                 $id         Identificador unico do tipo de link
+ * @property string                              $name       Nome do tipo de link
+ * @property string                              $inward     Descricao do link na direcao de entrada
+ * @property string                              $outward    Descricao do link na direcao de saida
+ * @property bool                                $editable   Se o tipo de link pode ser editado
+ * @property \Carbon\Carbon                      $created_at Data de criacao
+ * @property \Carbon\Carbon                      $updated_at Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at Data de exclusao (soft delete)
+ * @property-read \Illuminate\Support\Collection $transactionJournalLinks Links de transacao deste tipo
+ */
 class LinkType extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -54,11 +71,21 @@ class LinkType extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna todos os links de transacao deste tipo.
+     *
+     * @return HasMany Colecao de TransactionJournalLink relacionados
+     */
     public function transactionJournalLinks(): HasMany
     {
         return $this->hasMany(TransactionJournalLink::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

@@ -38,6 +38,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de limites de orcamento.
+ * Atualiza dados de limites de orcamento existentes atraves da API REST.
  */
 class UpdateController extends Controller
 {

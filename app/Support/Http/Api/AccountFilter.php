@@ -28,6 +28,9 @@ use FireflyIII\Enums\AccountTypeEnum;
 
 /**
  * Trait AccountFilter
+ *
+ * Trait para filtragem de contas.
+ * Mapeia tipos de conta para filtragem em requisicoes da API.
  */
 trait AccountFilter
 {

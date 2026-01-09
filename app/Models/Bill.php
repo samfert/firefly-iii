@@ -36,6 +36,38 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Bill
+ *
+ * Representa uma conta recorrente ou fatura no sistema Firefly III.
+ * Faturas sao despesas regulares como aluguel, contas de servicos publicos,
+ * assinaturas, etc. que ocorrem em intervalos previsíveis.
+ *
+ * @property int                                 $id                      Identificador unico da fatura
+ * @property int                                 $user_id                 ID do usuario proprietario
+ * @property int                                 $user_group_id           ID do grupo de usuarios
+ * @property int                                 $transaction_currency_id ID da moeda
+ * @property string                              $name                    Nome da fatura
+ * @property string|null                         $match                   Padrao de correspondencia para transacoes
+ * @property string                              $amount_min              Valor minimo esperado
+ * @property string                              $amount_max              Valor maximo esperado
+ * @property \Carbon\Carbon                      $date                    Data de vencimento
+ * @property string                              $repeat_freq             Frequencia de repeticao
+ * @property int                                 $skip                    Numero de periodos a pular
+ * @property bool                                $automatch               Se deve corresponder automaticamente
+ * @property bool                                $active                  Se a fatura esta ativa
+ * @property \Carbon\Carbon|null                 $end_date                Data de fim da fatura
+ * @property \Carbon\Carbon|null                 $extension_date          Data de extensao
+ * @property \Carbon\Carbon                      $created_at              Data de criacao
+ * @property \Carbon\Carbon                      $updated_at              Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at              Data de exclusao (soft delete)
+ * @property-read User                           $user                    Usuario proprietario
+ * @property-read TransactionCurrency            $transactionCurrency     Moeda da fatura
+ * @property-read \Illuminate\Support\Collection $transactionJournals     Transacoes associadas
+ * @property-read \Illuminate\Support\Collection $attachments             Anexos da fatura
+ * @property-read \Illuminate\Support\Collection $notes                   Notas da fatura
+ * @property-read \Illuminate\Support\Collection $objectGroups            Grupos de objetos
+ */
 class Bill extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -90,18 +122,30 @@ class Bill extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario desta fatura.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todos os anexos associados a esta fatura.
+     *
+     * @return MorphMany Colecao polimorfica de Attachment
+     */
     public function attachments(): MorphMany
     {
         return $this->morphMany(Attachment::class, 'attachable');
     }
 
     /**
-     * Get all of the notes.
+     * Retorna todas as notas associadas a esta fatura.
+     *
+     * @return MorphMany Colecao polimorfica de Note
      */
     public function notes(): MorphMany
     {
@@ -109,7 +153,9 @@ class Bill extends Model
     }
 
     /**
-     * Get all the tags for the post.
+     * Retorna todos os grupos de objetos aos quais esta fatura pertence.
+     *
+     * @return MorphToMany Colecao polimorfica de ObjectGroup
      */
     public function objectGroups(): MorphToMany
     {
@@ -117,7 +163,11 @@ class Bill extends Model
     }
 
     /**
-     * @param mixed $value
+     * Define o valor maximo da fatura como string.
+     *
+     * @param mixed $value Valor maximo a ser definido
+     *
+     * @return void
      */
     public function setAmountMaxAttribute($value): void
     {
@@ -125,25 +175,41 @@ class Bill extends Model
     }
 
     /**
-     * @param mixed $value
+     * Define o valor minimo da fatura como string.
+     *
+     * @param mixed $value Valor minimo a ser definido
+     *
+     * @return void
      */
     public function setAmountMinAttribute($value): void
     {
         $this->attributes['amount_min'] = (string) $value;
     }
 
+    /**
+     * Retorna a moeda associada a esta fatura.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionCurrency
+     */
     public function transactionCurrency(): BelongsTo
     {
         return $this->belongsTo(TransactionCurrency::class);
     }
 
+    /**
+     * Retorna todas as transacoes associadas a esta fatura.
+     *
+     * @return HasMany Colecao de TransactionJournal relacionadas
+     */
     public function transactionJournals(): HasMany
     {
         return $this->hasMany(TransactionJournal::class);
     }
 
     /**
-     * Get the max amount
+     * Accessor para garantir que o valor maximo seja retornado como string.
+     *
+     * @return Attribute Atributo computado para o valor maximo
      */
     protected function amountMax(): Attribute
     {
@@ -153,7 +219,9 @@ class Bill extends Model
     }
 
     /**
-     * Get the min amount
+     * Accessor para garantir que o valor minimo seja retornado como string.
+     *
+     * @return Attribute Atributo computado para o valor minimo
      */
     protected function amountMin(): Attribute
     {
@@ -162,6 +230,11 @@ class Bill extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de exibicao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -170,7 +243,9 @@ class Bill extends Model
     }
 
     /**
-     * Get the skip
+     * Accessor para garantir que o numero de periodos a pular seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o numero de periodos a pular
      */
     protected function skip(): Attribute
     {
@@ -179,6 +254,11 @@ class Bill extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID da moeda seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da moeda
+     */
     protected function transactionCurrencyId(): Attribute
     {
         return Attribute::make(
@@ -186,6 +266,11 @@ class Bill extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

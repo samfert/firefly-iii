@@ -41,6 +41,12 @@ use InvalidArgumentException;
 
 use function Safe\file_put_contents;
 
+/**
+ * Class ExportsData
+ *
+ * Comando para exportar dados.
+ * Exporta transacoes, contas, orcamentos, categorias e outros dados para arquivos CSV.
+ */
 class ExportsData extends Command
 {
     use ShowsFriendlyMessages;

@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de categorias.
+ * Valida e processa dados de criacao de categorias de transacoes.
  */
 class StoreRequest extends FormRequest
 {

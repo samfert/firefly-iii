@@ -29,6 +29,24 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Class PiggyBankEvent
+ *
+ * Registra eventos de deposito ou retirada em um cofrinho.
+ * Cada evento representa uma alteracao no saldo do cofrinho,
+ * permitindo rastrear o historico de contribuicoes.
+ *
+ * @property int                    $id                     Identificador unico do evento
+ * @property int                    $piggy_bank_id          ID do cofrinho associado
+ * @property int|null               $transaction_journal_id ID da transacao associada
+ * @property \Carbon\Carbon         $date                   Data do evento
+ * @property string                 $amount                 Valor do evento (positivo ou negativo)
+ * @property string|null            $native_amount          Valor na moeda nativa
+ * @property \Carbon\Carbon         $created_at             Data de criacao
+ * @property \Carbon\Carbon         $updated_at             Data de atualizacao
+ * @property-read PiggyBank         $piggyBank              Cofrinho associado
+ * @property-read TransactionJournal|null $transactionJournal Transacao associada
+ */
 class PiggyBankEvent extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -37,26 +55,42 @@ class PiggyBankEvent extends Model
 
     protected $hidden   = ['amount_encrypted'];
 
+    /**
+     * Retorna o cofrinho associado a este evento.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo PiggyBank
+     */
     public function piggyBank(): BelongsTo
     {
         return $this->belongsTo(PiggyBank::class);
     }
 
     /**
-     * @param mixed $value
+     * Define o valor do evento como string.
+     *
+     * @param mixed $value Valor a ser definido
+     *
+     * @return void
      */
     public function setAmountAttribute($value): void
     {
         $this->attributes['amount'] = (string) $value;
     }
 
+    /**
+     * Retorna a transacao associada a este evento.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionJournal
+     */
     public function transactionJournal(): BelongsTo
     {
         return $this->belongsTo(TransactionJournal::class);
     }
 
     /**
-     * Get the amount
+     * Accessor para garantir que o valor seja retornado como string.
+     *
+     * @return Attribute Atributo computado para o valor do evento
      */
     protected function amount(): Attribute
     {
@@ -65,6 +99,11 @@ class PiggyBankEvent extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID do cofrinho seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do cofrinho
+     */
     protected function piggyBankId(): Attribute
     {
         return Attribute::make(
@@ -72,6 +111,11 @@ class PiggyBankEvent extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

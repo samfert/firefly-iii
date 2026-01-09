@@ -27,9 +27,17 @@ use FireflyIII\Models\RuleGroup;
 
 /**
  * Class RuleGroupObserver
+ *
+ * Observador para grupos de regras.
+ * Exclui regras associadas ao excluir grupo.
  */
 class RuleGroupObserver
 {
+    /**
+     * Processa exclusao de grupo de regras.
+     *
+     * @param RuleGroup $ruleGroup Grupo sendo excluido
+     */
     public function deleting(RuleGroup $ruleGroup): void
     {
         app('log')->debug('Observe "deleting" of a rule group.');

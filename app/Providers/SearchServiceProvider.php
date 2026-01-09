@@ -34,6 +34,8 @@ use Override;
 
 /**
  * Class SearchServiceProvider.
+ *
+ * Provedor de servicos de busca.
  */
 class SearchServiceProvider extends ServiceProvider
 {

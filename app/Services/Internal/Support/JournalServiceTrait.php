@@ -43,6 +43,9 @@ use function Safe\json_encode;
 
 /**
  * Trait JournalServiceTrait
+ *
+ * Trait com funcionalidades de servico de diarios de transacoes.
+ * Fornece metodos para encontrar contas, armazenar orcamentos, categorias e tags.
  */
 trait JournalServiceTrait
 {

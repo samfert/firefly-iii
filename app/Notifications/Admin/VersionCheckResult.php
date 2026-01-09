@@ -37,11 +37,18 @@ use Ntfy\Message;
 
 /**
  * Class VersionCheckResult
+ *
+ * Notificacao de resultado de verificacao de versao.
  */
 class VersionCheckResult extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param string $message Mensagem de resultado
+     */
     public function __construct(private string $message) {}
 
     /**

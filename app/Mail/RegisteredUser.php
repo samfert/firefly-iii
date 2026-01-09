@@ -28,9 +28,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Sends newly registered user an email message.
+ * Class RegisteredUser.
  *
- * Class RegisteredUser
+ * Email de boas-vindas para usuarios recem-registrados.
  */
 class RegisteredUser extends Mailable
 {

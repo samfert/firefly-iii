@@ -38,9 +38,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class AccountObserver
+ *
+ * Observador para contas.
+ * Atualiza valores de moeda primaria e limpa dados relacionados.
  */
 class AccountObserver
 {
+    /**
+     * Processa criacao de conta.
+     *
+     * @param Account $account Conta criada
+     */
     public function created(Account $account): void
     {
         //        Log::debug('Observe "created" of an account.');

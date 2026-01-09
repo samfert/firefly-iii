@@ -36,7 +36,11 @@ use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
 /**
- * Class LinkController.
+ * Class LinkController
+ *
+ * Controlador responsavel pelo gerenciamento de links entre transacoes.
+ * Permite criar, excluir e inverter links que conectam transacoes
+ * relacionadas (ex: reembolsos, pagamentos parcelados).
  */
 class LinkController extends Controller
 {

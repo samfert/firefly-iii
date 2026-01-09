@@ -27,6 +27,11 @@ namespace FireflyIII\Events\Model\Account;
 use FireflyIII\Models\Account;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class Updated
+ *
+ * Evento disparado quando uma conta e atualizada.
+ */
 class Updated
 {
     use SerializesModels;

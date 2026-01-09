@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface CurrencyRepositoryInterface
  *
+ * Interface para repositorio de moedas de grupos de usuarios.
+ * Define metodos para gerenciar moedas, incluindo ativacao, desativacao e definicao de moeda padrao.
+ *
  * @deprecated
  */
 interface CurrencyRepositoryInterface

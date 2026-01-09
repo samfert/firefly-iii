@@ -43,6 +43,9 @@ use Override;
 
 /**
  * Class OperationsRepository
+ *
+ * Repositorio para operacoes de orcamento.
+ * Fornece metodos para calcular gastos e gerar relatorios de orcamento.
  */
 class OperationsRepository implements OperationsRepositoryInterface, UserGroupInterface
 {

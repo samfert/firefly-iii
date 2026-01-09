@@ -33,6 +33,36 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class UserGroup
+ *
+ * Representa um grupo de usuarios no sistema Firefly III.
+ * Grupos de usuarios permitem compartilhar dados financeiros entre
+ * multiplos usuarios, como familias ou organizacoes.
+ *
+ * @property int                                 $id                    Identificador unico do grupo
+ * @property string                              $title                 Titulo do grupo
+ * @property \Carbon\Carbon                      $created_at            Data de criacao
+ * @property \Carbon\Carbon                      $updated_at            Data de atualizacao
+ * @property-read \Illuminate\Support\Collection $accounts              Contas do grupo
+ * @property-read \Illuminate\Support\Collection $attachments           Anexos do grupo
+ * @property-read \Illuminate\Support\Collection $availableBudgets      Orcamentos disponiveis
+ * @property-read \Illuminate\Support\Collection $bills                 Faturas do grupo
+ * @property-read \Illuminate\Support\Collection $budgets               Orcamentos do grupo
+ * @property-read \Illuminate\Support\Collection $categories            Categorias do grupo
+ * @property-read \Illuminate\Support\Collection $currencies            Moedas do grupo
+ * @property-read \Illuminate\Support\Collection $currencyExchangeRates Taxas de cambio
+ * @property-read \Illuminate\Support\Collection $groupMemberships      Membros do grupo
+ * @property-read \Illuminate\Support\Collection $objectGroups          Grupos de objetos
+ * @property-read \Illuminate\Support\Collection $piggyBanks            Cofrinhos
+ * @property-read \Illuminate\Support\Collection $recurrences           Recorrencias
+ * @property-read \Illuminate\Support\Collection $ruleGroups            Grupos de regras
+ * @property-read \Illuminate\Support\Collection $rules                 Regras
+ * @property-read \Illuminate\Support\Collection $tags                  Tags
+ * @property-read \Illuminate\Support\Collection $transactionGroups     Grupos de transacoes
+ * @property-read \Illuminate\Support\Collection $transactionJournals   Diarios de transacao
+ * @property-read \Illuminate\Support\Collection $webhooks              Webhooks
+ */
 class UserGroup extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -69,7 +99,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to accounts.
+     * Retorna todas as contas deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Account relacionadas
      */
     public function accounts(): HasMany
     {
@@ -77,7 +109,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to attachments.
+     * Retorna todos os anexos deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Attachment relacionados
      */
     public function attachments(): HasMany
     {
@@ -85,7 +119,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to bills.
+     * Retorna todos os orcamentos disponiveis deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de AvailableBudget relacionados
      */
     public function availableBudgets(): HasMany
     {
@@ -93,7 +129,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to bills.
+     * Retorna todas as faturas deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Bill relacionadas
      */
     public function bills(): HasMany
     {
@@ -101,7 +139,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to budgets.
+     * Retorna todos os orcamentos deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Budget relacionados
      */
     public function budgets(): HasMany
     {
@@ -109,7 +149,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to categories.
+     * Retorna todas as categorias deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Category relacionadas
      */
     public function categories(): HasMany
     {
@@ -117,7 +159,9 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to currencies
+     * Retorna todas as moedas habilitadas para este grupo de usuarios.
+     *
+     * @return BelongsToMany Colecao de TransactionCurrency relacionadas
      */
     public function currencies(): BelongsToMany
     {
@@ -125,64 +169,110 @@ class UserGroup extends Model
     }
 
     /**
-     * Link to exchange rates.
+     * Retorna todas as taxas de cambio deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de CurrencyExchangeRate relacionadas
      */
     public function currencyExchangeRates(): HasMany
     {
         return $this->hasMany(CurrencyExchangeRate::class);
     }
 
+    /**
+     * Retorna todas as associacoes de membros deste grupo.
+     *
+     * @return HasMany Colecao de GroupMembership relacionadas
+     */
     public function groupMemberships(): HasMany
     {
         return $this->hasMany(GroupMembership::class);
     }
 
+    /**
+     * Retorna todos os grupos de objetos deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de ObjectGroup relacionados
+     */
     public function objectGroups(): HasMany
     {
         return $this->hasMany(ObjectGroup::class);
     }
 
     /**
-     * Link to piggy banks.
+     * Retorna todos os cofrinhos deste grupo de usuarios atraves das contas.
+     *
+     * @return HasManyThrough Colecao de PiggyBank relacionados
      */
     public function piggyBanks(): HasManyThrough
     {
         return $this->hasManyThrough(PiggyBank::class, Account::class);
     }
 
+    /**
+     * Retorna todas as recorrencias deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Recurrence relacionadas
+     */
     public function recurrences(): HasMany
     {
         return $this->hasMany(Recurrence::class);
     }
 
+    /**
+     * Retorna todos os grupos de regras deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de RuleGroup relacionados
+     */
     public function ruleGroups(): HasMany
     {
         return $this->hasMany(RuleGroup::class);
     }
 
+    /**
+     * Retorna todas as regras deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Rule relacionadas
+     */
     public function rules(): HasMany
     {
         return $this->hasMany(Rule::class);
     }
 
+    /**
+     * Retorna todas as tags deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Tag relacionadas
+     */
     public function tags(): HasMany
     {
         return $this->hasMany(Tag::class);
     }
 
+    /**
+     * Retorna todos os grupos de transacoes deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de TransactionGroup relacionados
+     */
     public function transactionGroups(): HasMany
     {
         return $this->hasMany(TransactionGroup::class);
     }
 
     /**
-     * Link to transaction journals.
+     * Retorna todos os diarios de transacao deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de TransactionJournal relacionados
      */
     public function transactionJournals(): HasMany
     {
         return $this->hasMany(TransactionJournal::class);
     }
 
+    /**
+     * Retorna todos os webhooks deste grupo de usuarios.
+     *
+     * @return HasMany Colecao de Webhook relacionados
+     */
     public function webhooks(): HasMany
     {
         return $this->hasMany(Webhook::class);

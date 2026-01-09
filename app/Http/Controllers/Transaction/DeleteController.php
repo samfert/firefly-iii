@@ -39,6 +39,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de transacoes.
+ * Permite excluir grupos de transacoes e atualiza contas associadas.
  */
 class DeleteController extends Controller
 {

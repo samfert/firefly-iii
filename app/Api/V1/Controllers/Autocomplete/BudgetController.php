@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class BudgetController
+ *
+ * Controlador da API responsavel pelo autocomplete de orcamentos.
+ * Fornece sugestoes de orcamentos para campos de busca
+ * com informacoes de ID e nome.
  */
 class BudgetController extends Controller
 {

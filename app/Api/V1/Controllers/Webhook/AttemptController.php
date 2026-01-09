@@ -41,6 +41,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class AttemptController
+ *
+ * Controlador da API responsavel pelas tentativas de webhook.
+ * Permite listar e visualizar tentativas de envio de mensagens
+ * de webhook, incluindo status e logs de resposta.
  */
 class AttemptController extends Controller
 {

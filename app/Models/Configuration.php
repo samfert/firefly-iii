@@ -31,6 +31,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use function Safe\json_decode;
 use function Safe\json_encode;
 
+/**
+ * Class Configuration
+ *
+ * Armazena configuracoes globais do sistema Firefly III.
+ * Permite armazenar pares chave-valor para configuracoes que
+ * afetam o comportamento geral da aplicacao.
+ *
+ * @property int             $id         Identificador unico da configuracao
+ * @property string          $name       Nome/chave da configuracao
+ * @property mixed           $data       Dados da configuracao (armazenados como JSON)
+ * @property \Carbon\Carbon  $created_at Data de criacao
+ * @property \Carbon\Carbon  $updated_at Data de atualizacao
+ * @property \Carbon\Carbon|null $deleted_at Data de exclusao (soft delete)
+ */
 class Configuration extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -39,15 +53,21 @@ class Configuration extends Model
     protected $table = 'configuration';
 
     /**
-     * TODO can be replaced with native laravel code.
+     * Accessor e mutator para o campo data.
+     * Converte automaticamente entre JSON e objetos PHP.
      *
-     * @return mixed
+     * @return Attribute Atributo computado para os dados da configuracao
      */
     protected function data(): Attribute
     {
         return Attribute::make(get: fn ($value) => json_decode((string) $value), set: fn ($value) => ['data' => json_encode($value)]);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

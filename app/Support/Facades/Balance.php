@@ -26,6 +26,12 @@ namespace FireflyIII\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class Balance
+ *
+ * Facade para calculos de saldo.
+ * Fornece acesso estatico aos metodos de calculo de saldo de contas.
+ */
 class Balance extends Facade
 {
     /**

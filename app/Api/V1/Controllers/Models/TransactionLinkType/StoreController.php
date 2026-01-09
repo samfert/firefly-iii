@@ -38,6 +38,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de tipos de links de transacoes.
+ * Cria novos tipos de links no sistema atraves da API REST.
  */
 class StoreController extends Controller
 {

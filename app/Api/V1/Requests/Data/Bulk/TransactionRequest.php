@@ -38,6 +38,9 @@ use function Safe\json_decode;
 
 /**
  * Class TransactionRequest
+ *
+ * Classe de requisicao para operacoes em massa de transacoes.
+ * Valida e processa consultas JSON para operacoes em lote.
  */
 class TransactionRequest extends FormRequest
 {

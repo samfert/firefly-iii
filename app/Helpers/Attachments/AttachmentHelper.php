@@ -47,15 +47,27 @@ use const DIRECTORY_SEPARATOR;
 
 /**
  * Class AttachmentHelper.
+ *
+ * Helper para gerenciamento de anexos.
  */
 class AttachmentHelper implements AttachmentHelperInterface
 {
+    /** @var Collection Anexos processados */
     public Collection $attachments;
+
+    /** @var MessageBag Erros de upload */
     public MessageBag $errors;
+
+    /** @var MessageBag Mensagens de sucesso */
     public MessageBag $messages;
+
+    /** @var array Tipos MIME permitidos */
     protected array   $allowedMimes  = [];
+
+    /** @var int Tamanho maximo de upload */
     protected int     $maxUploadSize = 0;
 
+    /** @var Filesystem Disco de upload */
     protected Filesystem $uploadDisk;
 
     /**

@@ -30,7 +30,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * Class ReportController.
+ * Class ReportController
+ *
+ * Controlador responsavel por popups de relatorios.
+ * Gera conteudo HTML para janelas popup que exibem
+ * detalhes de orcamentos, despesas, receitas e categorias.
  */
 class ReportController extends Controller
 {

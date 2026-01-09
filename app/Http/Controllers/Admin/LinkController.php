@@ -36,7 +36,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 /**
- * Class LinkController.
+ * Class LinkController
+ *
+ * Controlador responsavel pela administracao de tipos de links entre transacoes.
+ * Permite criar, editar e excluir tipos de links personalizados que conectam
+ * transacoes relacionadas no sistema.
  */
 class LinkController extends Controller
 {

@@ -27,7 +27,9 @@ namespace FireflyIII\Factory;
 use FireflyIII\Models\TransactionType;
 
 /**
- * Class TransactionTypeFactory
+ * Class TransactionTypeFactory.
+ *
+ * Fabrica para criacao de tipos de transacao.
  */
 class TransactionTypeFactory
 {

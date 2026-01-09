@@ -29,9 +29,17 @@ use FireflyIII\Repositories\Attachment\AttachmentRepositoryInterface;
 
 /**
  * Class RecurrenceObserver
+ *
+ * Observador para recorrencias.
+ * Limpa anexos, repeticoes e transacoes ao excluir.
  */
 class RecurrenceObserver
 {
+    /**
+     * Processa exclusao de recorrencia.
+     *
+     * @param Recurrence $recurrence Recorrencia sendo excluida
+     */
     public function deleting(Recurrence $recurrence): void
     {
         app('log')->debug('Observe "deleting" of a recurrence.');

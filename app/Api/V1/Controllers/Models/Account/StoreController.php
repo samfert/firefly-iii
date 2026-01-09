@@ -35,6 +35,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de contas.
+ * Cria novas contas no sistema atraves da API REST.
  */
 class StoreController extends Controller
 {

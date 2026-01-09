@@ -40,6 +40,33 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Account
+ *
+ * Representa uma conta financeira no sistema Firefly III. As contas podem ser de diversos tipos,
+ * como contas correntes, poupanca, cartoes de credito, ativos, passivos, entre outros.
+ * Esta classe e o modelo central para gerenciar todas as contas do usuario.
+ *
+ * @property int                                      $id                     Identificador unico da conta
+ * @property int                                      $user_id                ID do usuario proprietario
+ * @property int                                      $user_group_id          ID do grupo de usuarios
+ * @property int                                      $account_type_id        ID do tipo de conta
+ * @property string                                   $name                   Nome da conta
+ * @property bool                                     $active                 Indica se a conta esta ativa
+ * @property string|null                              $virtual_balance        Saldo virtual da conta
+ * @property string|null                              $iban                   Numero IBAN da conta
+ * @property string|null                              $native_virtual_balance Saldo virtual na moeda nativa
+ * @property \Carbon\Carbon                           $created_at             Data de criacao
+ * @property \Carbon\Carbon                           $updated_at             Data de atualizacao
+ * @property \Carbon\Carbon|null                      $deleted_at             Data de exclusao (soft delete)
+ * @property-read AccountType                         $accountType            Tipo da conta
+ * @property-read User                                $user                   Usuario proprietario
+ * @property-read \Illuminate\Support\Collection      $accountMeta            Metadados da conta
+ * @property-read \Illuminate\Support\Collection      $transactions           Transacoes da conta
+ * @property-read \Illuminate\Support\Collection      $piggyBanks             Cofrinhos associados
+ * @property-read \Illuminate\Support\Collection      $attachments            Anexos da conta
+ * @property-read \Illuminate\Support\Collection      $notes                  Notas da conta
+ */
 class Account extends Model
 {
     use HasFactory;
@@ -75,21 +102,43 @@ class Account extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o relacionamento com o usuario proprietario da conta.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todos os saldos historicos da conta.
+     * Os saldos sao armazenados para diferentes moedas e periodos.
+     *
+     * @return HasMany Colecao de AccountBalance relacionados a esta conta
+     */
     public function accountBalances(): HasMany
     {
         return $this->hasMany(AccountBalance::class);
     }
 
+    /**
+     * Retorna o tipo da conta (corrente, poupanca, cartao de credito, etc.).
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo AccountType
+     */
     public function accountType(): BelongsTo
     {
         return $this->belongsTo(AccountType::class);
     }
 
+    /**
+     * Retorna todos os anexos associados a esta conta.
+     * Anexos podem incluir documentos, comprovantes, etc.
+     *
+     * @return MorphMany Colecao polimorfica de Attachment
+     */
     public function attachments(): MorphMany
     {
         return $this->morphMany(Attachment::class, 'attachable');
@@ -111,15 +160,28 @@ class Account extends Model
         });
     }
 
+    /**
+     * Retorna todos os metadados associados a esta conta.
+     * Metadados incluem informacoes adicionais como numero da conta, BIC, etc.
+     *
+     * @return HasMany Colecao de AccountMeta relacionados a esta conta
+     */
     public function accountMeta(): HasMany
     {
         return $this->hasMany(AccountMeta::class);
     }
 
+    /**
+     * Retorna o nome editavel da conta.
+     * Para contas do tipo CASH, retorna string vazia pois nao sao editaveis.
+     *
+     * @return Attribute Atributo computado para o nome editavel
+     */
     protected function editName(): Attribute
     {
         return Attribute::make(get: function () {
             $name = $this->name;
+            // Contas do tipo CASH nao possuem nome editavel
             if (AccountTypeEnum::CASH->value === $this->accountType->type) {
                 return '';
             }
@@ -128,13 +190,21 @@ class Account extends Model
         });
     }
 
+    /**
+     * Retorna todas as localizacoes geograficas associadas a esta conta.
+     *
+     * @return MorphMany Colecao polimorfica de Location
+     */
     public function locations(): MorphMany
     {
         return $this->morphMany(Location::class, 'locatable');
     }
 
     /**
-     * Get all the notes.
+     * Retorna todas as notas associadas a esta conta.
+     * Notas podem conter informacoes adicionais ou lembretes sobre a conta.
+     *
+     * @return MorphMany Colecao polimorfica de Note
      */
     public function notes(): MorphMany
     {
@@ -142,21 +212,40 @@ class Account extends Model
     }
 
     /**
-     * Get all the tags for the post.
+     * Retorna todos os grupos de objetos aos quais esta conta pertence.
+     * Grupos de objetos permitem organizar contas em categorias personalizadas.
+     *
+     * @return MorphToMany Colecao polimorfica de ObjectGroup
      */
     public function objectGroups(): MorphToMany
     {
         return $this->morphToMany(ObjectGroup::class, 'object_groupable');
     }
 
+    /**
+     * Retorna todos os cofrinhos (piggy banks) associados a esta conta.
+     * Cofrinhos sao metas de poupanca vinculadas a contas.
+     *
+     * @return BelongsToMany Colecao de PiggyBank relacionados
+     */
     public function piggyBanks(): BelongsToMany
     {
         return $this->belongsToMany(PiggyBank::class);
     }
 
+    /**
+     * Escopo de consulta para filtrar contas por tipos especificos.
+     * Realiza join com a tabela account_types se necessario.
+     *
+     * @param EloquentBuilder $query Query builder do Eloquent
+     * @param array           $types Array de tipos de conta para filtrar
+     *
+     * @return void
+     */
     #[Scope]
     protected function accountTypeIn(EloquentBuilder $query, array $types): void
     {
+        // Realiza o join apenas uma vez para evitar duplicacao
         if (false === $this->joinedAccountTypes) {
             $query->leftJoin('account_types', 'account_types.id', '=', 'accounts.account_type_id');
             $this->joinedAccountTypes = true;
@@ -164,6 +253,14 @@ class Account extends Model
         $query->whereIn('account_types.type', $types);
     }
 
+    /**
+     * Define o valor do saldo virtual da conta.
+     * Converte valores vazios para null para consistencia no banco de dados.
+     *
+     * @param mixed $value Valor do saldo virtual a ser definido
+     *
+     * @return void
+     */
     public function setVirtualBalanceAttribute(mixed $value): void
     {
         $value                               = (string) $value;
@@ -173,16 +270,31 @@ class Account extends Model
         $this->attributes['virtual_balance'] = $value;
     }
 
+    /**
+     * Retorna todas as transacoes associadas a esta conta.
+     *
+     * @return HasMany Colecao de Transaction relacionadas a esta conta
+     */
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
     }
 
+    /**
+     * Retorna o grupo de usuarios ao qual esta conta pertence.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo UserGroup
+     */
     public function userGroup(): BelongsTo
     {
         return $this->belongsTo(UserGroup::class);
     }
 
+    /**
+     * Accessor para garantir que o ID da conta seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da conta
+     */
     protected function accountId(): Attribute
     {
         return Attribute::make(
@@ -191,7 +303,9 @@ class Account extends Model
     }
 
     /**
-     * Get the user ID
+     * Accessor para garantir que o ID do tipo de conta seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do tipo de conta
      */
     protected function accountTypeId(): Attribute
     {
@@ -200,6 +314,12 @@ class Account extends Model
         );
     }
 
+    /**
+     * Accessor para formatar o IBAN removendo espacos.
+     * Retorna null se o valor original for null.
+     *
+     * @return Attribute Atributo computado para o IBAN formatado
+     */
     protected function iban(): Attribute
     {
         return Attribute::make(
@@ -207,6 +327,11 @@ class Account extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de exibicao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -215,7 +340,9 @@ class Account extends Model
     }
 
     /**
-     * Get the virtual balance
+     * Accessor para garantir que o saldo virtual seja retornado como string.
+     *
+     * @return Attribute Atributo computado para o saldo virtual
      */
     protected function virtualBalance(): Attribute
     {
@@ -224,6 +351,12 @@ class Account extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     * Especifica como cada atributo deve ser convertido ao ser acessado.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

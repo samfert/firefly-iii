@@ -34,6 +34,12 @@ use FireflyIII\Repositories\ExchangeRate\ExchangeRateRepositoryInterface;
 use FireflyIII\Support\Http\Api\ValidatesUserGroupTrait;
 use Illuminate\Http\JsonResponse;
 
+/**
+ * Class DestroyController
+ *
+ * Controlador da API responsavel pela exclusao de taxas de cambio.
+ * Remove taxas de cambio do sistema atraves da API REST.
+ */
 class DestroyController extends Controller
 {
     use ValidatesUserGroupTrait;

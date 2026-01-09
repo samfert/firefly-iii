@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Interface Interspacable
+ *
+ * Interface para classes de periodicidade.
+ * Define metodo para calcular proxima data com intervalo.
  */
 interface Interspacable
 {

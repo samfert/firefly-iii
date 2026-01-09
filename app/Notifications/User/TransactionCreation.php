@@ -31,11 +31,18 @@ use Illuminate\Notifications\Notification;
 
 /**
  * Class TransactionCreation
+ *
+ * Notificacao de criacao de transacoes.
  */
 class TransactionCreation extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param array $collection Colecao de transacoes criadas
+     */
     public function __construct(private array $collection) {}
 
     /**

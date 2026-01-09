@@ -30,9 +30,12 @@ use FireflyIII\User;
 
 /**
  * Class UserTransformer
+ *
+ * Transformador de usuarios para API.
  */
 class UserTransformer extends AbstractTransformer
 {
+    /** @var UserRepositoryInterface Repositorio de usuarios */
     private UserRepositoryInterface $repository;
 
     /**

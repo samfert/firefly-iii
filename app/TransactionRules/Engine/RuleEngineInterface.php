@@ -29,6 +29,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface RuleEngineInterface
+ *
+ * Interface para motores de regras de transacao.
+ * Define metodos para buscar e executar regras.
  */
 interface RuleEngineInterface
 {

@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class DestroyRequest
+ *
+ * Classe de requisicao para exclusao em massa de dados.
+ * Valida e processa parametros de exclusao de objetos do sistema.
  */
 class DestroyRequest extends FormRequest
 {

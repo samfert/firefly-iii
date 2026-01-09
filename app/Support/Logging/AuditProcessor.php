@@ -28,6 +28,9 @@ use Monolog\LogRecord;
 
 /**
  * Class AuditProcessor
+ *
+ * Processador de auditoria.
+ * Adiciona informacoes de usuario, IP e requisicao aos registros de log de auditoria.
  */
 class AuditProcessor
 {

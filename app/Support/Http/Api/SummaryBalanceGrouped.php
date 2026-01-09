@@ -28,6 +28,12 @@ use FireflyIII\Models\TransactionCurrency;
 use FireflyIII\Repositories\Currency\CurrencyRepositoryInterface;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class SummaryBalanceGrouped
+ *
+ * Agrupador de saldo de resumo.
+ * Agrupa transacoes por moeda para exibicao de resumo de saldo.
+ */
 class SummaryBalanceGrouped
 {
     private const string SUM                              = 'sum';

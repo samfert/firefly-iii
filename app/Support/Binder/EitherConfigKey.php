@@ -29,6 +29,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class EitherConfigKey
+ *
+ * Binder de rota para chaves de configuracao estaticas ou dinamicas.
+ * Valida chaves de configuracao aceitas incluindo webhooks e regras.
  */
 class EitherConfigKey
 {

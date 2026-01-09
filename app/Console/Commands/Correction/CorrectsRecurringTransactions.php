@@ -33,6 +33,12 @@ use FireflyIII\Repositories\User\UserRepositoryInterface;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class CorrectsRecurringTransactions
+ *
+ * Comando para corrigir transacoes recorrentes.
+ * Corrige transacoes recorrentes com tipo de transacao incorreto.
+ */
 class CorrectsRecurringTransactions extends Command
 {
     use ShowsFriendlyMessages;

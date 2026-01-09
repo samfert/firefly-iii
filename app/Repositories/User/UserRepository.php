@@ -40,6 +40,9 @@ use Override;
 
 /**
  * Class UserRepository.
+ *
+ * Repositorio principal para gerenciamento de usuarios.
+ * Fornece metodos para criar, atualizar, excluir e consultar usuarios do sistema.
  */
 class UserRepository implements UserRepositoryInterface
 {

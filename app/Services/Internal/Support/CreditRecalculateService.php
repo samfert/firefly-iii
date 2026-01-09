@@ -37,6 +37,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class CreditRecalculateService
+ *
+ * Servico para recalculo de creditos de passivos.
+ * Gerencia o calculo de dividas e creditos em contas de passivo.
  */
 class CreditRecalculateService
 {

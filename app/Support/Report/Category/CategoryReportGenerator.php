@@ -32,6 +32,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class CategoryReportGenerator
+ *
+ * Gerador de relatorio de categoria.
+ * Gera dados para relatorios de categoria incluindo receitas e despesas.
  */
 class CategoryReportGenerator
 {

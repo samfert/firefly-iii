@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use FireflyIII\Models\BudgetLimit;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesBudgetLimitPeriods
+ *
+ * Comando para adicionar periodos a limites de orcamento.
+ * Adiciona o periodo estimado aos limites de orcamento existentes.
+ */
 class UpgradesBudgetLimitPeriods extends Command
 {
     use ShowsFriendlyMessages;

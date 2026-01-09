@@ -35,6 +35,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de regras.
+ * Atualiza dados de regras existentes atraves da API REST.
  */
 class UpdateController extends Controller
 {

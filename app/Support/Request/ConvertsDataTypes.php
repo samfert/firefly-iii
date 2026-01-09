@@ -36,6 +36,9 @@ use function Safe\preg_replace;
 
 /**
  * Trait ConvertsDataTypes
+ *
+ * Trait para conversao de tipos de dados.
+ * Fornece metodos para converter e limpar dados de requisicoes.
  */
 trait ConvertsDataTypes
 {

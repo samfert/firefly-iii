@@ -39,6 +39,9 @@ use Illuminate\View\View;
 
 /**
  * Class NoCategoryController
+ *
+ * Controlador responsavel pela exibicao de transacoes sem categoria.
+ * Permite visualizar e filtrar transacoes que nao possuem categoria definida.
  */
 class NoCategoryController extends Controller
 {

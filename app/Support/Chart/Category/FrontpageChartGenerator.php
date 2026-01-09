@@ -38,6 +38,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class FrontpageChartGenerator
+ *
+ * Gerador de graficos de categoria para pagina inicial.
+ * Gera dados de graficos mostrando gastos por categoria.
  */
 class FrontpageChartGenerator
 {

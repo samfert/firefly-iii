@@ -39,6 +39,10 @@ use function Safe\parse_url;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de transacoes.
+ * Permite modificar valores, contas, categorias e outras propriedades
+ * de transacoes existentes.
  */
 class EditController extends Controller
 {

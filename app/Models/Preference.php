@@ -30,6 +30,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Preference
+ *
+ * Armazena preferencias do usuario no sistema Firefly III.
+ * Preferencias incluem configuracoes como idioma, moeda padrao,
+ * formato de data, e outras opcoes personalizaveis.
+ *
+ * @property int            $id            Identificador unico da preferencia
+ * @property int            $user_id       ID do usuario proprietario
+ * @property int|null       $user_group_id ID do grupo de usuarios
+ * @property string         $name          Nome/chave da preferencia
+ * @property array          $data          Dados da preferencia
+ * @property \Carbon\Carbon $created_at    Data de criacao
+ * @property \Carbon\Carbon $updated_at    Data de atualizacao
+ * @property-read User      $user          Usuario proprietario
+ */
 class Preference extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -89,11 +105,21 @@ class Preference extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario desta preferencia.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

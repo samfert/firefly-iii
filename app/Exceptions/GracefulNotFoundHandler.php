@@ -38,7 +38,9 @@ use Override;
 use Throwable;
 
 /**
- * Class GracefulNotFoundHandler
+ * Class GracefulNotFoundHandler.
+ *
+ * Manipulador de excecoes 404 com redirecionamento gracioso.
  */
 class GracefulNotFoundHandler extends ExceptionHandler
 {

@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class BillController
+ *
+ * Controlador da API responsavel pelo autocomplete de faturas.
+ * Fornece sugestoes de faturas/assinaturas para campos de busca
+ * com informacoes de nome e status ativo.
  */
 class BillController extends Controller
 {

@@ -29,7 +29,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class UserGroupTransaction.
+ * Class UserGroupExchangeRate
+ *
+ * Binder de rota para taxas de cambio de grupo de usuarios.
+ * Converte ID de taxa em modelo CurrencyExchangeRate do grupo do usuario.
  */
 class UserGroupExchangeRate implements BinderInterface
 {

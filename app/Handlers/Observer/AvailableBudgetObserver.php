@@ -29,8 +29,19 @@ use FireflyIII\Support\Facades\Amount;
 use FireflyIII\Support\Http\Api\ExchangeRateConverter;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class AvailableBudgetObserver
+ *
+ * Observador para orcamentos disponiveis.
+ * Atualiza valores de moeda primaria.
+ */
 class AvailableBudgetObserver
 {
+    /**
+     * Processa criacao de orcamento disponivel.
+     *
+     * @param AvailableBudget $availableBudget Orcamento criado
+     */
     public function created(AvailableBudget $availableBudget): void
     {
         // Log::debug('Observe "created" of an available budget.');

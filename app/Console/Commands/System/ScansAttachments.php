@@ -40,6 +40,12 @@ use function Safe\md5_file;
 use function Safe\mime_content_type;
 use function Safe\tempnam;
 
+/**
+ * Class ScansAttachments
+ *
+ * Comando para escanear anexos.
+ * Reescaneia todos os anexos e recalcula o hash MD5 e tipo MIME.
+ */
 class ScansAttachments extends Command
 {
     use ShowsFriendlyMessages;

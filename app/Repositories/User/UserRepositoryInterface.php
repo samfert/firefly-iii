@@ -34,6 +34,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface UserRepositoryInterface.
  *
+ * Interface para repositorio de usuarios.
+ * Define metodos para criar, atualizar, excluir e consultar usuarios do sistema.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

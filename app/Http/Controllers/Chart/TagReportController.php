@@ -35,6 +35,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class TagReportController
+ *
+ * Controlador responsavel pela geracao de graficos de relatorios de tags.
+ * Gera graficos de despesas e receitas por tag, orcamento, categoria,
+ * conta de origem e conta de destino.
  */
 class TagReportController extends Controller
 {

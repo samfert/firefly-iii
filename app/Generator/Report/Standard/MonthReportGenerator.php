@@ -31,6 +31,8 @@ use Throwable;
 
 /**
  * Class MonthReportGenerator.
+ *
+ * Gerador de relatorios mensais padrao.
  */
 class MonthReportGenerator implements ReportGeneratorInterface
 {

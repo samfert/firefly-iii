@@ -30,7 +30,9 @@ use FireflyIII\Models\UserGroup;
 use FireflyIII\User;
 
 /**
- * Class TagFactory
+ * Class TagFactory.
+ *
+ * Fabrica para criacao de tags.
  */
 class TagFactory
 {

@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Trait TransactionCalculation
+ *
+ * Trait para calculos de transacao.
+ * Fornece metodos para obter despesas e receitas por categoria, tag e orcamento.
  */
 trait TransactionCalculation
 {

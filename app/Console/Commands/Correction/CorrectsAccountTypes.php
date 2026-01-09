@@ -36,6 +36,12 @@ use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\JoinClause;
 
+/**
+ * Class CorrectsAccountTypes
+ *
+ * Comando para corrigir tipos de conta.
+ * Garante que todos os diarios tenham os tipos de conta de origem/destino corretos.
+ */
 class CorrectsAccountTypes extends Command
 {
     use ShowsFriendlyMessages;

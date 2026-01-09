@@ -47,7 +47,11 @@ use Illuminate\Support\Facades\Log;
 use function Safe\json_encode;
 
 /**
- * Class AccountController.
+ * Class AccountController
+ *
+ * Controlador responsavel pela geracao de graficos relacionados a contas.
+ * Gera graficos de saldo, despesas por orcamento, despesas por categoria
+ * e receitas por categoria para contas de ativos e despesas.
  */
 class AccountController extends Controller
 {

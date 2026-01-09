@@ -39,11 +39,16 @@ use Ntfy\Message;
 
 /**
  * Class NewAccessToken
+ *
+ * Notificacao de criacao de novo token de acesso.
  */
 class NewAccessToken extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     */
     public function __construct() {}
 
     public function toArray(User $notifiable): array

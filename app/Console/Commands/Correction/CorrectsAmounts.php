@@ -44,6 +44,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use ValueError;
 
+/**
+ * Class CorrectsAmounts
+ *
+ * Comando para corrigir valores.
+ * Garante que valores positivos e negativos sejam registrados corretamente.
+ */
 class CorrectsAmounts extends Command
 {
     use ShowsFriendlyMessages;

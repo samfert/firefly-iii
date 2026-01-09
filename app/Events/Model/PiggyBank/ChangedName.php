@@ -8,6 +8,11 @@ use FireflyIII\Events\Event;
 use FireflyIII\Models\PiggyBank;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class ChangedName
+ *
+ * Evento disparado quando o nome de um cofrinho e alterado.
+ */
 class ChangedName extends Event
 {
     use SerializesModels;

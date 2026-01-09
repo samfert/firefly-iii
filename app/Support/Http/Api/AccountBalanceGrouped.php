@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class AccountBalanceGrouped
+ *
+ * Agrupador de saldo de conta.
+ * Agrupa transacoes por moeda e periodo para geracao de graficos de saldo.
  */
 class AccountBalanceGrouped
 {

@@ -36,6 +36,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de contas.
+ * Valida e processa dados de criacao de contas incluindo saldo inicial e localizacao.
  */
 class StoreRequest extends FormRequest
 {

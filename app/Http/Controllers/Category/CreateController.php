@@ -38,6 +38,9 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de novas categorias.
+ * Permite criar categorias para organizar transacoes com suporte a anexos.
  */
 class CreateController extends Controller
 {

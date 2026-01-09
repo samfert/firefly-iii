@@ -33,7 +33,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
- * Class ShowController
+ * Class IndexController
+ *
+ * Controlador da API responsavel pela listagem de taxas de cambio.
+ * Lista todas as taxas de cambio cadastradas no sistema.
  */
 class IndexController extends Controller
 {

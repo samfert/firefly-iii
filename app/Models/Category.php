@@ -34,6 +34,26 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Category
+ *
+ * Representa uma categoria de transacao no sistema Firefly III.
+ * Categorias permitem classificar transacoes para melhor organizacao
+ * e analise dos gastos e receitas do usuario.
+ *
+ * @property int                                 $id              Identificador unico da categoria
+ * @property int                                 $user_id         ID do usuario proprietario
+ * @property int                                 $user_group_id   ID do grupo de usuarios
+ * @property string                              $name            Nome da categoria
+ * @property \Carbon\Carbon                      $created_at      Data de criacao
+ * @property \Carbon\Carbon                      $updated_at      Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at      Data de exclusao (soft delete)
+ * @property-read User                           $user            Usuario proprietario
+ * @property-read \Illuminate\Support\Collection $transactionJournals Transacoes associadas
+ * @property-read \Illuminate\Support\Collection $transactions    Transacoes
+ * @property-read \Illuminate\Support\Collection $attachments     Anexos
+ * @property-read \Illuminate\Support\Collection $notes           Notas
+ */
 class Category extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -67,34 +87,61 @@ class Category extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario desta categoria.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todos os anexos associados a esta categoria.
+     *
+     * @return MorphMany Colecao polimorfica de Attachment
+     */
     public function attachments(): MorphMany
     {
         return $this->morphMany(Attachment::class, 'attachable');
     }
 
     /**
-     * Get all of the category's notes.
+     * Retorna todas as notas associadas a esta categoria.
+     *
+     * @return MorphMany Colecao polimorfica de Note
      */
     public function notes(): MorphMany
     {
         return $this->morphMany(Note::class, 'noteable');
     }
 
+    /**
+     * Retorna todos os diarios de transacao associados a esta categoria.
+     *
+     * @return BelongsToMany Colecao de TransactionJournal relacionados
+     */
     public function transactionJournals(): BelongsToMany
     {
         return $this->belongsToMany(TransactionJournal::class, 'category_transaction_journal', 'category_id');
     }
 
+    /**
+     * Retorna todas as transacoes associadas a esta categoria.
+     *
+     * @return BelongsToMany Colecao de Transaction relacionadas
+     */
     public function transactions(): BelongsToMany
     {
         return $this->belongsToMany(Transaction::class, 'category_transaction', 'category_id');
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

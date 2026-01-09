@@ -33,6 +33,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class TransactionTypeController
+ *
+ * Controlador da API responsavel pelo autocomplete de tipos de transacao.
+ * Fornece sugestoes de tipos (deposito, saque, transferencia) para
+ * campos de busca com informacoes de ID e tipo.
  */
 class TransactionTypeController extends Controller
 {

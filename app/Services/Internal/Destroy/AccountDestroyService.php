@@ -36,6 +36,9 @@ use stdClass;
 
 /**
  * Class AccountDestroyService
+ *
+ * Servico para exclusao de contas.
+ * Gerencia a exclusao segura de contas, incluindo saldos iniciais e transacoes relacionadas.
  */
 class AccountDestroyService
 {

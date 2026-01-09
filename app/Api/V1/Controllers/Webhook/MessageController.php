@@ -40,6 +40,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class MessageController
+ *
+ * Controlador da API responsavel pelas mensagens de webhook.
+ * Permite listar e visualizar mensagens geradas por webhooks,
+ * incluindo o payload e status de envio.
  */
 class MessageController extends Controller
 {

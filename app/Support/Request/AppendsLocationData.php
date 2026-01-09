@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Request;
 
 /**
  * Trait AppendsLocationData
+ *
+ * Trait para adicionar dados de localizacao.
+ * Processa e valida dados de latitude, longitude e zoom em requisicoes.
  */
 trait AppendsLocationData
 {

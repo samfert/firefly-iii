@@ -29,6 +29,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface TagRepositoryInterface
  *
+ * Interface para repositorio de tags de grupos de usuarios.
+ * Define metodos para buscar tags do grupo.
+ *
  * @deprecated
  */
 interface TagRepositoryInterface

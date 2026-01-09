@@ -32,7 +32,9 @@ use FireflyIII\Models\TransactionJournal;
 use FireflyIII\User;
 
 /**
- * Class AttachmentFactory
+ * Class AttachmentFactory.
+ *
+ * Fabrica para criacao de anexos.
  */
 class AttachmentFactory
 {

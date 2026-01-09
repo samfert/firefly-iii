@@ -32,6 +32,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class AutoBudgetCronjob
+ *
+ * Cronjob para criacao automatica de limites de orcamento.
+ * Executa periodicamente para criar limites de orcamento automaticos.
  */
 class AutoBudgetCronjob extends AbstractCronjob
 {

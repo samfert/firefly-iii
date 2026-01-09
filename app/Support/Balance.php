@@ -30,6 +30,12 @@ use FireflyIII\Models\TransactionCurrency;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class Balance
+ *
+ * Classe de suporte para calculo de saldos de contas.
+ * Fornece metodos para obter saldos de contas em uma data especifica.
+ */
 class Balance
 {
     /**

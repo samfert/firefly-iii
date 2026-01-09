@@ -33,7 +33,10 @@ use Illuminate\Support\Facades\Log;
 use Throwable;
 
 /**
- * Class Navigation.
+ * Class Navigation
+ *
+ * Classe de navegacao temporal.
+ * Fornece metodos para calculos de periodos, datas e intervalos.
  */
 class Navigation
 {

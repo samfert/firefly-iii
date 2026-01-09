@@ -37,6 +37,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Trait ChartGeneration
+ *
+ * Trait para geracao de graficos.
+ * Fornece metodos para gerar graficos de saldo de conta.
  */
 trait ChartGeneration
 {

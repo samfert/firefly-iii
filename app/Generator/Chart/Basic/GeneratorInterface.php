@@ -25,6 +25,8 @@ namespace FireflyIII\Generator\Chart\Basic;
 
 /**
  * Interface GeneratorInterface.
+ *
+ * Interface para geradores de graficos.
  */
 interface GeneratorInterface
 {

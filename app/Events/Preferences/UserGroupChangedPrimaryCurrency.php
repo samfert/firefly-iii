@@ -29,6 +29,11 @@ use FireflyIII\Models\UserGroup;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class UserGroupChangedPrimaryCurrency
+ *
+ * Evento disparado quando um grupo de usuario altera sua moeda primaria.
+ */
 class UserGroupChangedPrimaryCurrency extends Event
 {
     use SerializesModels;

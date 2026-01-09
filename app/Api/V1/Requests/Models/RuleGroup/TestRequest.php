@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class TestRequest
+ *
+ * Classe de requisicao para teste de grupos de regras.
+ * Valida e processa parametros de teste de grupos de regras em transacoes.
  */
 class TestRequest extends FormRequest
 {

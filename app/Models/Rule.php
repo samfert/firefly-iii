@@ -33,6 +33,32 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Rule
+ *
+ * Representa uma regra de automacao no sistema Firefly III.
+ * Regras permitem automatizar acoes em transacoes com base em
+ * gatilhos (triggers) e acoes definidas pelo usuario.
+ *
+ * @property int                                 $id             Identificador unico da regra
+ * @property int                                 $user_id        ID do usuario proprietario
+ * @property int                                 $user_group_id  ID do grupo de usuarios
+ * @property int                                 $rule_group_id  ID do grupo de regras
+ * @property string                              $title          Titulo da regra
+ * @property string|null                         $description    Descricao da regra
+ * @property int                                 $order          Ordem de execucao
+ * @property bool                                $active         Se a regra esta ativa
+ * @property bool                                $strict         Se todos os gatilhos devem corresponder
+ * @property bool                                $stop_processing Se deve parar o processamento apos esta regra
+ * @property \Carbon\Carbon                      $created_at     Data de criacao
+ * @property \Carbon\Carbon                      $updated_at     Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at     Data de exclusao (soft delete)
+ * @property-read User                           $user           Usuario proprietario
+ * @property-read RuleGroup                      $ruleGroup      Grupo de regras
+ * @property-read UserGroup                      $userGroup      Grupo de usuarios
+ * @property-read \Illuminate\Support\Collection $ruleActions    Acoes da regra
+ * @property-read \Illuminate\Support\Collection $ruleTriggers   Gatilhos da regra
+ */
 class Rule extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -64,36 +90,71 @@ class Rule extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario desta regra.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna todas as acoes desta regra.
+     *
+     * @return HasMany Colecao de RuleAction relacionadas
+     */
     public function ruleActions(): HasMany
     {
         return $this->hasMany(RuleAction::class);
     }
 
+    /**
+     * Retorna o grupo de regras ao qual esta regra pertence.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo RuleGroup
+     */
     public function ruleGroup(): BelongsTo
     {
         return $this->belongsTo(RuleGroup::class);
     }
 
+    /**
+     * Retorna todos os gatilhos desta regra.
+     *
+     * @return HasMany Colecao de RuleTrigger relacionados
+     */
     public function ruleTriggers(): HasMany
     {
         return $this->hasMany(RuleTrigger::class);
     }
 
+    /**
+     * Mutator para escapar HTML na descricao da regra.
+     *
+     * @return Attribute Atributo computado para a descricao
+     */
     protected function description(): Attribute
     {
         return Attribute::make(set: fn ($value) => ['description' => e($value)]);
     }
 
+    /**
+     * Retorna o grupo de usuarios ao qual esta regra pertence.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo UserGroup
+     */
     public function userGroup(): BelongsTo
     {
         return $this->belongsTo(UserGroup::class);
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de execucao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -101,6 +162,11 @@ class Rule extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID do grupo de regras seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do grupo de regras
+     */
     protected function ruleGroupId(): Attribute
     {
         return Attribute::make(
@@ -108,6 +174,11 @@ class Rule extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

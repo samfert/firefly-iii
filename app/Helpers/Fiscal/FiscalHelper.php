@@ -27,10 +27,12 @@ use Carbon\Carbon;
 
 /**
  * Class FiscalHelper.
+ *
+ * Helper para calculos de ano fiscal.
  */
 class FiscalHelper implements FiscalHelperInterface
 {
-    /** @var bool */
+    /** @var bool Se usa ano fiscal personalizado */
     protected $useCustomFiscalYear;
 
     /**

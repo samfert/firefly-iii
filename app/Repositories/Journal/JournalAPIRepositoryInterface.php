@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface JournalAPIRepositoryInterface
  *
+ * Interface de API para repositorio de diarios de transacoes.
+ * Define metodos para consultar transacoes, anexos e eventos de cofrinhos via API.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

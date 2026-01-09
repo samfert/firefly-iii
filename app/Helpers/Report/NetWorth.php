@@ -41,16 +41,24 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 /**
- * This class can handle both request with and without a user group and will return the appropriate repository when
- * necessary.
+ * Class NetWorth.
  *
- * Class NetWorth
+ * Helper para calcular patrimonio liquido.
+ * Esta classe pode lidar com requisicoes com e sem grupo de usuario
+ * e retornara o repositorio apropriado quando necessario.
  */
 class NetWorth implements NetWorthInterface
 {
+    /** @var AccountRepositoryInterface Repositorio de contas */
     private AccountRepositoryInterface  $accountRepository;
+
+    /** @var CurrencyRepositoryInterface Repositorio de moedas */
     private CurrencyRepositoryInterface $currencyRepos;
+
+    /** @var User Usuario */
     private User                        $user;             // @phpstan-ignore-line
+
+    /** @var UserGroup|null Grupo de usuario */
     private ?UserGroup                  $userGroup = null; // @phpstan-ignore-line
 
     /**

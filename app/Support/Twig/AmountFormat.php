@@ -34,7 +34,10 @@ use Twig\TwigFunction;
 use Override;
 
 /**
- * Contains all amount formatting routines.
+ * Class AmountFormat
+ *
+ * Extensao Twig para formatacao de valores.
+ * Fornece filtros e funcoes para formatar valores monetarios em templates.
  */
 class AmountFormat extends AbstractExtension
 {

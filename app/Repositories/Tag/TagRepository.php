@@ -41,6 +41,9 @@ use Exception;
 
 /**
  * Class TagRepository.
+ *
+ * Repositorio principal para gerenciamento de tags.
+ * Fornece metodos para criar, atualizar, excluir e consultar tags de transacoes.
  */
 class TagRepository implements TagRepositoryInterface, UserGroupInterface
 {

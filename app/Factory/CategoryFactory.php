@@ -29,7 +29,9 @@ use FireflyIII\User;
 use Illuminate\Database\QueryException;
 
 /**
- * Class CategoryFactory
+ * Class CategoryFactory.
+ *
+ * Fabrica para criacao de categorias.
  */
 class CategoryFactory
 {

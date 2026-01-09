@@ -35,6 +35,9 @@ use Exception;
 
 /**
  * Class LinkTypeRepository.
+ *
+ * Repositorio para gerenciamento de tipos de links entre transacoes.
+ * Fornece metodos para criar, atualizar, excluir e consultar tipos de links.
  */
 class LinkTypeRepository implements LinkTypeRepositoryInterface, UserGroupInterface
 {

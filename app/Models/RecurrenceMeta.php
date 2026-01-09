@@ -30,6 +30,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class RecurrenceMeta
+ *
+ * Armazena metadados adicionais para transacoes recorrentes.
+ * Permite armazenar informacoes extras como tags, notas e
+ * outras configuracoes especificas da recorrencia.
+ *
+ * @property int                 $id            Identificador unico do metadado
+ * @property int                 $recurrence_id ID da recorrencia associada
+ * @property string              $name          Nome/chave do metadado
+ * @property string              $value         Valor do metadado
+ * @property \Carbon\Carbon      $created_at    Data de criacao
+ * @property \Carbon\Carbon      $updated_at    Data de atualizacao
+ * @property \Carbon\Carbon|null $deleted_at    Data de exclusao (soft delete)
+ * @property-read Recurrence     $recurrence    Recorrencia associada
+ */
 class RecurrenceMeta extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -39,11 +55,21 @@ class RecurrenceMeta extends Model
 
     protected $table    = 'recurrences_meta';
 
+    /**
+     * Retorna a recorrencia associada a este metadado.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo Recurrence
+     */
     public function recurrence(): BelongsTo
     {
         return $this->belongsTo(Recurrence::class);
     }
 
+    /**
+     * Accessor para garantir que o ID da recorrencia seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da recorrencia
+     */
     protected function recurrenceId(): Attribute
     {
         return Attribute::make(
@@ -51,6 +77,11 @@ class RecurrenceMeta extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

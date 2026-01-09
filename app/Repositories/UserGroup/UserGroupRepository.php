@@ -40,6 +40,9 @@ use ValueError;
 
 /**
  * Class UserGroupRepository
+ *
+ * Repositorio principal para gerenciamento de grupos de usuarios.
+ * Fornece metodos para criar, atualizar, excluir e consultar grupos de usuarios e membros.
  */
 class UserGroupRepository implements UserGroupRepositoryInterface, UserGroupInterface
 {

@@ -31,7 +31,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class IsDateOrTime
+ * Class IsDateOrTime.
+ *
+ * Regra de validacao para data ou hora.
  */
 class IsDateOrTime implements ValidationRule
 {

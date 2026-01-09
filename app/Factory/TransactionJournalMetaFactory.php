@@ -28,7 +28,9 @@ use Carbon\Carbon;
 use FireflyIII\Models\TransactionJournalMeta;
 
 /**
- * Class TransactionJournalMetaFactory
+ * Class TransactionJournalMetaFactory.
+ *
+ * Fabrica para criacao de metadados de lancamento.
  */
 class TransactionJournalMetaFactory
 {

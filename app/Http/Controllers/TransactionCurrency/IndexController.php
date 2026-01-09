@@ -34,6 +34,13 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\View\View;
 
+/**
+ * Class IndexController
+ *
+ * Controlador responsavel pela listagem de moedas.
+ * Exibe todas as moedas disponiveis no sistema,
+ * ordenadas por status de habilitacao e padrao.
+ */
 class IndexController extends Controller
 {
     protected CurrencyRepositoryInterface $repository;

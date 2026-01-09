@@ -49,6 +49,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class BasicController
+ *
+ * Controlador da API responsavel pelo resumo financeiro basico.
+ * Fornece informacoes agregadas sobre saldo, receitas, despesas,
+ * assinaturas, orcamentos e patrimonio liquido do usuario.
  */
 class BasicController extends Controller
 {

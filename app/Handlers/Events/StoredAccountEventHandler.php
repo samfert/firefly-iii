@@ -29,9 +29,17 @@ use FireflyIII\Services\Internal\Support\CreditRecalculateService;
 
 /**
  * Class StoredAccountEventHandler
+ *
+ * Manipulador de eventos para contas armazenadas.
+ * Recalcula credito quando uma conta e criada.
  */
 class StoredAccountEventHandler
 {
+    /**
+     * Recalcula o credito para a conta armazenada.
+     *
+     * @param StoredAccount $event Evento de conta armazenada
+     */
     public function recalculateCredit(StoredAccount $event): void
     {
         $account = $event->account;

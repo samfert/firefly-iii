@@ -50,6 +50,9 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Class BillRepository.
+ *
+ * Repositorio principal para gerenciamento de contas a pagar.
+ * Fornece metodos para criar, atualizar, excluir e consultar contas recorrentes.
  */
 class BillRepository implements BillRepositoryInterface, UserGroupInterface
 {

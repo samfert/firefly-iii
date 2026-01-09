@@ -39,6 +39,10 @@ use Illuminate\View\View;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela exportacao de dados.
+ * Permite exportar transacoes do usuario em formato CSV
+ * para backup ou analise externa.
  */
 class IndexController extends Controller
 {

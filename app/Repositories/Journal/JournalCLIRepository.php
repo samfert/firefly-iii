@@ -36,6 +36,9 @@ use stdClass;
 
 /**
  * Class JournalCLIRepository
+ *
+ * Repositorio CLI para gerenciamento de diarios de transacoes.
+ * Fornece metodos para consultar transacoes, metadados e tags via linha de comando.
  */
 class JournalCLIRepository implements JournalCLIRepositoryInterface, UserGroupInterface
 {

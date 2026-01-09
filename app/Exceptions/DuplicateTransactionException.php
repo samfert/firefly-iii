@@ -27,6 +27,8 @@ namespace FireflyIII\Exceptions;
 use Exception;
 
 /**
- * Class DuplicateTransactionException
+ * Class DuplicateTransactionException.
+ *
+ * Excecao lancada quando uma transacao duplicada e detectada.
  */
 class DuplicateTransactionException extends Exception {}

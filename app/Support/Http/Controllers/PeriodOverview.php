@@ -39,7 +39,10 @@ use FireflyIII\Support\Facades\Navigation;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Trait PeriodOverview.
+ * Trait PeriodOverview
+ *
+ * Trait para visao geral de periodo.
+ * Fornece metodos para gerar resumos de transacoes por periodo.
  *
  * TODO verify this all works as expected.
  *

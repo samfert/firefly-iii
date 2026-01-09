@@ -37,6 +37,9 @@ use function Safe\file_put_contents;
 
 /**
  * Class OAuthKeys
+ *
+ * Gerenciador de chaves OAuth.
+ * Gerencia a geracao, armazenamento e restauracao de chaves OAuth do Passport.
  */
 class OAuthKeys
 {

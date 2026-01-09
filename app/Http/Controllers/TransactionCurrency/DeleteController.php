@@ -38,6 +38,10 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de moedas.
+ * Permite que administradores excluam moedas que
+ * nao estao em uso no sistema.
  */
 class DeleteController extends Controller
 {

@@ -29,6 +29,12 @@ use FireflyIII\Support\Request\ChecksLogin;
 use FireflyIII\Support\Request\ConvertsDataTypes;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class DestroyRequest
+ *
+ * Classe de requisicao para exclusao de taxas de cambio.
+ * Valida e processa parametros de exclusao de taxas de cambio de moedas.
+ */
 class DestroyRequest extends FormRequest
 {
     use ChecksLogin;

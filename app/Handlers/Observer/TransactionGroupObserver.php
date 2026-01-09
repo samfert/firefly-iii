@@ -27,10 +27,18 @@ use FireflyIII\Models\TransactionGroup;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class TransactionGroup
+ * Class TransactionGroupObserver
+ *
+ * Observador para grupos de transacao.
+ * Exclui diarios associados ao excluir grupo.
  */
 class TransactionGroupObserver
 {
+    /**
+     * Processa exclusao de grupo de transacao.
+     *
+     * @param TransactionGroup $transactionGroup Grupo sendo excluido
+     */
     public function deleting(TransactionGroup $transactionGroup): void
     {
         Log::debug('Observe "deleting" of a transaction group.');

@@ -31,6 +31,9 @@ use Illuminate\Support\Collection;
 /**
  * Class PiggyBankRepository
  *
+ * Repositorio de cofrinhos para grupos de usuarios.
+ * Fornece metodos para consultar cofrinhos do grupo.
+ *
  * @deprecated
  */
 class PiggyBankRepository implements PiggyBankRepositoryInterface

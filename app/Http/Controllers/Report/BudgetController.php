@@ -39,7 +39,11 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 /**
- * Class BudgetController.
+ * Class BudgetController
+ *
+ * Controlador responsavel pela geracao de relatorios de orcamentos.
+ * Gera visoes parciais com gastos por orcamento, conta e periodo,
+ * incluindo medias e maiores despesas.
  */
 class BudgetController extends Controller
 {

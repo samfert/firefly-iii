@@ -33,6 +33,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class RecurringEnrichment
+ *
+ * Enriquecedor de recorrencia.
+ * Adiciona notas, repeticoes, transacoes e metadados as transacoes recorrentes.
+ */
 class RecurringEnrichment implements EnrichmentInterface
 {
     private Collection          $collection;

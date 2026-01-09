@@ -29,7 +29,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class UserGroupBill.
+ * Class UserGroupBill
+ *
+ * Binder de rota para faturas de grupo de usuarios.
+ * Converte ID de fatura em modelo Bill do grupo do usuario.
  */
 class UserGroupBill implements BinderInterface
 {

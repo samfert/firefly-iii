@@ -30,8 +30,21 @@ use Illuminate\Support\Facades\Log;
 use NotificationChannels\Pushover\PushoverChannel;
 use Wijourdil\NtfyNotificationChannel\Channels\NtfyChannel;
 
+/**
+ * Class ReturnsAvailableChannels
+ *
+ * Retorna canais de notificacao disponiveis para usuarios.
+ */
 class ReturnsAvailableChannels
 {
+    /**
+     * Retorna canais disponiveis para um tipo de notificacao.
+     *
+     * @param string    $type Tipo de notificacao (user, owner)
+     * @param null|User $user Usuario para canais de usuario
+     *
+     * @return array Lista de canais disponiveis
+     */
     public static function returnChannels(string $type, ?User $user = null): array
     {
         $channels = ['mail'];

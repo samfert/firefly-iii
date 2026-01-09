@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de limites de orcamento.
+ * Valida e processa dados de criacao de limites de orcamento incluindo periodo e valor.
  */
 class StoreRequest extends FormRequest
 {

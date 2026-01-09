@@ -32,6 +32,12 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class ConvertsDatesToUTC
+ *
+ * Comando para converter datas para UTC.
+ * Converte datas armazenadas para o fuso horario UTC.
+ */
 class ConvertsDatesToUTC extends Command
 {
     use ShowsFriendlyMessages;

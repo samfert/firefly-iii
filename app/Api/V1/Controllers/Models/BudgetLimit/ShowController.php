@@ -43,6 +43,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de limites de orcamento.
+ * Lista todos os limites de orcamento ou exibe detalhes de um especifico.
  */
 class ShowController extends Controller
 {

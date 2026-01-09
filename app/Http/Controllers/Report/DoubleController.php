@@ -37,6 +37,10 @@ use Illuminate\View\View;
 
 /**
  * Class DoubleController
+ *
+ * Controlador responsavel pela geracao de relatorios de contas duplas.
+ * Gera visoes parciais com transacoes entre contas de ativos e
+ * passivos, mostrando fluxos de dinheiro entre contas relacionadas.
  */
 class DoubleController extends Controller
 {

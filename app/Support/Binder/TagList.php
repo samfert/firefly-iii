@@ -31,7 +31,10 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class TagList.
+ * Class TagList
+ *
+ * Binder de rota para listas de tags.
+ * Converte nomes ou IDs de tags em colecao de modelos Tag.
  */
 class TagList implements BinderInterface
 {

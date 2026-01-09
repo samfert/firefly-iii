@@ -37,6 +37,9 @@ use Illuminate\Support\Facades\Log;
 /**
  * Class BillRepository
  *
+ * Repositorio de contas a pagar para grupos de usuarios.
+ * Fornece metodos para gerenciar contas recorrentes e calcular pagamentos.
+ *
  * @deprecated
  */
 class BillRepository implements BillRepositoryInterface

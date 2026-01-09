@@ -39,6 +39,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface RecurringRepositoryInterface
  *
+ * Interface para repositorio de transacoes recorrentes.
+ * Define metodos para gerenciamento de recorrencias e calculo de ocorrencias.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

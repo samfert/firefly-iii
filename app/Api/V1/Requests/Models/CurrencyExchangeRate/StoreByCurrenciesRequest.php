@@ -31,6 +31,12 @@ use FireflyIII\Support\Request\ConvertsDataTypes;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class StoreByCurrenciesRequest
+ *
+ * Classe de requisicao para criacao de taxas de cambio por moedas.
+ * Valida e processa dados de criacao de taxas de cambio agrupadas por moedas.
+ */
 class StoreByCurrenciesRequest extends FormRequest
 {
     use ChecksLogin;

@@ -30,8 +30,22 @@ use FireflyIII\Support\Facades\Preferences;
 use FireflyIII\User;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class ReturnsSettings
+ *
+ * Retorna configuracoes de notificacao para diferentes canais.
+ */
 class ReturnsSettings
 {
+    /**
+     * Obtem configuracoes para um canal de notificacao.
+     *
+     * @param string    $channel Canal de notificacao (ntfy, etc.)
+     * @param string    $type    Tipo de notificacao (user, owner)
+     * @param null|User $user    Usuario para configuracoes de usuario
+     *
+     * @return array Configuracoes do canal
+     */
     public static function getSettings(string $channel, string $type, ?User $user): array
     {
         if ('ntfy' === $channel) {

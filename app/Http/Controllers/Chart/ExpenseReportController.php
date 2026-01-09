@@ -36,9 +36,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
 /**
- * Separate controller because many helper functions are shared.
- *
  * Class ExpenseReportController
+ *
+ * Controlador responsavel pela geracao de graficos de relatorios de despesas.
+ * Gera graficos de receitas e despesas agrupados por conta de despesa/receita
+ * com totais acumulados ao longo do tempo.
  */
 class ExpenseReportController extends Controller
 {

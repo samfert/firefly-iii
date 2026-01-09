@@ -42,7 +42,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class BudgetController
+ * Class CategoryController
+ *
+ * Controlador da API responsavel por graficos de categorias.
+ * Gera dados para graficos de gastos por categoria
+ * com suporte a conversao de moedas.
  */
 class CategoryController extends Controller
 {

@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class OperationsRepository
+ *
+ * Repositorio de operacoes de contas.
+ * Fornece metodos para calcular despesas, receitas e transferencias por conta.
  */
 class OperationsRepository implements OperationsRepositoryInterface, UserGroupInterface
 {

@@ -33,7 +33,9 @@ use Illuminate\Support\Facades\Log;
 use Override;
 
 /**
- * Trait AccountCollection
+ * Trait AccountCollection.
+ *
+ * Trait para coleta de transacoes por conta.
  */
 trait AccountCollection
 {

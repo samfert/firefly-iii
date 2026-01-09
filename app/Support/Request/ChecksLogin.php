@@ -30,6 +30,9 @@ use FireflyIII\User;
 
 /**
  * Trait ChecksLogin
+ *
+ * Trait para verificacao de login.
+ * Verifica autenticacao e permissoes de usuario em requisicoes.
  */
 trait ChecksLogin
 {

@@ -36,8 +36,19 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class PreferencesEventHandler
+ *
+ * Manipulador de eventos para preferencias.
+ * Reseta valores de moeda primaria quando alterada.
+ */
 class PreferencesEventHandler
 {
+    /**
+     * Reseta valores de moeda primaria para todos os objetos.
+     *
+     * @param UserGroupChangedPrimaryCurrency $event Evento de alteracao de moeda
+     */
     public function resetPrimaryCurrencyAmounts(UserGroupChangedPrimaryCurrency $event): void
     {
         // Reset the primary currency amounts for all objects that have it.

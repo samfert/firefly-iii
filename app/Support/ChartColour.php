@@ -24,7 +24,10 @@ declare(strict_types=1);
 namespace FireflyIII\Support;
 
 /**
- * Class ChartColour.
+ * Class ChartColour
+ *
+ * Classe de suporte para cores de graficos.
+ * Fornece paleta de cores e metodo para obter cores por indice.
  */
 class ChartColour
 {

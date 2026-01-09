@@ -29,6 +29,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class DynamicConfigKey
+ *
+ * Binder de rota para chaves de configuracao dinamicas.
+ * Valida chaves de configuracao aceitas para API.
  */
 class DynamicConfigKey
 {

@@ -35,6 +35,9 @@ use Override;
 
 /**
  * Class RemoteUserProvider
+ *
+ * Provedor de usuarios para autenticacao remota.
+ * Cria ou recupera usuarios baseado em identificadores de cabecalhos HTTP.
  */
 class RemoteUserProvider implements UserProvider
 {

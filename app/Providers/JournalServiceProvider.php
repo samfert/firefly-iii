@@ -39,6 +39,8 @@ use Override;
 
 /**
  * Class JournalServiceProvider.
+ *
+ * Provedor de servicos de lancamentos.
  */
 class JournalServiceProvider extends ServiceProvider
 {

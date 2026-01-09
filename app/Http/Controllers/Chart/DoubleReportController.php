@@ -35,6 +35,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class DoubleReportController
+ *
+ * Controlador responsavel pela geracao de graficos de relatorios de contas duplas.
+ * Gera graficos comparativos de despesas e receitas entre contas de ativos
+ * e suas contrapartes (contas de despesas/receitas).
  */
 class DoubleReportController extends Controller
 {

@@ -33,9 +33,17 @@ use Illuminate\Support\Facades\Notification;
 
 /**
  * Class RuleHandler
+ *
+ * Manipulador de eventos para regras.
+ * Envia notificacoes quando acoes de regras falham.
  */
 class RuleHandler
 {
+    /**
+     * Processa falha de acao de regra em array.
+     *
+     * @param RuleActionFailedOnArray $event Evento de falha de acao
+     */
     public function ruleActionFailedOnArray(RuleActionFailedOnArray $event): void
     {
         $ruleAction  = $event->ruleAction;

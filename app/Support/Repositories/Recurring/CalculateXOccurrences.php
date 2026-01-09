@@ -27,7 +27,10 @@ namespace FireflyIII\Support\Repositories\Recurring;
 use Carbon\Carbon;
 
 /**
- * Class CalculateXOccurrences
+ * Trait CalculateXOccurrences
+ *
+ * Calculo de X ocorrencias.
+ * Fornece metodos para calcular um numero especifico de ocorrencias de transacoes recorrentes.
  */
 trait CalculateXOccurrences
 {

@@ -31,10 +31,15 @@ use FireflyIII\Support\Facades\Steam;
 
 /**
  * Class AvailableBudgetTransformer
+ *
+ * Transformador de orcamentos disponiveis para API.
  */
 class AvailableBudgetTransformer extends AbstractTransformer
 {
+    /** @var bool Se deve converter para moeda primaria */
     private readonly bool                $convertToPrimary;
+
+    /** @var TransactionCurrency Moeda primaria */
     private readonly TransactionCurrency $primary;
 
     /**

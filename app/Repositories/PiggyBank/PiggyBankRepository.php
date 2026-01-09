@@ -47,6 +47,9 @@ use Override;
 
 /**
  * Class PiggyBankRepository.
+ *
+ * Repositorio principal para gerenciamento de cofrinhos.
+ * Fornece metodos para criar, atualizar, excluir e consultar cofrinhos de poupanca.
  */
 class PiggyBankRepository implements PiggyBankRepositoryInterface, UserGroupInterface
 {

@@ -19,6 +19,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class BudgetEnrichment
+ *
+ * Enriquecedor de orcamento.
+ * Adiciona notas, auto-orcamentos, despesas e grupos de objetos aos orcamentos.
+ */
 class BudgetEnrichment implements EnrichmentInterface
 {
     private Collection          $collection;

@@ -43,7 +43,9 @@ use Illuminate\Support\Collection;
 use function Safe\json_decode;
 
 /**
- * Class DownloadExchangeRates
+ * Class DownloadExchangeRates.
+ *
+ * Job para download de taxas de cambio.
  */
 class DownloadExchangeRates implements ShouldQueue
 {

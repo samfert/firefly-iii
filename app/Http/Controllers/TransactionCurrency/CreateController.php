@@ -40,6 +40,10 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de moedas.
+ * Permite que administradores criem novas moedas
+ * com codigo, simbolo e casas decimais personalizados.
  */
 class CreateController extends Controller
 {

@@ -28,6 +28,8 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface ReportHelperInterface.
+ *
+ * Interface para helpers de relatorios.
  */
 interface ReportHelperInterface
 {

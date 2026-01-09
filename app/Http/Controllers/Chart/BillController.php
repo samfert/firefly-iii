@@ -33,7 +33,11 @@ use FireflyIII\Support\CacheProperties;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class BillController.
+ * Class BillController
+ *
+ * Controlador responsavel pela geracao de graficos relacionados a faturas.
+ * Gera graficos de faturas pagas vs nao pagas e historico de pagamentos
+ * de faturas individuais.
  */
 class BillController extends Controller
 {

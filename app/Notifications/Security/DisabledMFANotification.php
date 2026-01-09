@@ -36,10 +36,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class DisabledMFANotification
+ *
+ * Notificacao de desativacao de MFA.
+ */
 class DisabledMFANotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario que desativou MFA
+     */
     public function __construct(private User $user) {}
 
     /**

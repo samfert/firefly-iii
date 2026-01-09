@@ -31,6 +31,8 @@ use Override;
 
 /**
  * Class BillServiceProvider.
+ *
+ * Provedor de servicos de faturas.
  */
 class BillServiceProvider extends ServiceProvider
 {

@@ -27,7 +27,9 @@ use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class BroadcastServiceProvider
+ * Class BroadcastServiceProvider.
+ *
+ * Provedor de servicos de broadcast.
  */
 class BroadcastServiceProvider extends ServiceProvider
 {

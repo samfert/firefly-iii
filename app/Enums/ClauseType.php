@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class ClauseType
+ * Class ClauseType.
+ *
+ * Classe de tipos de clausula para operacoes em massa.
  */
 class ClauseType
 {

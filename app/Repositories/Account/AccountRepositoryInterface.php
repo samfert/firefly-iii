@@ -39,6 +39,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface AccountRepositoryInterface.
  *
+ * Interface para repositorio de contas financeiras.
+ * Define metodos para criar, atualizar, excluir e consultar contas.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

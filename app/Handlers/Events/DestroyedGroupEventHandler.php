@@ -34,9 +34,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class DestroyedGroupEventHandler
+ *
+ * Manipulador de eventos para grupos de transacao destruidos.
+ * Dispara webhooks e atualiza saldos quando um grupo e excluido.
  */
 class DestroyedGroupEventHandler
 {
+    /**
+     * Executa todos os manipuladores para o evento.
+     *
+     * @param DestroyedTransactionGroup $event Evento de grupo destruido
+     */
     public function runAllHandlers(DestroyedTransactionGroup $event): void
     {
         $this->triggerWebhooks($event);

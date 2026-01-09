@@ -36,6 +36,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface RuleRepositoryInterface.
  *
+ * Interface para repositorio de regras de automacao.
+ * Define metodos para criar, atualizar, excluir e consultar regras de transacoes.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

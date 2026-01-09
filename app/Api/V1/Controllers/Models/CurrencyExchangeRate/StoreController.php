@@ -39,6 +39,12 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
+/**
+ * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de taxas de cambio.
+ * Cria novas taxas de cambio no sistema atraves da API REST.
+ */
 class StoreController extends Controller
 {
     use ValidatesUserGroupTrait;

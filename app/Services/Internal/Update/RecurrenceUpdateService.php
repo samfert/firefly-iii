@@ -36,6 +36,9 @@ use FireflyIII\User;
 
 /**
  * Class RecurrenceUpdateService
+ *
+ * Servico para atualizacao de transacoes recorrentes.
+ * Gerencia a atualizacao de recorrencias, repeticoes e transacoes associadas.
  */
 class RecurrenceUpdateService
 {

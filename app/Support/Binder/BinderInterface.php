@@ -26,7 +26,10 @@ namespace FireflyIII\Support\Binder;
 use Illuminate\Routing\Route;
 
 /**
- * Interface BinderInterface.
+ * Interface BinderInterface
+ *
+ * Interface para binders de rotas.
+ * Define metodo para vincular valores de rotas a modelos.
  */
 interface BinderInterface
 {

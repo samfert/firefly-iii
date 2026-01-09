@@ -34,6 +34,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class Request
+ *
+ * Classe de requisicao para orcamento disponivel.
+ * Valida e processa dados de orcamento disponivel incluindo moeda e periodo.
  */
 class Request extends FormRequest
 {

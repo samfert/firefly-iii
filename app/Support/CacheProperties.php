@@ -31,7 +31,10 @@ use JsonException;
 use function Safe\json_encode;
 
 /**
- * Class CacheProperties.
+ * Class CacheProperties
+ *
+ * Classe de suporte para gerenciamento de cache.
+ * Fornece metodos para criar chaves de cache baseadas em propriedades.
  */
 class CacheProperties
 {

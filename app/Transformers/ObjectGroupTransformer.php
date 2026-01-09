@@ -28,10 +28,13 @@ use FireflyIII\Models\ObjectGroup;
 use FireflyIII\Repositories\ObjectGroup\ObjectGroupRepositoryInterface;
 
 /**
- * Class AccountTransformer
+ * Class ObjectGroupTransformer
+ *
+ * Transformador de grupos de objetos para API.
  */
 class ObjectGroupTransformer extends AbstractTransformer
 {
+    /** @var ObjectGroupRepositoryInterface Repositorio de grupos de objetos */
     protected ObjectGroupRepositoryInterface $repository;
 
     /**

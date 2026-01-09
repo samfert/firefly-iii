@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface ALERepositoryInterface
  *
+ * Interface para repositorio de entradas de log de auditoria.
+ * Define metodos para criar e consultar registros de auditoria do sistema.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

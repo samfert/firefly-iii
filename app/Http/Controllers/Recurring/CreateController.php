@@ -43,6 +43,10 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de transacoes recorrentes.
+ * Permite criar transacoes que se repetem automaticamente em intervalos
+ * definidos, com suporte a diferentes tipos de repeticao e anexos.
  */
 class CreateController extends Controller
 {

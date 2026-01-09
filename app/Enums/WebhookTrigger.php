@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class WebhookTrigger
+ * Enum WebhookTrigger.
+ *
+ * Enumeracao de gatilhos de webhook.
  */
 enum WebhookTrigger: int
 {

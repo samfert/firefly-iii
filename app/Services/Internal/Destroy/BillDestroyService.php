@@ -28,6 +28,9 @@ use FireflyIII\Models\Bill;
 
 /**
  * Class BillDestroyService
+ *
+ * Servico para exclusao de contas a pagar.
+ * Gerencia a exclusao segura de faturas recorrentes.
  */
 class BillDestroyService
 {

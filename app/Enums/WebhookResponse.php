@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class WebhookResponse
+ * Enum WebhookResponse.
+ *
+ * Enumeracao de respostas de webhook.
  */
 enum WebhookResponse: int
 {

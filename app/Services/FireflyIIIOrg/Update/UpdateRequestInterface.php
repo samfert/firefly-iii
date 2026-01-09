@@ -26,6 +26,9 @@ namespace FireflyIII\Services\FireflyIIIOrg\Update;
 
 /**
  * Interface UpdateRequestInterface
+ *
+ * Interface para servico de verificacao de atualizacoes.
+ * Define metodo para obter informacoes sobre novas versoes disponiveis.
  */
 interface UpdateRequestInterface
 {

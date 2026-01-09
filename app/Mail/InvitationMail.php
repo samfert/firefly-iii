@@ -31,7 +31,9 @@ use Illuminate\Queue\SerializesModels;
 use function Safe\parse_url;
 
 /**
- * Class InvitationMail
+ * Class InvitationMail.
+ *
+ * Email de convite para novos usuarios.
  */
 class InvitationMail extends Mailable
 {

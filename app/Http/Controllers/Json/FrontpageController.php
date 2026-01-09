@@ -31,7 +31,11 @@ use FireflyIII\Repositories\PiggyBank\PiggyBankRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class FrontpageController.
+ * Class FrontpageController
+ *
+ * Controlador responsavel por dados da pagina inicial.
+ * Fornece HTML renderizado para widgets como cofrinhos
+ * e outros elementos dinamicos do dashboard.
  */
 class FrontpageController extends Controller
 {

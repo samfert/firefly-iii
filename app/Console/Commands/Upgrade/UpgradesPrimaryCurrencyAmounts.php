@@ -29,6 +29,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
+/**
+ * Class UpgradesPrimaryCurrencyAmounts
+ *
+ * Comando para calcular valores em moeda primaria.
+ * Executa os calculos de valores em moeda primaria.
+ */
 class UpgradesPrimaryCurrencyAmounts extends Command
 {
     use ShowsFriendlyMessages;

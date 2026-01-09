@@ -29,7 +29,10 @@ use Illuminate\Support\Collection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class CategoryList.
+ * Class CategoryList
+ *
+ * Binder de rota para listas de categorias.
+ * Converte IDs de categorias em colecao de modelos Category.
  */
 class CategoryList implements BinderInterface
 {

@@ -30,6 +30,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Log;
 use Closure;
 
+/**
+ * Class IsValidZeroOrMoreAmount.
+ *
+ * Regra de validacao para valor zero ou maior.
+ */
 class IsValidZeroOrMoreAmount implements ValidationRule
 {
     use ValidatesAmountsTrait;

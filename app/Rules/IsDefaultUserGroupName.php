@@ -31,7 +31,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class IsDefaultUserGroupName
+ * Class IsDefaultUserGroupName.
+ *
+ * Regra de validacao para nome de grupo de usuario padrao.
  */
 class IsDefaultUserGroupName implements ValidationRule
 {

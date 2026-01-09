@@ -37,6 +37,12 @@ use FireflyIII\Repositories\User\UserRepositoryInterface;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesAccountCurrencies
+ *
+ * Comando para atualizar moedas de contas.
+ * Garante que todas as contas tenham uma referencia de moeda preferida.
+ */
 class UpgradesAccountCurrencies extends Command
 {
     use ShowsFriendlyMessages;

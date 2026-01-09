@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de moedas.
+ * Valida e processa dados de criacao de moedas de transacao.
  */
 class StoreRequest extends FormRequest
 {

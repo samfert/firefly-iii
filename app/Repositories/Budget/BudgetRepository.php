@@ -50,7 +50,10 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Class BudgetRepository.
+ * Class BudgetRepository
+ *
+ * Repositorio para gerenciamento de orcamentos.
+ * Fornece metodos para criar, atualizar, excluir e consultar orcamentos e limites.
  */
 class BudgetRepository implements BudgetRepositoryInterface, UserGroupInterface
 {

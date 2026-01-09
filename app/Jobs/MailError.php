@@ -40,6 +40,8 @@ use function Safe\file_get_contents;
 
 /**
  * Class MailError.
+ *
+ * Job para envio de emails de erro.
  */
 class MailError extends Job implements ShouldQueue
 {

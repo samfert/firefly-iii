@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class CronRequest
+ *
+ * Classe de requisicao para execucao de tarefas cron.
+ * Valida e processa parametros de execucao de tarefas agendadas do sistema.
  */
 class CronRequest extends FormRequest
 {

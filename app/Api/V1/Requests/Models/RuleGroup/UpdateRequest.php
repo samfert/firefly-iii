@@ -32,6 +32,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de grupos de regras.
+ * Valida e processa dados de atualizacao de grupos de regras de automacao.
  */
 class UpdateRequest extends FormRequest
 {

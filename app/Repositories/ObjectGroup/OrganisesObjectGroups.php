@@ -25,7 +25,10 @@ declare(strict_types=1);
 namespace FireflyIII\Repositories\ObjectGroup;
 
 /**
- * Trait OrganisesRoleGroups
+ * Trait OrganisesObjectGroups
+ *
+ * Trait para organizacao de grupos de objetos.
+ * Fornece metodos para limpar grupos vazios e reordenar grupos.
  */
 trait OrganisesObjectGroups
 {

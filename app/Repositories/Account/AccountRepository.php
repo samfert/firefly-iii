@@ -51,6 +51,9 @@ use function Safe\json_encode;
 
 /**
  * Class AccountRepository.
+ *
+ * Repositorio principal para gerenciamento de contas.
+ * Fornece metodos para criar, atualizar, excluir e consultar contas financeiras.
  */
 class AccountRepository implements AccountRepositoryInterface, UserGroupInterface
 {

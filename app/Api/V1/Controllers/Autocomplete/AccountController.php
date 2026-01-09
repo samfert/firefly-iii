@@ -40,6 +40,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class AccountController
+ *
+ * Controlador da API responsavel pelo autocomplete de contas.
+ * Fornece sugestoes de contas para campos de busca com suporte
+ * a filtragem por tipo e exibicao de saldo.
  */
 class AccountController extends Controller
 {

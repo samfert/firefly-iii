@@ -36,6 +36,9 @@ use Override;
 
 /**
  * Class NoBudgetRepository
+ *
+ * Repositorio para transacoes sem orcamento.
+ * Fornece metodos para consultar gastos sem orcamento definido.
  */
 class NoBudgetRepository implements NoBudgetRepositoryInterface, UserGroupInterface
 {

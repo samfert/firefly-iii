@@ -28,6 +28,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Class CorrectsDatabase
+ *
+ * Comando para corrigir banco de dados.
+ * Valida e corrige a integridade do banco de dados executando varios comandos de correcao.
+ */
 class CorrectsDatabase extends Command
 {
     use ShowsFriendlyMessages;

@@ -45,9 +45,9 @@ use Psr\Container\NotFoundExceptionInterface;
 /**
  * Class RegisterController
  *
- * This controller handles the registration of new users as well as their
- * validation and creation. By default this controller uses a trait to
- * provide this functionality without requiring any additional code.
+ * Controlador responsavel pelo registro de novos usuarios.
+ * Gerencia a validacao e criacao de contas de usuario,
+ * incluindo suporte a codigos de convite e modo de usuario unico.
  */
 class RegisterController extends Controller
 {

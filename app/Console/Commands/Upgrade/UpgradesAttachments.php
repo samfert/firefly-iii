@@ -30,6 +30,12 @@ use FireflyIII\Models\Attachment;
 use FireflyIII\Models\Note;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesAttachments
+ *
+ * Comando para migrar anexos.
+ * Migra descricoes de anexos para notas.
+ */
 class UpgradesAttachments extends Command
 {
     use ShowsFriendlyMessages;

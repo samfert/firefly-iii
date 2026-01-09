@@ -29,6 +29,13 @@ use FireflyIII\Models\TransactionCurrency;
 use Illuminate\View\View;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class IndexController
+ *
+ * Controlador responsavel pela exibicao de taxas de cambio.
+ * Mostra taxas de conversao entre moedas configuradas
+ * no sistema de taxas de cambio.
+ */
 class IndexController extends Controller
 {
     /**

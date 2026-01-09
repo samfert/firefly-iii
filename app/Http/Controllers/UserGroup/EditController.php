@@ -30,6 +30,13 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 
+/**
+ * Class EditController
+ *
+ * Controlador responsavel pela edicao de grupos de usuarios.
+ * Permite modificar configuracoes de administracoes
+ * existentes no sistema.
+ */
 class EditController extends Controller
 {
     /**

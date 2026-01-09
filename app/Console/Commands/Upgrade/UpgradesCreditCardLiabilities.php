@@ -32,6 +32,12 @@ use FireflyIII\Models\AccountType;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 
+/**
+ * Class UpgradesCreditCardLiabilities
+ *
+ * Comando para converter passivos de cartao de credito.
+ * Converte contas de cartao de credito antigas para passivos genericos.
+ */
 class UpgradesCreditCardLiabilities extends Command
 {
     use ShowsFriendlyMessages;

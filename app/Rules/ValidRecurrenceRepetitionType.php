@@ -28,7 +28,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class ValidRecurrenceRepetitionType
+ * Class ValidRecurrenceRepetitionType.
+ *
+ * Regra de validacao para tipo de repeticao de recorrencia.
  */
 class ValidRecurrenceRepetitionType implements ValidationRule
 {

@@ -39,6 +39,10 @@ use Illuminate\View\View;
 
 /**
  * Class ExecutionController
+ *
+ * Controlador responsavel pela execucao de grupos de regras.
+ * Permite executar todas as regras de um grupo em transacoes
+ * existentes selecionadas por periodo e contas.
  */
 class ExecutionController extends Controller
 {

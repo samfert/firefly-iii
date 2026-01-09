@@ -29,10 +29,12 @@ use FireflyIII\Repositories\Journal\JournalRepositoryInterface;
 
 /**
  * Class TransactionLinkTransformer
+ *
+ * Transformador de links de transacoes para API.
  */
 class TransactionLinkTransformer extends AbstractTransformer
 {
-    /** @var JournalRepositoryInterface */
+    /** @var JournalRepositoryInterface Repositorio de diarios */
     private $repository;
 
     /**

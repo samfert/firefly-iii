@@ -28,9 +28,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * TODO not sure where this is used.
+ * Class IsDuplicateTransaction.
  *
- * Class IsDuplicateTransaction
+ * Regra de validacao para transacao duplicada.
+ *
+ * TODO not sure where this is used.
  */
 class IsDuplicateTransaction implements ValidationRule
 {

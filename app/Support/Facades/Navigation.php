@@ -27,7 +27,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Navigation.
+ * Class Navigation
+ *
+ * Facade para navegacao temporal.
+ * Fornece acesso estatico aos metodos de navegacao de datas e periodos.
  *
  * @method Carbon addPeriod(Carbon $theDate, string $repeatFreq, int $skip)
  * @method array  blockPeriods(Carbon $start, Carbon $end, string $range)

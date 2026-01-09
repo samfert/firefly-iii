@@ -34,6 +34,8 @@ use Override;
 
 /**
  * Class CurrencyServiceProvider.
+ *
+ * Provedor de servicos de moedas.
  */
 class CurrencyServiceProvider extends ServiceProvider
 {

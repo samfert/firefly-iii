@@ -48,7 +48,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 /**
- * Class ConvertController.
+ * Class ConvertController
+ *
+ * Controlador responsavel pela conversao de tipos de transacoes.
+ * Permite converter entre despesas, receitas e transferencias,
+ * validando contas de origem e destino para cada tipo.
  *
  * TODO when converting a split transfer, all sources and destinations must be the same.
  */

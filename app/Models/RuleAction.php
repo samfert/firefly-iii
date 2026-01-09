@@ -31,12 +31,37 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\ExpressionLanguage\SyntaxError;
 
+/**
+ * Class RuleAction
+ *
+ * Representa uma acao a ser executada quando uma regra e acionada.
+ * Acoes podem modificar transacoes, como alterar descricao, categoria,
+ * tags, contas, e outros atributos.
+ *
+ * @property int            $id              Identificador unico da acao
+ * @property int            $rule_id         ID da regra associada
+ * @property string         $action_type     Tipo da acao (ex: set_category, add_tag)
+ * @property string         $action_value    Valor da acao
+ * @property int            $order           Ordem de execucao
+ * @property bool           $active          Se a acao esta ativa
+ * @property bool           $stop_processing Se deve parar o processamento apos esta acao
+ * @property \Carbon\Carbon $created_at      Data de criacao
+ * @property \Carbon\Carbon $updated_at      Data de atualizacao
+ * @property-read Rule      $rule            Regra associada
+ */
 class RuleAction extends Model
 {
     use ReturnsIntegerIdTrait;
 
     protected $fillable = ['rule_id', 'action_type', 'action_value', 'order', 'active', 'stop_processing'];
 
+    /**
+     * Obtem o valor da acao, processando expressoes se o motor de expressoes estiver habilitado.
+     *
+     * @param array $journal Dados do diario de transacao para avaliacao de expressoes
+     *
+     * @return string Valor da acao processado
+     */
     public function getValue(array $journal): string
     {
         if (false === config('firefly.feature_flags.expression_engine')) {
@@ -45,7 +70,6 @@ class RuleAction extends Model
             return (string) $this->action_value;
         }
         if (true === config('firefly.feature_flags.expression_engine') && str_starts_with($this->action_value, '\=')) {
-            // return literal string.
             return substr($this->action_value, 1);
         }
         $expr = new ActionExpression($this->action_value);
@@ -61,11 +85,21 @@ class RuleAction extends Model
         return $result;
     }
 
+    /**
+     * Retorna a regra associada a esta acao.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo Rule
+     */
     public function rule(): BelongsTo
     {
         return $this->belongsTo(Rule::class);
     }
 
+    /**
+     * Accessor para garantir que a ordem seja retornada como inteiro.
+     *
+     * @return Attribute Atributo computado para a ordem de execucao
+     */
     protected function order(): Attribute
     {
         return Attribute::make(
@@ -73,6 +107,11 @@ class RuleAction extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID da regra seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da regra
+     */
     protected function ruleId(): Attribute
     {
         return Attribute::make(
@@ -80,6 +119,11 @@ class RuleAction extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

@@ -42,6 +42,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de anexos.
+ * Lista todos os anexos, exibe detalhes ou faz download de um anexo especifico.
  */
 class ShowController extends Controller
 {

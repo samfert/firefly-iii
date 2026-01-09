@@ -29,7 +29,10 @@ use Config;
 use Override;
 
 /**
- * Class Rule.
+ * Class Rule
+ *
+ * Extensao Twig para regras.
+ * Fornece funcoes para listar gatilhos e acoes de regras em templates.
  */
 class Rule extends AbstractExtension
 {

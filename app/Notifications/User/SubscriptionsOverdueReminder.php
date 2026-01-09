@@ -14,10 +14,20 @@ use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Pushover\PushoverMessage;
 
+/**
+ * Class SubscriptionsOverdueReminder
+ *
+ * Notificacao de lembrete de assinaturas atrasadas.
+ */
 class SubscriptionsOverdueReminder extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param array $overdue Lista de assinaturas atrasadas
+     */
     public function __construct(private array $overdue) {}
 
     /**

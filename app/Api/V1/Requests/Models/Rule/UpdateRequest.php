@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de regras de automacao.
+ * Valida e processa dados de atualizacao de regras incluindo gatilhos e acoes.
  */
 class UpdateRequest extends FormRequest
 {

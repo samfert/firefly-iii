@@ -29,6 +29,12 @@ use FireflyIII\Support\Facades\Amount;
 use FireflyIII\User;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class TransactionSummarizer
+ *
+ * Sumarizador de transacoes.
+ * Agrupa e soma transacoes por moeda e direcao para relatorios.
+ */
 class TransactionSummarizer
 {
     private bool                $convertToPrimary = false;

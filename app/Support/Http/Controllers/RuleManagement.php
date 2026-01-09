@@ -32,6 +32,9 @@ use Throwable;
 
 /**
  * Trait RuleManagement
+ *
+ * Trait para gerenciamento de regras.
+ * Fornece metodos para obter gatilhos e acoes de regras anteriores.
  */
 trait RuleManagement
 {

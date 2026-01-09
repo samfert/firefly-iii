@@ -31,7 +31,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 
 /**
- * Trait AttachmentCollection
+ * Trait AttachmentCollection.
+ *
+ * Trait para coleta de transacoes por anexos.
  */
 trait AttachmentCollection
 {

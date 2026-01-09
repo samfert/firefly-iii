@@ -29,6 +29,9 @@ use Carbon\Carbon;
 /**
  * Interface AvailableBudgetRepositoryInterface
  *
+ * Interface para orcamento disponivel de grupos de usuarios.
+ * Define metodos para consultar valores disponiveis para orcamento por periodo.
+ *
  * @deprecated
  */
 interface AvailableBudgetRepositoryInterface

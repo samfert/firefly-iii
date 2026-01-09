@@ -40,6 +40,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de moedas.
+ * Lista todas as moedas ou exibe detalhes de uma moeda especifica.
  */
 class ShowController extends Controller
 {

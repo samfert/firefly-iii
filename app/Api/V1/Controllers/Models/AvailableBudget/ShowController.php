@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de orcamentos disponiveis.
+ * Lista todos os orcamentos disponiveis ou exibe detalhes de um especifico.
  */
 class ShowController extends Controller
 {

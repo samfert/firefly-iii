@@ -29,6 +29,9 @@ use FireflyIII\Models\RecurrenceTransaction;
 
 /**
  * Class RecurrenceDestroyService
+ *
+ * Servico para exclusao de transacoes recorrentes.
+ * Gerencia a exclusao segura de recorrencias e seus metadados relacionados.
  */
 class RecurrenceDestroyService
 {

@@ -32,6 +32,30 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class TransactionCurrency
+ *
+ * Representa uma moeda no sistema Firefly III.
+ * Moedas sao usadas para definir valores monetarios em transacoes,
+ * contas, orcamentos e outros elementos financeiros.
+ *
+ * @property int                                 $id               Identificador unico da moeda
+ * @property string                              $code             Codigo ISO da moeda (ex: USD, EUR, BRL)
+ * @property string                              $name             Nome da moeda
+ * @property string                              $symbol           Simbolo da moeda (ex: $, R$)
+ * @property int                                 $decimal_places   Numero de casas decimais
+ * @property bool                                $enabled          Se a moeda esta habilitada
+ * @property \Carbon\Carbon                      $created_at       Data de criacao
+ * @property \Carbon\Carbon                      $updated_at       Data de atualizacao
+ * @property \Carbon\Carbon|null                 $deleted_at       Data de exclusao (soft delete)
+ * @property bool|null                           $userGroupEnabled Se esta habilitada para o grupo do usuario
+ * @property bool|null                           $userGroupNative  Se e a moeda nativa do grupo
+ * @property-read \Illuminate\Support\Collection $budgetLimits     Limites de orcamento nesta moeda
+ * @property-read \Illuminate\Support\Collection $transactionJournals Transacoes nesta moeda
+ * @property-read \Illuminate\Support\Collection $transactions     Transacoes
+ * @property-read \Illuminate\Support\Collection $userGroups       Grupos de usuarios
+ * @property-read \Illuminate\Support\Collection $users            Usuarios
+ */
 class TransactionCurrency extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -62,6 +86,13 @@ class TransactionCurrency extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Atualiza as propriedades de habilitacao da moeda para um usuario especifico.
+     *
+     * @param User $user Usuario para verificar
+     *
+     * @return void
+     */
     public function refreshForUser(User $user): void
     {
         $current                = $user->userGroup->currencies()->where('transaction_currencies.id', $this->id)->first();
@@ -70,23 +101,40 @@ class TransactionCurrency extends Model
         $this->userGroupEnabled = null !== $current;
     }
 
+    /**
+     * Retorna todos os limites de orcamento nesta moeda.
+     *
+     * @return HasMany Colecao de BudgetLimit relacionados
+     */
     public function budgetLimits(): HasMany
     {
         return $this->hasMany(BudgetLimit::class);
     }
 
+    /**
+     * Retorna todos os diarios de transacao nesta moeda.
+     *
+     * @return HasMany Colecao de TransactionJournal relacionados
+     */
     public function transactionJournals(): HasMany
     {
         return $this->hasMany(TransactionJournal::class);
     }
 
+    /**
+     * Retorna todas as transacoes nesta moeda.
+     *
+     * @return HasMany Colecao de Transaction relacionadas
+     */
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
     }
 
     /**
-     * Link to user groups
+     * Retorna todos os grupos de usuarios que usam esta moeda.
+     *
+     * @return BelongsToMany Colecao de UserGroup relacionados
      */
     public function userGroups(): BelongsToMany
     {
@@ -94,13 +142,20 @@ class TransactionCurrency extends Model
     }
 
     /**
-     * Link to users
+     * Retorna todos os usuarios que usam esta moeda.
+     *
+     * @return BelongsToMany Colecao de User relacionados
      */
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->withTimestamps()->withPivot('user_default');
     }
 
+    /**
+     * Accessor para garantir que o numero de casas decimais seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o numero de casas decimais
+     */
     protected function decimalPlaces(): Attribute
     {
         return Attribute::make(
@@ -108,6 +163,11 @@ class TransactionCurrency extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

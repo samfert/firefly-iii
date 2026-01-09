@@ -30,6 +30,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Log;
 use Closure;
 
+/**
+ * Class IsValidAmount.
+ *
+ * Regra de validacao para valor valido.
+ */
 class IsValidAmount implements ValidationRule
 {
     use ValidatesAmountsTrait;

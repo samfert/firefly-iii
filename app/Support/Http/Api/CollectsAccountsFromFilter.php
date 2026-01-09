@@ -27,6 +27,12 @@ namespace FireflyIII\Support\Http\Api;
 use FireflyIII\Enums\AccountTypeEnum;
 use Illuminate\Support\Collection;
 
+/**
+ * Trait CollectsAccountsFromFilter
+ *
+ * Trait para coleta de contas a partir de filtro.
+ * Obtem lista de contas baseada em parametros de consulta.
+ */
 trait CollectsAccountsFromFilter
 {
     /**

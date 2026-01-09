@@ -37,6 +37,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface BudgetLimitRepositoryInterface
  *
+ * Interface para repositorio de limites de orcamento.
+ * Define metodos para criar, atualizar e consultar limites de orcamento.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

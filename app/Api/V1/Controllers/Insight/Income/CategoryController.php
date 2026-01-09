@@ -35,6 +35,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class CategoryController
+ *
+ * Controlador da API responsavel por insights de receitas por categoria.
+ * Exibe informacoes de receitas agrupadas por categoria
+ * incluindo receitas sem categoria definida.
  */
 class CategoryController extends Controller
 {

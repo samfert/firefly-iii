@@ -31,9 +31,11 @@ use Illuminate\Support\Facades\DB;
 use League\Fractal\Resource\Item;
 
 /**
- * Returns basic information about this installation.
+ * Class AboutController
  *
- * Class AboutController.
+ * Controlador da API responsavel por informacoes do sistema.
+ * Retorna informacoes basicas sobre a instalacao como versao,
+ * versao do PHP, sistema operacional e driver de banco de dados.
  */
 class AboutController extends Controller
 {

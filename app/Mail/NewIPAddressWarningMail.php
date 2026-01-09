@@ -30,7 +30,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class NewIPAddressWarningMail
+ * Class NewIPAddressWarningMail.
+ *
+ * Email de aviso de login de novo endereco IP.
  */
 class NewIPAddressWarningMail extends Mailable
 {

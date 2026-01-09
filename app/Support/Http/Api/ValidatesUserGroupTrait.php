@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Trait ValidatesUserGroupTrait
+ *
+ * Trait para validacao de grupo de usuario.
+ * Verifica permissoes de acesso do usuario ao grupo solicitado.
  */
 trait ValidatesUserGroupTrait
 {

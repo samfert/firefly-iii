@@ -30,6 +30,12 @@ use FireflyIII\Support\Request\ConvertsDataTypes;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class StoreByDateRequest
+ *
+ * Classe de requisicao para criacao de taxas de cambio por data.
+ * Valida e processa dados de criacao de taxas de cambio agrupadas por data.
+ */
 class StoreByDateRequest extends FormRequest
 {
     use ChecksLogin;

@@ -35,6 +35,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class CategoryController
+ *
+ * Controlador da API responsavel por insights de transferencias por categoria.
+ * Exibe informacoes de transferencias agrupadas por categoria
+ * incluindo transferencias sem categoria definida.
  */
 class CategoryController extends Controller
 {

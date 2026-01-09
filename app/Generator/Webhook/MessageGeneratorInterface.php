@@ -30,6 +30,8 @@ use Illuminate\Support\Collection;
 
 /**
  * Interface MessageGeneratorInterface
+ *
+ * Interface para geradores de mensagens de webhook.
  */
 interface MessageGeneratorInterface
 {

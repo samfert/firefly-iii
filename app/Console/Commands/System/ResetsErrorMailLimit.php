@@ -8,6 +8,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Command\Command as CommandAlias;
 
+/**
+ * Class ResetsErrorMailLimit
+ *
+ * Comando para resetar limite de emails de erro.
+ * Reseta o contador de emails de erro enviados para permitir novos envios.
+ */
 class ResetsErrorMailLimit extends Command
 {
     use ShowsFriendlyMessages;

@@ -34,6 +34,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de webhooks.
+ * Permite modificar URL, gatilhos e configuracoes de webhooks.
  */
 class EditController extends Controller
 {

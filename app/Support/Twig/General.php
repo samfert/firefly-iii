@@ -42,7 +42,10 @@ use Override;
 use function Safe\parse_url;
 
 /**
- * Class TwigSupport.
+ * Class General
+ *
+ * Extensao Twig geral.
+ * Fornece filtros e funcoes utilitarias para templates Twig.
  */
 class General extends AbstractExtension
 {

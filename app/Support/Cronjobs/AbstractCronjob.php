@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Class AbstractCronjob
+ *
+ * Classe base abstrata para cronjobs.
+ * Define estrutura comum para tarefas agendadas do sistema.
  */
 abstract class AbstractCronjob
 {

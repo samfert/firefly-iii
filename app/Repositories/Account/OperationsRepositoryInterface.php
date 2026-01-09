@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface OperationsRepositoryInterface
  *
+ * Interface para operacoes de contas.
+ * Define metodos para calcular despesas, receitas e transferencias por conta.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

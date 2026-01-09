@@ -36,6 +36,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface ExchangeRateRepositoryInterface
  *
+ * Interface para repositorio de taxas de cambio.
+ * Define metodos para criar, atualizar, excluir e consultar taxas de conversao entre moedas.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

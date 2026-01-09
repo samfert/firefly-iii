@@ -29,6 +29,8 @@ use Override;
 
 /**
  * Class SessionServiceProvider.
+ *
+ * Provedor de servicos de sessao.
  */
 class SessionServiceProvider extends BaseSessionServiceProvider
 {

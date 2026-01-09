@@ -35,11 +35,17 @@ use Exception;
 
 /**
  * Class AutomationHandler
+ *
+ * Manipulador de eventos de automacao.
+ * Envia relatorios sobre transacoes criadas automaticamente.
  */
 class AutomationHandler
 {
     /**
-     * Respond to the creation of X journals.
+     * Responde a criacao de transacoes.
+     * Envia notificacao ao usuario sobre as transacoes criadas.
+     *
+     * @param RequestedReportOnJournals $event Evento de relatorio solicitado
      *
      * @throws FireflyException
      */

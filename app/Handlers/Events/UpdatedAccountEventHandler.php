@@ -29,9 +29,17 @@ use FireflyIII\Services\Internal\Support\CreditRecalculateService;
 
 /**
  * Class UpdatedAccountEventHandler
+ *
+ * Manipulador de eventos para contas atualizadas.
+ * Recalcula credito quando uma conta e atualizada.
  */
 class UpdatedAccountEventHandler
 {
+    /**
+     * Recalcula o credito para a conta atualizada.
+     *
+     * @param UpdatedAccount $event Evento de conta atualizada
+     */
     public function recalculateCredit(UpdatedAccount $event): void
     {
         $account = $event->account;

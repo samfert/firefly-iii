@@ -35,6 +35,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class BudgetController
+ *
+ * Controlador da API responsavel por insights de despesas por orcamento.
+ * Exibe informacoes de despesas agrupadas por orcamento
+ * incluindo despesas sem orcamento definido.
  */
 class BudgetController extends Controller
 {

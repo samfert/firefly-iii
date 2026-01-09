@@ -45,6 +45,10 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de cofrinhos.
+ * Exibe todos os cofrinhos agrupados por grupo de objetos,
+ * com informacoes de progresso e saldos por conta.
  */
 class IndexController extends Controller
 {

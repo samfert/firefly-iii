@@ -33,6 +33,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface RuleGroupRepositoryInterface.
  *
+ * Interface para repositorio de grupos de regras.
+ * Define metodos para criar, atualizar, excluir e consultar grupos de regras.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

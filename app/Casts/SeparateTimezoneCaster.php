@@ -30,13 +30,10 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class SeparateTimezoneCaster
+ * Class SeparateTimezoneCaster.
  *
- * Checks if the object has a separate _tz value. If it does, it will use that timezone to parse the date.
- * If it is NULL, it will use the system's timezone.
- *
- * At some point a user's database consists entirely of UTC dates, and we won't need this anymore. However,
- * the completeness of this migration is not yet guaranteed.
+ * Caster para conversao de datas com fuso horario separado.
+ * Verifica se o objeto tem um valor _tz separado e usa esse fuso horario para analisar a data.
  */
 class SeparateTimezoneCaster implements CastsAttributes
 {

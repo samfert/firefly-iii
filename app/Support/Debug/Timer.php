@@ -26,6 +26,12 @@ namespace FireflyIII\Support\Debug;
 
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class Timer
+ *
+ * Temporizador de depuracao.
+ * Singleton para medir tempo de execucao de operacoes para fins de depuracao.
+ */
 class Timer
 {
     private array         $times    = [];

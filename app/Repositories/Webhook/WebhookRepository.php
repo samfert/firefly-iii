@@ -34,6 +34,9 @@ use Illuminate\Support\Str;
 
 /**
  * Class WebhookRepository
+ *
+ * Repositorio principal para gerenciamento de webhooks.
+ * Fornece metodos para criar, atualizar, excluir e consultar webhooks de notificacao.
  */
 class WebhookRepository implements WebhookRepositoryInterface, UserGroupInterface
 {

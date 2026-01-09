@@ -28,6 +28,9 @@ use FireflyIII\Exceptions\FireflyException;
 
 /**
  * Trait CleansChartData
+ *
+ * Trait para limpeza de dados de grafico.
+ * Valida e normaliza dados de grafico para endpoints da API V2.
  */
 trait CleansChartData
 {

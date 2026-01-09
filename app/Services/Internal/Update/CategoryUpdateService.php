@@ -34,6 +34,9 @@ use Exception;
 
 /**
  * Class CategoryUpdateService
+ *
+ * Servico para atualizacao de categorias.
+ * Gerencia a atualizacao de dados de categorias, gatilhos de regras e recorrencias.
  */
 class CategoryUpdateService
 {

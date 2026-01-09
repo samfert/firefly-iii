@@ -35,7 +35,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
- * Class JavascriptController.
+ * Class JavascriptController
+ *
+ * Controlador responsavel por gerar arquivos JavaScript dinamicos.
+ * Fornece dados de contas, moedas e variaveis de configuracao
+ * para uso no frontend da aplicacao.
  */
 class JavascriptController extends Controller
 {
@@ -125,7 +129,10 @@ class JavascriptController extends Controller
     }
 
     /**
-     * Bit of a hack but OK.
+     * Gera variaveis JavaScript para o layout V2.
+     * Inclui datas de inicio e fim do periodo atual.
+     *
+     * @return Response Resposta com JavaScript contendo as variaveis
      */
     public function variablesV2(): Response
     {

@@ -26,7 +26,10 @@ namespace FireflyIII\Support\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class AccountForm.
+ * Class AccountForm
+ *
+ * Facade para formularios de conta.
+ * Fornece acesso estatico aos metodos de formulario de conta.
  */
 class AccountForm extends Facade
 {

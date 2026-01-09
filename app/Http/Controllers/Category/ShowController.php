@@ -38,6 +38,9 @@ use Illuminate\View\View;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de categorias.
+ * Mostra transacoes associadas a categoria com filtros de periodo.
  */
 class ShowController extends Controller
 {

@@ -24,7 +24,10 @@ declare(strict_types=1);
 namespace FireflyIII\Support;
 
 /**
- * Class Domain.
+ * Class Domain
+ *
+ * Classe de suporte para configuracoes de dominio.
+ * Fornece metodos para obter bindables, acoes e gatilhos de regras.
  */
 class Domain
 {

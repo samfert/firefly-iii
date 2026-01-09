@@ -28,6 +28,9 @@ use FireflyIII\Models\TransactionCurrency;
 
 /**
  * Class CurrencyUpdateService
+ *
+ * Servico para atualizacao de moedas.
+ * Gerencia a atualizacao de dados de moedas de transacao.
  */
 class CurrencyUpdateService
 {

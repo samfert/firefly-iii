@@ -29,6 +29,11 @@ use FireflyIII\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class UserAttemptedLogin
+ *
+ * Evento disparado quando um usuario tenta fazer login.
+ */
 class UserAttemptedLogin extends Event
 {
     use SerializesModels;

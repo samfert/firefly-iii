@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Calendar\Periodicity;
 
 /**
  * Class Fortnightly
+ *
+ * Periodicidade quinzenal.
+ * Calcula proxima data adicionando 2 semanas.
  */
 final class Fortnightly extends Weekly
 {

@@ -22,6 +22,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class SubscriptionEnrichment
+ *
+ * Enriquecedor de assinatura.
+ * Adiciona notas, grupos de objetos, datas de pagamento e valores as assinaturas.
+ */
 class SubscriptionEnrichment implements EnrichmentInterface
 {
     private User                $user;

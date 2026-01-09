@@ -36,6 +36,9 @@ use Illuminate\Support\Collection;
 /**
  * Interface CurrencyRepositoryInterface.
  *
+ * Interface para repositorio de moedas.
+ * Define metodos para criar, atualizar, excluir e consultar moedas de transacao.
+ *
  * @method setUserGroup(UserGroup $group)
  * @method getUserGroup()
  * @method getUser()

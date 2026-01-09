@@ -40,6 +40,9 @@ use LogicException;
 
 /**
  * Class AttachmentRepository.
+ *
+ * Repositorio principal para gerenciamento de anexos.
+ * Fornece metodos para criar, atualizar, excluir e consultar anexos de transacoes.
  */
 class AttachmentRepository implements AttachmentRepositoryInterface, UserGroupInterface
 {

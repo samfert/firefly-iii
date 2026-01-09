@@ -46,6 +46,8 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class CreateRecurringTransactions.
+ *
+ * Job para criacao de transacoes recorrentes.
  */
 class CreateRecurringTransactions implements ShouldQueue
 {

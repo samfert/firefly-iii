@@ -29,7 +29,9 @@ use Illuminate\Support\ServiceProvider;
 use Override;
 
 /**
- * Class FireflySessionProvider
+ * Class FireflySessionProvider.
+ *
+ * Provedor de sessao personalizado do Firefly III.
  */
 class FireflySessionProvider extends ServiceProvider
 {

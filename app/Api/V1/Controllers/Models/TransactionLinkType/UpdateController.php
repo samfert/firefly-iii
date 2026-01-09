@@ -40,6 +40,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de tipos de links de transacoes.
+ * Atualiza dados de tipos de links existentes atraves da API REST.
  */
 class UpdateController extends Controller
 {

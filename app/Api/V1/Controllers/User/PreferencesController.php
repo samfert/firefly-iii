@@ -38,6 +38,10 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class PreferencesController
+ *
+ * Controlador da API responsavel pelas preferencias do usuario.
+ * Permite listar, visualizar, criar e atualizar preferencias
+ * de configuracao do usuario no sistema.
  */
 class PreferencesController extends Controller
 {

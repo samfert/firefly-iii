@@ -38,11 +38,20 @@ use Ntfy\Message;
 
 /**
  * Class UserLogin
+ *
+ * Notificacao de login de usuario de novo IP.
  */
 class UserLogin extends Notification
 {
     use Queueable;
 
+    /**
+     * Converte notificacao para array.
+     *
+     * @param User $notifiable Usuario notificavel
+     *
+     * @return array Dados da notificacao
+     */
     public function toArray(User $notifiable): array
     {
         return [

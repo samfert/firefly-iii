@@ -30,6 +30,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Log;
 use Closure;
 
+/**
+ * Class IsValidDiscordUrl.
+ *
+ * Regra de validacao para URL do Discord.
+ */
 class IsValidDiscordUrl implements ValidationRule
 {
     use ValidatesAmountsTrait;

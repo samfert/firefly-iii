@@ -32,7 +32,11 @@ use FireflyIII\Support\CacheProperties;
 use Illuminate\Support\Collection;
 
 /**
- * Class AccountController.
+ * Class AccountController
+ *
+ * Controlador responsavel pela geracao de relatorios de contas.
+ * Gera visoes parciais com saldos e movimentacoes de contas
+ * para o sistema de relatorios.
  */
 class AccountController extends Controller
 {

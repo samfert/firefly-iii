@@ -31,6 +31,8 @@ use Override;
 
 /**
  * Class AttachmentServiceProvider.
+ *
+ * Provedor de servicos de anexos.
  */
 class AttachmentServiceProvider extends ServiceProvider
 {

@@ -40,7 +40,9 @@ use Illuminate\Support\Facades\Log;
 use function Safe\json_encode;
 
 /**
- * Class PiggyBankFactory
+ * Class PiggyBankFactory.
+ *
+ * Fabrica para criacao de cofrinhos.
  */
 class PiggyBankFactory
 {

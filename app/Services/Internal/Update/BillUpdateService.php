@@ -38,6 +38,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class BillUpdateService
+ *
+ * Servico para atualizacao de contas a pagar.
+ * Gerencia a atualizacao de dados de faturas, grupos de objetos e regras associadas.
  */
 class BillUpdateService
 {

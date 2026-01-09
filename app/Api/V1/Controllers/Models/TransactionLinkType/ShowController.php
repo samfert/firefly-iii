@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de tipos de links de transacoes.
+ * Lista todos os tipos de links ou exibe detalhes de um tipo especifico.
  */
 class ShowController extends Controller
 {

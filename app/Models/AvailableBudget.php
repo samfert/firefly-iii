@@ -33,6 +33,27 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class AvailableBudget
+ *
+ * Representa o valor total disponivel para orcamentos em um determinado periodo.
+ * Define quanto dinheiro o usuario tem disponivel para alocar em orcamentos
+ * durante um intervalo de datas especifico.
+ *
+ * @property int                      $id                      Identificador unico
+ * @property int                      $user_id                 ID do usuario proprietario
+ * @property int                      $user_group_id           ID do grupo de usuarios
+ * @property int                      $transaction_currency_id ID da moeda
+ * @property string                   $amount                  Valor disponivel
+ * @property string                   $native_amount           Valor na moeda nativa
+ * @property \Carbon\Carbon           $start_date              Data de inicio do periodo
+ * @property \Carbon\Carbon           $end_date                Data de fim do periodo
+ * @property \Carbon\Carbon           $created_at              Data de criacao
+ * @property \Carbon\Carbon           $updated_at              Data de atualizacao
+ * @property \Carbon\Carbon|null      $deleted_at              Data de exclusao (soft delete)
+ * @property-read User                $user                    Usuario proprietario
+ * @property-read TransactionCurrency $transactionCurrency     Moeda do orcamento disponivel
+ */
 class AvailableBudget extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -64,16 +85,31 @@ class AvailableBudget extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna o usuario proprietario deste orcamento disponivel.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo User
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Retorna a moeda associada a este orcamento disponivel.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo TransactionCurrency
+     */
     public function transactionCurrency(): BelongsTo
     {
         return $this->belongsTo(TransactionCurrency::class);
     }
 
+    /**
+     * Accessor para garantir que o valor seja retornado como string.
+     *
+     * @return Attribute Atributo computado para o valor disponivel
+     */
     protected function amount(): Attribute
     {
         return Attribute::make(
@@ -81,6 +117,12 @@ class AvailableBudget extends Model
         );
     }
 
+    /**
+     * Accessor e mutator para a data de fim do periodo.
+     * Converte entre Carbon e formato de string para o banco de dados.
+     *
+     * @return Attribute Atributo computado para a data de fim
+     */
     protected function endDate(): Attribute
     {
         return Attribute::make(
@@ -89,6 +131,12 @@ class AvailableBudget extends Model
         );
     }
 
+    /**
+     * Accessor e mutator para a data de inicio do periodo.
+     * Converte entre Carbon e formato de string para o banco de dados.
+     *
+     * @return Attribute Atributo computado para a data de inicio
+     */
     protected function startDate(): Attribute
     {
         return Attribute::make(
@@ -97,6 +145,11 @@ class AvailableBudget extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID da moeda seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da moeda
+     */
     protected function transactionCurrencyId(): Attribute
     {
         return Attribute::make(
@@ -104,6 +157,11 @@ class AvailableBudget extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

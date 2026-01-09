@@ -28,7 +28,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
 
 /**
- * Class LessThanPiggyTarget
+ * Class LessThanPiggyTarget.
+ *
+ * Regra de validacao para valor menor que meta do cofrinho.
  */
 class LessThanPiggyTarget implements ValidationRule
 {

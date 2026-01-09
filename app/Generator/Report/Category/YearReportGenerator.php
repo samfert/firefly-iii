@@ -25,5 +25,7 @@ namespace FireflyIII\Generator\Report\Category;
 
 /**
  * Class YearReportGenerator.
+ *
+ * Gerador de relatorios anuais por categoria.
  */
 class YearReportGenerator extends MonthReportGenerator {}

@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de links entre transacoes.
+ * Valida e processa dados de criacao de vinculos entre transacoes.
  */
 class StoreRequest extends FormRequest
 {

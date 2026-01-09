@@ -28,6 +28,9 @@ use FireflyIII\Models\ObjectGroup;
 
 /**
  * Trait CreatesObjectGroups
+ *
+ * Trait para criacao e gerenciamento de grupos de objetos.
+ * Fornece metodos para encontrar ou criar grupos de objetos por titulo ou ID.
  */
 trait CreatesObjectGroups
 {

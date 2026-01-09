@@ -39,6 +39,9 @@ use function Safe\json_decode;
 
 /**
  * Class TransactionGroupTwig
+ *
+ * Extensao Twig para grupos de transacao.
+ * Fornece funcoes para exibir valores e metadados de transacoes em templates.
  */
 class TransactionGroupTwig extends AbstractExtension
 {

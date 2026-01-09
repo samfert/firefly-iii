@@ -31,6 +31,12 @@ use FireflyIII\Support\Facades\FireflyConfig;
 use Illuminate\Support\Facades\Log;
 use Override;
 
+/**
+ * Class UpdateCheckCronjob
+ *
+ * Cronjob para verificacao de atualizacoes.
+ * Executa periodicamente para verificar novas versoes do Firefly III.
+ */
 class UpdateCheckCronjob extends AbstractCronjob
 {
     use UpdateTrait;

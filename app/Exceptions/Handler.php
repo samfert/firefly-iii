@@ -52,9 +52,10 @@ use Throwable;
 use function Safe\json_encode;
 use function Safe\parse_url;
 
-// temp
 /**
- * Class Handler
+ * Class Handler.
+ *
+ * Manipulador de excecoes da aplicacao.
  */
 class Handler extends ExceptionHandler
 {

@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Class Monthly
+ *
+ * Periodicidade mensal.
+ * Calcula proxima data adicionando meses sem overflow.
  */
 class Monthly extends Interval
 {

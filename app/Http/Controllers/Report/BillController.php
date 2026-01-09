@@ -34,6 +34,10 @@ use Illuminate\Support\Collection;
 
 /**
  * Class BillController
+ *
+ * Controlador responsavel pela geracao de relatorios de faturas.
+ * Gera visoes parciais com status de pagamento de faturas
+ * recorrentes no periodo selecionado.
  */
 class BillController extends Controller
 {

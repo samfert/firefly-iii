@@ -25,8 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class StringPosition
+ * Enum StringPosition.
  *
+ * Enumeracao de posicao de string para busca.
  * stringPosition: 1 = start (default), 2 = end, 3 = contains, 4 = is
  */
 enum StringPosition

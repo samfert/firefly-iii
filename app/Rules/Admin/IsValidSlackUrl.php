@@ -30,6 +30,11 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Log;
 use Closure;
 
+/**
+ * Class IsValidSlackUrl.
+ *
+ * Regra de validacao para URL do Slack.
+ */
 class IsValidSlackUrl implements ValidationRule
 {
     use ValidatesAmountsTrait;

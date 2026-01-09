@@ -25,6 +25,9 @@ namespace FireflyIII\TransactionRules\Actions;
 
 /**
  * Interface ActionInterface.
+ *
+ * Interface para acoes de regras de transacao.
+ * Define metodo para executar acao em transacao.
  */
 interface ActionInterface
 {

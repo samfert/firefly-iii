@@ -27,6 +27,11 @@ namespace FireflyIII\Support\Chart;
 use FireflyIII\Exceptions\FireflyException;
 
 /**
+ * Class ChartData
+ *
+ * Classe de dados de graficos (descontinuada).
+ * Gerencia series de dados para renderizacao de graficos.
+ *
  * @deprecated
  */
 class ChartData

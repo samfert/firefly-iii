@@ -39,6 +39,8 @@ use Override;
 
 /**
  * Class BudgetServiceProvider.
+ *
+ * Provedor de servicos de orcamentos.
  */
 class BudgetServiceProvider extends ServiceProvider
 {

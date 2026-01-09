@@ -41,6 +41,9 @@ use Throwable;
 
 /**
  * Trait RenderPartialViews
+ *
+ * Trait para renderizacao de views parciais.
+ * Fornece metodos para renderizar popups e opcoes de relatorio.
  */
 trait RenderPartialViews
 {

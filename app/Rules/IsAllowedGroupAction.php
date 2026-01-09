@@ -34,6 +34,11 @@ use Illuminate\Support\Facades\Log;
 use Closure;
 use Override;
 
+/**
+ * Class IsAllowedGroupAction.
+ *
+ * Regra de validacao para acao permitida em grupo.
+ */
 class IsAllowedGroupAction implements ValidationRule
 {
     private array                                 $acceptedRoles;

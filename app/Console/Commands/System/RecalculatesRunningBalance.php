@@ -27,6 +27,12 @@ use FireflyIII\Console\Commands\ShowsFriendlyMessages;
 use FireflyIII\Support\Models\AccountBalanceCalculator;
 use Illuminate\Console\Command;
 
+/**
+ * Class RecalculatesRunningBalance
+ *
+ * Comando para recalcular saldos.
+ * Recalcula os saldos correntes de todas as contas.
+ */
 class RecalculatesRunningBalance extends Command
 {
     use ShowsFriendlyMessages;

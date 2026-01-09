@@ -38,6 +38,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de anexos.
+ * Atualiza metadados de anexos existentes atraves da API REST.
  */
 class UpdateController extends Controller
 {

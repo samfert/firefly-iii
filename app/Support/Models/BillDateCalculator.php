@@ -28,6 +28,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class BillDateCalculator
+ *
+ * Calculadora de datas de fatura.
+ * Calcula datas de pagamento esperadas para faturas recorrentes.
+ */
 class BillDateCalculator
 {
     // #8401 we start keeping track of the diff in periods, because if it can't jump over a period (happens often in February)

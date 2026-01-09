@@ -25,7 +25,9 @@ declare(strict_types=1);
 namespace FireflyIII\Enums;
 
 /**
- * Class WebhookDelivery
+ * Enum WebhookDelivery.
+ *
+ * Enumeracao de formatos de entrega de webhook.
  */
 enum WebhookDelivery: int
 {

@@ -24,7 +24,10 @@ declare(strict_types=1);
 namespace FireflyIII\Services\Password;
 
 /**
- * Interface Verifier.
+ * Interface Verifier
+ *
+ * Interface para verificadores de senha.
+ * Define metodo para validar senhas contra servicos de seguranca.
  */
 interface Verifier
 {

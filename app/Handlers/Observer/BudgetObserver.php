@@ -36,11 +36,19 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class BudgetObserver
+ *
+ * Observador para orcamentos.
+ * Dispara webhooks e limpa dados relacionados.
  */
 class BudgetObserver
 {
     use RecalculatesAvailableBudgetsTrait;
 
+    /**
+     * Processa criacao de orcamento.
+     *
+     * @param Budget $budget Orcamento criado
+     */
     public function created(Budget $budget): void
     {
         Log::debug(sprintf('Observe "created" of budget #%d ("%s").', $budget->id, $budget->name));

@@ -34,6 +34,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de webhooks.
+ * Permite excluir webhooks e suas mensagens associadas.
  */
 class DeleteController extends Controller
 {

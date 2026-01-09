@@ -30,14 +30,25 @@ use FireflyIII\Models\TransactionJournal;
 
 /**
  * Class SetNotes.
+ *
+ * Acao para definir as notas de uma transacao.
  */
 class SetNotes implements ActionInterface
 {
     /**
-     * TriggerInterface constructor.
+     * Construtor da acao.
+     *
+     * @param RuleAction $action Acao da regra
      */
     public function __construct(private readonly RuleAction $action) {}
 
+    /**
+     * Executa a acao no diario de transacao.
+     *
+     * @param array $journal Dados do diario
+     *
+     * @return bool True se executado com sucesso
+     */
     public function actOnArray(array $journal): bool
     {
         $dbNote       = Note::where('noteable_id', $journal['transaction_journal_id'])

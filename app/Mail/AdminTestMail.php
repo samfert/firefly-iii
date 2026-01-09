@@ -30,7 +30,7 @@ use Illuminate\Queue\SerializesModels;
 /**
  * Class AdminTestMail.
  *
- * Sends a test mail to administrators.
+ * Email de teste enviado para administradores.
  */
 class AdminTestMail extends Mailable
 {

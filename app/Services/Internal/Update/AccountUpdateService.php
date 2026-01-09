@@ -36,6 +36,9 @@ use FireflyIII\User;
 
 /**
  * Class AccountUpdateService
+ *
+ * Servico para atualizacao de contas.
+ * Gerencia a atualizacao de dados de contas, metadados, saldos iniciais e localizacoes.
  * TODO this service is messy and convoluted.
  */
 class AccountUpdateService

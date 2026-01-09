@@ -41,6 +41,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de transacoes.
+ * Valida e processa dados de atualizacao de transacoes incluindo splits e metadados.
  */
 class UpdateRequest extends FormRequest
 {

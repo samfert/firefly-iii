@@ -20,6 +20,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class BalanceController
+ *
+ * Controlador da API responsavel por graficos de balanco.
+ * Gera dados para graficos de receitas e despesas agrupados
+ * por periodo com suporte a conversao de moedas.
  */
 class BalanceController extends Controller
 {

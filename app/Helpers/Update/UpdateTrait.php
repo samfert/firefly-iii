@@ -27,7 +27,9 @@ namespace FireflyIII\Helpers\Update;
 use FireflyIII\Services\FireflyIIIOrg\Update\UpdateRequestInterface;
 
 /**
- * Trait UpdateTrait
+ * Trait UpdateTrait.
+ *
+ * Trait para verificacao de atualizacoes.
  */
 trait UpdateTrait
 {

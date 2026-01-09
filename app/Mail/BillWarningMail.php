@@ -30,7 +30,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class BillWarningMail
+ * Class BillWarningMail.
+ *
+ * Email de aviso de fatura proxima do vencimento.
  */
 class BillWarningMail extends Mailable
 {

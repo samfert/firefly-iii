@@ -27,9 +27,17 @@ use FireflyIII\Models\RecurrenceTransaction;
 
 /**
  * Class RecurrenceTransactionObserver
+ *
+ * Observador para transacoes recorrentes.
+ * Limpa metadados ao excluir transacao recorrente.
  */
 class RecurrenceTransactionObserver
 {
+    /**
+     * Processa exclusao de transacao recorrente.
+     *
+     * @param RecurrenceTransaction $transaction Transacao sendo excluida
+     */
     public function deleting(RecurrenceTransaction $transaction): void
     {
         app('log')->debug('Observe "deleting" of a recurrence transaction.');

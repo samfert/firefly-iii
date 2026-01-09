@@ -28,7 +28,10 @@ use FireflyIII\Models\Location;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class LocationServiceTrait
+ * Trait LocationServiceTrait
+ *
+ * Trait com funcionalidades de servico de localizacao.
+ * Fornece metodos para armazenar coordenadas geograficas em modelos.
  */
 trait LocationServiceTrait
 {

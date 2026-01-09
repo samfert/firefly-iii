@@ -30,21 +30,57 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class AuditLogEntry
+ *
+ * Registra alteracoes feitas em entidades do sistema para fins de auditoria.
+ * Armazena o estado anterior e posterior de cada modificacao, permitindo
+ * rastrear quem fez a alteracao e quando.
+ *
+ * @property int                 $id            Identificador unico do registro de auditoria
+ * @property int                 $auditable_id  ID da entidade auditada
+ * @property string              $auditable_type Tipo da entidade auditada
+ * @property int                 $changer_id    ID de quem fez a alteracao
+ * @property string              $changer_type  Tipo de quem fez a alteracao
+ * @property string              $action        Acao realizada (create, update, delete)
+ * @property array               $before        Estado anterior da entidade
+ * @property array               $after         Estado posterior da entidade
+ * @property \Carbon\Carbon      $created_at    Data de criacao
+ * @property \Carbon\Carbon      $updated_at    Data de atualizacao
+ * @property \Carbon\Carbon|null $deleted_at    Data de exclusao (soft delete)
+ * @property-read Model          $auditable     Entidade auditada
+ * @property-read Model          $changer       Quem fez a alteracao
+ */
 class AuditLogEntry extends Model
 {
     use ReturnsIntegerIdTrait;
     use SoftDeletes;
 
+    /**
+     * Retorna a entidade que foi auditada.
+     *
+     * @return MorphTo Relacionamento polimorfico com a entidade auditada
+     */
     public function auditable(): MorphTo
     {
         return $this->morphTo();
     }
 
+    /**
+     * Retorna quem realizou a alteracao (usuario ou sistema).
+     *
+     * @return MorphTo Relacionamento polimorfico com o autor da alteracao
+     */
     public function changer(): MorphTo
     {
         return $this->morphTo();
     }
 
+    /**
+     * Accessor para garantir que o ID da entidade auditada seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da entidade auditada
+     */
     protected function auditableId(): Attribute
     {
         return Attribute::make(
@@ -52,6 +88,11 @@ class AuditLogEntry extends Model
         );
     }
 
+    /**
+     * Accessor para garantir que o ID do autor da alteracao seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID do autor
+     */
     protected function changerId(): Attribute
     {
         return Attribute::make(
@@ -59,6 +100,11 @@ class AuditLogEntry extends Model
         );
     }
 
+    /**
+     * Define os casts de atributos do modelo.
+     *
+     * @return array<string, string> Array de casts de atributos
+     */
     protected function casts(): array
     {
         return [

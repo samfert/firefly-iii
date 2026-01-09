@@ -31,11 +31,20 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class TransactionObserver
+ *
+ * Observador para transacoes.
+ * Atualiza saldos e valores de moeda primaria.
  */
 class TransactionObserver
 {
+    /** @var bool Flag para controlar recalculo de saldo */
     public static bool $recalculate = true;
 
+    /**
+     * Processa criacao de transacao.
+     *
+     * @param Transaction $transaction Transacao criada
+     */
     public function created(Transaction $transaction): void
     {
         Log::debug('Observe "created" of a transaction.');

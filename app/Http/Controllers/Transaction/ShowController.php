@@ -42,6 +42,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de transacoes.
+ * Mostra informacoes completas da transacao incluindo valores,
+ * contas, anexos, links e historico de auditoria.
  */
 class ShowController extends Controller
 {

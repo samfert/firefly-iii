@@ -36,10 +36,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class EnabledMFANotification
+ *
+ * Notificacao de ativacao de MFA.
+ */
 class EnabledMFANotification extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario que ativou MFA
+     */
     public function __construct(private User $user) {}
 
     /**

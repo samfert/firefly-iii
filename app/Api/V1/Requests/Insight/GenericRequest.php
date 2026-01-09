@@ -39,6 +39,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class GenericRequest
+ *
+ * Classe de requisicao generica para endpoints de insights.
+ * Valida e processa parametros de periodo, contas, orcamentos, categorias, faturas e tags.
  */
 class GenericRequest extends FormRequest
 {

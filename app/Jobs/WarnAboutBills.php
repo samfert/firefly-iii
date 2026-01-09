@@ -39,7 +39,9 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class WarnAboutBills
+ * Class WarnAboutBills.
+ *
+ * Job para envio de avisos sobre faturas.
  */
 class WarnAboutBills implements ShouldQueue
 {

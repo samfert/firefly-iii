@@ -32,6 +32,22 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class WebhookAttempt
+ *
+ * Representa uma tentativa de envio de webhook no sistema Firefly III.
+ * Cada tentativa registra o resultado do envio de uma mensagem de webhook,
+ * incluindo codigo de resposta, logs e status de sucesso.
+ *
+ * @property int                 $id                 Identificador unico da tentativa
+ * @property int                 $webhook_message_id ID da mensagem de webhook
+ * @property int|null            $status_code        Codigo de status HTTP da resposta
+ * @property string|null         $logs               Logs da tentativa
+ * @property \Carbon\Carbon      $created_at         Data de criacao
+ * @property \Carbon\Carbon      $updated_at         Data de atualizacao
+ * @property \Carbon\Carbon|null $deleted_at         Data de exclusao (soft delete)
+ * @property-read WebhookMessage $webhookMessage     Mensagem de webhook associada
+ */
 class WebhookAttempt extends Model
 {
     use ReturnsIntegerIdTrait;
@@ -60,11 +76,21 @@ class WebhookAttempt extends Model
         throw new NotFoundHttpException();
     }
 
+    /**
+     * Retorna a mensagem de webhook associada a esta tentativa.
+     *
+     * @return BelongsTo Relacionamento BelongsTo com o modelo WebhookMessage
+     */
     public function webhookMessage(): BelongsTo
     {
         return $this->belongsTo(WebhookMessage::class);
     }
 
+    /**
+     * Accessor para garantir que o ID da mensagem seja retornado como inteiro.
+     *
+     * @return Attribute Atributo computado para o ID da mensagem de webhook
+     */
     protected function webhookMessageId(): Attribute
     {
         return Attribute::make(

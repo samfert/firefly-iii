@@ -38,6 +38,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de taxas de cambio.
+ * Exibe detalhes de taxas de cambio entre moedas especificas.
  */
 class ShowController extends Controller
 {

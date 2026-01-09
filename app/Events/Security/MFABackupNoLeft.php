@@ -29,6 +29,11 @@ use FireflyIII\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class MFABackupNoLeft
+ *
+ * Evento disparado quando nao ha mais codigos de backup MFA disponiveis.
+ */
 class MFABackupNoLeft extends Event
 {
     use SerializesModels;

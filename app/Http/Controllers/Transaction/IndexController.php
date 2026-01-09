@@ -37,6 +37,10 @@ use Illuminate\View\View;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de transacoes.
+ * Exibe transacoes filtradas por tipo e periodo, com suporte
+ * a paginacao e visao geral de periodos.
  */
 class IndexController extends Controller
 {

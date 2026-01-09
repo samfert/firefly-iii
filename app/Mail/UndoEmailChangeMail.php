@@ -28,7 +28,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class UndoEmailChangeMail
+ * Class UndoEmailChangeMail.
+ *
+ * Email para desfazer alteracao de email.
  */
 class UndoEmailChangeMail extends Mailable
 {

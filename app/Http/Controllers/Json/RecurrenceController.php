@@ -35,6 +35,10 @@ use Illuminate\Http\Request;
 
 /**
  * Class RecurrenceController
+ *
+ * Controlador responsavel por dados JSON de recorrencias.
+ * Fornece eventos de calendario e sugestoes de repeticao
+ * para transacoes recorrentes.
  */
 class RecurrenceController extends Controller
 {

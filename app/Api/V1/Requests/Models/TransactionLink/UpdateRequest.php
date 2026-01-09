@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de links entre transacoes.
+ * Valida e processa dados de atualizacao de vinculos entre transacoes.
  */
 class UpdateRequest extends FormRequest
 {

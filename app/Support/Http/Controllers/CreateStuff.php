@@ -37,6 +37,9 @@ use function Safe\file_put_contents;
 
 /**
  * Trait CreateStuff
+ *
+ * Trait para criacao de entidades.
+ * Fornece metodos para criar contas, usuarios e chaves OAuth.
  */
 trait CreateStuff
 {

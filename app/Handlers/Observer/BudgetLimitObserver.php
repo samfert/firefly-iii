@@ -34,10 +34,21 @@ use FireflyIII\Support\Observers\RecalculatesAvailableBudgetsTrait;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class BudgetLimitObserver
+ *
+ * Observador para limites de orcamento.
+ * Atualiza valores de moeda primaria e dispara webhooks.
+ */
 class BudgetLimitObserver
 {
     use RecalculatesAvailableBudgetsTrait;
 
+    /**
+     * Processa criacao de limite de orcamento.
+     *
+     * @param BudgetLimit $budgetLimit Limite criado
+     */
     public function created(BudgetLimit $budgetLimit): void
     {
         Log::debug('Observe "created" of a budget limit.');

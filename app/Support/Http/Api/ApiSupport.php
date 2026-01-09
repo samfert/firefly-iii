@@ -29,6 +29,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Trait ApiSupport
+ *
+ * Trait de suporte a API.
+ * Fornece metodos auxiliares para graficos de contas de receita e despesa.
  */
 trait ApiSupport
 {
