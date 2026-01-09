@@ -29,9 +29,17 @@ use FireflyIII\Repositories\Attachment\AttachmentRepositoryInterface;
 
 /**
  * Class TagObserver
+ *
+ * Observador para tags.
+ * Limpa anexos e localizacoes ao excluir tag.
  */
 class TagObserver
 {
+    /**
+     * Processa exclusao de tag.
+     *
+     * @param Tag $tag Tag sendo excluida
+     */
     public function deleting(Tag $tag): void
     {
         app('log')->debug('Observe "deleting" of a tag.');

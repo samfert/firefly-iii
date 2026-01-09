@@ -27,9 +27,17 @@ use FireflyIII\Models\Rule;
 
 /**
  * Class RuleObserver
+ *
+ * Observador para regras.
+ * Limpa acoes e gatilhos ao excluir regra.
  */
 class RuleObserver
 {
+    /**
+     * Processa exclusao de regra.
+     *
+     * @param Rule $rule Regra sendo excluida
+     */
     public function deleting(Rule $rule): void
     {
         app('log')->debug('Observe "deleting" of a rule.');

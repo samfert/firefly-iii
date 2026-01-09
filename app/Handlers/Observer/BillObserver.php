@@ -32,9 +32,17 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class BillObserver
+ *
+ * Observador para faturas.
+ * Atualiza valores de moeda primaria e limpa anexos.
  */
 class BillObserver
 {
+    /**
+     * Processa criacao de fatura.
+     *
+     * @param Bill $bill Fatura criada
+     */
     public function created(Bill $bill): void
     {
         //        Log::debug('Observe "created" of a bill.');

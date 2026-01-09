@@ -27,9 +27,17 @@ use FireflyIII\Models\WebhookMessage;
 
 /**
  * Class WebhookMessageObserver
+ *
+ * Observador para mensagens de webhook.
+ * Limpa tentativas de webhook ao excluir mensagem.
  */
 class WebhookMessageObserver
 {
+    /**
+     * Processa exclusao de mensagem de webhook.
+     *
+     * @param WebhookMessage $webhookMessage Mensagem sendo excluida
+     */
     public function deleting(WebhookMessage $webhookMessage): void
     {
         app('log')->debug('Observe "deleting" of a webhook message.');
