@@ -38,6 +38,10 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de novos cofrinhos.
+ * Permite criar cofrinhos com metas de economia, datas alvo
+ * e suporte a anexos.
  */
 class CreateController extends Controller
 {

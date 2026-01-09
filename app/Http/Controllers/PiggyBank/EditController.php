@@ -37,6 +37,10 @@ use Illuminate\View\View;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de cofrinhos existentes.
+ * Permite modificar metas, datas, contas associadas e resetar
+ * o historico de eventos.
  */
 class EditController extends Controller
 {
