@@ -29,6 +29,12 @@ use FireflyIII\Models\TransactionGroup;
 use Illuminate\Console\Command;
 use Exception;
 
+/**
+ * Class RemovesEmptyGroups
+ *
+ * Comando para remover grupos vazios.
+ * Exclui grupos de transacoes vazios.
+ */
 class RemovesEmptyGroups extends Command
 {
     use ShowsFriendlyMessages;

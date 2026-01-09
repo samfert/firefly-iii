@@ -30,6 +30,12 @@ use FireflyIII\Models\Account;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 
+/**
+ * Class CorrectsIbans
+ *
+ * Comando para corrigir IBANs.
+ * Remove espacos de IBANs e corrige duplicatas.
+ */
 class CorrectsIbans extends Command
 {
     use ShowsFriendlyMessages;

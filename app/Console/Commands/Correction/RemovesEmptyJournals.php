@@ -31,6 +31,12 @@ use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class RemovesEmptyJournals
+ *
+ * Comando para remover diarios vazios.
+ * Exclui diarios de transacoes vazios e desiguais.
+ */
 class RemovesEmptyJournals extends Command
 {
     use ShowsFriendlyMessages;
