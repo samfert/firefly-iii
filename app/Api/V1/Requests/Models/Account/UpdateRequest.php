@@ -39,6 +39,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de contas.
+ * Valida e processa dados de atualizacao de contas incluindo saldo inicial e localizacao.
  */
 class UpdateRequest extends FormRequest
 {

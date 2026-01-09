@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de orcamentos.
+ * Valida e processa dados de criacao de orcamentos incluindo configuracoes de auto-orcamento.
  */
 class StoreRequest extends FormRequest
 {

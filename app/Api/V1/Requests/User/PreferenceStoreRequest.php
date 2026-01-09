@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class PreferenceStoreRequest
+ *
+ * Classe de requisicao para criacao de preferencias do usuario.
+ * Valida e processa dados de criacao de preferencias atraves da API.
  */
 class PreferenceStoreRequest extends FormRequest
 {

@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class PreferenceUpdateRequest
+ *
+ * Classe de requisicao para atualizacao de preferencias do usuario.
+ * Valida e processa dados de atualizacao de preferencias atraves da API.
  */
 class PreferenceUpdateRequest extends FormRequest
 {

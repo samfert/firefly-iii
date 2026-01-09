@@ -34,6 +34,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de cofrinhos.
+ * Valida e processa dados de atualizacao de cofrinhos incluindo contas e valores.
  */
 class UpdateRequest extends FormRequest
 {

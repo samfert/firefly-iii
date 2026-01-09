@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de cofrinhos.
+ * Valida e processa dados de criacao de cofrinhos incluindo contas e valores.
  */
 class StoreRequest extends FormRequest
 {

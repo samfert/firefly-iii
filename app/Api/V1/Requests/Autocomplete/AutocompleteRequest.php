@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class AutocompleteRequest
+ *
+ * Classe de requisicao para funcionalidade de autocompletar.
+ * Valida e processa dados de busca para sugestoes de autocompletar.
  */
 class AutocompleteRequest extends FormRequest
 {

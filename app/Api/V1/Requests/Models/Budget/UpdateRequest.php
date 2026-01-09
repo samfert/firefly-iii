@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de orcamentos.
+ * Valida e processa dados de atualizacao de orcamentos incluindo configuracoes de auto-orcamento.
  */
 class UpdateRequest extends FormRequest
 {

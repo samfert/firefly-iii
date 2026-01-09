@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de faturas.
+ * Valida e processa dados de atualizacao de faturas recorrentes.
  */
 class UpdateRequest extends FormRequest
 {

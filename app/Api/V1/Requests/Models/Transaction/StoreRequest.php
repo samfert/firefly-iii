@@ -43,6 +43,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de transacoes.
+ * Valida e processa dados de criacao de transacoes incluindo splits e metadados.
  */
 class StoreRequest extends FormRequest
 {

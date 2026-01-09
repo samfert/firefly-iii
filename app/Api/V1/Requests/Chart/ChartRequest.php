@@ -34,6 +34,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class ChartRequest
+ *
+ * Classe de requisicao para geracao de graficos.
+ * Valida e processa parametros de periodo, contas e configuracoes de graficos.
  */
 class ChartRequest extends FormRequest
 {

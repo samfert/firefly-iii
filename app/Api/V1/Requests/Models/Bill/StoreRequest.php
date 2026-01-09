@@ -36,6 +36,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de faturas.
+ * Valida e processa dados de criacao de faturas recorrentes.
  */
 class StoreRequest extends FormRequest
 {
