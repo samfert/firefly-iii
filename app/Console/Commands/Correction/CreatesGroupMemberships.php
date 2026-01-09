@@ -33,6 +33,12 @@ use FireflyIII\Models\UserRole;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class CreatesGroupMemberships
+ *
+ * Comando para criar membros de grupo.
+ * Atualiza e cria membros de grupo de usuarios.
+ */
 class CreatesGroupMemberships extends Command
 {
     use ShowsFriendlyMessages;

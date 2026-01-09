@@ -29,6 +29,12 @@ use FireflyIII\Enums\TransactionTypeEnum;
 use FireflyIII\Models\TransactionJournal;
 use Illuminate\Console\Command;
 
+/**
+ * Class CorrectsTransferBudgets
+ *
+ * Comando para corrigir orcamentos de transferencias.
+ * Remove orcamentos de transacoes que nao sao saques.
+ */
 class CorrectsTransferBudgets extends Command
 {
     use ShowsFriendlyMessages;
