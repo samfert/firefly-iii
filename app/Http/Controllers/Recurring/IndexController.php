@@ -40,6 +40,10 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de transacoes recorrentes.
+ * Exibe todas as transacoes recorrentes com informacoes de proximas
+ * ocorrencias e status de execucao.
  */
 class IndexController extends Controller
 {

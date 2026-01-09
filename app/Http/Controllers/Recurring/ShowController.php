@@ -42,6 +42,9 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class ShowController
+ *
+ * Controlador responsavel pela exibicao detalhada de transacoes recorrentes.
+ * Mostra ocorrencias passadas e futuras, transacoes geradas e anexos.
  */
 class ShowController extends Controller
 {

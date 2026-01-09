@@ -35,6 +35,9 @@ use Illuminate\View\View;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de transacoes recorrentes.
+ * Permite excluir transacoes recorrentes e suas transacoes geradas.
  */
 class DeleteController extends Controller
 {

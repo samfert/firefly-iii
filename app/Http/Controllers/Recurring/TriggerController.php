@@ -35,6 +35,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class TriggerController
+ *
+ * Controlador responsavel pelo disparo manual de transacoes recorrentes.
+ * Permite executar uma transacao recorrente manualmente em uma data especifica.
  */
 class TriggerController extends Controller
 {

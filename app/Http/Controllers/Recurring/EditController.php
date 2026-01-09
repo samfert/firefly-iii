@@ -48,6 +48,10 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de transacoes recorrentes.
+ * Permite modificar configuracoes de repeticao, valores, contas
+ * e outras propriedades da transacao recorrente.
  */
 class EditController extends Controller
 {
