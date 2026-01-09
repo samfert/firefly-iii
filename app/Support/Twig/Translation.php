@@ -29,7 +29,10 @@ use Twig\TwigFunction;
 use Override;
 
 /**
- * Class Budget.
+ * Class Translation
+ *
+ * Extensao Twig para traducao.
+ * Fornece filtros e funcoes para traducao de textos em templates.
  */
 class Translation extends AbstractExtension
 {

@@ -34,6 +34,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Trait UserGroupTrait
+ *
+ * Trait de grupo de usuario.
+ * Fornece metodos para gerenciar usuario e grupo de usuario em repositorios.
  */
 trait UserGroupTrait
 {
