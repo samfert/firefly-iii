@@ -34,8 +34,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
+/**
+ * Class NotificationController
+ *
+ * Controlador responsavel pelas configuracoes de notificacoes do administrador.
+ * Permite configurar canais de notificacao como Slack, Pushover, ntfy e email
+ * para alertas do sistema.
+ */
 class NotificationController extends Controller
 {
+    /**
+     * Exibe a pagina de configuracao de notificacoes.
+     *
+     * @return View View com as configuracoes de notificacao
+     */
     public function index(): View
     {
         Log::channel('audit')->info('User visits notifications index.');
@@ -93,6 +105,13 @@ class NotificationController extends Controller
         );
     }
 
+    /**
+     * Salva as configuracoes de notificacao.
+     *
+     * @param NotificationRequest $request Requisicao com dados de notificacao
+     *
+     * @return RedirectResponse Redirecionamento para a pagina de configuracoes
+     */
     public function postIndex(NotificationRequest $request): RedirectResponse
     {
         $all       = $request->getAll();
@@ -119,6 +138,13 @@ class NotificationController extends Controller
         return redirect(route('settings.notification.index'));
     }
 
+    /**
+     * Envia uma notificacao de teste para o canal especificado.
+     *
+     * @param Request $request Requisicao com o canal de teste
+     *
+     * @return RedirectResponse Redirecionamento com resultado do teste
+     */
     public function testNotification(Request $request): RedirectResponse
     {
 

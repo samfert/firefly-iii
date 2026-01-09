@@ -30,7 +30,10 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 /**
- * Class HomeController.
+ * Class HomeController
+ *
+ * Controlador responsavel pela pagina inicial da area administrativa.
+ * Exibe o indice de configuracoes do sistema e informacoes do administrador.
  */
 class HomeController extends Controller
 {

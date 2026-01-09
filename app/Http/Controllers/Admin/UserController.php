@@ -39,7 +39,11 @@ use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
 /**
- * Class UserController.
+ * Class UserController
+ *
+ * Controlador responsavel pela administracao de usuarios do sistema.
+ * Permite listar, criar, editar, excluir usuarios e gerenciar convites
+ * para novos usuarios no modo de usuario unico.
  */
 class UserController extends Controller
 {
