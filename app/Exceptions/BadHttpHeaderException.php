@@ -26,6 +26,11 @@ namespace FireflyIII\Exceptions;
 
 use Exception;
 
+/**
+ * Class BadHttpHeaderException.
+ *
+ * Excecao lancada quando um cabecalho HTTP invalido e recebido.
+ */
 class BadHttpHeaderException extends Exception
 {
     public int $statusCode = 406;

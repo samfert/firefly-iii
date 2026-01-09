@@ -28,5 +28,7 @@ use Exception;
 
 /**
  * Class FireflyException.
+ *
+ * Excecao base do Firefly III.
  */
 class FireflyException extends Exception {}

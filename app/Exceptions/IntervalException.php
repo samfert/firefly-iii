@@ -29,7 +29,9 @@ use Exception;
 use Throwable;
 
 /**
- * Class IntervalException
+ * Class IntervalException.
+ *
+ * Excecao lancada quando um intervalo de periodicidade invalido e usado.
  */
 final class IntervalException extends Exception
 {
