@@ -33,6 +33,12 @@ use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * Class AddsTransactionIdentifiers
+ *
+ * Comando para adicionar identificadores de transacao.
+ * Corrige identificadores de transacoes divididas para facilitar correspondencia.
+ */
 class AddsTransactionIdentifiers extends Command
 {
     use ShowsFriendlyMessages;

@@ -36,6 +36,12 @@ use stdClass;
 
 use function Safe\json_decode;
 
+/**
+ * Class RemovesDatabaseDecryption
+ *
+ * Comando para descriptografar banco de dados.
+ * Remove a criptografia de campos do banco de dados.
+ */
 class RemovesDatabaseDecryption extends Command
 {
     use ShowsFriendlyMessages;
