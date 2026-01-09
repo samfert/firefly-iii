@@ -41,6 +41,10 @@ use function Safe\file_put_contents;
 
 /**
  * Class InstallController
+ *
+ * Controlador responsavel pela instalacao e atualizacao.
+ * Executa migracoes de banco de dados, gera chaves RSA
+ * e configura o sistema durante a instalacao.
  */
 class InstallController extends Controller
 {

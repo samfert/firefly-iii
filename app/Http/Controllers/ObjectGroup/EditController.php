@@ -36,6 +36,10 @@ use Illuminate\Routing\Redirector;
 
 /**
  * Class EditController
+ *
+ * Controlador responsavel pela edicao de grupos de objetos.
+ * Permite modificar titulo e configuracoes de grupos
+ * que organizam elementos do sistema.
  */
 class EditController extends Controller
 {

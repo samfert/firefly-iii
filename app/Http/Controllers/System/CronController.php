@@ -30,6 +30,10 @@ use Illuminate\Http\Response;
 
 /**
  * Class CronController
+ *
+ * Controlador responsavel pelo endpoint de cron legado.
+ * Redireciona para o novo endpoint da API para execucao
+ * de tarefas agendadas.
  */
 class CronController
 {

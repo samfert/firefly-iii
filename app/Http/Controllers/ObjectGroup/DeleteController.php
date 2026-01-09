@@ -33,6 +33,10 @@ use Illuminate\Http\RedirectResponse;
 
 /**
  * Class DeleteController
+ *
+ * Controlador responsavel pela exclusao de grupos de objetos.
+ * Permite excluir grupos sem afetar os elementos
+ * que estavam associados a eles.
  */
 class DeleteController extends Controller
 {

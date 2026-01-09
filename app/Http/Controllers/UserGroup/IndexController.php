@@ -29,6 +29,13 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Class IndexController
+ *
+ * Controlador responsavel pela listagem de grupos de usuarios.
+ * Exibe todas as administracoes disponiveis para
+ * o usuario atual.
+ */
 class IndexController extends Controller
 {
     /**

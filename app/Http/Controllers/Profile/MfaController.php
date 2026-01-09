@@ -48,13 +48,9 @@ use PragmaRX\Recovery\Recovery;
 /**
  * Class MfaController
  *
- * Enable MFA Flow:
- *
- * Page 1 (GET): Show QR code and the manual code. Secret keeps rotating.
- *  POST: store secret, store response, validate password.
- * ---
- * Page 3 (GET): Confirm 2FA status and show recovery codes.
- *        Same page as page 1, but when secret is present.
+ * Controlador responsavel pela configuracao de MFA no perfil.
+ * Permite habilitar, desabilitar e gerenciar autenticacao
+ * de dois fatores, incluindo codigos de backup.
  */
 class MfaController extends Controller
 {

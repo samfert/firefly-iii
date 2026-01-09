@@ -34,6 +34,10 @@ use Illuminate\Http\Request;
 
 /**
  * Class IndexController
+ *
+ * Controlador responsavel pela listagem de grupos de objetos.
+ * Exibe e gerencia grupos que organizam cofrinhos e
+ * outros elementos do sistema.
  */
 class IndexController extends Controller
 {
