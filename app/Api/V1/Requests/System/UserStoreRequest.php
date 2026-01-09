@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UserStoreRequest
+ *
+ * Classe de requisicao para criacao de usuarios.
+ * Valida e processa dados de criacao de usuarios do sistema.
  */
 class UserStoreRequest extends FormRequest
 {

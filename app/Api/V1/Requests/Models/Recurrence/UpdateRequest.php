@@ -40,6 +40,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de transacoes recorrentes.
+ * Valida e processa dados de atualizacao de recorrencias incluindo repeticoes e transacoes.
  */
 class UpdateRequest extends FormRequest
 {

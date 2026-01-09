@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de tipos de link de transacao.
+ * Valida e processa dados de criacao de tipos de vinculo entre transacoes.
  */
 class StoreRequest extends FormRequest
 {

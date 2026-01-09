@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class TestRequest
+ *
+ * Classe de requisicao para teste de regras de automacao.
+ * Valida e processa parametros de teste de regras em transacoes.
  */
 class TestRequest extends FormRequest
 {

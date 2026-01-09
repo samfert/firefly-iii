@@ -34,6 +34,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de limites de orcamento.
+ * Valida e processa dados de atualizacao de limites de orcamento incluindo periodo e valor.
  */
 class UpdateRequest extends FormRequest
 {

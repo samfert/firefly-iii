@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class TriggerRequest
+ *
+ * Classe de requisicao para execucao de regras de automacao.
+ * Valida e processa parametros de execucao de regras em transacoes.
  */
 class TriggerRequest extends FormRequest
 {

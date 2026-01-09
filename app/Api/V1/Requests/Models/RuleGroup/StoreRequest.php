@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de grupos de regras.
+ * Valida e processa dados de criacao de grupos de regras de automacao.
  */
 class StoreRequest extends FormRequest
 {

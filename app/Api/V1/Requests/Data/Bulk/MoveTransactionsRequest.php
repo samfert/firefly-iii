@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class MoveTransactionsRequest
+ *
+ * Classe de requisicao para movimentacao em massa de transacoes.
+ * Valida e processa dados de movimentacao de transacoes entre contas.
  */
 class MoveTransactionsRequest extends FormRequest
 {

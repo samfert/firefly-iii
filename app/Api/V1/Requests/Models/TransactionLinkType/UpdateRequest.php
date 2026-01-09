@@ -32,6 +32,9 @@ use Illuminate\Validation\Rule;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de tipos de link de transacao.
+ * Valida e processa dados de atualizacao de tipos de vinculo entre transacoes.
  */
 class UpdateRequest extends FormRequest
 {

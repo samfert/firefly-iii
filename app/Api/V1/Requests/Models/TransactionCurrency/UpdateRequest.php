@@ -32,6 +32,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de moedas.
+ * Valida e processa dados de atualizacao de moedas de transacao.
  */
 class UpdateRequest extends FormRequest
 {

@@ -30,6 +30,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class ValidateExpressionRequest
+ *
+ * Classe de requisicao para validacao de expressoes de regras.
+ * Valida expressoes usadas em acoes de regras de automacao.
  */
 class ValidateExpressionRequest extends FormRequest
 {

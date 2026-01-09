@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de anexos.
+ * Valida e processa dados de criacao de anexos para modelos do sistema.
  */
 class StoreRequest extends FormRequest
 {

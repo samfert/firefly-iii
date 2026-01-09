@@ -39,6 +39,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class StoreRequest
+ *
+ * Classe de requisicao para criacao de transacoes recorrentes.
+ * Valida e processa dados de criacao de recorrencias incluindo repeticoes e transacoes.
  */
 class StoreRequest extends FormRequest
 {

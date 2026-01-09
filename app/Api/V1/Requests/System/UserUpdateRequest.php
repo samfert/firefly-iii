@@ -34,6 +34,9 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class UserUpdateRequest
+ *
+ * Classe de requisicao para atualizacao de usuarios.
+ * Valida e processa dados de atualizacao de usuarios do sistema.
  */
 class UserUpdateRequest extends FormRequest
 {

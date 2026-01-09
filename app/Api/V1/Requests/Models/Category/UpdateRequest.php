@@ -31,6 +31,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de categorias.
+ * Valida e processa dados de atualizacao de categorias de transacoes.
  */
 class UpdateRequest extends FormRequest
 {

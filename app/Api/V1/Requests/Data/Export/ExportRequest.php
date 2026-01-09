@@ -33,6 +33,9 @@ use Illuminate\Support\Collection;
 
 /**
  * Class ExportRequest
+ *
+ * Classe de requisicao para exportacao de dados.
+ * Valida e processa parametros de exportacao de transacoes em formato CSV.
  */
 class ExportRequest extends FormRequest
 {

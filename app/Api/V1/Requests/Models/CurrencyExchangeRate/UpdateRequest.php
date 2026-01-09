@@ -29,6 +29,12 @@ use FireflyIII\Support\Request\ChecksLogin;
 use FireflyIII\Support\Request\ConvertsDataTypes;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class UpdateRequest
+ *
+ * Classe de requisicao para atualizacao de taxas de cambio.
+ * Valida e processa dados de atualizacao de taxas de cambio entre moedas.
+ */
 class UpdateRequest extends FormRequest
 {
     use ChecksLogin;
