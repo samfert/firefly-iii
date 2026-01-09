@@ -34,6 +34,9 @@ use Illuminate\View\View;
 
 /**
  * Class CreateController
+ *
+ * Controlador responsavel pela criacao de grupos de regras.
+ * Permite criar grupos para organizar regras de automacao.
  */
 class CreateController extends Controller
 {
