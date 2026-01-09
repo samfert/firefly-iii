@@ -41,6 +41,9 @@ use League\Fractal\Resource\Collection as FractalCollection;
 
 /**
  * Class ListController
+ *
+ * Controlador da API responsavel pela listagem de recursos relacionados a cofrinhos.
+ * Lista contas, anexos e eventos associados a um cofrinho especifico.
  */
 class ListController extends Controller
 {

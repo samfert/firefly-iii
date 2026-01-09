@@ -36,6 +36,12 @@ use FireflyIII\Transformers\ExchangeRateTransformer;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de taxas de cambio.
+ * Atualiza taxas de cambio existentes atraves da API REST.
+ */
 class UpdateController extends Controller
 {
     use ValidatesUserGroupTrait;

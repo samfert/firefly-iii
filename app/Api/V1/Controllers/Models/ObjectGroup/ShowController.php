@@ -37,6 +37,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de grupos de objetos.
+ * Lista todos os grupos de objetos ou exibe detalhes de um grupo especifico.
  */
 class ShowController extends Controller
 {

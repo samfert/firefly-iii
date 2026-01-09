@@ -38,6 +38,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de tags.
+ * Lista todas as tags ou exibe detalhes de uma tag especifica.
  */
 class ShowController extends Controller
 {

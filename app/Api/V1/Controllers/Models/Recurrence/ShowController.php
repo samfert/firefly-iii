@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de transacoes recorrentes.
+ * Lista todas as recorrencias ou exibe detalhes de uma recorrencia especifica.
  */
 class ShowController extends Controller
 {

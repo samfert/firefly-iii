@@ -35,6 +35,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de grupos de regras.
+ * Cria novos grupos de regras no sistema atraves da API REST.
  */
 class StoreController extends Controller
 {

@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de cofrinhos.
+ * Lista todos os cofrinhos ou exibe detalhes de um cofrinho especifico.
  */
 class ShowController extends Controller
 {
