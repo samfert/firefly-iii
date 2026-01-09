@@ -36,6 +36,12 @@ use FireflyIII\Repositories\User\UserRepositoryInterface;
 use FireflyIII\User;
 use Illuminate\Console\Command;
 
+/**
+ * Class UpgradesBillsToRules
+ *
+ * Comando para migrar faturas para regras.
+ * Converte faturas antigas para a nova estrutura baseada em regras.
+ */
 class UpgradesBillsToRules extends Command
 {
     use ShowsFriendlyMessages;
