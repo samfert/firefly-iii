@@ -39,7 +39,8 @@ use Illuminate\Support\Collection;
 /**
  * Class BudgetReportGenerator
  *
- * This class is basically a very long for-each loop disguised as a class. It's readable but not really OOP.
+ * Gerador de relatorio de orcamento.
+ * Gera dados para relatorios de orcamento incluindo gastos por conta e limites.
  */
 class BudgetReportGenerator
 {

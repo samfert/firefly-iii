@@ -29,6 +29,12 @@ use FireflyIII\Models\UserGroup;
 use FireflyIII\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 
+/**
+ * Interface UserGroupInterface
+ *
+ * Interface de grupo de usuario.
+ * Define o contrato para acesso e verificacao de permissoes de grupo de usuario.
+ */
 interface UserGroupInterface
 {
     public function checkUserGroupAccess(UserRoleEnum $role): bool;
