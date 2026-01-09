@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Calendar\Periodicity;
 
 /**
  * Class Quarterly
+ *
+ * Periodicidade trimestral.
+ * Calcula proxima data adicionando 3 meses.
  */
 final class Quarterly extends Monthly
 {

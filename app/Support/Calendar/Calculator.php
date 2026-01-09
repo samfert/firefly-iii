@@ -30,6 +30,9 @@ use SplObjectStorage;
 
 /**
  * Class Calculator
+ *
+ * Calculadora de datas baseada em periodicidade.
+ * Fornece metodos para calcular proximas datas com base em intervalos.
  */
 class Calculator
 {

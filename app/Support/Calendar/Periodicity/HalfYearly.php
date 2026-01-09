@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Calendar\Periodicity;
 
 /**
  * Class HalfYearly
+ *
+ * Periodicidade semestral.
+ * Calcula proxima data adicionando 6 meses.
  */
 final class HalfYearly extends Monthly
 {

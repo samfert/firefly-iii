@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Class Weekly
+ *
+ * Periodicidade semanal.
+ * Calcula proxima data adicionando semanas.
  */
 class Weekly extends Interval
 {

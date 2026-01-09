@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Calendar\Periodicity;
 
 /**
  * Class Bimonthly
+ *
+ * Periodicidade bimestral.
+ * Calcula proxima data adicionando 2 meses.
  */
 final class Bimonthly extends Monthly
 {

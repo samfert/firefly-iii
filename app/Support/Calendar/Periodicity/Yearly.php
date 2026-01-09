@@ -28,6 +28,9 @@ use Carbon\Carbon;
 
 /**
  * Class Yearly
+ *
+ * Periodicidade anual.
+ * Calcula proxima data adicionando anos sem overflow.
  */
 final class Yearly extends Interval
 {

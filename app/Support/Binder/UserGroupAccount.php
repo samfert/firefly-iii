@@ -29,7 +29,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class UserGroupAccount.
+ * Class UserGroupAccount
+ *
+ * Binder de rota para contas de grupo de usuarios.
+ * Converte ID de conta em modelo Account do grupo do usuario.
  */
 class UserGroupAccount implements BinderInterface
 {

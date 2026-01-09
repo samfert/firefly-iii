@@ -29,7 +29,10 @@ use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class TagOrId.
+ * Class TagOrId
+ *
+ * Binder de rota para tag por nome ou ID.
+ * Converte nome ou ID de tag em modelo Tag.
  */
 class TagOrId implements BinderInterface
 {

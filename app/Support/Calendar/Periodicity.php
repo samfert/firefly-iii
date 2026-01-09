@@ -25,7 +25,10 @@ declare(strict_types=1);
 namespace FireflyIII\Support\Calendar;
 
 /**
- * Class Periodicity
+ * Enum Periodicity
+ *
+ * Enumeracao de tipos de periodicidade.
+ * Define intervalos de tempo para calculos de recorrencia.
  */
 enum Periodicity
 {

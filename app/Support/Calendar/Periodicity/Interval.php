@@ -26,6 +26,9 @@ namespace FireflyIII\Support\Calendar\Periodicity;
 
 /**
  * Class Interval
+ *
+ * Classe base abstrata para intervalos de periodicidade.
+ * Fornece metodo para calcular saltos de intervalo.
  */
 abstract class Interval implements Interspacable
 {
