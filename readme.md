@@ -35,6 +35,9 @@
 - [Who's it for?](#whos-it-for)
 - [The Firefly III eco-system](#the-firefly-iii-eco-system)
 - [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
 - [Contributing](#contributing)
 - [Support the development of Firefly III](#support-the-development-of-firefly-iii)
 - [License](#license)
@@ -123,6 +126,102 @@ There are many ways to run Firefly III
 8. You can [install it on Lando](https://gist.github.com/ArtisKrumins/ccb24f31d6d4872b57e7c9343a9d1bf0).
 9. You can [install it on Yunohost](https://github.com/YunoHost-Apps/firefly-iii).
 
+## Project Structure
+
+The application follows the Laravel framework structure:
+
+```
+app/
+├── Api/            # API controllers and requests (V1 and V2)
+├── Casts/          # Custom Eloquent attribute casters
+├── Console/        # Artisan commands
+├── Entities/       # Domain entities
+├── Enums/          # Enumeration classes
+├── Events/         # Application events
+├── Exceptions/     # Custom exception handlers
+├── Factory/        # Model factories
+├── Generator/      # Report and chart generators
+├── Handlers/       # Event handlers
+├── Helpers/        # Helper classes
+├── Http/           # HTTP controllers, middleware, and requests
+├── Jobs/           # Queue jobs
+├── Mail/           # Mailable classes
+├── Models/         # Eloquent models
+├── Notifications/  # Notification classes
+├── Providers/      # Service providers
+├── Repositories/   # Repository pattern implementations
+├── Rules/          # Validation rules
+├── Services/       # Business logic services
+├── Support/        # Support classes and utilities
+├── TransactionRules/ # Transaction rule actions and triggers
+└── Transformers/   # API response transformers
+```
+
+## Requirements
+
+- PHP 8.3 or higher
+- MySQL 8.0+ / MariaDB 10.11+ / PostgreSQL 16+
+- Composer
+- Node.js and npm (for frontend assets)
+- BCMath PHP Extension
+- Ctype PHP Extension
+- Fileinfo PHP Extension
+- JSON PHP Extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+- Intl PHP Extension
+
+## Installation
+
+### Using Docker (Recommended)
+
+```bash
+docker-compose up -d
+```
+
+### Manual Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/firefly-iii/firefly-iii.git
+cd firefly-iii
+```
+
+2. Install PHP dependencies:
+```bash
+composer install --no-dev --no-scripts --no-plugins
+```
+
+3. Copy the environment file:
+```bash
+cp .env.example .env
+```
+
+4. Generate application key:
+```bash
+php artisan key:generate
+```
+
+5. Configure your database in `.env` file
+
+6. Run migrations:
+```bash
+php artisan migrate --seed
+```
+
+7. Build frontend assets:
+```bash
+npm install
+npm run build
+```
+
+8. Configure your web server to point to the `public/` directory
+
+For detailed installation instructions, visit the [official documentation](https://docs.firefly-iii.org/how-to/firefly-iii/installation/self-managed/).
+
 ## Contributing
 
 You can contact me at [james@firefly-iii.org](mailto:james@firefly-iii.org), you may open an issue in the [main repository](https://github.com/firefly-iii/firefly-iii) or contact me through [gitter](https://gitter.im/firefly-iii/firefly-iii) and [Mastodon](https://fosstodon.org/@ff3).
@@ -189,4 +288,4 @@ The Firefly III logo is made by the excellent Cherie Woo.
 [sc-vuln-shield]: https://sonarcloud.io/api/project_badges/measure?project=firefly-iii_firefly-iii&metric=vulnerabilities
 [sc-project-url]: https://sonarcloud.io/dashboard?id=firefly-iii_firefly-iii
 [bp-badge]: https://bestpractices.coreinfrastructure.org/projects/6335/badge
-[bp-url]: https://bestpractices.coreinfrastructure.org/projects/6335 
+[bp-url]: https://bestpractices.coreinfrastructure.org/projects/6335    
