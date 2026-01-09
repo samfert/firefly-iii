@@ -39,6 +39,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de moedas.
+ * Atualiza, habilita, desabilita e define moedas como primarias atraves da API REST.
  */
 class UpdateController extends Controller
 {

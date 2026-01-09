@@ -37,6 +37,9 @@ use League\Fractal\Resource\Item;
 
 /**
  * Class StoreController
+ *
+ * Controlador da API responsavel pela criacao de moedas.
+ * Cria novas moedas no sistema atraves da API REST.
  */
 class StoreController extends Controller
 {

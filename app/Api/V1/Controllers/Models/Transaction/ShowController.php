@@ -42,6 +42,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de transacoes.
+ * Lista todas as transacoes ou exibe detalhes de uma transacao especifica.
  */
 class ShowController extends Controller
 {

@@ -32,6 +32,9 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class ShowController
+ *
+ * Controlador da API responsavel pela exibicao de grupos de usuarios.
+ * Exibe detalhes de um grupo de usuarios especifico.
  */
 class ShowController extends Controller
 {

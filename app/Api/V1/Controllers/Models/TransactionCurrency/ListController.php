@@ -63,6 +63,9 @@ use League\Fractal\Resource\Collection as FractalCollection;
 
 /**
  * Class ListController
+ *
+ * Controlador da API responsavel pela listagem de recursos relacionados a moedas.
+ * Lista contas, orcamentos disponiveis, faturas, limites de orcamento, recorrencias, regras e transacoes por moeda.
  */
 class ListController extends Controller
 {

@@ -40,6 +40,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de transacoes.
+ * Atualiza dados de transacoes existentes atraves da API REST.
  */
 class UpdateController extends Controller
 {

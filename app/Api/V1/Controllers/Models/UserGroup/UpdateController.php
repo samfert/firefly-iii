@@ -32,6 +32,12 @@ use FireflyIII\Transformers\UserGroupTransformer;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class UpdateController
+ *
+ * Controlador da API responsavel pela atualizacao de grupos de usuarios.
+ * Atualiza dados de grupos de usuarios existentes atraves da API REST.
+ */
 class UpdateController extends Controller
 {
     public const string RESOURCE_KEY = 'user_groups';
