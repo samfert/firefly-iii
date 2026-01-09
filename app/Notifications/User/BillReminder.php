@@ -37,11 +37,20 @@ use Ntfy\Message;
 
 /**
  * Class BillReminder
+ *
+ * Notificacao de lembrete de fatura.
  */
 class BillReminder extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param Bill   $bill  Fatura a lembrar
+     * @param string $field Campo de data (end_date, extension_date)
+     * @param int    $diff  Dias ate a data
+     */
     public function __construct(private Bill $bill, private string $field, private int $diff) {}
 
     /**

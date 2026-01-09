@@ -31,11 +31,16 @@ use Illuminate\Notifications\Notification;
 
 /**
  * Class UserRegistration
+ *
+ * Notificacao de registro de usuario para o proprio usuario.
  */
 class UserRegistration extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     */
     public function __construct() {}
 
     /**

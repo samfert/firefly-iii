@@ -37,10 +37,20 @@ use Illuminate\Support\Facades\Request;
 use NotificationChannels\Pushover\PushoverMessage;
 use Ntfy\Message;
 
+/**
+ * Class UnknownUserLoginAttempt
+ *
+ * Notificacao de tentativa de login de usuario desconhecido.
+ */
 class UnknownUserLoginAttempt extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param string $address Endereco de email da tentativa
+     */
     public function __construct(private string $address) {}
 
     /**

@@ -38,11 +38,18 @@ use Ntfy\Message;
 
 /**
  * Class UserNewPassword
+ *
+ * Notificacao de redefinicao de senha.
  */
 class UserNewPassword extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param string $url URL para redefinicao de senha
+     */
     public function __construct(private string $url) {}
 
     /**

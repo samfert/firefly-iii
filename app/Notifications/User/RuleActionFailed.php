@@ -35,17 +35,33 @@ use Ntfy\Message;
 
 /**
  * Class RuleActionFailed
+ *
+ * Notificacao de falha em acao de regra.
  */
 class RuleActionFailed extends Notification
 {
     use Queueable;
 
+    /** @var string Link do grupo de transacao */
     private string $groupLink;
+
+    /** @var string Titulo do grupo de transacao */
     private string $groupTitle;
+
+    /** @var string Mensagem de erro */
     private string $message;
+
+    /** @var string Link da regra */
     private string $ruleLink;
+
+    /** @var string Titulo da regra */
     private string $ruleTitle;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param array $params Parametros da notificacao
+     */
     public function __construct(array $params)
     {
         [$mainMessage, $groupTitle, $groupLink, $ruleTitle, $ruleLink] = $params;
