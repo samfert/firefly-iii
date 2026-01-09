@@ -42,6 +42,48 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
+ * Class TransactionJournal
+ *
+ * Represents a complete financial transaction in the double-entry bookkeeping system.
+ * A transaction journal is the parent record that groups together the individual
+ * Transaction records (debits and credits) that make up a complete financial event.
+ *
+ * In Firefly III's double-entry system, every transaction journal contains at least
+ * two Transaction records: one representing money leaving an account (negative amount)
+ * and one representing money entering another account (positive amount). The sum of
+ * all transactions in a journal always equals zero.
+ *
+ * Transaction journals can be of different types:
+ * - Withdrawal: Money leaving an asset account to an expense account
+ * - Deposit: Money entering an asset account from a revenue account
+ * - Transfer: Money moving between two asset accounts
+ * - Opening Balance: Initial balance when setting up an account
+ * - Reconciliation: Adjustments made during account reconciliation
+ *
+ * Key features:
+ * - Groups related transactions together
+ * - Supports multiple currencies through foreign amounts
+ * - Can be linked to bills for recurring expense tracking
+ * - Supports budgets, categories, and tags for organization
+ * - Can be linked to other journals for split transactions
+ * - Maintains audit log for change tracking
+ * - Timezone-aware date handling
+ *
+ * @property int $id Primary key identifier
+ * @property int $user_id Foreign key to the owning user
+ * @property int $user_group_id Foreign key to the user group
+ * @property int $transaction_type_id Foreign key to the transaction type
+ * @property int|null $bill_id Foreign key to associated bill
+ * @property int $tag_count Number of tags attached
+ * @property int $transaction_currency_id Foreign key to the currency
+ * @property string $description Description of the transaction
+ * @property bool $completed Whether the transaction is completed
+ * @property int $order Display order for sorting
+ * @property \Carbon\Carbon $date Date of the transaction
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ *
  * @method        EloquentBuilder|static before()
  * @method        EloquentBuilder|static after()
  * @method static EloquentBuilder|static query()

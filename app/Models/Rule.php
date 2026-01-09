@@ -33,6 +33,44 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Rule
+ *
+ * Represents an automation rule that can automatically modify transactions based
+ * on configurable triggers and actions. Rules are a powerful feature that allows
+ * users to automate repetitive tasks like categorizing transactions, setting budgets,
+ * or adding tags based on transaction properties.
+ *
+ * Each rule consists of:
+ * - Triggers: Conditions that must be met for the rule to fire (e.g., description contains "grocery")
+ * - Actions: Operations to perform when triggers match (e.g., set category to "Food")
+ *
+ * Rules can operate in strict mode (all triggers must match) or non-strict mode
+ * (any trigger can match). They are organized into rule groups for better management
+ * and can be ordered to control execution priority.
+ *
+ * Key features:
+ * - Flexible trigger conditions based on transaction properties
+ * - Multiple action types for transaction modification
+ * - Strict/non-strict matching modes
+ * - Rule groups for organization
+ * - Execution order control
+ * - Can be enabled/disabled individually
+ *
+ * @property int $id Primary key identifier
+ * @property int $user_id Foreign key to the owning user
+ * @property int $user_group_id Foreign key to the user group
+ * @property int $rule_group_id Foreign key to the rule group
+ * @property int $order Execution order within the group
+ * @property bool $active Whether the rule is currently active
+ * @property string $title Display title of the rule
+ * @property string|null $description Description of what the rule does
+ * @property bool $strict Whether all triggers must match (true) or any (false)
+ * @property bool $stop_processing Whether to stop processing other rules after this one
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ */
 class Rule extends Model
 {
     use ReturnsIntegerIdTrait;

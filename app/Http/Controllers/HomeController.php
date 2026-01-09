@@ -40,7 +40,23 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class HomeController.
+ * Class HomeController
+ *
+ * Handles the main dashboard and home page functionality for Firefly III.
+ * This controller is responsible for rendering the primary user interface
+ * that users see after logging in, including account summaries, recent
+ * transactions, and financial overview widgets.
+ *
+ * The controller supports two layout versions (v1 and v2) and automatically
+ * redirects new users to the setup wizard if they haven't created any accounts yet.
+ *
+ * Key responsibilities:
+ * - Rendering the main dashboard with account summaries
+ * - Handling date range selection for filtering displayed data
+ * - Triggering version check notifications for administrators
+ * - Supporting both legacy (v1) and modern (v2) UI layouts
+ *
+ * @see \FireflyIII\Http\Controllers\Controller Base controller class
  */
 class HomeController extends Controller
 {

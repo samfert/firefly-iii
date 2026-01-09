@@ -42,7 +42,25 @@ use function Safe\realpath;
 use function Safe\ini_get;
 
 /**
- * Class Controller.
+ * Class Controller
+ *
+ * Base controller class for all Firefly III web controllers. This abstract class
+ * provides common functionality shared across all controllers including view
+ * sharing, middleware configuration, and user session management.
+ *
+ * The controller sets up various view variables that are available across all
+ * pages including demo site configuration, version information, feature flags,
+ * authentication settings, and user preferences like dark mode and locale.
+ *
+ * Key responsibilities:
+ * - Sharing global view variables (version, demo mode, feature flags)
+ * - Setting up authentication guard configuration
+ * - Managing user locale and date format preferences
+ * - Handling webhook message sending via lottery system
+ * - Managing primary currency for the authenticated user
+ *
+ * All web controllers in Firefly III extend this base class to inherit
+ * common functionality and ensure consistent behavior across the application.
  *
  * @SuppressWarnings("PHPMD.CouplingBetweenObjects")
  * @SuppressWarnings("PHPMD.NumberOfChildren")

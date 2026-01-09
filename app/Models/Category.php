@@ -34,6 +34,32 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Category
+ *
+ * Represents a category for classifying transactions. Categories provide a flexible
+ * way to organize and analyze spending patterns without the constraints of budgets.
+ * Unlike budgets which have spending limits, categories are purely organizational.
+ *
+ * Categories are typically used to classify the nature of a transaction (e.g.,
+ * "Groceries", "Entertainment", "Transportation") and can be applied to any
+ * transaction type (withdrawals, deposits, or transfers).
+ *
+ * Key features:
+ * - Simple name-based classification system
+ * - Can be linked to multiple transactions
+ * - Supports attachments and notes for additional context
+ * - Soft deletion for data preservation
+ * - Shared across user groups for collaborative budgeting
+ *
+ * @property int $id Primary key identifier
+ * @property int $user_id Foreign key to the owning user
+ * @property int $user_group_id Foreign key to the user group
+ * @property string $name Display name of the category
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ */
 class Category extends Model
 {
     use ReturnsIntegerIdTrait;

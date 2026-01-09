@@ -34,6 +34,39 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class PiggyBank
+ *
+ * Represents a savings goal that helps users save money for specific purposes.
+ * Piggy banks are virtual containers that track progress toward a target amount,
+ * allowing users to allocate portions of their account balance for specific goals
+ * like vacations, emergency funds, or large purchases.
+ *
+ * Piggy banks are linked to one or more asset accounts and track the current
+ * saved amount separately from the actual account balance. This allows users
+ * to mentally allocate funds without moving money between accounts.
+ *
+ * Key features:
+ * - Target amount and optional target date for goal tracking
+ * - Progress tracking with events for deposits and withdrawals
+ * - Can be linked to multiple accounts
+ * - Supports repetitions for recurring savings goals
+ * - Can be organized into object groups
+ * - Supports attachments and notes
+ *
+ * @property int $id Primary key identifier
+ * @property string $name Display name of the piggy bank
+ * @property int $order Display order for sorting
+ * @property string $target_amount Target savings amount
+ * @property \Carbon\Carbon|null $start_date When saving started
+ * @property \Carbon\Carbon|null $target_date Target date to reach the goal
+ * @property bool $active Whether the piggy bank is currently active
+ * @property int $transaction_currency_id Foreign key to the currency
+ * @property string|null $native_target_amount Target amount in native currency
+ * @property \Carbon\Carbon $created_at Timestamp of creation
+ * @property \Carbon\Carbon $updated_at Timestamp of last update
+ * @property \Carbon\Carbon|null $deleted_at Soft delete timestamp
+ */
 class PiggyBank extends Model
 {
     use ReturnsIntegerIdTrait;
