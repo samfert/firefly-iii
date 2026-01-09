@@ -26,6 +26,10 @@ namespace FireflyIII\Http\Controllers\Json;
 use FireflyIII\Http\Controllers\Controller;
 
 /**
- * Class AutoCompleteController.
+ * Class AutoCompleteController
+ *
+ * Controlador responsavel pelo autocomplete de campos.
+ * Fornece sugestoes de preenchimento automatico para
+ * contas, categorias, tags e outros campos do sistema.
  */
 class AutoCompleteController extends Controller {}

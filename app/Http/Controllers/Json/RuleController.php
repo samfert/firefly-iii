@@ -32,6 +32,10 @@ use Illuminate\Http\Request;
 
 /**
  * Class RuleController
+ *
+ * Controlador responsavel por dados JSON de regras.
+ * Fornece HTML renderizado para formularios de gatilhos
+ * e acoes de regras de automacao.
  */
 class RuleController extends Controller
 {

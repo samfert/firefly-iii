@@ -39,7 +39,11 @@ use FireflyIII\Support\Http\Controllers\DateCalculation;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class BoxController.
+ * Class BoxController
+ *
+ * Controlador responsavel pelos widgets da pagina inicial.
+ * Fornece dados JSON para os boxes de saldo, receitas,
+ * despesas e patrimonio liquido.
  */
 class BoxController extends Controller
 {

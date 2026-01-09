@@ -36,6 +36,10 @@ use Illuminate\Http\JsonResponse;
 
 /**
  * Class BudgetController
+ *
+ * Controlador responsavel por dados JSON de orcamentos.
+ * Fornece informacoes sobre valores orcados, disponiveis
+ * e percentuais de uso por moeda e periodo.
  */
 class BudgetController extends Controller
 {

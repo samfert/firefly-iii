@@ -29,7 +29,11 @@ use FireflyIII\Support\Http\Controllers\GetConfigurationData;
 use Illuminate\Http\JsonResponse;
 
 /**
- * Class IntroController.
+ * Class IntroController
+ *
+ * Controlador responsavel pelo assistente de introducao.
+ * Gerencia os passos do tutorial interativo que guia
+ * novos usuarios pelas funcionalidades do sistema.
  */
 class IntroController extends Controller
 {

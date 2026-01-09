@@ -41,6 +41,10 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Class ReconcileController
+ *
+ * Controlador responsavel pela reconciliacao de contas.
+ * Fornece dados JSON para o processo de reconciliacao,
+ * incluindo saldos, transacoes e calculos de diferenca.
  */
 class ReconcileController extends Controller
 {
