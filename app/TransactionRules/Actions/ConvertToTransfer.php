@@ -39,11 +39,15 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class ConvertToTransfer
+ *
+ * Acao para converter transacao em transferencia.
  */
 class ConvertToTransfer implements ActionInterface
 {
     /**
-     * TriggerInterface constructor.
+     * Construtor da acao.
+     *
+     * @param RuleAction $action Acao da regra
      */
     public function __construct(private readonly RuleAction $action) {}
 

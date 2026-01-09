@@ -34,6 +34,8 @@ use FireflyIII\TransactionRules\Traits\RefreshNotesTrait;
 
 /**
  * Class AppendNotesToDescription
+ *
+ * Acao para adicionar notas ao final da descricao.
  * TODO Can be replaced (and migrated) to action "set description" with a prefilled expression
  */
 class AppendNotesToDescription implements ActionInterface
@@ -42,10 +44,19 @@ class AppendNotesToDescription implements ActionInterface
     use RefreshNotesTrait;
 
     /**
-     * TriggerInterface constructor.
+     * Construtor da acao.
+     *
+     * @param RuleAction $action Acao da regra
      */
     public function __construct(private RuleAction $action) {}
 
+    /**
+     * Executa a acao no diario de transacao.
+     *
+     * @param array $journal Dados do diario
+     *
+     * @return bool True se executado com sucesso
+     */
     public function actOnArray(array $journal): bool
     {
         app('log')->debug('Now in AppendNotesToDescription');
