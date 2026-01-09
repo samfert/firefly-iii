@@ -30,15 +30,26 @@ use FireflyIII\Models\TransactionJournal;
 
 /**
  * Class PrependNotes.
+ *
+ * Acao para adicionar texto no inicio das notas.
  * TODO Can be replaced (and migrated) to action "set notes" with a prefilled expression
  */
 class PrependNotes implements ActionInterface
 {
     /**
-     * TriggerInterface constructor.
+     * Construtor da acao.
+     *
+     * @param RuleAction $action Acao da regra
      */
     public function __construct(private readonly RuleAction $action) {}
 
+    /**
+     * Executa a acao no diario de transacao.
+     *
+     * @param array $journal Dados do diario
+     *
+     * @return bool True se executado com sucesso
+     */
     public function actOnArray(array $journal): bool
     {
         $dbNote       = Note::where('noteable_id', (int) $journal['transaction_journal_id'])

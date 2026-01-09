@@ -31,15 +31,29 @@ use FireflyIII\Models\Transaction;
 use FireflyIII\Models\TransactionJournal;
 use FireflyIII\TransactionRules\Traits\RefreshNotesTrait;
 
+/**
+ * Class SetAmount
+ *
+ * Acao para definir o valor de uma transacao.
+ */
 class SetAmount implements ActionInterface
 {
     use RefreshNotesTrait;
 
     /**
-     * TriggerInterface constructor.
+     * Construtor da acao.
+     *
+     * @param RuleAction $action Acao da regra
      */
     public function __construct(private RuleAction $action) {}
 
+    /**
+     * Executa a acao no diario de transacao.
+     *
+     * @param array $journal Dados do diario
+     *
+     * @return bool True se executado com sucesso
+     */
     public function actOnArray(array $journal): bool
     {
         $this->refreshNotes($journal);
