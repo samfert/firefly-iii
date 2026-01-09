@@ -40,11 +40,18 @@ use Ntfy\Message;
 
 /**
  * Class UserRegistration
+ *
+ * Notificacao de registro de novo usuario para admin.
  */
 class UserRegistration extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param User $user Usuario registrado
+     */
     public function __construct(private User $user) {}
 
     /**

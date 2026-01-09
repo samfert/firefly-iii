@@ -40,11 +40,18 @@ use Ntfy\Message;
 
 /**
  * Class UserInvitation
+ *
+ * Notificacao de convite de usuario criado.
  */
 class UserInvitation extends Notification
 {
     use Queueable;
 
+    /**
+     * Construtor da notificacao.
+     *
+     * @param InvitedUser $invitee Usuario convidado
+     */
     public function __construct(private InvitedUser $invitee) {}
 
     /**

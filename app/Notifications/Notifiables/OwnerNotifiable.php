@@ -29,10 +29,15 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use NotificationChannels\Pushover\PushoverReceiver;
 
+/**
+ * Class OwnerNotifiable
+ *
+ * Classe notificavel para o proprietario do sistema.
+ */
 class OwnerNotifiable
 {
     /**
-     * Get the notification routing information for the given driver.
+     * Obtem informacoes de roteamento de notificacao para o driver.
      *
      * @param string            $driver
      * @param null|Notification $notification
